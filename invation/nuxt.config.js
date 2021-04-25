@@ -1,10 +1,10 @@
 export default {
   ssr: true,
   target: 'server',
-  // env: {
-  //   BASE_URL: 'https://test-polimi.herokuapp.com', // Production URL
-  //   // BASE_URL: '', // Development URL
-  // },
+  env: {
+    // BASE_URL: 'https://test-polimi.herokuapp.com', // Production URL
+    BASE_URL: '', // Development URL
+  },
   serverMiddleware: [
     {
       path: '/api',

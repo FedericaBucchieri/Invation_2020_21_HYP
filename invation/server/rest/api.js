@@ -9,21 +9,21 @@ async function init() {
   // Call the init function that returns the Database
   const db = await initializeDatabase()
   // Let's extract all the objects we need to perform queries inside the endpoints
-  const { Article, Comment } = db._tables
-  // API to get all the articles
-  app.get('/articles', async (req, res) => {
-    const articles = await Article.findAll()
-    return res.json(articles)
+  const { Invation, Vision } = db._tables
+
+  // API to get all the vision
+  app.get('/visions', async (req, res) => {
+    const vision = await Vision.findAll()
+    return res.json(visions)
   })
-  // API to get an article by ID.
-  // This one will return also the comments
-  app.get('/article/:id', async (req, res) => {
+
+  // API to get an invation by ID.
+  app.get('/invation/:id', async (req, res) => {
     const { id } = req.params
-    const article = await Article.findOne({
+    const invation = await Invation.findOne({
       where: { id },
-      include: { model: Comment }, // -> this is the way we "include" also comments inside Articles
     })
-    return res.json(article)
+    return res.json(invation)
   })
   // This one is just an example
   app.get('/ad', (req, res) => {
