@@ -3,7 +3,7 @@
     <div class="footerPreview">
       Copyright © 2021 Invation | Designed by MuseX Group ™
       <button @click="changeStatusFooterVisibility">
-        {{ this.buttonText }}
+        {{ buttonText }}
       </button>
     </div>
     <transition name="fade">
@@ -186,7 +186,7 @@ export default {
 
 <style scoped>
 footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   height: auto;
   width: 100%;
@@ -296,5 +296,9 @@ button:hover {
   color: #f1556a;
   background-color: whitesmoke;
   transition: 0.5s;
+}
+
+p {
+  color: whitesmoke !important;
 }
 </style>
