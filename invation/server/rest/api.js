@@ -27,6 +27,7 @@ async function init() {
     const { id } = req.params
     const invation = await Invation.findOne({
       where: { id },
+      include: { model: Invationer },
     })
     return res.json(invation)
   })

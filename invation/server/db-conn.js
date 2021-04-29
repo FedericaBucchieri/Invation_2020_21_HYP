@@ -2,7 +2,7 @@ const { Sequelize, DataTypes } = require('sequelize')
 
 // Development
 const db = new Sequelize(
-  'postgres://postgres:password@localhost:5432/InvationDB'
+  'postgres://postgres:federica140798@localhost:5432/InvationDB'
 )
 
 // Production
@@ -134,10 +134,58 @@ async function insertFakeData() {
     picture: 'https://i.imgur.com/EgEPqWZb.jpg',
   })
 
+  const invationer1 = await Invationer.create({
+    name: 'Marco',
+    surname: 'Bianchi',
+    role: 'Graphic Designer',
+    gender: 'Other',
+    age: 32,
+    nationality: 'Italian',
+    description:
+      'Extrovert italian guys who always makes fun of himself and others and keeps the mood funny',
+    quote:
+      'Never say never because limits, like fears, are often just an illusion',
+    picture: 'https://i.imgur.com/EgEPqWZb.jpg',
+  })
+
+  const invationer2 = await Invationer.create({
+    name: 'Lorenzo',
+    surname: 'Verdi',
+    role: 'Software Engineer',
+    gender: 'Other',
+    age: 32,
+    nationality: 'Italian',
+    description:
+      'Extrovert italian guys who always makes fun of himself and others and keeps the mood funny',
+    quote:
+      'Never say never because limits, like fears, are often just an illusion',
+    picture: 'https://i.imgur.com/EgEPqWZb.jpg',
+  })
+
+  const invationer3 = await Invationer.create({
+    name: 'Riccardo',
+    surname: 'Gialli',
+    role: 'Manager',
+    gender: 'Other',
+    age: 32,
+    nationality: 'Italian',
+    description:
+      'Extrovert italian guys who always makes fun of himself and others and keeps the mood funny',
+    quote:
+      'Never say never because limits, like fears, are often just an illusion',
+    picture: 'https://i.imgur.com/EgEPqWZb.jpg',
+  })
+
   await vision0.addInvation(invation0.id)
   await vision0.addInvationer(invationer0.id)
   await invationer0.addInvation(invation0.id)
+  await invationer1.addInvation(invation0.id)
+  await invationer2.addInvation(invation0.id)
+  await invationer3.addInvation(invation0.id)
   await invation0.addInvationer(invationer0.id)
+  await invation0.addInvationer(invationer1.id)
+  await invation0.addInvationer(invationer2.id)
+  await invation0.addInvationer(invationer3.id)
 }
 /**
  * Function to initialize the database. This is exported and called in the main api.js file

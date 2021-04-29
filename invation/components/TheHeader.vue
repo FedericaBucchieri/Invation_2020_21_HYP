@@ -98,6 +98,7 @@ header {
   border: 0;
   outline: 0;
   font-family: 'Poppins', sans-serif;
+  margin-bottom: 10%;
 }
 
 .background-header {

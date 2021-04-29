@@ -14,8 +14,6 @@
 </template>
 
 <script>
-// import { fun } from '~/assets/index'
-
 export default {
   props: {
     info: { type: String, default: () => '' },
@@ -30,7 +28,7 @@ export default {
 }
 
 .left-image img {
-  margin-top: 120px;
+  margin-top: 50px;
 }
 
 .img-magnifier-container {

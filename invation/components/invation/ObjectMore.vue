@@ -25,21 +25,25 @@ export default {
 <style>
 .features-item-right {
   border-radius: 5px;
-  padding: 0px 0px 0px 300px;
+  padding: 0 0 0 15%;
   text-align: right;
   display: flex;
   float: right;
+  flex-wrap: wrap-reverse;
 }
 
 .features-item-right h2 {
-  font-size: 40px;
-  font-weight: 600;
-  color: #fba681;
+  margin-top: 0px;
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  color: #1e1e1e;
+  margin-bottom: 25px;
   margin-left: 50px;
 }
 
 .features-item-right p {
-  max-width: 60%;
+  max-width: 70%;
   float: right;
   margin-bottom: 20px;
   text-align: justify;

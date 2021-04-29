@@ -17,17 +17,14 @@ export default {
 
 <style scoped>
 .content {
-  width: 50px;
-  height: 50px;
   vertical-align: middle;
-  padding: 5px;
   margin: 5px;
   border-radius: 50%;
   box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
 }
 
 .social-icon {
-  width: 40px;
+  width: 35px;
   padding: 10px;
   margin: 0;
 }

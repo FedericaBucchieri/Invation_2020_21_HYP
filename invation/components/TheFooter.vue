@@ -1,97 +1,46 @@
 <template>
   <footer>
-    <div class="footerPreview">
-      Copyright © 2021 Invation | Designed by MuseX Group ™
-      <button @click="changeStatusFooterVisibility">
-        {{ buttonText }}
-      </button>
+    <!-- Preview -->
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="sub-footer">
+          <p>
+            Copyright &copy; 2021 Invation | Designed by MuseX Group ™
+            <button @click="changeStatusFooterVisibility">
+              {{ buttonText }}
+            </button>
+          </p>
+        </div>
+      </div>
     </div>
+
+    <!-- Footer Body -->
     <transition name="fade">
-      <table v-if="footerStatus" class="footerBody">
-        <thead>
-          <tr>
-            <th>
-              <!-- to All Visions Page -->
-              <nuxt-link to="/">Visions</nuxt-link>
-            </th>
-            <th>
-              <!-- No link -->
-              Usefull links
-            </th>
-            <th>
-              <!-- No link -->
-              Contact
-            </th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <!-- Visions Links -->
-            <td class="column-info">
-              <p
-                v-for="(item, itemIndex) of visionLinks"
-                :key="'vision-link-' + itemIndex"
-                class="link-list-element"
-              >
-                <nuxt-link :to="item.path">
-                  {{ item.name }}
-                </nuxt-link>
-              </p>
-            </td>
-            <!-- Usefull Links -->
-            <td class="column-info">
-              <p
-                v-for="(item, itemIndex) of usefullLinks"
-                :key="'usefull-link-' + itemIndex"
-                class="link-list-element"
-              >
-                <nuxt-link :to="item.path">
-                  {{ item.name }}
-                </nuxt-link>
-              </p>
-            </td>
-            <!-- Contact -->
-            <td class="column-info">
-              <p
-                v-for="(item, itemIndex) of contactInfos"
-                :key="'contact-info-' + itemIndex"
-              >
-                <base-contact-info
-                  :info="item.info"
-                  :img-path="item.imgPath"
-                ></base-contact-info>
-              </p>
-            </td>
-            <td class="social-info-container">
-              <ul>
-                <li
-                  v-for="(item, itemIndex) of socialIcons"
-                  :key="'social-' + itemIndex"
-                  class="social-list-element"
-                >
-                  <base-social-icon
-                    :icon-path="item.iconPath"
-                    :link="item.link"
-                  ></base-social-icon>
-                </li>
-              </ul>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div v-if="footerStatus" class="footer-body">
+        <footer-list :title="'Visions'" :link-list="visionLinks"></footer-list>
+        <footer-list
+          :title="'Useful Links'"
+          :link-list="usefulLinks"
+        ></footer-list>
+        <footer-list
+          :title="'Contacts'"
+          :link-list="contactInfos"
+          :is-contact-list="true"
+        ></footer-list>
+        <social-icon-bar :social-list="socialIcons"></social-icon-bar>
+      </div>
     </transition>
   </footer>
 </template>
 
 <script>
-import BaseContactInfo from '~/components/contacts/BaseContactInfo.vue'
-import BaseSocialIcon from '~/components/contacts/BaseSocialIcon.vue'
+import FooterList from '~/components/footer/FooterList.vue'
+import SocialIconBar from '~/components/contacts/SocialIconBar.vue'
 
 export default {
   components: {
-    BaseContactInfo,
-    BaseSocialIcon,
+    FooterList,
+    SocialIconBar,
   },
   data() {
     return {
@@ -115,7 +64,7 @@ export default {
           path: '/',
         },
       ],
-      usefullLinks: [
+      usefulLinks: [
         {
           name: 'How to Get Here',
           path: '/',
@@ -194,111 +143,49 @@ footer {
   font-family: 'Poppins', sans-serif;
 }
 
-table {
-  width: 100%;
-  height: 100%;
-  padding: 10px 20px;
-}
-
-th {
-  font-weight: bold;
-  color: whitesmoke;
-  text-transform: capitalize;
-  font-size: 18px;
-  text-align: left;
-}
-
-td {
-  color: whitesmoke;
-  font-size: 14px;
-  text-align: left;
-  vertical-align: top;
-  width: 33%;
-}
-
-.column-info {
-  width: 13%;
-}
-
-.link-list-element {
-  margin: 5px 0;
-}
-
-a.nuxt-link-exact-active {
-  color: #fba70b;
-}
-
-a,
-a:visited {
-  text-decoration: none;
-  color: inherit;
-}
-
-a:hover {
-  color: #fba70b;
-}
-
-.logo {
-  color: #191a20 !important;
-  font-size: 28px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.social-info-container {
+.sub-footer {
+  padding: 10px;
+  border-top: 1px solid rgba(250, 250, 250, 0.3);
   text-align: center;
 }
 
-ul {
-  display: inline-flex;
-  text-align: center;
+.sub-footer p {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
 }
 
-li {
-  list-style-type: none;
+.sub-footer a {
+  color: #fff;
 }
 
-.footerPreview {
-  color: whitesmoke;
-  font-size: 16px;
-  margin: 5px;
-  text-align: center;
+.sub-footer a:hover {
+  color: #fc3;
 }
 
-.footerBody {
-  border-top: 1px solid rgba(255, 255, 255, 0.87);
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
-
-button {
+.sub-footer button {
   background-color: transparent;
   width: 30px;
   height: 30px;
-  margin: 10px;
+  margin: 5px;
   text-align: center;
   color: whitesmoke;
-  font-size: 24px;
+  font-size: 18px;
   border-radius: 50%;
   border: none;
   box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
 }
 
-button:hover {
+.sub-footer button:hover {
   color: #f1556a;
   background-color: whitesmoke;
   transition: 0.5s;
 }
 
-p {
-  color: whitesmoke !important;
+.footer-body {
+  display: inline-flex;
+  width: 100%;
+  flex-wrap: wrap;
 }
 </style>
