@@ -48,6 +48,7 @@
     <section id="invationers">
       <invartioner-short-card-container
         :card-list="invation.invationers"
+        :title="'Invationers that worked on this innovation'"
       ></invartioner-short-card-container>
     </section>
     <!-- ***** Invationer End ***** -->
@@ -55,10 +56,10 @@
 </template>
 
 <script>
-import ObjectOverview from '~/components/invation/ObjectOverview.vue'
-import ObjectConcept from '~/components/invation/ObjectConcept.vue'
-import ObjectVideo from '~/components/invation/ObjectVideo.vue'
-import ObjectMore from '~/components/invation/ObjectMore.vue'
+import ObjectOverview from '~/components/baseElements/ObjectOverview.vue'
+import ObjectConcept from '~/components/baseElements/ObjectConcept.vue'
+import ObjectVideo from '~/components/baseElements/ObjectVideo.vue'
+import ObjectMore from '~/components/baseElements/ObjectMore.vue'
 import InvartionerShortCardContainer from '~/components/invationer/InvartionerShortCardContainer.vue'
 
 export default {
@@ -87,20 +88,12 @@ export default {
 }
 </script>
 
-<style scoped>
-.content {
-  margin-top: 5%;
-}
-
-.container {
-  padding: 40px 15px;
-}
-
+<style>
 .more {
   text-align: center;
 }
 
-hr {
+#section2 hr {
   width: 70%;
 }
 

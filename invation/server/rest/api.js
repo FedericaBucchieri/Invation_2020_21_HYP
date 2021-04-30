@@ -9,7 +9,7 @@ async function init() {
   // Call the init function that returns the Database
   const db = await initializeDatabase()
   // Let's extract all the objects we need to perform queries inside the endpoints
-  const { Invation, Vision, Invationer, Technology } = db._tables
+  const { Invation, Vision, Invationer, Technology, Skill } = db._tables
 
   // Get all the visions
   app.get('/visions', async (req, res) => {
@@ -17,7 +17,7 @@ async function init() {
     return res.json(visions)
   })
   // Get all the invationers
-  app.get('/invationer', async (req, res) => {
+  app.get('/invationers', async (req, res) => {
     const invationers = await Invationer.findAll()
     return res.json(invationers)
   })
@@ -30,6 +30,16 @@ async function init() {
       include: [{ model: Invationer }, { model: Technology }],
     })
     return res.json(invation)
+  })
+
+  // API to get an invationer by ID.
+  app.get('/invationer/:id', async (req, res) => {
+    const { id } = req.params
+    const invationer = await Invationer.findOne({
+      where: { id },
+      include: { model: Skill },
+    })
+    return res.json(invationer)
   })
 
   // This one is just an example

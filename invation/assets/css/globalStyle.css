@@ -129,7 +129,6 @@ html,
 body {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
-  background-color: #fff;
   font-size: 16px;
   -ms-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
@@ -139,6 +138,7 @@ body {
 
 a {
   text-decoration: none !important;
+  color: inherit;
 }
 
 h1,
@@ -181,4 +181,35 @@ p {
 
 .main-button:hover {
   background-color: #f1556a;
+}
+
+.content {
+  margin-top: 5%;
+}
+
+.container {
+  padding: 40px 15px;
+}
+
+.left-image-decor {
+  background-image: url(static/decor/left-bg-decor.png);
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 100%;
+  display: inline-block;
+  height: 110%;
+  margin-top: -200px;
+  z-index: -1;
+}
+
+.right-image-decor {
+  background-image: url(static/decor/right-bg-decor.png);
+  background-repeat: no-repeat;
+  background-position: right center;
+  position: absolute;
+  width: 100%;
+  display: inline-block;
+  height: 110%;
+  margin-top: -200px;
+  z-index: -1;
 }

@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-lg-8 offset-lg-2">
         <div class="center-heading">
-          <h2><em>Invationers</em> that worked on this <em>Innovation</em></h2>
+          <h2>{{ title }}</h2>
         </div>
       </div>
       <div
@@ -33,6 +33,7 @@ export default {
   },
   props: {
     cardList: { type: Array, default: () => [] },
+    title: { type: String, default: () => '' },
   },
 }
 </script>
