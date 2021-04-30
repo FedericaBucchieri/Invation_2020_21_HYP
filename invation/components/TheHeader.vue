@@ -1,43 +1,49 @@
 <template>
   <!-- ***** Header Area Start ***** -->
   <header class="header-area header-sticky">
-    <nav class="main-nav">
-      <!-- ***** Logo Start ***** -->
-      <a class="logo"> Invation </a>
-      <!-- ***** Logo End ***** -->
-      <!-- ***** Menu Start ***** -->
-      <ul class="nav">
-        <li class="scroll-to-section">
-          <a href="#welcome" class="menu-item">Home</a>
-        </li>
-        <div
-          v-for="TheHeaderMenuItem in TheHeaderMenuItems"
-          :key="TheHeaderMenuItem.name"
-        >
-          <li class="submenu">
-            <TheHeaderMenuItem
-              :TheHeaderMenuItem="TheHeaderMenuItem.name"
-            ></TheHeaderMenuItem>
-            <ul>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- ***** Logo Start ***** -->
+            <a class="logo"> Invation </a>
+            <!-- ***** Logo End ***** -->
+            <!-- ***** Menu Start ***** -->
+            <ul class="nav">
+              <li class="scroll-to-section">
+                <a href="#welcome" class="menu-item">Home</a>
+              </li>
               <div
-                v-for="Extension in TheHeaderMenuItem.Extensions"
-                :key="Extension.nameExtension"
+                v-for="TheHeaderMenuItem in TheHeaderMenuItems"
+                :key="TheHeaderMenuItem.name"
               >
-                <li>
-                  <TheHeaderMenuItemExtension
-                    :TheHeaderMenuItemExtension="Extension.nameExtension"
-                  ></TheHeaderMenuItemExtension>
+                <li class="submenu">
+                  <TheHeaderMenuItem
+                    :TheHeaderMenuItem="TheHeaderMenuItem.name"
+                  ></TheHeaderMenuItem>
+                  <ul>
+                    <div
+                      v-for="Extension in TheHeaderMenuItem.Extensions"
+                      :key="Extension.nameExtension"
+                    >
+                      <li>
+                        <TheHeaderMenuItemExtension
+                          :TheHeaderMenuItemExtension="Extension.nameExtension"
+                        ></TheHeaderMenuItemExtension>
+                      </li>
+                    </div>
+                  </ul>
                 </li>
               </div>
             </ul>
-          </li>
+            <a class="menu-trigger">
+              <span>Menu</span>
+            </a>
+            <!-- ***** Menu End ***** -->
+          </nav>
         </div>
-      </ul>
-      <a class="menu-trigger">
-        <span>Menu</span>
-      </a>
-      <!-- ***** Menu End ***** -->
-    </nav>
+      </div>
+    </div>
   </header>
   <!-- ***** Header Area End ***** -->
 </template>
@@ -89,15 +95,13 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 header {
-  position: fixed;
-  bottom: 100%;
+  display: block;
   margin: 0;
-  padding-left: 15%;
+  padding: 0;
   border: 0;
   outline: 0;
-  font-family: 'Poppins', sans-serif;
 }
 
 .background-header {
