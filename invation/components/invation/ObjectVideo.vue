@@ -21,7 +21,10 @@ export default {
 iframe {
   width: 70%;
   height: 450px;
-  margin: 100px auto;
   float: center;
+}
+
+.container {
+  text-align: center;
 }
 </style>

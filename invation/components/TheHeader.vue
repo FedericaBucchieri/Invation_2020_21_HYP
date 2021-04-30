@@ -1,49 +1,43 @@
 <template>
   <!-- ***** Header Area Start ***** -->
   <header class="header-area header-sticky">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <nav class="main-nav">
-            <!-- ***** Logo Start ***** -->
-            <a class="logo"> Invation </a>
-            <!-- ***** Logo End ***** -->
-            <!-- ***** Menu Start ***** -->
-            <ul class="nav">
-              <li class="scroll-to-section">
-                <a href="#welcome" class="menu-item">Home</a>
-              </li>
+    <nav class="main-nav">
+      <!-- ***** Logo Start ***** -->
+      <a class="logo"> Invation </a>
+      <!-- ***** Logo End ***** -->
+      <!-- ***** Menu Start ***** -->
+      <ul class="nav">
+        <li class="scroll-to-section">
+          <a href="#welcome" class="menu-item">Home</a>
+        </li>
+        <div
+          v-for="TheHeaderMenuItem in TheHeaderMenuItems"
+          :key="TheHeaderMenuItem.name"
+        >
+          <li class="submenu">
+            <TheHeaderMenuItem
+              :TheHeaderMenuItem="TheHeaderMenuItem.name"
+            ></TheHeaderMenuItem>
+            <ul>
               <div
-                v-for="TheHeaderMenuItem in TheHeaderMenuItems"
-                :key="TheHeaderMenuItem.name"
+                v-for="Extension in TheHeaderMenuItem.Extensions"
+                :key="Extension.nameExtension"
               >
-                <li class="submenu">
-                  <TheHeaderMenuItem
-                    :TheHeaderMenuItem="TheHeaderMenuItem.name"
-                  ></TheHeaderMenuItem>
-                  <ul>
-                    <div
-                      v-for="Extension in TheHeaderMenuItem.Extensions"
-                      :key="Extension.nameExtension"
-                    >
-                      <li>
-                        <TheHeaderMenuItemExtension
-                          :TheHeaderMenuItemExtension="Extension.nameExtension"
-                        ></TheHeaderMenuItemExtension>
-                      </li>
-                    </div>
-                  </ul>
+                <li>
+                  <TheHeaderMenuItemExtension
+                    :TheHeaderMenuItemExtension="Extension.nameExtension"
+                  ></TheHeaderMenuItemExtension>
                 </li>
               </div>
             </ul>
-            <a class="menu-trigger">
-              <span>Menu</span>
-            </a>
-            <!-- ***** Menu End ***** -->
-          </nav>
+          </li>
         </div>
-      </div>
-    </div>
+      </ul>
+      <a class="menu-trigger">
+        <span>Menu</span>
+      </a>
+      <!-- ***** Menu End ***** -->
+    </nav>
   </header>
   <!-- ***** Header Area End ***** -->
 </template>
@@ -95,15 +89,17 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 header {
-  display: block;
+  position: fixed;
+  bottom: 100%;
   margin: 0;
-  padding: 0;
+  padding-left: 15%;
   border: 0;
   outline: 0;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 10%;
 }
-
 .background-header {
   background-color: #fff;
   height: 80px !important;
@@ -113,20 +109,16 @@ header {
   right: 0px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15) !important;
 }
-
 .background-header .logo,
 .background-header .main-nav .nav li a {
   color: #1e1e1e !important;
 }
-
 .background-header .main-nav .nav li:hover a {
   color: #fba70b !important;
 }
-
 .background-header .nav li a.active {
   color: #fba70b !important;
 }
-
 .header-area {
   position: absolute;
   top: 0px;
@@ -139,12 +131,10 @@ header {
   -o-transition: all 0.5s ease 0s;
   transition: all 0.5s ease 0s;
 }
-
 .header-area .main-nav {
   min-height: 80px;
   background: transparent;
 }
-
 .header-area .main-nav .logo {
   line-height: 80px;
   color: #191a20;
@@ -158,7 +148,6 @@ header {
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
 }
-
 .header-area .main-nav .nav {
   float: left;
   margin-top: 27px;
@@ -173,16 +162,13 @@ header {
   position: relative;
   z-index: 999;
 }
-
 .header-area .main-nav .nav li {
   padding-left: 20px;
   padding-right: 20px;
 }
-
 .header-area .main-nav .nav li:last-child {
   padding-right: 0px;
 }
-
 .header-area .main-nav .nav li a {
   display: block;
   font-weight: 500;
@@ -198,16 +184,13 @@ header {
   border: transparent;
   letter-spacing: 1px;
 }
-
 .header-area .main-nav .nav li:hover a {
   color: #fba70b;
 }
-
 .header-area .main-nav .nav li.submenu {
   position: relative;
   padding-right: 35px;
 }
-
 .header-area .main-nav .nav li.submenu:after {
   font-family: FontAwesome;
   content: '\f107';
@@ -217,7 +200,6 @@ header {
   right: 18px;
   top: 12px;
 }
-
 .header-area .main-nav .nav li.submenu ul {
   position: absolute;
   width: 200px;
@@ -231,13 +213,11 @@ header {
   transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s,
     z-index 0s linear 0.01s;
 }
-
 .header-area .main-nav .nav li.submenu ul li {
   margin-left: 0px;
   padding-left: 0px;
   padding-right: 0px;
 }
-
 .header-area .main-nav .nav li.submenu ul li a {
   display: block;
   background: #fff;
@@ -253,7 +233,6 @@ header {
   font-size: 13px;
   border-bottom: 1px solid #f5f5f5;
 }
-
 .header-area .main-nav .nav li.submenu ul li a:before {
   content: '';
   position: absolute;
@@ -268,17 +247,14 @@ header {
   transition: all 0.3s ease 0s;
   background: #fba70b;
 }
-
 .header-area .main-nav .nav li.submenu ul li a:hover {
   background: #fff;
   color: #fba70b !important;
   padding-left: 25px;
 }
-
 .header-area .main-nav .nav li.submenu ul li a:hover:before {
   width: 3px;
 }
-
 .header-area .main-nav .nav li.submenu:hover ul {
   visibility: visible;
   opacity: 1;
@@ -286,7 +262,6 @@ header {
   transform: translateY(0%);
   transition-delay: 0s, 0s, 0.3s;
 }
-
 .header-area .main-nav .menu-trigger {
   cursor: pointer;
   display: block;
@@ -299,7 +274,6 @@ header {
   right: 40px;
   display: none;
 }
-
 .header-area .main-nav .menu-trigger span,
 .header-area .main-nav .menu-trigger span:before,
 .header-area .main-nav .menu-trigger span:after {
@@ -314,13 +288,11 @@ header {
   height: 2px;
   left: 0;
 }
-
 .background-header .main-nav .menu-trigger span,
 .background-header .main-nav .menu-trigger span:before,
 .background-header .main-nav .menu-trigger span:after {
   background-color: #1e1e1e;
 }
-
 .header-area .main-nav .menu-trigger span:before,
 .header-area .main-nav .menu-trigger span:after {
   -moz-transition: all 0.4s;
@@ -335,21 +307,17 @@ header {
   left: 0;
   width: 75%;
 }
-
 .background-header .main-nav .menu-trigger span:before,
 .background-header .main-nav .menu-trigger span:after {
   background-color: #1e1e1e;
 }
-
 .header-area .main-nav .menu-trigger span:before,
 .header-area .main-nav .menu-trigger span:after {
   content: '';
 }
-
 .header-area .main-nav .menu-trigger span {
   top: 16px;
 }
-
 .header-area .main-nav .menu-trigger span:before {
   -moz-transform-origin: 33% 100%;
   -ms-transform-origin: 33% 100%;
@@ -358,7 +326,6 @@ header {
   top: -10px;
   z-index: 10;
 }
-
 .header-area .main-nav .menu-trigger span:after {
   -moz-transform-origin: 33% 0;
   -ms-transform-origin: 33% 0;
@@ -366,14 +333,12 @@ header {
   transform-origin: 33% 0;
   top: 10px;
 }
-
 .header-area .main-nav .menu-trigger.active span,
 .header-area .main-nav .menu-trigger.active span:before,
 .header-area .main-nav .menu-trigger.active span:after {
   background-color: transparent;
   width: 100%;
 }
-
 .header-area .main-nav .menu-trigger.active span:before {
   -moz-transform: translateY(6px) translateX(1px) rotate(45deg);
   -ms-transform: translateY(6px) translateX(1px) rotate(45deg);
@@ -381,11 +346,9 @@ header {
   transform: translateY(6px) translateX(1px) rotate(45deg);
   background-color: #1e1e1e;
 }
-
 .background-header .main-nav .menu-trigger.active span:before {
   background-color: #1e1e1e;
 }
-
 .header-area .main-nav .menu-trigger.active span:after {
   -moz-transform: translateY(-6px) translateX(1px) rotate(-45deg);
   -ms-transform: translateY(-6px) translateX(1px) rotate(-45deg);
@@ -393,23 +356,18 @@ header {
   transform: translateY(-6px) translateX(1px) rotate(-45deg);
   background-color: #1e1e1e;
 }
-
 .background-header .main-nav .menu-trigger.active span:after {
   background-color: #1e1e1e;
 }
-
 .header-area.header-sticky {
   min-height: 80px;
 }
-
 .header-area.header-sticky .nav {
   margin-top: 20px !important;
 }
-
 .header-area.header-sticky .nav li a.active {
   color: #fba70b;
 }
-
 @media (max-width: 1200px) {
   .header-area .main-nav .nav li {
     padding-left: 12px;
@@ -419,7 +377,6 @@ header {
     display: none;
   }
 }
-
 @media (max-width: 991px) {
   .logo {
     text-align: center;
@@ -510,21 +467,17 @@ header {
     height: 0px;
   }
 }
-
 @media (min-width: 992px) {
   .header-area .main-nav .nav {
     display: flex !important;
   }
 }
-
 .header-area.header-sticky {
   min-height: 80px;
 }
-
 .header-area.header-sticky .nav {
   margin-top: 20px !important;
 }
-
 .header-area.header-sticky .nav li a.active {
   color: #fba70b;
 }

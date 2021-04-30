@@ -1,8 +1,8 @@
 <template>
-  <p>
+  <div>
     <span> <img :src="imgPath" class="icon-contact" /> </span>
     <span class="contact-info"> {{ info }}</span>
-  </p>
+  </div>
 </template>
 
 <script>
@@ -16,11 +16,12 @@ export default {
 
 <style scoped>
 .icon-contact {
-  width: 19px;
+  width: 15px;
   margin-right: 10px;
 }
 
 .contact-info {
   font-size: 14px;
+  color: whitesmoke;
 }
 </style>

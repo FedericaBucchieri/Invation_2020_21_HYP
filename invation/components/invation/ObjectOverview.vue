@@ -53,7 +53,6 @@ h4 {
   font-size: 15px;
   line-height: 80px;
   letter-spacing: 1px;
-  margin-bottom: 30px;
   color: #191a20;
 }
 

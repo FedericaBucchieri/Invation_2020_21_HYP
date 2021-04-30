@@ -28,14 +28,17 @@ export default {
   padding: 0px 30px;
   text-align: left;
   display: flex;
-  margin-right: 100px;
+  flex-wrap: wrap;
+  z-index: 1;
 }
 
 .features-item-left h2 {
-  font-size: 40px;
-  font-weight: 600;
-  color: #fba681;
-  margin-right: 50px;
+  margin-top: 0px;
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  color: #1e1e1e;
+  margin-bottom: 25px;
 }
 
 .features-item-left p {
