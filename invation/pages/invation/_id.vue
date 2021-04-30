@@ -7,7 +7,7 @@
         :name="invation.name"
         :img-path="invation.image"
         :overview="invation.overview"
-        :tags="tags"
+        :tags="invation.technologies"
       ></object-overview>
       <!-- ***** Overview End ***** -->
     </section>
@@ -18,6 +18,7 @@
     <div class="right-image-decor"></div>
     <!-- ***** Concept End ***** -->
     <div class="more">
+      <!-- Non so perchè non funziona più -->
       <a
         v-if="!showMore"
         href="#section2"
@@ -38,7 +39,7 @@
     <!-- ***** More Start ***** -->
     <section v-if="showMore" id="section2">
       <hr />
-      <object-video :video-url="videoUrl"></object-video>
+      <object-video :video-url="invation.video"></object-video>
       <object-more :content="invation.more"></object-more>
       <hr />
     </section>
@@ -81,18 +82,6 @@ export default {
   data() {
     return {
       showMore: false,
-      // to be retrieved from the database
-      tags: [
-        {
-          colorClass: 'tag-color1',
-          tagName: 'Smart Spaces',
-        },
-        {
-          colorClass: 'tag-color2',
-          tagName: 'IoT',
-        },
-      ],
-      videoUrl: 'https://www.youtube.com/embed/EQh3K9SFUtI',
     }
   },
 }
@@ -117,26 +106,5 @@ hr {
 
 #invationers {
   margin-top: 10%;
-}
-
-.left-image-decor {
-  background-image: url(static/decor/left-bg-decor.png);
-  background-repeat: no-repeat;
-  position: absolute;
-  width: 100%;
-  display: inline-block;
-  height: 110%;
-  margin-top: -100px;
-}
-
-.right-image-decor {
-  background-image: url(static/decor/right-bg-decor.png);
-  background-repeat: no-repeat;
-  background-position: right center;
-  position: absolute;
-  width: 100%;
-  display: inline-block;
-  height: 110%;
-  margin-top: -200px;
 }
 </style>

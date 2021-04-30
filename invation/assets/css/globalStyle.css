@@ -129,7 +129,7 @@ html,
 body {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
-  background-color: #fff;
+  /* background-color: #fff; */
   font-size: 16px;
   -ms-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
@@ -181,4 +181,38 @@ p {
 
 .main-button:hover {
   background-color: #f1556a;
+}
+
+a.nuxt-link-active {
+  text-transform: none;
+  color: inherit;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+.left-image-decor {
+  background-image: url(static/decor/left-bg-decor.png);
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 100%;
+  display: inline-block;
+  height: 110%;
+  margin-top: -100px;
+  z-index: -1;
+}
+
+.right-image-decor {
+  background-image: url(static/decor/right-bg-decor.png);
+  background-repeat: no-repeat;
+  background-position: right center;
+  position: absolute;
+  width: 100%;
+  display: inline-block;
+  height: 110%;
+  margin-top: -200px;
+  z-index: -1;
 }

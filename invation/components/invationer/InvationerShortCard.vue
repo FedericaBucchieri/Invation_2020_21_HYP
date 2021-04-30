@@ -4,7 +4,11 @@
       <img :src="img" :alt="name + ' ' + surname + 'short presentation card'" />
     </div>
     <div class="invationer-description">
-      <h4>{{ name + ' ' + surname }}</h4>
+      <h4>
+        <nuxt-link :to="'/invationer/' + id">{{
+          name + ' ' + surname
+        }}</nuxt-link>
+      </h4>
       <p>{{ role }}</p>
     </div>
   </div>
@@ -13,6 +17,7 @@
 <script>
 export default {
   props: {
+    id: { type: Number, default: () => 0 },
     name: { type: String, default: () => '' },
     surname: { type: String, default: () => '' },
     img: { type: String, default: () => '' },

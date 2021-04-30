@@ -1,10 +1,13 @@
 <template>
-  <li class="tag" :class="colorClass">#{{ tagName }}</li>
+  <li class="tag" :class="colorClass">
+    <nuxt-link :to="'/technology/' + id"> #{{ tagName }}</nuxt-link>
+  </li>
 </template>
 
 <script>
 export default {
   props: {
+    id: { type: Number, default: () => 0 },
     colorClass: { type: String, default: () => '' },
     tagName: { type: String, default: () => '' },
   },
