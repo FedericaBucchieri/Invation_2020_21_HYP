@@ -12,6 +12,7 @@
       >
         <invationer-short-card
           v-for="(item, itemIndex) of cardList"
+          :id="item.id"
           :key="'invartioner-card' + itemIndex"
           :img="item.picture"
           :name="item.name"

@@ -2,9 +2,10 @@
   <ul class="tag-bar">
     <base-tag
       v-for="(item, itemIndex) of tagList"
+      :id="item.id"
       :key="'tag-' + itemIndex"
-      :tag-name="item.tagName"
-      :color-class="item.colorClass"
+      :tag-name="item.name"
+      :color-class="item.color"
     >
     </base-tag>
   </ul>

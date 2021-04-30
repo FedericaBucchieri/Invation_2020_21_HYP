@@ -27,10 +27,11 @@ async function init() {
     const { id } = req.params
     const invation = await Invation.findOne({
       where: { id },
-      include: { model: Invationer },
+      include: [{ model: Invationer }, { model: Technology }],
     })
     return res.json(invation)
   })
+
   // This one is just an example
   app.get('/ad', (req, res) => {
     return res.json({

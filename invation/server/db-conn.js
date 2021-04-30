@@ -27,6 +27,7 @@ function defineDatabaseStructure() {
       more: DataTypes.TEXT,
       image: DataTypes.STRING,
       thumbnail: DataTypes.STRING,
+      video: DataTypes.STRING,
       creationDate: DataTypes.DATE,
     },
     {
@@ -67,6 +68,7 @@ function defineDatabaseStructure() {
       name: DataTypes.STRING,
       description: DataTypes.TEXT,
       image: DataTypes.STRING,
+      color: DataTypes.STRING,
     },
     {
       underscored: true,
@@ -111,6 +113,7 @@ async function insertFakeData() {
       'All those activities are designed to improve self-movement recognition, ability to work in group, reasoning skills and test contents learning. MuseX has a full body interaction paradigm with drag &amp; drop, RFID reader, walk around interaction and posting gesture recognition. The Magic Room provides both audible and visual feedback that enrich MuseX experience and all the activities can be managed by the teacher using a dedicated app.',
     image: '/musex-big.png',
     thumbnail: '/musex-small.png',
+    video: 'https://www.youtube.com/embed/EQh3K9SFUtI',
     creationDate: Date.now(),
   })
 
@@ -118,6 +121,20 @@ async function insertFakeData() {
     name: 'Education',
     description: '',
     image: '',
+  })
+
+  const technology1 = await Technology.create({
+    name: 'Virtual & Agmented Reality',
+    description: 'To be added',
+    image: 'To be added',
+    color: 'tag-color1',
+  })
+
+  const technology2 = await Technology.create({
+    name: 'Internet of Things',
+    description: 'To be added',
+    image: 'To be added',
+    color: 'tag-color2',
   })
 
   const invationer0 = await Invationer.create({
@@ -186,6 +203,8 @@ async function insertFakeData() {
   await invation0.addInvationer(invationer1.id)
   await invation0.addInvationer(invationer2.id)
   await invation0.addInvationer(invationer3.id)
+  await invation0.addTechnology(technology1.id)
+  await invation0.addTechnology(technology2.id)
 }
 /**
  * Function to initialize the database. This is exported and called in the main api.js file
