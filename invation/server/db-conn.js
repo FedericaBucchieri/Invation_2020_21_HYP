@@ -2,7 +2,7 @@ const { Sequelize, DataTypes } = require('sequelize')
 
 // Development
 const db = new Sequelize(
-  'postgres://postgres:federica140798@localhost:5432/InvationDB'
+  'postgres://postgres:11235813@localhost:5432/InvationDB'
 )
 
 // Production
@@ -37,6 +37,7 @@ function defineDatabaseStructure() {
   const Vision = db.define(
     'vision',
     {
+      numberTag: DataTypes.STRING,
       name: DataTypes.STRING,
       description: DataTypes.TEXT,
       image: DataTypes.STRING,
@@ -138,9 +139,32 @@ async function insertFakeData() {
   })
 
   const vision0 = await Vision.create({
+    numberTag: '01',
     name: 'Education',
-    description: '',
-    image: '',
+    description:
+      'A new way of learning in a more effective way. Discover ourproposals about a new experience in the world of education.',
+    image: 'https://imgur.com/gRHC19s.png',
+  })
+  const vision1 = await Vision.create({
+    numberTag: '02',
+    name: 'Entertainment',
+    description:
+      'The world of entertainment is ready to embrace the new technologies about VR and AR where Reality merges with immagination.',
+    image: 'https://imgur.com/gRHC19s.png',
+  })
+  const vision2 = await Vision.create({
+    numberTag: '03',
+    name: 'Smart Home',
+    description:
+      'Your home is part of your life, leaving in an intelligent and smart environment is essential for your quality of life.',
+    image: 'https://imgur.com/gRHC19s.png',
+  })
+  const vision3 = await Vision.create({
+    numberTag: '04',
+    name: 'Work',
+    description:
+      'The Covid-19 pandemic has accelerated an inevitable trend in which giving new opportunities for an efficient work indipendently from where you are is fundamental.',
+    image: 'https://imgur.com/gRHC19s.png',
   })
 
   const technology1 = await Technology.create({

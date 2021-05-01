@@ -1,80 +1,24 @@
 <template>
-  <section class="section" id="invation_list">
+  <section id="invation_list" class="section">
     <div class="container">
       <div class="row">
-        <h2>Our Visions <br /><br /></h2>
+        <h2 class="area-title">{{ areaName }}</h2>
 
         <!-- List start, example placeholders for products -->
         <ul id="searchUL">
           <li
+            v-for="myContent in myContents"
+            :key="myContent.name"
             class="col-lg-4 col-md-6 col-sm-12 col-xs-12"
             data-scroll-reveal="enter left move 30px over 0.6s after 0.4s"
           >
-            <div class="features-item">
-              <div class="features-icon">
-                <h2>01</h2>
-                <img src="assets/images/online-learning-icon.png" alt="" />
-                <h4>Education</h4>
-                <p>
-                  A new way of learning in a more effective way. Discover our
-                  proposals about a new experience in the world of education.
-                </p>
-                <a href="#testimonials" class="main-button"> Explore </a>
-              </div>
-            </div>
-          </li>
-          <li
-            class="col-lg-4 col-md-6 col-sm-12 col-xs-12"
-            data-scroll-reveal="enter bottom move 30px over 0.6s after 0.4s"
-          >
-            <div class="features-item">
-              <div class="features-icon">
-                <h2>02</h2>
-                <img src="assets/images/entertainment-icon.png" alt="" />
-                <h4>Entertainment</h4>
-                <p>
-                  The world of entertainment is ready to embrace the new
-                  technologies about VR and AR where Reality merges with
-                  immagination.
-                </p>
-                <a href="#testimonials" class="main-button"> Explore </a>
-              </div>
-            </div>
-          </li>
-          <li
-            class="col-lg-4 col-md-6 col-sm-12 col-xs-12"
-            data-scroll-reveal="enter right move 30px over 0.6s after 0.4s"
-          >
-            <div class="features-item">
-              <div class="features-icon">
-                <h2>03</h2>
-                <img src="assets/images/smart-house-icon.png" alt="" />
-                <h4>Smart Home</h4>
-                <p>
-                  Your home is part of your life, leaving in an intelligent and
-                  smart environment is essential for your quality of life.
-                </p>
-                <a href="#testimonials" class="main-button"> Explore </a>
-              </div>
-            </div>
-          </li>
-          <li
-            class="col-lg-4 col-md-6 col-sm-12 col-xs-12"
-            data-scroll-reveal="enter right move 30px over 0.6s after 0.4s"
-          >
-            <div class="features-item">
-              <div class="features-icon">
-                <h2>04</h2>
-                <img src="assets/images/working-icon.png" alt="" />
-                <h4>Work</h4>
-                <p>
-                  The Covid-19 pandemic has accelerated an inevitable trend in
-                  which giving new opportunities for an efficient work
-                  indipendently from where you are is fundamental.
-                </p>
-                <a href="#testimonials" class="main-button"> Explore </a>
-              </div>
-            </div>
+            <rounded-container
+              :number-tag="myContent.numberTag"
+              :name="myContent.name"
+              :description="myContent.description"
+              :image="myContent.image"
+            >
+            </rounded-container>
           </li>
         </ul>
       </div>
@@ -84,7 +28,74 @@
 </template>
 
 <script>
-export default {}
+import RoundedContainer from '~/components/vision/RoundedContainer.vue'
+
+export default {
+  components: { RoundedContainer },
+  props: {
+    areaName: { type: String, default: '' },
+    content: {
+      type: Array,
+      default: () => [],
+    },
+  },
+  data() {
+    return {
+      /* myContent(numberTag, name, description, image) {
+        this.numberTag = numberTag
+        this.name = name
+        this.description = description
+        this.image = image
+      },
+      */
+      myContents: this.content,
+    }
+  },
+}
 </script>
 
-<style></style>
+<style scoped>
+.area-title {
+  margin-bottom: 15px;
+}
+section {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  display: block;
+}
+#searchUL {
+  width: 100%;
+  display: contents;
+}
+#invation_list input {
+  width: 80%;
+  margin: 30px auto;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border: none;
+  padding: 20px;
+}
+
+#invation_list h2 {
+  width: 100%;
+  text-align: center;
+}
+
+#invation_list .features-item {
+  height: 550px;
+  margin-bottom: 20px;
+}
+
+#invation_list .main-button {
+  position: absolute;
+  bottom: 40px;
+  right: 25%;
+  left: 25%;
+}
+
+#invation_list img {
+  border-radius: 50%;
+}
+</style>
