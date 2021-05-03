@@ -62,6 +62,11 @@ function defineDatabaseStructure() {
       hobby: DataTypes.STRING,
       musical: DataTypes.STRING,
       preferred: DataTypes.STRING,
+      telephone: DataTypes.STRING,
+      email: DataTypes.STRING,
+      fax: DataTypes.STRING,
+      linkedin: DataTypes.STRING,
+      instagram: DataTypes.STRING,
     },
     {
       underscored: true,
@@ -91,6 +96,17 @@ function defineDatabaseStructure() {
     }
   )
 
+  const Review = db.define(
+    'review',
+    {
+      author: DataTypes.STRING,
+      body: DataTypes.STRING,
+    },
+    {
+      underscored: true,
+    }
+  )
+
   // --------------- ASSOCIATIONS -------------------
   // More on association: https://sequelize.org/master/manual/assocs.html
 
@@ -109,6 +125,9 @@ function defineDatabaseStructure() {
   // 'Capabilities' relationship Many-To-Many
   Invationer.belongsToMany(Skill, { through: 'InvationerSkill' })
   Skill.belongsToMany(Invationer, { through: 'InvationerSkill' })
+  // 'Write' relationship One-To-Many
+  Invation.hasMany(Review, { foreignKey: 'invation_id' })
+  Review.belongsTo(Invation)
 
   db._tables = {
     Invation,
@@ -116,12 +135,13 @@ function defineDatabaseStructure() {
     Invationer,
     Technology,
     Skill,
+    Review,
   }
 }
 
 // --------------- SEEDING -------------------------------
 async function insertFakeData() {
-  const { Invation, Vision, Invationer, Technology, Skill } = db._tables
+  const { Invation, Vision, Invationer, Technology, Skill, Review } = db._tables
   // Create the first Article
   const invation0 = await Invation.create({
     name: 'MuseX',
@@ -189,6 +209,11 @@ async function insertFakeData() {
     hobby: 'Gaming, Cooking, Reading',
     musical: 'Pop music',
     preferred: 'Education',
+    telephone: '+39 389932321',
+    email: 'clarke.griffin@invation.com',
+    fax: '88776 5432325',
+    linkedin: 'clarke.griffin',
+    instagram: '#clarkeGriffin',
   })
 
   const invationer1 = await Invationer.create({
@@ -233,6 +258,16 @@ async function insertFakeData() {
     picture: 'https://i.imgur.com/EgEPqWZb.jpg',
   })
 
+  const review1 = await Review.create({
+    author: 'Federica',
+    body: 'This invation is amazing. It really interested me!',
+  })
+
+  const review2 = await Review.create({
+    author: 'Luca',
+    body: 'Omg I want to play with it!',
+  })
+
   await vision0.addInvation(invation0.id)
   await vision0.addInvationer(invationer0.id)
   await invationer0.addInvation(invation0.id)
@@ -248,6 +283,8 @@ async function insertFakeData() {
   await invationer0.addSkill(skill1.id)
   await invationer0.addSkill(skill2.id)
   await invationer0.addSkill(skill3.id)
+  await invation0.addReview(review1.id)
+  await invation0.addReview(review2.id)
 }
 /**
  * Function to initialize the database. This is exported and called in the main api.js file

@@ -1,11 +1,13 @@
 <template>
   <div class="content">
     <div class="left-image-decor"></div>
+    <!-- Invationer Overview -->
     <object-overview
       :name="completeName"
       :img-path="invationer.picture"
       :overview="invationer.overview"
     ></object-overview>
+    <!-- Personal Detail Bar -->
     <div class="container">
       <div class="row">
         <div class="details-list">
@@ -20,6 +22,7 @@
         </div>
       </div>
     </div>
+    <!-- Role, Skill & Contact Section -->
     <div class="container">
       <div class="row">
         <div class="role-skill-container">
@@ -37,28 +40,26 @@
               :alt="item.name"
             />
           </div>
-          <div class="contact-section">
-            <h4>CONTACT ME</h4>
-            <ul
-              class="contact-list"
-              data-scroll-reveal="enter right move 30px over 0.6s after 0.4s"
-            >
-              <li>Telephone Number: +39 389 932321</li>
-              <li>Email: clare.griffin@invation.com</li>
-              <li>Fax: 88776 5432325</li>
-              <li>Linkedin: clarke.griffin</li>
-              <li>Instagram: #clarkeGriffin</li>
-            </ul>
-          </div>
+          <invationer-contact-list
+            :contact-infos="[
+              invationer.telephone,
+              invationer.email,
+              invationer.fax,
+              invationer.linkedin,
+              invationer.instagram,
+            ]"
+          ></invationer-contact-list>
         </div>
       </div>
     </div>
     <div class="right-image-decor"></div>
+    <!-- Inspirational quote -->
     <div class="container">
       <div class="row">
         <div class="inspirational-quote">"{{ invationer.quote }} "</div>
       </div>
     </div>
+    <!-- Other Invationers Section -->
     <section id="invationers">
       <invartioner-short-card-container
         :card-list="invationers"
@@ -70,13 +71,16 @@
 
 <script>
 import ObjectOverview from '~/components/baseElements/ObjectOverview.vue'
+import InvationerContactList from '~/components/invationer/InvationerContactList.vue'
 import InvartionerShortCardContainer from '~/components/invationer/InvartionerShortCardContainer.vue'
 
 export default {
   components: {
     ObjectOverview,
     InvartionerShortCardContainer,
+    InvationerContactList,
   },
+
   async asyncData({ $axios, route }) {
     const { id } = route.params
     const invationerData = await $axios.get(

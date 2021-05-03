@@ -9,7 +9,7 @@ async function init() {
   // Call the init function that returns the Database
   const db = await initializeDatabase()
   // Let's extract all the objects we need to perform queries inside the endpoints
-  const { Invation, Vision, Invationer, Technology, Skill } = db._tables
+  const { Invation, Vision, Invationer, Technology, Skill, Review } = db._tables
 
   // Get all the visions
   app.get('/visions', async (req, res) => {
@@ -27,7 +27,11 @@ async function init() {
     const { id } = req.params
     const invation = await Invation.findOne({
       where: { id },
-      include: [{ model: Invationer }, { model: Technology }],
+      include: [
+        { model: Invationer },
+        { model: Technology },
+        { model: Review },
+      ],
     })
     return res.json(invation)
   })
@@ -48,6 +52,18 @@ async function init() {
       url:
         'https://wordstream-files-prod.s3.amazonaws.com/s3fs-public/styles/simple_image/public/images/media/images/google-display-ads-example-2-final.png?oV7qevVB2XtFyF_O64TG6L27AFM3M2oL&itok=TBfuuTM_',
     })
+  })
+
+  app.post('/review', async (req, res) => {
+    const body = req.body
+
+    const newReview = await Review.create({
+      author: body.author,
+      body: body.body,
+      invation_id: body.invation_id,
+    })
+
+    return res.send(newReview)
   })
 }
 

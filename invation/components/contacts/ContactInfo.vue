@@ -1,6 +1,8 @@
 <template>
   <div>
-    <span> <img :src="imgPath" class="icon-contact" /> </span>
+    <span>
+      <img :src="imgPath" class="icon-contact" :alt="info" />
+    </span>
     <span class="contact-info"> {{ info }}</span>
   </div>
 </template>

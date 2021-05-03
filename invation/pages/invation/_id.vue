@@ -2,23 +2,20 @@
   <div class="content">
     <div class="left-image-decor"></div>
     <section>
-      <!-- ***** Overview Start ***** -->
+      <!-- ***** Overview  ***** -->
       <object-overview
         :name="invation.name"
         :img-path="invation.image"
         :overview="invation.overview"
         :tags="invation.technologies"
       ></object-overview>
-      <!-- ***** Overview End ***** -->
     </section>
-    <!-- ***** Concept Start ***** -->
+    <!-- ***** Concept  ***** -->
     <section id="section1">
       <object-concept :concept="invation.concept"></object-concept>
     </section>
     <div class="right-image-decor"></div>
-    <!-- ***** Concept End ***** -->
     <div class="more">
-      <!-- Non so perchè non funziona più -->
       <a
         v-if="!showMore"
         href="#section2"
@@ -36,22 +33,47 @@
         Show Less
       </a>
     </div>
-    <!-- ***** More Start ***** -->
+    <!-- ***** More ***** -->
     <section v-if="showMore" id="section2">
       <hr />
       <object-video :video-url="invation.video"></object-video>
       <object-more :content="invation.more"></object-more>
       <hr />
     </section>
-    <!-- ***** More End ***** -->
-    <!-- ***** Invationer Start ***** -->
+    <!-- ***** Invationers ***** -->
     <section id="invationers">
       <invartioner-short-card-container
         :card-list="invation.invationers"
         :title="'Invationers that worked on this innovation'"
       ></invartioner-short-card-container>
     </section>
-    <!-- ***** Invationer End ***** -->
+    <!-- ***** Leave a Review ***** -->
+    <section id="reviews">
+      <div class="container">
+        <div class="row">
+          <h2>Invation Reviews</h2>
+          <base-review-list :review-list="invation.reviews"></base-review-list>
+          <h3>Leave your review here</h3>
+          <form method="post" @submit="postReview">
+            <label>Author:</label>
+            <input
+              v-model="reviewAuthor"
+              type="text"
+              name="author"
+              placeholder="Your username"
+            />
+            <label>Review:</label>
+            <textarea
+              v-model="reviewBody"
+              type="text"
+              name="body"
+              placeholder="Write your review here"
+            />
+            <button type="submit" class="main-button">Send</button>
+          </form>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -61,6 +83,7 @@ import ObjectConcept from '~/components/baseElements/ObjectConcept.vue'
 import ObjectVideo from '~/components/baseElements/ObjectVideo.vue'
 import ObjectMore from '~/components/baseElements/ObjectMore.vue'
 import InvartionerShortCardContainer from '~/components/invationer/InvartionerShortCardContainer.vue'
+import BaseReviewList from '~/components/baseElements/BaseReviewList.vue'
 
 export default {
   components: {
@@ -69,6 +92,7 @@ export default {
     ObjectVideo,
     ObjectMore,
     InvartionerShortCardContainer,
+    BaseReviewList,
   },
   async asyncData({ $axios, route }) {
     const { id } = route.params
@@ -83,7 +107,30 @@ export default {
   data() {
     return {
       showMore: false,
+      review: {
+        author: null,
+        body: null,
+        invation_id: 0,
+      },
+      reviewAuthor: '',
+      reviewBody: '',
     }
+  },
+  methods: {
+    postReview(e) {
+      this.review.invation_id = this.invation.id
+      this.review.author = this.reviewAuthor
+      this.review.body = this.reviewBody
+
+      this.$axios
+        .post(`${process.env.BASE_URL}/api/review`, this.review)
+        .then((result) => {
+          this.invation.reviews.push(result.data)
+          this.reviewAuthor = ''
+          this.reviewBody = ''
+        })
+      e.preventDefault()
+    },
   },
 }
 </script>
@@ -99,5 +146,50 @@ export default {
 
 #invationers {
   margin-top: 10%;
+}
+
+#reviews {
+  margin-bottom: 10%;
+}
+
+#reviews form {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10%;
+}
+
+#reviews input {
+  width: 100%;
+  margin: 10px;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px 10px;
+}
+
+#reviews textarea {
+  width: 100%;
+  height: 60%;
+  margin: 10px;
+  border-radius: 20px;
+  border: none;
+  padding: 15px 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+#reviews label {
+  font-size: 18px;
+  font-weight: 500;
+  color: #f38151;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+
+#reviews h2,
+h3 {
+  text-align: center;
+  width: 100%;
+  text-transform: uppercase;
 }
 </style>
