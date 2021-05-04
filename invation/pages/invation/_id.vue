@@ -116,6 +116,18 @@ export default {
       reviewBody: '',
     }
   },
+  head() {
+    return {
+      title: 'Invation - ' + this.invation.name,
+      meta: [
+        {
+          hid: this.invation.name,
+          name: this.invation.name,
+          content: this.invation.concept,
+        },
+      ],
+    }
+  },
   methods: {
     postReview(e) {
       this.review.invation_id = this.invation.id
@@ -138,6 +150,7 @@ export default {
 <style>
 .more {
   text-align: center;
+  margin: 40px;
 }
 
 #section2 hr {
@@ -181,7 +194,7 @@ export default {
 #reviews label {
   font-size: 18px;
   font-weight: 500;
-  color: #f38151;
+  color: #000;
   text-transform: uppercase;
   margin-bottom: 0;
 }

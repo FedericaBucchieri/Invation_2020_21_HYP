@@ -2,7 +2,11 @@
   <div>
     <nuxt-link :to="'/'"
       >{{ theHeaderMenuItem }}
-      <img src="~/static/decor/down-arrow.png" class="menu-item-arrow" />
+      <img
+        src="~/static/decor/down-arrow.png"
+        class="menu-item-arrow"
+        :alt="'menu-element' + theHeaderMenuItem"
+      />
     </nuxt-link>
   </div>
 </template>

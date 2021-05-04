@@ -1,14 +1,17 @@
 <template>
   <div class="invationer-card">
     <div class="invationer">
-      <img :src="img" :alt="name + ' ' + surname + 'short presentation card'" />
+      <img
+        :src="img"
+        :alt="name + ' ' + surname + 'short presentation card'"
+        width="75"
+        height="75"
+      />
     </div>
     <div class="invationer-description">
-      <h4>
-        <nuxt-link :to="'/invationer/' + id">{{
-          name + ' ' + surname
-        }}</nuxt-link>
-      </h4>
+      <nuxt-link :to="'/invationer/' + id" class="invationer-name">{{
+        name + ' ' + surname
+      }}</nuxt-link>
       <p>{{ role }}</p>
     </div>
   </div>
@@ -50,7 +53,7 @@ export default {
   border-radius: 5px;
 }
 
-.invationer-description h4 {
+.invationer-name {
   font-size: 12px;
   color: whitesmoke;
 }

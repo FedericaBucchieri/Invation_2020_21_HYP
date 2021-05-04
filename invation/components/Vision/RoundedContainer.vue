@@ -1,12 +1,14 @@
 <template>
   <div class="features-item">
     <h2>{{ numberTag }}</h2>
-    <img :src="image" alt="" />
+    <img :src="image" :alt="'Thubmnail image' + name" />
     <h4>{{ name }}</h4>
     <p>
       {{ description }}
     </p>
-    <a class="main-button"> Explore </a>
+    <nuxt-link :to="'/visions/' + numberTag" class="main-button">
+      Explore
+    </nuxt-link>
   </div>
 </template>
 

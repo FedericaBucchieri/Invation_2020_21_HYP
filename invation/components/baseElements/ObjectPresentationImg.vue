@@ -3,7 +3,13 @@
     class="left-image col-lg-5 col-md-12 col-sm-12 mobile-bottom-fix-big"
     data-scroll-reveal="enter left move 30px over 0.6s after 0.4s"
   >
-    <img :src="imgPath" class="rounded img-fluid d-block mx-auto" :alt="info" />
+    <img
+      :src="imgPath"
+      class="rounded img-fluid d-block mx-auto"
+      :alt="info"
+      width="370"
+      height="219"
+    />
   </div>
 </template>
 

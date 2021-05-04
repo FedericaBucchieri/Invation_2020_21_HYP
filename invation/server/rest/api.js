@@ -22,16 +22,32 @@ async function init() {
     return res.json(invationers)
   })
 
+  // API to get a vision by ID.
+  app.get('/visions/:id', async (req, res) => {
+    const { id } = req.params
+    const vision = await Vision.findOne({
+      where: { id },
+      include: { model: Invation },
+    })
+    return res.json(vision)
+  })
+
   // API to get an invation by ID.
   app.get('/invation/:id', async (req, res) => {
     const { id } = req.params
     const invation = await Invation.findOne({
       where: { id },
       include: [
-        { model: Invationer },
-        { model: Technology },
+        {
+          model: Invationer,
+          attributes: ['id', 'name', 'surname', 'role', 'picture'],
+        },
+        { model: Technology, attributes: ['id', 'name', 'color'] },
         { model: Review },
       ],
+      attributes: {
+        exclude: ['thumbnail'],
+      },
     })
     return res.json(invation)
   })

@@ -28,6 +28,6 @@ export default {
 }
 
 .tag-color2 {
-  background-color: #fba70b;
+  background-color: green;
 }
 </style>

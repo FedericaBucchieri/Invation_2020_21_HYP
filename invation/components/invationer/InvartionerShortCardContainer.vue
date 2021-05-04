@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col-lg-8 offset-lg-2">
+      <div class="col-lg-8 offset-lg-2 inside-container">
         <div class="center-heading">
           <h2>{{ title }}</h2>
         </div>
