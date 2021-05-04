@@ -38,10 +38,16 @@ async function init() {
     const invation = await Invation.findOne({
       where: { id },
       include: [
-        { model: Invationer },
-        { model: Technology },
+        {
+          model: Invationer,
+          attributes: ['id', 'name', 'surname', 'role', 'picture'],
+        },
+        { model: Technology, attributes: ['id', 'name', 'color'] },
         { model: Review },
       ],
+      attributes: {
+        exclude: ['thumbnail'],
+      },
     })
     return res.json(invation)
   })
