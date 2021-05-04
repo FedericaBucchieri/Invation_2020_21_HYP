@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div
-        class="features-item-left"
+        class="features-item-left inside-container"
         data-scroll-reveal="enter right move 30px over 0.6s after 0.4s"
       >
         <h2>CONCEPT</h2>
@@ -46,5 +46,9 @@ export default {
   float: left;
   margin-bottom: 20px;
   text-align: justify;
+}
+
+.inside-container {
+  padding: 40px 15px;
 }
 </style>

@@ -22,6 +22,16 @@ async function init() {
     return res.json(invationers)
   })
 
+  // API to get a vision by ID.
+  app.get('/visions/:id', async (req, res) => {
+    const { id } = req.params
+    const vision = await Vision.findOne({
+      where: { id },
+      include: { model: Invation },
+    })
+    return res.json(vision)
+  })
+
   // API to get an invation by ID.
   app.get('/invation/:id', async (req, res) => {
     const { id } = req.params

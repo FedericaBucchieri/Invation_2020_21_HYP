@@ -138,6 +138,7 @@ export default {
 <style>
 .more {
   text-align: center;
+  margin: 40px;
 }
 
 #section2 hr {

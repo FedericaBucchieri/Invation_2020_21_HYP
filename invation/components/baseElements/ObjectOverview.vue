@@ -5,11 +5,19 @@
       </object-presentation-img>
 
       <div
-        class="right-text col-lg-6 col-md-12 col-sm-12 col-xs-12"
+        class="right-text col-lg-6 col-md-12 col-sm-12 col-xs-12 inside-container"
         data-scroll-reveal="enter left move 30px over 0.6s after 0.4s"
       >
-        <h4><u>Innovations</u> > <u>Smart Space</u> > <u>MuseX</u></h4>
+        <span
+          v-for="(item, itemIndex) of this.$store.state.visitedPaths"
+          :key="'breadcrupm-link-' + itemIndex"
+        >
+          <nuxt-link :to="item.path"> > {{ item.pathName }} </nuxt-link></span
+        >
+
+        <!-- <h4><u>Innovations</u> > <u>Smart Space</u> > <u>MuseX</u></h4> -->
         <!-- missing how to implement Bread Crump -->
+
         <h1>{{ name }}</h1>
         <p>
           {{ overview }}

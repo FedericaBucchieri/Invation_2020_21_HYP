@@ -2,7 +2,7 @@ const { Sequelize, DataTypes } = require('sequelize')
 
 // Development
 const db = new Sequelize(
-  'postgres://postgres:11235813@localhost:5432/InvationDB'
+  'postgres://postgres:federica140798@localhost:5432/InvationDB'
 )
 
 // Production

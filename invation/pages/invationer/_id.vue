@@ -118,7 +118,7 @@ export default {
 }
 
 .details-bar {
-  margin: 10px;
+  margin: 10px 0 60px 0;
   padding: 10px;
   border-top: 1px solid #eaeaea;
   border-bottom: 1px solid #eaeaea;
@@ -178,5 +178,6 @@ export default {
   font-style: italic;
   font-size: 30px;
   width: 100%;
+  padding: 40px 60px 160px 15px;
 }
 </style>
