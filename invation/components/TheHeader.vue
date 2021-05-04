@@ -19,7 +19,7 @@
               >
                 <li class="submenu">
                   <TheHeaderMenuItem
-                    :theHeaderMenuItem="theHeaderMenuItem.name"
+                    :the-header-menu-item="theHeaderMenuItem.name"
                   ></TheHeaderMenuItem>
                   <ul>
                     <div
@@ -28,7 +28,9 @@
                     >
                       <li>
                         <TheHeaderMenuItemExtension
-                          :theHeaderMenuItemExtension="extension.nameExtension"
+                          :the-header-menu-item-extension="
+                            extension.nameExtension
+                          "
                         ></TheHeaderMenuItemExtension>
                       </li>
                     </div>
@@ -97,6 +99,8 @@ export default {
 
 <style scoped>
 header {
+  background-color: white;
+  position: fixed;
   display: block;
   margin: 0;
   padding: 0;
@@ -128,12 +132,11 @@ header {
 }
 
 .header-area {
-  position: absolute;
   top: 0px;
   left: 0px;
   right: 0px;
   z-index: 100;
-  height: 100px;
+  height: 80px;
   -webkit-transition: all 0.5s ease 0s;
   -moz-transition: all 0.5s ease 0s;
   -o-transition: all 0.5s ease 0s;
