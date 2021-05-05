@@ -13,25 +13,31 @@
               <li class="scroll-to-section">
                 <a href="#welcome">Home</a>
               </li>
-              <li
+              <div
                 v-for="theHeaderMenuItem in theHeaderMenuItems"
                 :key="theHeaderMenuItem.name"
-                class="submenu"
               >
-                <TheHeaderMenuItem
-                  :the-header-menu-item="theHeaderMenuItem.name"
-                ></TheHeaderMenuItem>
-                <ul>
-                  <li
-                    v-for="extension in theHeaderMenuItem.extensions"
-                    :key="extension.nameExtension"
-                  >
-                    <TheHeaderMenuItemExtension
-                      :the-header-menu-item-extension="extension.nameExtension"
-                    ></TheHeaderMenuItemExtension>
-                  </li>
-                </ul>
-              </li>
+                <li class="submenu">
+                  <TheHeaderMenuItem
+                    :the-header-menu-item="theHeaderMenuItem.name"
+                    :path="theHeaderMenuItem.path"
+                  ></TheHeaderMenuItem>
+                  <ul>
+                    <div
+                      v-for="extension in theHeaderMenuItem.extensions"
+                      :key="extension.nameExtension"
+                    >
+                      <li>
+                        <TheHeaderMenuItemExtension
+                          :the-header-menu-item-extension="
+                            extension.nameExtension
+                          "
+                        ></TheHeaderMenuItemExtension>
+                      </li>
+                    </div>
+                  </ul>
+                </li>
+              </div>
             </ul>
             <a class="menu-trigger">
               <span>Menu</span>
@@ -65,7 +71,7 @@ export default {
             { nameExtension: 'Our Team', path: '/' },
             { nameExtension: 'Role', path: '/' },
           ],
-          path: '/',
+          path: '/invationers',
         },
         {
           name: 'Visions',
@@ -75,7 +81,7 @@ export default {
             { nameExtension: 'Smart Home', path: '/' },
             { nameExtension: 'Work', path: '/' },
           ],
-          path: '/',
+          path: '/visions',
         },
         {
           name: 'Invations',
@@ -84,7 +90,7 @@ export default {
             { nameExtension: 'Virtual & Augumented Reality', path: '/' },
             { nameExtension: 'Internet of things', path: '/' },
           ],
-          path: '/',
+          path: '/invations',
         },
       ],
     }
@@ -185,7 +191,7 @@ header {
   display: block;
   font-weight: 500;
   font-size: 13px;
-  color: black;
+  color: #7a7a7a;
   text-transform: uppercase;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;

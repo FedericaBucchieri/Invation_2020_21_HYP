@@ -16,10 +16,38 @@ async function init() {
     const visions = await Vision.findAll()
     return res.json(visions)
   })
+  
   // Get all the invationers
   app.get('/invationers', async (req, res) => {
     const invationers = await Invationer.findAll()
     return res.json(invationers)
+  })
+  
+  // Get all the invations
+  app.get('/invations', async (req, res) => {
+    const invations = await Invation.findAll()
+    return res.json(invations)
+  })
+
+  // Get 10 invations' images and use their overview as alt attribute
+  // https://sequelize.org/v5/manual/models-usage.html#manipulating-the-dataset-with-limit--offset--order-and-group
+  app.get('/invations10', async (req, res) => {
+    const invations = await Invation.findAll({ limit: 10 });
+
+    let invationImgs = [];
+    
+    invations.forEach(invation => {
+       let item = {
+        id: invation.id,
+        name: invation.name,
+        alt: invation.overview,
+        imgPath: invation.thumbnail,
+        detailPage: `/invation/${invation.id}`
+      }
+      invationImgs.push(item);
+    });
+
+    return res.json(invationImgs);
   })
 
   // API to get a vision by ID.
