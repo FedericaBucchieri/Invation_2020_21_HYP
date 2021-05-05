@@ -61,6 +61,8 @@ export default {
 section {
   margin: 0;
   padding: 0;
+  padding-bottom: 5%;
+  padding-top: 5%;
   border: 0;
   outline: 0;
   display: block;

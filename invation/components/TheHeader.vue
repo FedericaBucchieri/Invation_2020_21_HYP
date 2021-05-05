@@ -13,30 +13,25 @@
               <li class="scroll-to-section">
                 <a href="#welcome">Home</a>
               </li>
-              <div
+              <li
                 v-for="theHeaderMenuItem in theHeaderMenuItems"
                 :key="theHeaderMenuItem.name"
+                class="submenu"
               >
-                <li class="submenu">
-                  <TheHeaderMenuItem
-                    :the-header-menu-item="theHeaderMenuItem.name"
-                  ></TheHeaderMenuItem>
-                  <ul>
-                    <div
-                      v-for="extension in theHeaderMenuItem.extensions"
-                      :key="extension.nameExtension"
-                    >
-                      <li>
-                        <TheHeaderMenuItemExtension
-                          :the-header-menu-item-extension="
-                            extension.nameExtension
-                          "
-                        ></TheHeaderMenuItemExtension>
-                      </li>
-                    </div>
-                  </ul>
-                </li>
-              </div>
+                <TheHeaderMenuItem
+                  :the-header-menu-item="theHeaderMenuItem.name"
+                ></TheHeaderMenuItem>
+                <ul>
+                  <li
+                    v-for="extension in theHeaderMenuItem.extensions"
+                    :key="extension.nameExtension"
+                  >
+                    <TheHeaderMenuItemExtension
+                      :the-header-menu-item-extension="extension.nameExtension"
+                    ></TheHeaderMenuItemExtension>
+                  </li>
+                </ul>
+              </li>
             </ul>
             <a class="menu-trigger">
               <span>Menu</span>
@@ -190,7 +185,7 @@ header {
   display: block;
   font-weight: 500;
   font-size: 13px;
-  color: #7a7a7a;
+  color: black;
   text-transform: uppercase;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;

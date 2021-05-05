@@ -2,7 +2,7 @@
   <div class="features-item">
     <h2>{{ numberTag }}</h2>
     <img :src="image" :alt="'Thubmnail image' + name" />
-    <h4>{{ name }}</h4>
+    <h3>{{ name }}</h3>
     <p>
       {{ description }}
     </p>
@@ -84,7 +84,7 @@ a.main-button:hover {
   margin-bottom: 40px;
 }
 
-.features-item h4 {
+.features-item h3 {
   margin-top: 0px;
   font-size: 22px;
   color: #1e1e1e;
