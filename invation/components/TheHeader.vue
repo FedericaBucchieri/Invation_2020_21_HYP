@@ -20,6 +20,7 @@
                 <li class="submenu">
                   <TheHeaderMenuItem
                     :the-header-menu-item="theHeaderMenuItem.name"
+                    :path="theHeaderMenuItem.path"
                   ></TheHeaderMenuItem>
                   <ul>
                     <div
@@ -70,7 +71,7 @@ export default {
             { nameExtension: 'Our Team', path: '/' },
             { nameExtension: 'Role', path: '/' },
           ],
-          path: '/',
+          path: '/invationers',
         },
         {
           name: 'Visions',
@@ -80,7 +81,7 @@ export default {
             { nameExtension: 'Smart Home', path: '/' },
             { nameExtension: 'Work', path: '/' },
           ],
-          path: '/',
+          path: '/visions',
         },
         {
           name: 'Invations',
@@ -89,7 +90,7 @@ export default {
             { nameExtension: 'Virtual & Augumented Reality', path: '/' },
             { nameExtension: 'Internet of things', path: '/' },
           ],
-          path: '/',
+          path: '/invations',
         },
       ],
     }
