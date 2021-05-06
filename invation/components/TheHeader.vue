@@ -9,37 +9,35 @@
             <a class="logo"> Invation </a>
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
-            <ul class="nav">
+            <ul
+              class="nav"
+              :style="{
+                display: myDisplay,
+                'margin-top': myMarginTop + 'px !important',
+              }"
+            >
               <li class="scroll-to-section">
                 <a href="#welcome">Home</a>
               </li>
-              <div
+              <li
                 v-for="theHeaderMenuItem in theHeaderMenuItems"
                 :key="theHeaderMenuItem.name"
+                class="submenu"
               >
-                <li class="submenu">
-                  <TheHeaderMenuItem
-                    :the-header-menu-item="theHeaderMenuItem.name"
-                    :path="theHeaderMenuItem.path"
-                  ></TheHeaderMenuItem>
-                  <ul>
-                    <div
-                      v-for="extension in theHeaderMenuItem.extensions"
-                      :key="extension.nameExtension"
-                    >
-                      <li>
-                        <TheHeaderMenuItemExtension
-                          :the-header-menu-item-extension="
-                            extension.nameExtension
-                          "
-                        ></TheHeaderMenuItemExtension>
-                      </li>
-                    </div>
-                  </ul>
-                </li>
-              </div>
+                <TheHeaderMenuItem
+                  :the-header-menu-item="theHeaderMenuItem.name"
+                  :the-header-menu-item-extensions="
+                    theHeaderMenuItem.extensions
+                  "
+                  :is-activated="isActive"
+                ></TheHeaderMenuItem>
+              </li>
             </ul>
-            <a class="menu-trigger">
+            <a
+              class="menu-trigger"
+              :class="{ active: isActive }"
+              @click="changeMyDisplay"
+            >
               <span>Menu</span>
             </a>
             <!-- ***** Menu End ***** -->
@@ -55,6 +53,9 @@
 export default {
   data() {
     return {
+      isActive: false,
+      myDisplay: 'none',
+      myMarginTop: 20,
       theHeaderMenuItems: [
         {
           name: 'About',
@@ -94,6 +95,18 @@ export default {
         },
       ],
     }
+  },
+  methods: {
+    changeMyDisplay() {
+      if (this.myDisplay === 'none') {
+        this.myDisplay = 'block'
+        this.myMarginTop = 0
+      } else {
+        this.myDisplay = 'none'
+        this.myMarginTop = 20
+      }
+      this.isActive = !this.isActive
+    },
   },
 }
 </script>
@@ -191,7 +204,7 @@ header {
   display: block;
   font-weight: 500;
   font-size: 13px;
-  color: #7a7a7a;
+  color: black;
   text-transform: uppercase;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;

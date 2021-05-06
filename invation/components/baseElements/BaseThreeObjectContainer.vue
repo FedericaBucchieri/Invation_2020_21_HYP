@@ -60,9 +60,16 @@ export default {
   margin: 0;
 }
 
+.right-text li {
+  padding: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: white;
+}
+
 .right-text ul li {
   display: inline-block;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 
 .right-text ul li:last-child {

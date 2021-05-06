@@ -37,7 +37,7 @@ export default {
   display: block;
   font-weight: 500;
   font-size: 13px;
-  color: #7a7a7a;
+  color: black;
   text-transform: uppercase;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
@@ -90,7 +90,7 @@ export default {
 .header-area .main-nav .nav li.submenu ul li a {
   display: block;
   background: #fff;
-  color: #7a7a7a !important;
+  color: black !important;
   padding-left: 20px;
   height: 40px;
   line-height: 40px;

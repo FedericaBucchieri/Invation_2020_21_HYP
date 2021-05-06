@@ -20,7 +20,6 @@
           <a href="https://www.w3schools.com">Visit W3Schools</a>
           GitHub
         </a>
-        <button @click="sendMessage('/about', 'About')">Prova</button>
         <nuxt-link to="/about" @click.native="sendMessage('/about', 'About')"
           >About</nuxt-link
         >
