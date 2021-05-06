@@ -50,6 +50,15 @@ async function init() {
     return res.json(invationImgs)
   })
 
+  // Get the 3 last invations
+  app.get('/invations_last', async (req, res) => {
+    const invations = await Invation.findAll({
+      limit: 3,
+      order: [['createdAt', 'DESC']],
+    })
+    return res.json(invations)
+  })
+
   // API to get a vision by ID.
   app.get('/visions/:id', async (req, res) => {
     const { id } = req.params

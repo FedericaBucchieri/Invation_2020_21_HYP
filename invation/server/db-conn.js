@@ -2,8 +2,8 @@ const { Sequelize, DataTypes } = require('sequelize')
 
 // Development
 const db = new Sequelize(
-  'postgres://postgres:11235813@localhost:5432/InvationDB'
-  // 'postgres://postgres:federica140798@localhost:5432/InvationDB'
+  // 'postgres://postgres:11235813@localhost:5432/InvationDB'
+  'postgres://postgres:federica140798@localhost:5432/InvationDB'
   // 'postgres://postgres:password@localhost:5432/InvationDB'
 )
 
@@ -60,7 +60,7 @@ function defineDatabaseStructure() {
       nationality: DataTypes.STRING,
       overview: DataTypes.TEXT,
       quote: DataTypes.TEXT,
-      picture: DataTypes.STRING,
+      image: DataTypes.STRING,
       sport: DataTypes.STRING,
       hobby: DataTypes.STRING,
       musical: DataTypes.STRING,
@@ -258,7 +258,7 @@ async function insertFakeData() {
       'Hi everyone! My name is Clarke Griffin and I am an Invationer since 2018. I try to innovate leveraging on my Computer Science background, working for Invation as a Software Engineer. Wanna know more? Scroll down!',
     quote:
       'Never say never because limits, like fears, are often just an illusion',
-    picture: 'https://imgur.com/gRHC19s.png',
+    image: 'https://imgur.com/gRHC19s.png',
     sport: 'No please!',
     hobby: 'Gaming, Cooking, Reading',
     musical: 'Pop music',
@@ -281,7 +281,7 @@ async function insertFakeData() {
       'Extrovert italian guys who always makes fun of himself and others and keeps the mood funny',
     quote:
       'Never say never because limits, like fears, are often just an illusion',
-    picture: 'https://i.imgur.com/EgEPqWZb.jpg',
+    image: 'https://i.imgur.com/EgEPqWZb.jpg',
   })
 
   const invationer2 = await Invationer.create({
@@ -295,7 +295,7 @@ async function insertFakeData() {
       'Extrovert italian guys who always makes fun of himself and others and keeps the mood funny',
     quote:
       'Never say never because limits, like fears, are often just an illusion',
-    picture: 'https://i.imgur.com/EgEPqWZb.jpg',
+    image: 'https://i.imgur.com/EgEPqWZb.jpg',
   })
 
   const invationer3 = await Invationer.create({
@@ -309,7 +309,7 @@ async function insertFakeData() {
       'Extrovert italian guys who always makes fun of himself and others and keeps the mood funny',
     quote:
       'Never say never because limits, like fears, are often just an illusion',
-    picture: 'https://i.imgur.com/EgEPqWZb.jpg',
+    image: 'https://i.imgur.com/EgEPqWZb.jpg',
   })
 
   const review1 = await Review.create({

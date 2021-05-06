@@ -26,7 +26,7 @@
             data-scroll-reveal="enter right move 30px over 0.6s after 0.4s"
           >
             <img
-              :src="item.image"
+              :src="item.thumbnail"
               :alt="item.name + 'thumbnail image'"
               width="100"
               height="100"
@@ -34,7 +34,7 @@
             <div class="text">
               <div class="object-name">{{ item.name }}</div>
               <p>
-                {{ item.description }}
+                {{ item.overview }}
               </p>
             </div>
           </li>
@@ -55,6 +55,10 @@ export default {
 </script>
 
 <style scoped>
+.left-image {
+  align-self: center;
+}
+
 .right-text ul {
   padding: 0;
   margin: 0;
@@ -65,6 +69,7 @@ export default {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   background-color: white;
+  width: 100%;
 }
 
 .right-text ul li {
@@ -79,7 +84,7 @@ export default {
 .right-text img {
   display: inline-block;
   float: left;
-  margin-right: 30px;
+  margin-right: 10px;
   max-width: 100px;
   border-radius: 50%;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -87,15 +92,13 @@ export default {
 
 .right-text .object-name {
   font-size: 21px;
-  margin-bottom: 15px;
-  margin-top: 3px;
   text-align: left;
   color: #f38151;
   font-weight: 600;
 }
 
 .right-text p {
-  margin-left: 130px;
+  margin-left: 110px;
   text-align: justify;
 }
 </style>

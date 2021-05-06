@@ -97,21 +97,21 @@ export default {
       founders: [
         {
           name: 'Federica Bucchieri',
-          description:
+          overview:
             'testo di prova testo di prova testo di prova testo di prova',
-          image: 'https://imgur.com/zE45k0i.png',
+          thumbnail: 'https://imgur.com/zE45k0i.png',
         },
         {
           name: 'Lorenzo Cocchia',
-          description:
+          overview:
             'testo di prova testo di prova testo di prova testo di prova',
-          image: 'https://imgur.com/I85XkuB.png',
+          thumbnail: 'https://imgur.com/I85XkuB.png',
         },
         {
           name: 'Alessandro Corsini',
-          description:
+          overview:
             'testo di prova testo di prova testo di prova testo di prova',
-          image: 'https://imgur.com/X1ICPDh.png',
+          thumbnail: 'https://imgur.com/X1ICPDh.png',
         },
       ],
       foundersImage: 'https://imgur.com/GD02BFB.png',
