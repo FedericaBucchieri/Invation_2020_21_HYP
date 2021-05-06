@@ -204,6 +204,7 @@ p {
   height: 110%;
   margin-top: -200px;
   z-index: -1;
+  overflow: hidden;
 }
 
 .right-image-decor {
@@ -216,6 +217,7 @@ p {
   height: 110%;
   margin-top: -200px;
   z-index: -1;
+  overflow: hidden;
 }
 
 h2 {

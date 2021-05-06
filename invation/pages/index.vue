@@ -1,7 +1,6 @@
 <template>
   <div class="container">
     <div>
-      <Logo />
       <h1 class="title">invation</h1>
       <div class="links">
         <a
@@ -21,13 +20,26 @@
           <a href="https://www.w3schools.com">Visit W3Schools</a>
           GitHub
         </a>
+        <button @click="sendMessage('/about', 'About')">Prova</button>
+        <nuxt-link to="/about" @click.native="sendMessage('/about', 'About')"
+          >About</nuxt-link
+        >
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  methods: {
+    sendMessage(newPath, newPathName) {
+      this.$store.commit('addVisitedPath', {
+        path: newPath,
+        pathName: newPathName,
+      })
+    },
+  },
+}
 </script>
 
 <style scoped>

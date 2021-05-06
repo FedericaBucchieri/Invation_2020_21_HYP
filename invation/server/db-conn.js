@@ -159,30 +159,30 @@ async function insertFakeData() {
     creationDate: Date.now(),
   })
 
-    const invation1 = await Invation.create({
+  const invation1 = await Invation.create({
     name: 'Ludomi',
-    overview:
-      'Ludomi is the project awarded by Polisocial in 2017.',
-    concept:
-      'Ludomi is developed into Magika, a smart space software.',
+    overview: 'Ludomi is the project awarded by Polisocial in 2017.',
+    concept: 'Ludomi is developed into Magika, a smart space software.',
     more:
       'All those activities are designed to improve self-movement recognition, ability to work in group, reasoning skills and test contents learning. MuseX has a full body interaction paradigm with drag &amp; drop, RFID reader, walk around interaction and posting gesture recognition. The Magic Room provides both audible and visual feedback that enrich MuseX experience and all the activities can be managed by the teacher using a dedicated app.',
     image: 'https://i3lab.polimi.it/wp-content/uploads/2020/06/IMG_5770.jpg',
-    thumbnail: 'https://i3lab.polimi.it/wp-content/uploads/2020/06/IMG_5765-1024x683-1.jpg',
+    thumbnail:
+      'https://i3lab.polimi.it/wp-content/uploads/2020/06/IMG_5765-1024x683-1.jpg',
     video: 'https://www.youtube.com/embed/EQh3K9SFUtI',
     creationDate: Date.now(),
   })
 
   const invation2 = await Invation.create({
     name: 'Rio',
-    overview:
-      'Rio is a telematic device to embed as an IoT into the trucks',
+    overview: 'Rio is a telematic device to embed as an IoT into the trucks',
     concept:
       'The RIO marketplace is a cloud-based solution which consolidates services for fleet managers, freight forwarders as well as vehicle rental companies to interconnect all involved parties of the supply chain management on a single platform. ',
     more:
       'A great variety of requirements for quality assurance within the transport and logistics sector can be covered with data: GPS tracking of the freight, accounting for the delivery of the freight at a specific time at a specific place (Geofencing), maintenance of the vehicles or monitoring the driving times to optimize route planning. This collected data can be evaluated and used by the fleet administrators and freight forwarders to improve their business strategies.',
-    image: 'https://d11wkw82a69pyn.cloudfront.net/siteassets/images/comsystocontents/rio_canvas_neu.jpg',
-    thumbnail: 'https://d11wkw82a69pyn.cloudfront.net/siteassets/images/comsystocontents/rio_canvas_neu.jpg',
+    image:
+      'https://d11wkw82a69pyn.cloudfront.net/siteassets/images/comsystocontents/rio_canvas_neu.jpg',
+    thumbnail:
+      'https://d11wkw82a69pyn.cloudfront.net/siteassets/images/comsystocontents/rio_canvas_neu.jpg',
     video: 'https://www.youtube.com/embed/EQh3K9SFUtI',
     creationDate: Date.now(),
   })

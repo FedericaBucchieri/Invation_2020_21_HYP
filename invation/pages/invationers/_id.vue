@@ -1,67 +1,78 @@
 <template>
   <div class="content">
     <div class="left-image-decor"></div>
+    <!-- Overview -->
     <object-overview
       :name="completeName"
-      :img-path="invationer.picture"
+      :img-path="invationer.image"
       :overview="invationer.overview"
     ></object-overview>
-    <div class="container">
-      <div class="row">
-        <div class="details-list">
-          <h3>PERSONAL DETAILS</h3>
-          <div class="details-bar">
-            <span><b>age:</b> {{ invationer.age }}</span>
-            <span><b>gender:</b> {{ invationer.gender }}</span>
-            <span><b>nationality:</b> {{ invationer.nationality }}</span>
-            <span><b>sport:</b> {{ invationer.sport }}</span>
-            <span><b>hobby:</b> {{ invationer.hobby }}</span>
+    <!-- Personal Details -->
+    <section id="personalDetails">
+      <div class="container">
+        <div class="row">
+          <div class="details-list">
+            <h3>PERSONAL DETAILS</h3>
+            <div class="details-bar">
+              <span><b>age:</b> {{ invationer.age }}</span>
+              <span><b>gender:</b> {{ invationer.gender }}</span>
+              <span><b>nationality:</b> {{ invationer.nationality }}</span>
+              <span><b>sport:</b> {{ invationer.sport }}</span>
+              <span><b>hobby:</b> {{ invationer.hobby }}</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="role-skill-container">
-          <div class="role-section">
-            <h4>ROLE</h4>
-            <img :src="invationer.badge" />
-            <p>{{ invationer.role }}</p>
-          </div>
-          <div class="skill-section">
-            <h4>SKILLS</h4>
-            <img
-              v-for="(item, itemIndex) of invationer.skills"
-              :key="'skill-' + itemIndex"
-              :src="item.image"
-              :alt="item.name"
-            />
-          </div>
-          <div class="contact-section">
-            <h4>CONTACT ME</h4>
-            <ul
-              class="contact-list"
-              data-scroll-reveal="enter right move 30px over 0.6s after 0.4s"
-            >
-              <li>Telephone Number: +39 389 932321</li>
-              <li>Email: clare.griffin@invation.com</li>
-              <li>Fax: 88776 5432325</li>
-              <li>Linkedin: clarke.griffin</li>
-              <li>Instagram: #clarkeGriffin</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+    </section>
+    <!-- Role, section and Skills -->
     <div class="right-image-decor"></div>
-    <div class="container">
-      <div class="row">
-        <div class="inspirational-quote">"{{ invationer.quote }} "</div>
+    <section id="roleAndSkill">
+      <div class="container">
+        <div class="row">
+          <div class="role-skill-container">
+            <div class="role-section">
+              <h4>ROLE</h4>
+              <img :src="invationer.badge" />
+              <p>{{ invationer.role }}</p>
+            </div>
+            <div class="skill-section">
+              <h4>SKILLS</h4>
+              <img
+                v-for="(item, itemIndex) of invationer.skills"
+                :key="'skill-' + itemIndex"
+                :src="item.image"
+                :alt="item.name"
+              />
+            </div>
+            <div class="contact-section">
+              <h4>CONTACT ME</h4>
+              <ul
+                class="contact-list"
+                data-scroll-reveal="enter right move 30px over 0.6s after 0.4s"
+              >
+                <li>Telephone Number: +39 389 932321</li>
+                <li>Email: clare.griffin@invation.com</li>
+                <li>Fax: 88776 5432325</li>
+                <li>Linkedin: clarke.griffin</li>
+                <li>Instagram: #clarkeGriffin</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
+    <!-- Personal Quote -->
+    <section id="personalQuote">
+      <div class="container">
+        <div class="row">
+          <div class="inspirational-quote">"{{ invationer.quote }} "</div>
+        </div>
+      </div>
+    </section>
+    <!-- Other Invationers -->
     <section id="invationers">
       <invartioner-short-card-container
-        :card-list="invationers"
+        :card-list="invationers.filter((inv) => inv.id !== invationer.id)"
         :title="'Other Invationers'"
       ></invartioner-short-card-container>
     </section>
@@ -108,6 +119,10 @@ export default {
 </script>
 
 <style scoped>
+section {
+  margin: 5% 0 0 0;
+}
+
 .details-list {
   width: 100%;
   text-align: center;
@@ -174,5 +189,21 @@ export default {
   font-style: italic;
   font-size: 30px;
   width: 100%;
+}
+
+@media only screen and (min-width: 810px) {
+  #invationers {
+    margin-bottom: 5%;
+  }
+}
+
+@media only screen and (max-width: 810px) {
+  #personalQuote {
+    margin-bottom: 15%;
+  }
+
+  #invationers {
+    margin-bottom: 20%;
+  }
 }
 </style>
