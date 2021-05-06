@@ -1,13 +1,24 @@
 <template>
   <div>
-    <nuxt-link :to="'/'"
-      >{{ theHeaderMenuItem }}
+    <div>
+      <nuxt-link :to="'/'">{{ theHeaderMenuItem }} </nuxt-link>
       <img
         src="~/static/decor/down-arrow.png"
         class="menu-item-arrow"
         :alt="'menu-element' + theHeaderMenuItem"
+        @click="changeDisplayItemExtensions"
       />
-    </nuxt-link>
+    </div>
+    <ul :class="{ active: isActive }">
+      <li
+        v-for="extension in myTheHeaderMenuItemExtensions"
+        :key="extension.nameExtension"
+      >
+        <TheHeaderMenuItemExtension
+          :the-header-menu-item-extension="extension.nameExtension"
+        ></TheHeaderMenuItemExtension>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -15,6 +26,24 @@
 export default {
   props: {
     theHeaderMenuItem: { type: String, default: () => '' },
+    theHeaderMenuItemExtensions: { type: Array, default: () => [] },
+    isActivated: { type: Boolean, default: false },
+  },
+  data() {
+    return {
+      isActive: false,
+      myTheHeaderMenuItemExtensions: this.theHeaderMenuItemExtensions,
+    }
+  },
+  watch: {
+    isActivated() {
+      if (!this.isActivated) this.isActive = false
+    },
+  },
+  methods: {
+    changeDisplayItemExtensions() {
+      this.isActive = !this.isActive
+    },
   },
 }
 </script>
