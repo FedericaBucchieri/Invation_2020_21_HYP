@@ -3,8 +3,8 @@ const { Sequelize, DataTypes } = require('sequelize')
 // Development
 const db = new Sequelize(
   // 'postgres://postgres:11235813@localhost:5432/InvationDB'
-  'postgres://postgres:federica140798@localhost:5432/InvationDB'
-  // 'postgres://postgres:password@localhost:5432/InvationDB'
+  // 'postgres://postgres:federica140798@localhost:5432/InvationDB'
+  'postgres://postgres:password@localhost:5432/InvationDB'
 )
 
 // Production
@@ -356,12 +356,18 @@ async function insertFakeData() {
  * Function to initialize the database. This is exported and called in the main api.js file
  */
 async function initializeDatabase() {
-  // Call the function for the database structure definition
+  // Call the function for the database structure definition-----
   defineDatabaseStructure()
-  // Synchronize Sequelize with the actual database
-  await db.sync({ force: true })
-  // Call the function to insert some fake data
-  await insertFakeData()
+
+  // Synchronize Sequelize with the actual database--------------
+
+  // force = true drops the existent tables
+  // await db.sync({ force: true })
+  await db.sync()
+
+  // Call the function to insert some fake data -----------------
+
+  // await insertFakeData()
   return db
 }
 

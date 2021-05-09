@@ -1,9 +1,11 @@
 <template>
-  <div data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
-    <a :href="detailPage">
-      <img :src="imgPath" :alt="info" />
-    </a>
-  </div>
+  <!-- <div class="item service-item">
+    <div class="team-content">
+      <a :href="detailPage"> -->
+  <img :src="imgPath" :alt="info" />
+  <!-- </a>
+    </div>
+  </div> -->
 </template>
 
 <script>
@@ -18,11 +20,11 @@ export default {
 </script>
 
 <style scoped>
-img {
+/* img {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
   height: auto;
-}
+} */
 </style>
