@@ -1,5 +1,5 @@
 <template>
-  <div class="welcome-invationers-area" id="welcome">
+  <div id="welcome" class="welcome-invationers-area">
     <!-- ***** Header Text Start ***** -->
     <div class="header-text">
       <div class="container">
@@ -8,11 +8,19 @@
             class="left-text col-lg-6 col-md-12 col-sm-12 col-xs-12"
             data-scroll-reveal="enter left move 30px over 0.6s after 0.4s"
           >
+            <div class="breadcrump-link">
+              <span
+                v-for="(item, itemIndex) of this.$store.state.visitedPaths"
+                :key="'breadcrupm-link-' + itemIndex"
+              >
+                <nuxt-link :to="item.path"> > {{ item.pathName }} </nuxt-link>
+              </span>
+            </div>
             <h1><slot name="title"></slot></h1>
             <p>
               <slot name="overview"></slot>
             </p>
-            <a class="main-button-slider">{{ textButton }} </a>
+            <a class="main-button-slider" :href="link">{{ textButton }} </a>
           </div>
         </div>
       </div>
@@ -25,11 +33,16 @@
 export default {
   props: {
     textButton: { type: String, default: () => '' },
+    link: { type: String, default: () => '' },
   },
 }
 </script>
 
 <style scoped>
+.breadcrump-link {
+  margin-bottom: 10px;
+}
+
 a.main-button-slider {
   font-size: 14px;
   border-radius: 25px;
@@ -81,7 +94,7 @@ a.main-button-slider:hover {
 .welcome-invationers-area .header-text p {
   font-weight: 300;
   font-size: 17px;
-  color: #7a7a7a;
+  color: #000;
   line-height: 30px;
   letter-spacing: 0.25px;
   margin-bottom: 40px;

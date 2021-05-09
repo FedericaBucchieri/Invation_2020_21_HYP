@@ -5,7 +5,7 @@
       </object-presentation-img>
 
       <div
-        class="right-text col-lg-6 col-md-12 col-sm-12 col-xs-12 inside-container"
+        class="right-text col-lg-6 col-md-12 col-sm-12 col-xs-12 inside-container overview-row"
         data-scroll-reveal="enter left move 30px over 0.6s after 0.4s"
       >
         <span
@@ -48,6 +48,10 @@ export default {
 </script>
 
 <style scoped>
+.overview-row {
+  align-self: center;
+}
+
 h1 {
   font-weight: 900;
   font-size: 52px;
@@ -69,5 +73,9 @@ h4 {
   align-self: center;
   margin-top: 35%;
   transform: perspective(1px) translateY(-30%) !important;
+}
+
+.container {
+  margin-top: 100px;
 }
 </style>

@@ -13,24 +13,21 @@ export default {
   ],
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'invation',
+    title: 'Invation',
     htmlAttrs: {
       lang: 'en',
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'Invation',
+        name: 'Invation',
+        content:
+          'Invation is a visionary company that proposes four thematic visions full of innovative product to have a look at the future',
+      },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-  },
-
-  render: {
-    // Setting up cache for 'static' directory - a year in milliseconds
-    // https://web.dev/uses-long-cache-ttl
-    static: {
-      maxAge: 60 * 60 * 24 * 365 * 1000,
-    },
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

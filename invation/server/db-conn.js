@@ -63,7 +63,7 @@ function defineDatabaseStructure() {
       nationality: DataTypes.STRING,
       overview: DataTypes.TEXT,
       quote: DataTypes.TEXT,
-      picture: DataTypes.STRING,
+      image: DataTypes.STRING,
       sport: DataTypes.STRING,
       hobby: DataTypes.STRING,
       musical: DataTypes.STRING,
@@ -275,7 +275,7 @@ async function insertFakeData() {
       'Hi everyone! My name is Clarke Griffin and I am an Invationer since 2018. I try to innovate leveraging on my Computer Science background, working for Invation as a Software Engineer. Wanna know more? Scroll down!',
     quote:
       'Never say never because limits, like fears, are often just an illusion',
-    picture: 'https://imgur.com/gRHC19s.png',
+    image: 'https://imgur.com/gRHC19s.png',
     sport: 'No please!',
     hobby: 'Gaming, Cooking, Reading',
     musical: 'Pop music',
@@ -298,7 +298,7 @@ async function insertFakeData() {
       'Extrovert italian guys who always makes fun of himself and others and keeps the mood funny',
     quote:
       'Never say never because limits, like fears, are often just an illusion',
-    picture: 'https://i.imgur.com/EgEPqWZb.jpg',
+    image: 'https://i.imgur.com/EgEPqWZb.jpg',
   })
 
   const invationer2 = await Invationer.create({
@@ -312,7 +312,7 @@ async function insertFakeData() {
       'Extrovert italian guys who always makes fun of himself and others and keeps the mood funny',
     quote:
       'Never say never because limits, like fears, are often just an illusion',
-    picture: 'https://i.imgur.com/EgEPqWZb.jpg',
+    image: 'https://i.imgur.com/EgEPqWZb.jpg',
   })
 
   const invationer3 = await Invationer.create({
@@ -326,7 +326,7 @@ async function insertFakeData() {
       'Extrovert italian guys who always makes fun of himself and others and keeps the mood funny',
     quote:
       'Never say never because limits, like fears, are often just an illusion',
-    picture: 'https://i.imgur.com/EgEPqWZb.jpg',
+    image: 'https://i.imgur.com/EgEPqWZb.jpg',
   })
 
   const review1 = await Review.create({
@@ -375,11 +375,17 @@ async function insertFakeData() {
  * Function to initialize the database. This is exported and called in the main api.js file
  */
 async function initializeDatabase() {
-  // Call the function for the database structure definition
+  // Call the function for the database structure definition-----
   defineDatabaseStructure()
-  // Synchronize Sequelize with the actual database
+
+  // Synchronize Sequelize with the actual database--------------
+
+  // force = true drops the existent tables
   await db.sync({ force: true })
-  // Call the function to insert some fake data
+  await db.sync()
+
+  // Call the function to insert some fake data -----------------
+
   await insertFakeData()
   return db
 }

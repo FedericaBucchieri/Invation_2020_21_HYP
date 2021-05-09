@@ -11,13 +11,12 @@
     <div v-if="hasOverlay" class="overlay">
       <div class="container">
         <div
+          class="featured-box"
           data-effect="slide-bottom"
           data-scroll-reveal="enter bottom move 30px over 0.6s after 0.4s"
         >
           <h3><slot name="overlay-title"></slot></h3>
-          <div class="img-team">
-            <slot name="overlay-img"></slot>
-          </div>
+          <slot name="overlay-img"></slot>
         </div>
       </div>
     </div>
@@ -85,23 +84,21 @@ export default {
   padding: 60px 0 0 0;
   background-color: #f4813f;
 }
-.img-team {
-  justify-content: center;
-  align-items: center;
+
+.featured-box {
+  text-align: center;
+}
+
+.featured-box h3 {
+  color: #fff;
+  font-weight: 600;
+  font-size: 32px;
+  text-align: center;
+  padding: 25px;
+}
+
+.featured-box > img {
   max-width: 100%;
   height: auto;
-  margin: auto;
-}
-
-.img-team > img {
-  margin-right: auto;
-  margin-left: auto;
-}
-
-@media (min-width: 600px) {
-  .img-team > img {
-    max-width: 100%;
-    height: auto;
-  }
 }
 </style>

@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-lg-8 offset-lg-2 inside-container">
         <div class="center-heading">
-          <h2>{{ title }}</h2>
+          <h3>{{ title }}</h3>
         </div>
       </div>
       <div
@@ -14,7 +14,7 @@
           v-for="(item, itemIndex) of cardList"
           :id="item.id"
           :key="'invartioner-card' + itemIndex"
-          :img="item.picture"
+          :img="item.image"
           :name="item.name"
           :surname="item.surname"
           :role="item.role"
