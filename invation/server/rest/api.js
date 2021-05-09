@@ -16,13 +16,13 @@ async function init() {
     const visions = await Vision.findAll()
     return res.json(visions)
   })
-  
+
   // Get all the invationers
   app.get('/invationers', async (req, res) => {
     const invationers = await Invationer.findAll()
     return res.json(invationers)
   })
-  
+
   // Get all the invations
   app.get('/invations', async (req, res) => {
     const invations = await Invation.findAll()
@@ -32,22 +32,22 @@ async function init() {
   // Get 10 invations' images and use their overview as alt attribute
   // https://sequelize.org/v5/manual/models-usage.html#manipulating-the-dataset-with-limit--offset--order-and-group
   app.get('/invations10', async (req, res) => {
-    const invations = await Invation.findAll({ limit: 10 });
+    const invations = await Invation.findAll({ limit: 10 })
 
-    let invationImgs = [];
-    
-    invations.forEach(invation => {
-       let item = {
+    let invationImgs = []
+
+    invations.forEach((invation) => {
+      let item = {
         id: invation.id,
         name: invation.name,
         alt: invation.overview,
         imgPath: invation.thumbnail,
-        detailPage: `/invation/${invation.id}`
+        detailPage: `/invation/${invation.id}`,
       }
-      invationImgs.push(item);
-    });
+      invationImgs.push(item)
+    })
 
-    return res.json(invationImgs);
+    return res.json(invationImgs)
   })
 
   // API to get a vision by ID.
@@ -55,7 +55,10 @@ async function init() {
     const { id } = req.params
     const vision = await Vision.findOne({
       where: { id },
-      include: { model: Invation },
+      include: {
+        model: Invation,
+        attributes: ['name', 'subtitle', 'overview', 'image', 'numberTag'],
+      },
     })
     return res.json(vision)
   })

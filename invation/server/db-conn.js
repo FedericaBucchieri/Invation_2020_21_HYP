@@ -24,10 +24,12 @@ function defineDatabaseStructure() {
     'invation',
     {
       name: DataTypes.STRING,
+      subtitle: DataTypes.STRING,
       overview: DataTypes.TEXT,
       concept: DataTypes.TEXT,
       more: DataTypes.TEXT,
       image: DataTypes.STRING,
+      numberTag: DataTypes.STRING,
       thumbnail: DataTypes.STRING,
       video: DataTypes.STRING,
       creationDate: DataTypes.DATE,
@@ -43,6 +45,7 @@ function defineDatabaseStructure() {
       name: DataTypes.STRING,
       description: DataTypes.TEXT,
       image: DataTypes.STRING,
+      video: DataTypes.STRING,
     },
     {
       underscored: true,
@@ -148,6 +151,7 @@ async function insertFakeData() {
   // Create the first Article
   const invation0 = await Invation.create({
     name: 'MuseX',
+    subtitle: 'Smart space experience',
     overview:
       'MuseX is a smart space software, aimed at differentiating the teaching proposal in elementary schools, offering a special experience to children. It proposes a 360° experience inside a Natural History Museum.',
     concept:
@@ -155,6 +159,7 @@ async function insertFakeData() {
     more:
       'All those activities are designed to improve self-movement recognition, ability to work in group, reasoning skills and test contents learning. MuseX has a full body interaction paradigm with drag &amp; drop, RFID reader, walk around interaction and posting gesture recognition. The Magic Room provides both audible and visual feedback that enrich MuseX experience and all the activities can be managed by the teacher using a dedicated app.',
     image: 'https://imgur.com/wuBnUBF.png',
+    numberTag: '01',
     thumbnail: 'https://imgur.com/S0Ope6O.png',
     video: 'https://www.youtube.com/embed/EQh3K9SFUtI',
     creationDate: Date.now(),
@@ -162,11 +167,13 @@ async function insertFakeData() {
 
   const invation1 = await Invation.create({
     name: 'Ludomi',
+    subtitle: 'Learning through play',
     overview: 'Ludomi is the project awarded by Polisocial in 2017.',
     concept: 'Ludomi is developed into Magika, a smart space software.',
     more:
       'All those activities are designed to improve self-movement recognition, ability to work in group, reasoning skills and test contents learning. MuseX has a full body interaction paradigm with drag &amp; drop, RFID reader, walk around interaction and posting gesture recognition. The Magic Room provides both audible and visual feedback that enrich MuseX experience and all the activities can be managed by the teacher using a dedicated app.',
     image: 'https://i3lab.polimi.it/wp-content/uploads/2020/06/IMG_5770.jpg',
+    numberTag: '02',
     thumbnail:
       'https://i3lab.polimi.it/wp-content/uploads/2020/06/IMG_5765-1024x683-1.jpg',
     video: 'https://www.youtube.com/embed/EQh3K9SFUtI',
@@ -175,6 +182,7 @@ async function insertFakeData() {
 
   const invation2 = await Invation.create({
     name: 'Rio',
+    subtitle: 'A robotic companion',
     overview: 'Rio is a telematic device to embed as an IoT into the trucks',
     concept:
       'The RIO marketplace is a cloud-based solution which consolidates services for fleet managers, freight forwarders as well as vehicle rental companies to interconnect all involved parties of the supply chain management on a single platform. ',
@@ -182,6 +190,7 @@ async function insertFakeData() {
       'A great variety of requirements for quality assurance within the transport and logistics sector can be covered with data: GPS tracking of the freight, accounting for the delivery of the freight at a specific time at a specific place (Geofencing), maintenance of the vehicles or monitoring the driving times to optimize route planning. This collected data can be evaluated and used by the fleet administrators and freight forwarders to improve their business strategies.',
     image:
       'https://d11wkw82a69pyn.cloudfront.net/siteassets/images/comsystocontents/rio_canvas_neu.jpg',
+    numberTag: '03',
     thumbnail:
       'https://d11wkw82a69pyn.cloudfront.net/siteassets/images/comsystocontents/rio_canvas_neu.jpg',
     video: 'https://www.youtube.com/embed/EQh3K9SFUtI',
@@ -194,6 +203,8 @@ async function insertFakeData() {
     description:
       'A new way of learning in a more effective way. Discover ourproposals about a new experience in the world of education.',
     image: 'https://imgur.com/gRHC19s.png',
+    video:
+      'https://www.youtube.com/embed/nmu7kEzAQus?autoplay=1&mute=1&controls=0&loop=1',
   })
   const vision1 = await Vision.create({
     numberTag: '02',
@@ -201,6 +212,8 @@ async function insertFakeData() {
     description:
       'The world of entertainment is ready to embrace the new technologies about VR and AR where Reality merges with immagination.',
     image: 'https://imgur.com/gRHC19s.png',
+    video:
+      'https://www.youtube.com/embed/nmu7kEzAQus?autoplay=1&mute=1&controls=0&loop=1',
   })
   const vision2 = await Vision.create({
     numberTag: '03',
@@ -208,6 +221,8 @@ async function insertFakeData() {
     description:
       'Your home is part of your life, leaving in an intelligent and smart environment is essential for your quality of life.',
     image: 'https://imgur.com/gRHC19s.png',
+    video:
+      'https://www.youtube.com/embed/nmu7kEzAQus?autoplay=1&mute=1&controls=0&loop=1',
   })
   const vision3 = await Vision.create({
     numberTag: '04',
@@ -215,6 +230,8 @@ async function insertFakeData() {
     description:
       'The Covid-19 pandemic has accelerated an inevitable trend in which giving new opportunities for an efficient work indipendently from where you are is fundamental.',
     image: 'https://imgur.com/gRHC19s.png',
+    video:
+      'https://www.youtube.com/embed/nmu7kEzAQus?autoplay=1&mute=1&controls=0&loop=1',
   })
 
   const technology1 = await Technology.create({
@@ -323,6 +340,8 @@ async function insertFakeData() {
   })
 
   await vision0.addInvation(invation0.id)
+  await vision0.addInvation(invation1.id)
+  await vision0.addInvation(invation2.id)
   await vision0.addInvationer(invationer0.id)
   await invationer0.addInvation(invation0.id)
   await invationer1.addInvation(invation0.id)

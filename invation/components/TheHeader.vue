@@ -25,10 +25,11 @@
                 class="submenu"
               >
                 <TheHeaderMenuItem
-                  :the-header-menu-item="theHeaderMenuItem.name"
+                  :the-header-menu-item-name="theHeaderMenuItem.name"
                   :the-header-menu-item-extensions="
                     theHeaderMenuItem.extensions
                   "
+                  :the-header-menu-item-path="theHeaderMenuItem.path"
                   :is-activated="isActive"
                 ></TheHeaderMenuItem>
               </li>

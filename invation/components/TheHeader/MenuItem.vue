@@ -1,11 +1,20 @@
 <template>
   <div>
     <div>
-      <nuxt-link :to="'/'">{{ theHeaderMenuItem }} </nuxt-link>
+      <nuxt-link :to="theHeaderMenuItemPath"
+        >{{ theHeaderMenuItemName }}
+        <img
+          v-if="!isActivated"
+          src="~/static/decor/down-arrow.png"
+          class="menu-item-arrow"
+          :alt="'menu-element' + theHeaderMenuItemName"
+          @click="changeDisplayItemExtensions"
+      /></nuxt-link>
       <img
+        v-if="isActivated"
         src="~/static/decor/down-arrow.png"
         class="menu-item-arrow"
-        :alt="'menu-element' + theHeaderMenuItem"
+        :alt="'menu-element' + theHeaderMenuItemName"
         @click="changeDisplayItemExtensions"
       />
     </div>
@@ -15,7 +24,8 @@
         :key="extension.nameExtension"
       >
         <TheHeaderMenuItemExtension
-          :the-header-menu-item-extension="extension.nameExtension"
+          :the-header-menu-item-extension-name="extension.nameExtension"
+          :the-header-menu-item-extension-path="extension.path"
         ></TheHeaderMenuItemExtension>
       </li>
     </ul>
@@ -25,7 +35,8 @@
 <script>
 export default {
   props: {
-    theHeaderMenuItem: { type: String, default: () => '' },
+    theHeaderMenuItemName: { type: String, default: () => '' },
+    theHeaderMenuItemPath: { type: String, default: () => '' },
     theHeaderMenuItemExtensions: { type: Array, default: () => [] },
     isActivated: { type: Boolean, default: false },
   },

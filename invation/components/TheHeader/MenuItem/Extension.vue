@@ -1,11 +1,14 @@
 <template>
-  <nuxt-link :to="'/'">{{ theHeaderMenuItemExtension }}</nuxt-link>
+  <nuxt-link :to="theHeaderMenuItemExtensionPath">{{
+    theHeaderMenuItemExtensionName
+  }}</nuxt-link>
 </template>
 
 <script>
 export default {
   props: {
-    theHeaderMenuItemExtension: { type: String, default: () => '' },
+    theHeaderMenuItemExtensionName: { type: String, default: () => '' },
+    theHeaderMenuItemExtensionPath: { type: String, default: () => '' },
   },
 }
 </script>
@@ -222,6 +225,7 @@ export default {
   .header-area .main-nav .nav li.submenu ul li a {
     font-size: 12px;
     font-weight: 400;
+    background: white !important;
   }
   .header-area .main-nav .nav li.submenu ul li a:hover:before {
     width: 0px;
