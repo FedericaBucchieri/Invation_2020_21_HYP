@@ -31,10 +31,11 @@
 
     <!-- Invationers -->
     <section id="invationers">
-      <invartioner-short-card-container
+      <short-card-container
         :title="invationerTitle"
-        :cardList="invationers"
-      ></invartioner-short-card-container>
+        :card-list="invationers"
+        :typology="`invationers`"
+      ></short-card-container>
     </section>
   </div>
 </template>
@@ -43,30 +44,14 @@
 import BaseThreeObjectContainer from '~/components/baseElements/BaseThreeObjectContainer.vue'
 import WelcomeAreaStart from '~/components/baseElements/WelcomeAreaStart.vue'
 import ContentRoundedContainers from '~/components/vision/ContentRoundedContainers.vue'
-import InvartionerShortCardContainer from '~/components/invationer/InvartionerShortCardContainer.vue'
+import ShortCardContainer from '~/components/baseElements/ShortCardContainer.vue'
 
 export default {
   components: {
     WelcomeAreaStart,
     ContentRoundedContainers,
     BaseThreeObjectContainer,
-    InvartionerShortCardContainer,
-  },
-  data() {
-    return {
-      textButton: 'KNOW US BETTER',
-      areaName: 'Explore our Visions',
-      bigImage: 'https://imgur.com/OrwkWr6.png',
-      invationerTitle: 'Discover our team: The Invationers',
-    }
-  },
-  methods: {
-    sendMessage(newPath, newPathName) {
-      this.$store.commit('addVisitedPath', {
-        path: newPath,
-        pathName: newPathName,
-      })
-    },
+    ShortCardContainer,
   },
   async asyncData({ $axios }) {
     const visions = await $axios.get(`${process.env.BASE_URL}/api/visions`)
@@ -84,6 +69,22 @@ export default {
       last3Invations: last3Invations.data,
       invationers: invationers.data,
     }
+  },
+  data() {
+    return {
+      textButton: 'KNOW US BETTER',
+      areaName: 'Explore our Visions',
+      bigImage: 'https://imgur.com/OrwkWr6.png',
+      invationerTitle: 'Discover our team: The Invationers',
+    }
+  },
+  methods: {
+    sendMessage(newPath, newPathName) {
+      this.$store.commit('addVisitedPath', {
+        path: newPath,
+        pathName: newPathName,
+      })
+    },
   },
 }
 </script>

@@ -93,7 +93,7 @@ async function init() {
   })
 
   // API to get an invationer by ID.
-  app.get('/invationer/:id', async (req, res) => {
+  app.get('/invationers/:id', async (req, res) => {
     const { id } = req.params
     const invationer = await Invationer.findOne({
       where: { id },

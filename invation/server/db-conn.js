@@ -2,9 +2,9 @@ const { Sequelize, DataTypes } = require('sequelize')
 
 // Development
 const db = new Sequelize(
-  'postgres://postgres:11235813@localhost:5432/InvationDB'
+  // 'postgres://postgres:11235813@localhost:5432/InvationDB'
   // 'postgres://postgres:federica140798@localhost:5432/InvationDB'
-  // 'postgres://postgres:password@localhost:5432/InvationDB'
+  'postgres://postgres:password@localhost:5432/InvationDB'
 )
 
 // Production
@@ -382,7 +382,7 @@ async function initializeDatabase() {
 
   // force = true drops the existent tables
   await db.sync({ force: true })
-  await db.sync()
+  // await db.sync()
 
   // Call the function to insert some fake data -----------------
 
