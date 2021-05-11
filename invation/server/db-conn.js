@@ -2,8 +2,8 @@ const { Sequelize, DataTypes } = require('sequelize')
 
 // Development
 const db = new Sequelize(
-  'postgres://postgres:11235813@localhost:5432/InvationDB'
-  // 'postgres://postgres:federica140798@localhost:5432/InvationDB'
+  // 'postgres://postgres:11235813@localhost:5432/InvationDB'
+  'postgres://postgres:federica140798@localhost:5432/InvationDB'
   // 'postgres://postgres:password@localhost:5432/InvationDB'
 )
 
@@ -113,6 +113,19 @@ function defineDatabaseStructure() {
     }
   )
 
+  const User = db.define(
+    'user',
+    {
+      username: DataTypes.STRING,
+      password: DataTypes.STRING,
+      email: DataTypes.STRING,
+      image: DataTypes.STRING,
+    },
+    {
+      underscored: true,
+    }
+  )
+
   // --------------- ASSOCIATIONS -------------------
   // More on association: https://sequelize.org/master/manual/assocs.html
 
@@ -134,6 +147,9 @@ function defineDatabaseStructure() {
   // 'Write' relationship One-To-Many
   Invation.hasMany(Review, { foreignKey: 'invation_id' })
   Review.belongsTo(Invation)
+  // 'Saved on' relationship Many-To-Many
+  User.belongsToMany(Invation, { through: 'UserInvation' })
+  Invation.belongsToMany(User, { through: 'UserInvation' })
 
   db._tables = {
     Invation,
@@ -142,12 +158,21 @@ function defineDatabaseStructure() {
     Technology,
     Skill,
     Review,
+    User,
   }
 }
 
 // --------------- SEEDING -------------------------------
 async function insertFakeData() {
-  const { Invation, Vision, Invationer, Technology, Skill, Review } = db._tables
+  const {
+    Invation,
+    Vision,
+    Invationer,
+    Technology,
+    Skill,
+    Review,
+    User,
+  } = db._tables
   // Create the first Article
   const invation0 = await Invation.create({
     name: 'MuseX',
@@ -339,6 +364,13 @@ async function insertFakeData() {
     body: 'Omg I want to play with it!',
   })
 
+  const user1 = await User.create({
+    username: 'user1',
+    password: 'user1',
+    email: 'user1@mail.com',
+    image: 'https://www.w3schools.com/howto/img_avatar2.png',
+  })
+
   await vision0.addInvation(invation0.id)
   await vision0.addInvation(invation1.id)
   await vision0.addInvation(invation2.id)
@@ -370,6 +402,7 @@ async function insertFakeData() {
   await invationer0.addSkill(skill3.id)
   await invation0.addReview(review1.id)
   await invation0.addReview(review2.id)
+  await user1.addInvation(invation1)
 }
 /**
  * Function to initialize the database. This is exported and called in the main api.js file

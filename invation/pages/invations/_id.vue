@@ -4,10 +4,13 @@
     <section>
       <!-- ***** Overview  ***** -->
       <object-overview
+        :id="invation.id"
         :name="invation.name"
         :img-path="invation.image"
         :overview="invation.overview"
         :tags="invation.technologies"
+        :is-savable="true"
+        :is-saved="isSaved"
       ></object-overview>
     </section>
     <!-- ***** Concept  ***** -->
@@ -127,6 +130,27 @@ export default {
         },
       ],
     }
+  },
+  computed: {
+    isSaved() {
+      const userId = this.$auth.$storage.getLocalStorage('userId')
+
+      if (userId === null || userId === undefined) {
+        return false
+      } else {
+        let finded = false
+
+        this.invation.users.forEach((user) => {
+          if (userId === user.id) {
+            finded = true
+          } else {
+            finded = false
+          }
+        })
+
+        return finded
+      }
+    },
   },
   methods: {
     postReview(e) {

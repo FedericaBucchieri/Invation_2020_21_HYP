@@ -1,6 +1,7 @@
 <template>
   <div>
     <TheHeader />
+    <TheUserAuthenticationHandler />
     <Nuxt />
     <TheFooter />
   </div>

@@ -9,7 +9,15 @@ async function init() {
   // Call the init function that returns the Database
   const db = await initializeDatabase()
   // Let's extract all the objects we need to perform queries inside the endpoints
-  const { Invation, Vision, Invationer, Technology, Skill, Review } = db._tables
+  const {
+    Invation,
+    Vision,
+    Invationer,
+    Technology,
+    Skill,
+    Review,
+    User,
+  } = db._tables
 
   // Get all the visions
   app.get('/visions', async (req, res) => {
@@ -84,6 +92,7 @@ async function init() {
         },
         { model: Technology, attributes: ['id', 'name', 'color'] },
         { model: Review },
+        { model: User, attributes: ['id'] },
       ],
       attributes: {
         exclude: ['thumbnail'],
@@ -102,14 +111,17 @@ async function init() {
     return res.json(invationer)
   })
 
-  // This one is just an example
-  app.get('/ad', (req, res) => {
-    return res.json({
-      url:
-        'https://wordstream-files-prod.s3.amazonaws.com/s3fs-public/styles/simple_image/public/images/media/images/google-display-ads-example-2-final.png?oV7qevVB2XtFyF_O64TG6L27AFM3M2oL&itok=TBfuuTM_',
+  // API to get a user by ID.
+  app.get('/users/:id', async (req, res) => {
+    const { id } = req.params
+    const user = await User.findOne({
+      where: { id },
+      include: { model: Invation },
     })
+    return res.json(user)
   })
 
+  // API to create a new review
   app.post('/review', async (req, res) => {
     const body = req.body
 
@@ -120,6 +132,89 @@ async function init() {
     })
 
     return res.send(newReview)
+  })
+
+  // API for handling login request
+  app.post('/login', async (req, res) => {
+    const body = req.body
+
+    const user = await User.findOne({
+      where: { username: body.username },
+    })
+
+    if (user === null) {
+      console.log('null')
+      const error = 'Username not found. Try again'
+      return res.status(404).json(error)
+    }
+    if (user.password === body.password) {
+      console.log('user')
+      return res.send(user)
+    } else {
+      console.log('pass')
+      const error = 'Wrong password. Try again'
+      return res.status(404).json(error)
+    }
+  })
+
+  // API for handling registration request
+  app.post('/registration', async (req, res) => {
+    const body = req.body
+    const password = req.password
+    const repeat = req.repeat
+
+    if (password === repeat) {
+      const user = await User.create({
+        username: body.username,
+        email: body.email,
+        password: body.password,
+      })
+
+      return res.send(user)
+    } else {
+      const error = 'The two password are not matching. Please retry.'
+      return res.status(404).json(error)
+    }
+  })
+
+  // API for modifying the user profile
+  app.put('/updateProfile/:id', async (req, res) => {
+    const { id } = req.params
+    const body = req.body
+
+    const updated = await User.update(body, {
+      where: { id: id },
+    })
+
+    return res.send(updated)
+  })
+
+  app.post('/saveInvation/:idInvation/:idUser', async (req, res) => {
+    const { idUser, idInvation } = req.params
+
+    const user = await User.findOne({
+      where: { id: idUser },
+    })
+
+    const invation = await Invation.findOne({
+      where: { id: idInvation },
+    })
+
+    await user.addInvation(invation)
+  })
+
+  app.post('/unSaveInvation/:idInvation/:idUser', async (req, res) => {
+    const { idUser, idInvation } = req.params
+
+    const user = await User.findOne({
+      where: { id: idUser },
+    })
+
+    const invation = await Invation.findOne({
+      where: { id: idInvation },
+    })
+
+    await user.removeInvation(invation)
   })
 }
 

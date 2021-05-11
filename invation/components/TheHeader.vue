@@ -17,7 +17,7 @@
               }"
             >
               <li class="scroll-to-section">
-                <a href="#welcome">Home</a>
+                <a href="/">Home</a>
               </li>
               <li
                 v-for="theHeaderMenuItem in theHeaderMenuItems"
@@ -42,6 +42,31 @@
               <span>Menu</span>
             </a>
             <!-- ***** Menu End ***** -->
+            <!--  Login User -->
+            <a v-if="username !== null" class="login" :href="'/users/' + id"
+              ><img
+                class="login-icon"
+                src="/profile-user.png"
+                width="30"
+                height="30"
+                alt="Login Icon"
+              />
+              <span>{{ username }}</span>
+            </a>
+            <a v-if="username !== null" class="close" href="/" @click="logout"
+              >&times;</a
+            >
+            <a v-else class="login" @click="showLoginForm"
+              ><img
+                class="login-icon"
+                src="/profile-user.png"
+                width="30"
+                height="30"
+                alt="Login Icon"
+              />
+              <span>Login</span>
+            </a>
+            <!-- Login End -->
           </nav>
         </div>
       </div>
@@ -61,11 +86,10 @@ export default {
         {
           name: 'About',
           extensions: [
-            { nameExtension: 'About the Company', path: '/' },
             { nameExtension: 'Contact Us', path: '/' },
             { nameExtension: 'How to get here', path: '/' },
           ],
-          path: '/',
+          path: '/about',
         },
         {
           name: 'Invationers',
@@ -97,6 +121,25 @@ export default {
       ],
     }
   },
+  computed: {
+    username() {
+      const username = this.$auth.$storage.getLocalStorage('username')
+
+      if (username === undefined) {
+        return null
+      } else {
+        return username
+      }
+    },
+    id() {
+      const userId = this.$auth.$storage.getLocalStorage('userId')
+      if (userId === undefined) {
+        return null
+      } else {
+        return userId
+      }
+    },
+  },
   methods: {
     changeMyDisplay() {
       if (this.myDisplay === 'none') {
@@ -107,6 +150,13 @@ export default {
         this.myMarginTop = 20
       }
       this.isActive = !this.isActive
+    },
+    showLoginForm() {
+      document.getElementById('loginForm').style.display = 'block'
+    },
+    logout() {
+      this.$auth.$storage.removeLocalStorage('username')
+      this.$auth.$storage.removeLocalStorage('userId')
     },
   },
 }
@@ -313,7 +363,7 @@ header {
   height: 40px;
   text-indent: -9999em;
   z-index: 99;
-  right: 40px;
+  right: 15%;
   display: none;
 }
 
@@ -453,7 +503,8 @@ header {
     padding: 0px;
   }
   .header-area .logo {
-    margin-left: 30px;
+    text-align: center;
+    margin-left: -13%;
   }
   .header-area .menu-trigger {
     display: block !important;
@@ -526,6 +577,13 @@ header {
   .header-area .main-nav .nav li.submenu:focus ul {
     height: 0px;
   }
+
+  .login span {
+    display: none;
+  }
+  .login image {
+    margin: 0;
+  }
 }
 
 @media (min-width: 992px) {
@@ -544,5 +602,35 @@ header {
 
 .header-area.header-sticky .nav li a.active {
   color: #fba70b;
+}
+
+.login {
+  line-height: 80px;
+  float: left;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  margin-left: 2%;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.close {
+  font-size: 25px;
+  line-height: 80px;
+  float: left;
+  margin-left: 5px;
+}
+
+.login-icon {
+  width: 25px;
+  height: auto;
+}
+
+.login-icon:hover {
+  cursor: pointer;
 }
 </style>
