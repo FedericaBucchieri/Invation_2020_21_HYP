@@ -116,7 +116,7 @@ export default {
     position: relative;
     overflow: hidden;
     /* fix for flashing background */
-    -webkit-transform: translate3d(0px, 0px, 0px);
+    /* -webkit-transform: translate3d(0px, 0px, 0px); */
   }
 }
 
@@ -238,15 +238,12 @@ export default {
   display: none;
   width: 100%;
   -webkit-tap-highlight-color: transparent;
-  /* position relative and z-index fix webkit rendering fonts issue */
   position: relative;
 }
 .owl-carousel .owl-stage {
   position: relative;
   -ms-touch-action: pan-Y;
   touch-action: manipulation;
-  -moz-backface-visibility: hidden;
-  /* fix firefox animation glitch */
 }
 .owl-carousel .owl-stage:after {
   content: '.';
@@ -256,20 +253,11 @@ export default {
   line-height: 0;
   height: 0;
 }
-.owl-carousel .owl-wrapper,
-.owl-carousel .owl-item {
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  -ms-backface-visibility: hidden;
-  -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform: translate3d(0, 0, 0);
-  -ms-transform: translate3d(0, 0, 0);
-}
+
 .owl-carousel .owl-item {
   position: relative;
   min-height: 1px;
   float: left;
-  -webkit-backface-visibility: hidden;
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
 }
@@ -373,12 +361,7 @@ export default {
 /*
  * 	Owl Carousel - Lazy Load Plugin
  */
-.owl-carousel .owl-item {
-  /**
-			This is introduced due to a bug in IE11 where lazy loading combined with autoheight plugin causes a wrong
-			calculation of the height of the owl-item that breaks page layouts
-		 */
-}
+
 .owl-carousel .owl-item .owl-lazy {
   opacity: 0;
   transition: opacity 400ms ease;
@@ -408,10 +391,8 @@ export default {
   top: 50%;
   margin-left: -40px;
   margin-top: -40px;
-  /* background: url('owl.video.play.png') no-repeat; */
   cursor: pointer;
   z-index: 1;
-  -webkit-backface-visibility: hidden;
   transition: transform 100ms ease;
 }
 
@@ -440,24 +421,4 @@ export default {
   height: 100%;
   width: 100%;
 }
-
-/* .owl-carousel {
-  display: none;
-  width: 100%;
-  -webkit-tap-highlight-color: transparent;
-  position: relative;
-  z-index: 1;
-}
-
-.owl-stage-outer {
-  position: relative;
-  overflow: hidden;
-  -webkit-transform: translate3d(0px, 0px, 0px);
-}
-
-.owl-stage {
-  width: 3200px;
-  transform: translate3d(-1200px, 0px, 0px);
-  transition: all 0s ease 0s;
-} */
 </style>

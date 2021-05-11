@@ -1,6 +1,6 @@
 <template>
-  <div class="invationer-card">
-    <div class="invationer">
+  <div class="invation-card">
+    <div class="invation-profile">
       <img
         :src="img"
         :alt="name + ' ' + surname + 'short presentation card'"
@@ -8,9 +8,9 @@
         height="75"
       />
     </div>
-    <div class="invationer-description">
-      <nuxt-link :to="'/invationer/' + id" class="invationer-name">{{
-        name + ' ' + surname
+    <div class="card-description">
+      <nuxt-link :to="`/${typology}/` + id" class="card-name">{{
+        name
       }}</nuxt-link>
       <p>{{ role }}</p>
     </div>
@@ -21,6 +21,7 @@
 export default {
   props: {
     id: { type: Number, default: () => 0 },
+    typology: { type: String, default: () => 'invationers' },
     name: { type: String, default: () => '' },
     surname: { type: String, default: () => '' },
     img: { type: String, default: () => '' },
@@ -30,18 +31,18 @@ export default {
 </script>
 
 <style>
-.invationer-card {
+.invation-card {
   width: auto;
   margin: 10px;
 }
 
-.invationer img {
+.invation-profile img {
   max-width: 75px;
   margin-bottom: -60px;
   border-radius: 100%;
 }
 
-.invationer-description {
+.card-description {
   background: linear-gradient(
     145deg,
     rgba(244, 129, 63, 1) 0%,
@@ -53,12 +54,12 @@ export default {
   border-radius: 5px;
 }
 
-.invationer-name {
+.card-name {
   font-size: 12px;
   color: whitesmoke;
 }
 
-.invationer-description p {
+.card-description p {
   font-size: 9px;
   text-transform: uppercase;
   color: whitesmoke;

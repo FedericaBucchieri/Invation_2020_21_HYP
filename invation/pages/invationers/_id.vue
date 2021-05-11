@@ -71,27 +71,28 @@
     </section>
     <!-- Other Invationers -->
     <section id="invationers">
-      <invartioner-short-card-container
+      <short-card-container
         :card-list="invationers.filter((inv) => inv.id !== invationer.id)"
         :title="'Other Invationers'"
-      ></invartioner-short-card-container>
+        :typology="`invationers`"
+      ></short-card-container>
     </section>
   </div>
 </template>
 
 <script>
 import ObjectOverview from '~/components/baseElements/ObjectOverview.vue'
-import InvartionerShortCardContainer from '~/components/invationer/InvartionerShortCardContainer.vue'
+import ShortCardContainer from '~/components/baseElements/ShortCardContainer.vue'
 
 export default {
   components: {
     ObjectOverview,
-    InvartionerShortCardContainer,
+    ShortCardContainer,
   },
   async asyncData({ $axios, route }) {
     const { id } = route.params
     const invationerData = await $axios.get(
-      `${process.env.BASE_URL}/api/invationer/${id}`
+      `${process.env.BASE_URL}/api/invationers/${id}`
     )
     const invationer = invationerData.data
 

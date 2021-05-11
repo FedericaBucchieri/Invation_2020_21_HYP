@@ -45,10 +45,11 @@
     </section>
     <!-- ***** Invationers ***** -->
     <section id="invationers">
-      <invartioner-short-card-container
+      <short-card-container
         :card-list="invation.invationers"
         :title="'Invationers that worked on this innovation'"
-      ></invartioner-short-card-container>
+        :typology="`invationers`"
+      ></short-card-container>
     </section>
     <!-- ***** Leave a Review ***** -->
     <section id="reviews">
@@ -85,7 +86,7 @@ import ObjectOverview from '~/components/baseElements/ObjectOverview.vue'
 import ObjectConcept from '~/components/baseElements/ObjectConcept.vue'
 import ObjectVideo from '~/components/baseElements/ObjectVideo.vue'
 import ObjectMore from '~/components/baseElements/ObjectMore.vue'
-import InvartionerShortCardContainer from '~/components/invationer/InvartionerShortCardContainer.vue'
+import ShortCardContainer from '~/components/baseElements/ShortCardContainer.vue'
 import BaseReviewList from '~/components/baseElements/BaseReviewList.vue'
 
 export default {
@@ -94,7 +95,7 @@ export default {
     ObjectConcept,
     ObjectVideo,
     ObjectMore,
-    InvartionerShortCardContainer,
+    ShortCardContainer,
     BaseReviewList,
   },
   async asyncData({ $axios, route }) {
