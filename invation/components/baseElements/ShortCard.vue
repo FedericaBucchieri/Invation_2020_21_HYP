@@ -1,19 +1,21 @@
 <template>
   <div class="invation-card">
-    <div class="invation-profile">
-      <img
-        :src="img"
-        :alt="name + ' ' + surname + 'short presentation card'"
-        width="75"
-        height="75"
-      />
-    </div>
-    <div class="card-description">
-      <nuxt-link :to="`/${typology}/` + id" class="card-name">{{
-        name
-      }}</nuxt-link>
-      <p>{{ role }}</p>
-    </div>
+    <li>
+      <div class="invation-profile">
+        <img
+          :src="img"
+          :alt="name + ' ' + surname + 'short presentation card'"
+          width="75"
+          height="75"
+        />
+      </div>
+      <div class="card-description">
+        <nuxt-link :to="`/${typology}/` + id" class="card-name">
+          <h5>{{ name + ' ' + surname }}</h5>
+        </nuxt-link>
+        <p>{{ role }}</p>
+      </div>
+    </li>
   </div>
 </template>
 
@@ -31,6 +33,10 @@ export default {
 </script>
 
 <style>
+h5 {
+  font-size: 15px;
+}
+
 .invation-card {
   width: auto;
   margin: 10px;

@@ -5,22 +5,30 @@
         <div class="center-heading">
           <h3>{{ title }}</h3>
         </div>
+        <input
+          id="searchInput"
+          type="text"
+          placeholder="Search for invationers..."
+          @keyup="searchFunction()"
+        />
       </div>
       <div
         class="invationer-list-container"
         data-scroll-reveal="enter left move 30px over 0.6s after 0.4s"
       >
-        <short-card
-          v-for="(item, itemIndex) of cardList"
-          :id="item.id"
-          :key="`${typology}-card` + itemIndex"
-          :img="item.image"
-          :name="item.name"
-          :role="item.role"
-          :typology="`${typology}`"
-        >
-        </short-card>
-        <!-- :surname="item.surname" -->
+        <ul id="searchUL">
+          <short-card
+            v-for="(item, itemIndex) of cardList"
+            :id="item.id"
+            :key="`${typology}-card` + itemIndex"
+            :img="item.image"
+            :name="item.name"
+            :surname="item.surname"
+            :role="item.role"
+            :typology="`${typology}`"
+          >
+          </short-card>
+        </ul>
       </div>
     </div>
   </div>
@@ -37,10 +45,46 @@ export default {
     title: { type: String, default: () => '' },
     typology: { type: String, default: () => 'invationers' },
   },
+  methods: {
+    searchFunction() {
+      // Declare variables
+      const input = document.getElementById('searchInput')
+      const filter = input.value.toUpperCase()
+      const ul = document.getElementById('searchUL')
+      console.log(ul)
+      const li = ul.getElementsByTagName('li')
+      console.log(li)
+
+      // Loop through all list items, and hide those who don't match the search query
+      for (let i = 0; i < li.length; i++) {
+        const h5 = li[i].getElementsByTagName('h5')[0]
+        console.log(h5)
+        const txtValue = h5.textContent || h5.innerText
+        if (txtValue.toUpperCase().includes(filter)) {
+          li[i].style.display = ''
+        } else {
+          li[i].style.display = 'none'
+        }
+      }
+    },
+  },
 }
 </script>
 
 <style scoped>
+ul {
+  display: flex;
+}
+
+input {
+  width: 100%;
+  margin: 30px auto;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border: none;
+  padding: 20px;
+}
+
 .invationer-list-container {
   display: inline-flex;
   width: 100%;
