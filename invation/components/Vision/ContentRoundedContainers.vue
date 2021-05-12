@@ -17,6 +17,7 @@
               :name="myContent.name"
               :description="myContent.description"
               :image="myContent.image"
+              :typology="myContent.typology"
             >
             </rounded-container>
           </li>
@@ -41,13 +42,6 @@ export default {
   },
   data() {
     return {
-      /* myContent(numberTag, name, description, image) {
-        this.numberTag = numberTag
-        this.name = name
-        this.description = description
-        this.image = image
-      },
-      */
       myContents: this.content,
     }
   },

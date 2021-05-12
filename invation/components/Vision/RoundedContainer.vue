@@ -6,7 +6,7 @@
     <p>
       {{ description }}
     </p>
-    <nuxt-link :to="'/visions/' + numberTag" class="main-button">
+    <nuxt-link :to="`/${typology}/` + numberTag" class="main-button">
       Explore
     </nuxt-link>
   </div>
@@ -19,6 +19,7 @@ export default {
     name: { type: String, default: () => '' },
     description: { type: String, default: () => '' },
     image: { type: String, default: () => '' },
+    typology: { type: String, default: () => '' },
   },
 }
 </script>

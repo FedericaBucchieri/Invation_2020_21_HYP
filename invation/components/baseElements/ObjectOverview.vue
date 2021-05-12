@@ -14,11 +14,15 @@
         >
           <nuxt-link :to="item.path"> > {{ item.pathName }} </nuxt-link></span
         >
-
-        <!-- <h4><u>Innovations</u> > <u>Smart Space</u> > <u>MuseX</u></h4> -->
-        <!-- missing how to implement Bread Crump -->
-
-        <h1>{{ name }}</h1>
+        <div class="title-object-overview">
+          <h1>
+            {{ name }}
+          </h1>
+          <div v-if="isSavable" class="star">
+            <div v-if="mySaved" @click="unSaveObject">&#9733;</div>
+            <div v-else @click="saveObject">&#9734;</div>
+          </div>
+        </div>
         <p>
           {{ overview }}
         </p>
@@ -43,6 +47,42 @@ export default {
     overview: { type: String, default: () => '' },
     imgPath: { type: String, default: () => '' },
     tags: { type: Array, default: () => [] },
+    isSavable: { type: Boolean, default: () => false },
+    isSaved: { type: Boolean, default: () => false },
+    id: { type: Number, default: () => 0 },
+  },
+  data() {
+    return {
+      mySaved: this.isSaved,
+    }
+  },
+  methods: {
+    saveObject(e) {
+      // local update
+      this.mySaved = !this.mySaved
+      // database update
+      this.$axios.post(
+        `${process.env.BASE_URL}/api/saveInvation/` +
+          this.id +
+          '/' +
+          this.$auth.$storage.getLocalStorage('userId'),
+        {}
+      )
+      e.preventDefault()
+    },
+    unSaveObject(e) {
+      // local update
+      this.mySaved = !this.mySaved
+      // database update
+      this.$axios.post(
+        `${process.env.BASE_URL}/api/unSaveInvation/` +
+          this.id +
+          '/' +
+          this.$auth.$storage.getLocalStorage('userId'),
+        {}
+      )
+      e.preventDefault()
+    },
   },
 }
 </script>
@@ -50,6 +90,10 @@ export default {
 <style scoped>
 .overview-row {
   align-self: center;
+}
+.title-object-overview {
+  display: inline-flex;
+  flex-wrap: wrap;
 }
 
 h1 {
@@ -59,6 +103,12 @@ h1 {
   letter-spacing: 1px;
   margin-bottom: 30px;
   color: #191a20;
+}
+.star {
+  margin-left: 50px;
+  margin-top: 20px;
+  font-size: 28px;
+  cursor: pointer;
 }
 
 h4 {

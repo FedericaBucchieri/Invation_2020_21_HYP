@@ -47,6 +47,7 @@ export default {
         numberTag: this.visions[i].numberTag,
         description: this.visions[i].description,
         image: this.visions[i].image,
+        typology: 'visions',
       }
       this.myVisions.push(newVision)
     }

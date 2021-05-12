@@ -16,20 +16,20 @@
         ></guided-tour>
       </section>
     </section>
-    <invationer-short-card-container
+    <short-card-container
       title="Invationers that built this Vision"
       :card-list="vision.invationers"
     >
-    </invationer-short-card-container>
+    </short-card-container>
   </div>
 </template>
 
 <script>
 import GuidedTour from '../../components/baseElements/GuidedTour.vue'
 import ObjectOverview from '../../components/baseElements/ObjectOverview.vue'
-import InvationerShortCardContainer from '~/components/invationer/InvartionerShortCardContainer.vue'
+import ShortCardContainer from '~/components/baseElements/ShortCardContainer.vue'
 export default {
-  components: { ObjectOverview, GuidedTour, InvationerShortCardContainer },
+  components: { ObjectOverview, GuidedTour, ShortCardContainer },
   async asyncData({ $axios, route }) {
     const { id } = route.params
     const visionData = await $axios.get(

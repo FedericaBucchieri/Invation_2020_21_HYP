@@ -10,30 +10,32 @@
         class="invationer-list-container"
         data-scroll-reveal="enter left move 30px over 0.6s after 0.4s"
       >
-        <invationer-short-card
+        <short-card
           v-for="(item, itemIndex) of cardList"
           :id="item.id"
-          :key="'invartioner-card' + itemIndex"
+          :key="`${typology}-card` + itemIndex"
           :img="item.image"
           :name="item.name"
-          :surname="item.surname"
           :role="item.role"
+          :typology="`${typology}`"
         >
-        </invationer-short-card>
+        </short-card>
+        <!-- :surname="item.surname" -->
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import InvationerShortCard from '~/components/invationer/InvationerShortCard.vue'
+import ShortCard from '~/components/baseElements/ShortCard.vue'
 export default {
   components: {
-    InvationerShortCard,
+    ShortCard,
   },
   props: {
     cardList: { type: Array, default: () => [] },
     title: { type: String, default: () => '' },
+    typology: { type: String, default: () => 'invationers' },
   },
 }
 </script>

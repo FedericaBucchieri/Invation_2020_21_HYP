@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <!-- ***** Welcome area start ***** -->
-    <welcome-area-start :text-button="textButton">
+    <welcome-area-start :text-button="textButton" :link="'#' + generalLink">
       <template #title><slot name="welcome-title"></slot> </template>
       <template #overview><slot name="welcome-overview"></slot> </template>
     </welcome-area-start>
@@ -28,10 +28,11 @@
 
     <!-- ***** All entities area starts ***** -->
     <section :id="generalLink">
-      <invartioner-short-card-container
+      <short-card-container
         :card-list="entities"
         :title="`The ${thisGeneralLink}`"
-      ></invartioner-short-card-container>
+        :typology="`${thisGeneralLink}`"
+      ></short-card-container>
     </section>
     <!-- ***** All people area ends ***** -->
   </div>
@@ -40,13 +41,13 @@
 <script>
 import WelcomeAreaStart from '~/components/baseElements/WelcomeAreaStart.vue'
 import PhotoGallery from '~/components/baseElements/PhotoGallery.vue'
-import InvartionerShortCardContainer from '~/components/invationer/InvartionerShortCardContainer.vue'
+import ShortCardContainer from '~/components/baseElements/ShortCardContainer.vue'
 
 export default {
   components: {
     WelcomeAreaStart,
     PhotoGallery,
-    InvartionerShortCardContainer,
+    ShortCardContainer,
   },
   props: {
     textButton: { type: String, default: () => '' },
@@ -75,6 +76,7 @@ export default {
     )
     this.entities = entitesData.data
   },
+  // SSR best-practice? - to ask
   fetchOnServer: true,
 }
 </script>

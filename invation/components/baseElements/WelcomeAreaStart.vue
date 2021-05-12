@@ -1,6 +1,5 @@
 <template>
   <div id="welcome" class="welcome-invationers-area">
-    <!-- ***** Header Text Start ***** -->
     <div class="header-text">
       <div class="container">
         <div class="row">
@@ -25,7 +24,6 @@
         </div>
       </div>
     </div>
-    <!-- ***** Header Text End ***** -->
   </div>
 </template>
 

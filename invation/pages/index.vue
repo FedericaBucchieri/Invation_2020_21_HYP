@@ -14,7 +14,7 @@
 
     <!-- Explore Visions -->
     <section id="explore">
-      <content-rounded-containers :area-name="areaName" :content="visions">
+      <content-rounded-containers :area-name="areaName" :content="myVisions">
       </content-rounded-containers>
     </section>
 
@@ -25,16 +25,18 @@
         :big-image="bigImage"
         :objects="last3Invations"
         :title="'Our last three invations'"
+        typology="invations"
       >
       </base-three-object-container>
     </section>
 
     <!-- Invationers -->
     <section id="invationers">
-      <invartioner-short-card-container
+      <short-card-container
         :title="invationerTitle"
-        :cardList="invationers"
-      ></invartioner-short-card-container>
+        :card-list="invationers"
+        :typology="`invationers`"
+      ></short-card-container>
     </section>
   </div>
 </template>
@@ -43,30 +45,14 @@
 import BaseThreeObjectContainer from '~/components/baseElements/BaseThreeObjectContainer.vue'
 import WelcomeAreaStart from '~/components/baseElements/WelcomeAreaStart.vue'
 import ContentRoundedContainers from '~/components/vision/ContentRoundedContainers.vue'
-import InvartionerShortCardContainer from '~/components/invationer/InvartionerShortCardContainer.vue'
+import ShortCardContainer from '~/components/baseElements/ShortCardContainer.vue'
 
 export default {
   components: {
     WelcomeAreaStart,
     ContentRoundedContainers,
     BaseThreeObjectContainer,
-    InvartionerShortCardContainer,
-  },
-  data() {
-    return {
-      textButton: 'KNOW US BETTER',
-      areaName: 'Explore our Visions',
-      bigImage: 'https://imgur.com/OrwkWr6.png',
-      invationerTitle: 'Discover our team: The Invationers',
-    }
-  },
-  methods: {
-    sendMessage(newPath, newPathName) {
-      this.$store.commit('addVisitedPath', {
-        path: newPath,
-        pathName: newPathName,
-      })
-    },
+    ShortCardContainer,
   },
   async asyncData({ $axios }) {
     const visions = await $axios.get(`${process.env.BASE_URL}/api/visions`)
@@ -84,6 +70,35 @@ export default {
       last3Invations: last3Invations.data,
       invationers: invationers.data,
     }
+  },
+  data() {
+    return {
+      textButton: 'KNOW US BETTER',
+      areaName: 'Explore our Visions',
+      bigImage: 'https://imgur.com/OrwkWr6.png',
+      invationerTitle: 'Discover our team: The Invationers',
+      myVisions: [],
+    }
+  },
+  mounted() {
+    for (let i = 0; i < this.visions.length; i++) {
+      const newVision = {
+        name: this.visions[i].name,
+        numberTag: this.visions[i].numberTag,
+        description: this.visions[i].description,
+        image: this.visions[i].image,
+        typology: 'visions',
+      }
+      this.myVisions.push(newVision)
+    }
+  },
+  methods: {
+    sendMessage(newPath, newPathName) {
+      this.$store.commit('addVisitedPath', {
+        path: newPath,
+        pathName: newPathName,
+      })
+    },
   },
 }
 </script>

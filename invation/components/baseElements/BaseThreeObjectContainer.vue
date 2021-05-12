@@ -32,7 +32,12 @@
               height="100"
             />
             <div class="text">
-              <div class="object-name">{{ item.name }}</div>
+              <nuxt-link
+                :class="{ disabled: disabled }"
+                :to="`/${typology}/` + item.numberTag"
+              >
+                <div class="object-name">{{ item.name }}</div>
+              </nuxt-link>
               <p>
                 {{ item.overview }}
               </p>
@@ -50,11 +55,24 @@ export default {
     bigImage: { type: String, default: () => '' },
     title: { type: String, default: () => '' },
     objects: { type: Array, default: () => [] },
+    typology: { type: String, default: () => '' },
+  },
+  data() {
+    return {
+      disabled: { type: Boolean, default: () => false },
+    }
+  },
+  mounted() {
+    this.disabled = this.typology === ''
   },
 }
 </script>
 
 <style scoped>
+.disabled {
+  color: lightgrey;
+  pointer-events: none;
+}
 .left-image {
   align-self: center;
 }
