@@ -5,7 +5,7 @@
         <h2 class="area-title">{{ areaName }}</h2>
 
         <!-- List start, example placeholders for products -->
-        <ul id="searchUL">
+        <ul id="visionUL">
           <li
             v-for="myContent in myContents"
             :key="myContent.name"
@@ -67,7 +67,7 @@ section {
   outline: 0;
   display: block;
 }
-#searchUL {
+#visionUL {
   width: 100%;
   display: contents;
 }

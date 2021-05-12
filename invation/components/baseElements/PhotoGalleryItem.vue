@@ -1,11 +1,5 @@
 <template>
-  <!-- <div class="item service-item">
-    <div class="team-content">
-      <a :href="detailPage"> -->
   <img :src="imgPath" :alt="info" />
-  <!-- </a>
-    </div>
-  </div> -->
 </template>
 
 <script>
@@ -20,11 +14,8 @@ export default {
 </script>
 
 <style scoped>
-/* img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
+img {
+  width: 330px;
   height: auto;
-} */
+}
 </style>

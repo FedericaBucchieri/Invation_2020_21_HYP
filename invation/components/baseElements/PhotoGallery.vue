@@ -86,11 +86,11 @@ export default {
   methods: {
     scrollGallery(isNext) {
       const stage = document.getElementById('owl-stage')
-
+      const move = '500px'
       if (isNext) {
-        stage.style.transform = 'translate3d(-500px, 0px, 0px)'
+        stage.style.transform = `translate3d(-${move}, 0px, 0px)`
       } else {
-        stage.style.transform = 'translate3d(500px, 0px, 0px)'
+        stage.style.transform = `translate3d(${move}, 0px, 0px)`
       }
     },
   },

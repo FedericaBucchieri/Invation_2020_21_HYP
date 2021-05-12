@@ -34,7 +34,7 @@
         :typology="`${thisGeneralLink}`"
       ></short-card-container>
     </section>
-    <!-- ***** All people area ends ***** -->
+    <!-- ***** All entities area ends ***** -->
   </div>
 </template>
 
