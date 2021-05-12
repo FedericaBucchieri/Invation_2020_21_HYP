@@ -11,7 +11,7 @@
         the world suggest us to take.
       </template>
     </WelcomeAreaStart>
-    <ContentRoundedContainers :content="visions" :area-name="areaName">
+    <ContentRoundedContainers :content="myVisions" :area-name="areaName">
     </ContentRoundedContainers>
   </div>
 </template>
@@ -33,7 +33,31 @@ export default {
     return {
       textButton: 'DISCOVER INVATIONERS ROLES',
       areaName: 'Our Visions',
+      myVisions: [],
     }
+  },
+  /* In this case this mounted() is useless because the names of the attributes used inside the 
+  ContentRoundedContainers are the same of those in the Vision schema of the DB, 
+  however it shows the way to use properly the  component ContentRoundedContainers
+  */
+  mounted() {
+    for (let i = 0; i < this.visions.length; i++) {
+      const newVision = {
+        name: this.visions[i].name,
+        numberTag: this.visions[i].numberTag,
+        description: this.visions[i].description,
+        image: this.visions[i].image,
+      }
+      this.myVisions.push(newVision)
+    }
+  },
+  methods: {
+    sendPath() {
+      this.$store.commit('addVisitedPath', {
+        path: '/visions/',
+        pathName: 'visions',
+      })
+    },
   },
 }
 </script>

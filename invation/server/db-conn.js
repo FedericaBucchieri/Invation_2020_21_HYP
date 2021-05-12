@@ -343,6 +343,7 @@ async function insertFakeData() {
   await vision0.addInvation(invation1.id)
   await vision0.addInvation(invation2.id)
   await vision0.addInvationer(invationer0.id)
+  await  vision0.addInvationer(invationer1.id)
   await invationer0.addInvation(invation0.id)
   await invationer1.addInvation(invation0.id)
   await invationer2.addInvation(invation0.id)

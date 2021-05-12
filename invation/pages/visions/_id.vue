@@ -1,7 +1,6 @@
 <template>
   <div>
     <div class="left-image-decor"></div>
-    <!-- ***** Education Introduction Start ***** -->
     <section id="introduction" class="section">
       <object-overview
         :name="vision.name"
@@ -17,14 +16,20 @@
         ></guided-tour>
       </section>
     </section>
+    <invationer-short-card-container
+      title="Invationers that built this Vision"
+      :card-list="vision.invationers"
+    >
+    </invationer-short-card-container>
   </div>
 </template>
 
 <script>
 import GuidedTour from '../../components/baseElements/GuidedTour.vue'
 import ObjectOverview from '../../components/baseElements/ObjectOverview.vue'
+import InvationerShortCardContainer from '~/components/invationer/InvartionerShortCardContainer.vue'
 export default {
-  components: { ObjectOverview, GuidedTour },
+  components: { ObjectOverview, GuidedTour, InvationerShortCardContainer },
   async asyncData({ $axios, route }) {
     const { id } = route.params
     const visionData = await $axios.get(
@@ -41,7 +46,7 @@ export default {
   methods: {
     sendPath(pathItem) {
       this.$store.commit('addVisitedPath', {
-        path: '/invation/' + pathItem.id,
+        path: '/visions/' + pathItem.id,
         pathName: pathItem.name,
       })
     },

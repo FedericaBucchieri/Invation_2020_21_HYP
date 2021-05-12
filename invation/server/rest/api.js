@@ -64,10 +64,16 @@ async function init() {
     const { id } = req.params
     const vision = await Vision.findOne({
       where: { id },
-      include: {
-        model: Invation,
-        attributes: ['name', 'subtitle', 'overview', 'image', 'numberTag'],
-      },
+      include: [
+        {
+          model: Invation,
+          attributes: ['name', 'subtitle', 'overview', 'image', 'numberTag'],
+        },
+        {
+          model: Invationer,
+          attributes: ['id', 'image', 'name', 'surname', 'role'],
+        },
+      ],
     })
     return res.json(vision)
   })

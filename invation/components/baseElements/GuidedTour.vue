@@ -21,6 +21,7 @@
       :src="video"
       data-scroll-reveal="enter top move 30px over 0.6s after 0.4s"
     ></iframe>
+    <div class="left-image-decor"></div>
     <div class="container">
       <div
         v-for="invation in secondInvationsGuidedTour"
