@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- ***** Welcome Area Start ***** -->
-    <WelcomeAreaStart :text-button="textButton">
+    <WelcomeAreaStart :text-button="textButton" link="#visionsContainers">
       <template #title> A Look Into the Future: <em>Our Visions</em> </template>
       <template #overview>
         Having a <b>Vision</b> means offering a look into the future.<br />
@@ -11,8 +11,10 @@
         the world suggest us to take.
       </template>
     </WelcomeAreaStart>
-    <ContentRoundedContainers :content="myVisions" :area-name="areaName">
-    </ContentRoundedContainers>
+    <section id="visionsContainers">
+      <ContentRoundedContainers :content="myVisions" :area-name="areaName">
+      </ContentRoundedContainers>
+    </section>
   </div>
 </template>
 
@@ -31,7 +33,7 @@ export default {
   },
   data() {
     return {
-      textButton: 'DISCOVER INVATIONERS ROLES',
+      textButton: 'DISCOVER OUR VISIONS',
       areaName: 'Our Visions',
       myVisions: [],
     }

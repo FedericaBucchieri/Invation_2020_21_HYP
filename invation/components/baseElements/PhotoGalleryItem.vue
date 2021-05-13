@@ -1,5 +1,7 @@
 <template>
-  <img :src="imgPath" :alt="info" />
+  <nuxt-link :to="detailPage">
+    <img :src="imgPath" :alt="info" />
+  </nuxt-link>
 </template>
 
 <script>

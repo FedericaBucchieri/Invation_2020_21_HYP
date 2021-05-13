@@ -1,6 +1,8 @@
 <template>
   <div class="features-title-section">
-    <h2>{{ title }}</h2>
+    <nuxt-link :to="link">
+      <h2>{{ title }}</h2>
+    </nuxt-link>
     <h4>{{ subtitle }}</h4>
     <p>
       {{ overview }}
@@ -18,6 +20,7 @@ export default {
       title: this.content[0],
       subtitle: this.content[1],
       overview: this.content[2],
+      link: this.content[3],
     }
   },
 }

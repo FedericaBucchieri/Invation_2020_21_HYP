@@ -50,7 +50,7 @@ async function init() {
         name: invation.name,
         alt: invation.overview,
         imgPath: invation.thumbnail,
-        detailPage: `/invation/${invation.id}`,
+        detailPage: `/invations/${invation.id}`,
       }
       invationImgs.push(item)
     })
@@ -75,7 +75,7 @@ async function init() {
       include: [
         {
           model: Invation,
-          attributes: ['name', 'subtitle', 'overview', 'image', 'numberTag'],
+          attributes: ['id', 'name', 'subtitle', 'overview', 'image', 'numberTag'],
         },
         {
           model: Invationer,

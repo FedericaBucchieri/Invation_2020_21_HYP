@@ -2,18 +2,11 @@
   <div>
     <div class="container">
       <div
-        v-for="invation in firstInvationsGuidedTour"
-        :key="invation.invation.numberTag"
+        v-for="item in firstItemsGuidedTour"
+        :key="item.item.numberTag"
         class="row"
       >
-        <guided-tour-item
-          :right="invation.right"
-          :title="invation.invation.name"
-          :subtitle="invation.invation.subtitle"
-          :overview="invation.invation.overview"
-          :image="invation.invation.image"
-          :number-tag="invation.invation.numberTag"
-        ></guided-tour-item>
+        <guided-tour-item :item="item" :typology="typology"></guided-tour-item>
       </div>
     </div>
     <iframe
@@ -24,18 +17,11 @@
     <div class="left-image-decor"></div>
     <div class="container">
       <div
-        v-for="invation in secondInvationsGuidedTour"
-        :key="invation.invation.numberTag"
+        v-for="item in secondItemsGuidedTour"
+        :key="item.item.numberTag"
         class="row"
       >
-        <guided-tour-item
-          :right="invation.right"
-          :title="invation.invation.name"
-          :subtitle="invation.invation.subtitle"
-          :overview="invation.invation.overview"
-          :image="invation.invation.image"
-          :number-tag="invation.invation.numberTag"
-        ></guided-tour-item>
+        <guided-tour-item :item="item" :typology="typology"></guided-tour-item>
       </div>
     </div>
   </div>
@@ -47,32 +33,33 @@ export default {
   components: { GuidedTourItem },
   props: {
     video: { type: String, default: () => '' },
-    invations: {
+    items: {
       type: Array,
       default: () => [],
     },
+    typology: { type: String, default: () => '' },
   },
   data() {
     return {
-      firstInvationsGuidedTour: [],
-      secondInvationsGuidedTour: [],
+      firstItemsGuidedTour: [],
+      secondItemsGuidedTour: [],
     }
   },
   mounted() {
-    const splitAt = Math.ceil(this.invations.length / 2)
+    const splitAt = Math.ceil(this.items.length / 2)
     for (let i = 0; i < splitAt; i++) {
-      const newInvation = {
-        invation: this.invations[i],
+      const newItem = {
+        item: this.items[i],
         right: i % 2 === 0,
       }
-      this.firstInvationsGuidedTour.push(newInvation)
+      this.firstItemsGuidedTour.push(newItem)
     }
-    for (let i = splitAt; i < this.invations.length; i++) {
-      const newInvation = {
-        invation: this.invations[i],
+    for (let i = splitAt; i < this.items.length; i++) {
+      const newItem = {
+        item: this.items[i],
         right: i % 2 === 0,
       }
-      this.secondInvationsGuidedTour.push(newInvation)
+      this.secondItemsGuidedTour.push(newItem)
     }
   },
 }

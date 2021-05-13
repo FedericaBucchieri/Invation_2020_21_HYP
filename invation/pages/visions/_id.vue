@@ -8,13 +8,14 @@
         :overview="vision.description"
       >
       </object-overview>
-      <div class="right-image-decor"></div>
-      <section id="innovations" class="section">
-        <guided-tour
-          :invations="vision.invations"
-          :video="vision.video"
-        ></guided-tour>
-      </section>
+    </section>
+    <div class="right-image-decor"></div>
+    <section id="innovations" class="section">
+      <guided-tour
+        :items="vision.invations"
+        typology="invations"
+        :video="vision.video"
+      ></guided-tour>
     </section>
     <short-card-container
       title="Invationers that built this Vision"
@@ -39,9 +40,6 @@ export default {
     return {
       vision,
     }
-  },
-  data() {
-    return {}
   },
   methods: {
     sendPath(pathItem) {

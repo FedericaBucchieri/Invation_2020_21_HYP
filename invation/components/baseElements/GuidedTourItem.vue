@@ -1,14 +1,14 @@
 <template>
   <div :class="featuresItemClass">
     <features-title-section
-      v-if="right"
+      v-if="item.right"
       :content="titleContent"
     ></features-title-section>
     <features-details-section
       :content="detailsContent"
     ></features-details-section>
     <features-title-section
-      v-if="!right"
+      v-if="!item.right"
       :content="titleContent"
     ></features-title-section>
   </div>
@@ -24,12 +24,28 @@ export default {
     FeaturesTitleSection,
   },
   props: {
-    right: { type: Boolean, default: () => true },
-    title: { type: String, default: () => '' },
-    subtitle: { type: String, default: () => '' },
-    overview: { type: String, default: () => '' },
-    image: { type: String, default: () => '' },
-    numberTag: { type: String, default: () => '' },
+    item: {
+      type: Object,
+      default() {
+        return {
+          item: {
+            type: Object,
+            default() {
+              return {
+                id: { type: Number, default: () => 0 },
+                name: { type: String, default: () => '' },
+                subtitle: { type: String, default: () => '' },
+                overview: { type: String, default: () => '' },
+                image: { type: String, default: () => '' },
+                numberTag: { type: String, default: () => '' },
+              }
+            },
+          },
+          right: { type: Boolean, default: () => false },
+        }
+      },
+    },
+    typology: { type: String, default: () => '' },
   },
   data() {
     return {
@@ -38,12 +54,17 @@ export default {
         firstSection: { type: String, default: () => '' },
         secondSection: { type: String, default: () => '' },
       },
-      titleContent: [this.title, this.subtitle, this.overview],
-      detailsContent: [this.numberTag, this.image],
+      titleContent: [
+        this.item.item.name,
+        this.item.item.subtitle,
+        this.item.item.overview,
+        `/${this.typology}/` + `${this.item.item.id}`,
+      ],
+      detailsContent: [this.item.item.numberTag, this.item.item.image],
     }
   },
   mounted() {
-    if (this.right) {
+    if (this.item.right) {
       this.featuresItemClass = 'features-item-right'
     } else {
       this.featuresItemClass = 'features-item-left'
