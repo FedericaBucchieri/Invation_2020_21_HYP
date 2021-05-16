@@ -128,6 +128,7 @@ export default {
           hid: this.invation.name,
           name: this.invation.name,
           content: this.invation.concept,
+          description: this.invation.description,
         },
       ],
     }

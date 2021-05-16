@@ -18,7 +18,13 @@
         :title="'THE FOUNDERS'"
         :objects="founders"
         :big-image="foundersImage"
+        :isObjectList="false"
       >
+        Thanks to the <i>ambition</i> and the work of our founder, Invation
+        rockted in the market at full speed! Federica, Lorenzo and Alessandro
+        are three students from <b>Politecnico di Milano</b>, currently pursuing
+        the "once in a life time" dream of running a company together with
+        precious <i>friends</i>.
       </base-three-object-container>
     </section>
     <!-- ***** HeadQuarter Area Start ***** -->
@@ -115,6 +121,22 @@ export default {
         },
       ],
       foundersImage: 'https://imgur.com/GD02BFB.png',
+    }
+  },
+  head() {
+    return {
+      title: 'Invation - About',
+      description:
+        'General overwiew of the company, its founders and how to reach the headquarter',
+      meta: [
+        {
+          hid: 'About',
+          name: 'About',
+          content: 'About Invation',
+          description:
+            'General overwiew of the company, its founders and how to reach the headquarter',
+        },
+      ],
     }
   },
 }

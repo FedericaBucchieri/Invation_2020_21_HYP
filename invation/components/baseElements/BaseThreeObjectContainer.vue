@@ -17,6 +17,9 @@
         class="right-text offset-lg-1 col-lg-6 col-md-12 col-sm-12 mobile-bottom-fix"
       >
         <h2>{{ title }}</h2>
+        <div class="introduction">
+          <slot></slot>
+        </div>
         <br />
         <ul>
           <li
@@ -25,22 +28,37 @@
             class="objectOfTheThree"
             data-scroll-reveal="enter right move 30px over 0.6s after 0.4s"
           >
-            <img
-              :src="item.thumbnail"
-              :alt="item.name + 'thumbnail image'"
-              width="100"
-              height="100"
-            />
-            <div class="text">
-              <nuxt-link
-                :class="{ disabled: disabled }"
-                :to="`/${typology}/` + item.numberTag"
-              >
-                <div class="object-name">{{ item.name }}</div>
+            <div
+              v-if="isObjectList"
+              class="vision-tag-on-border"
+              :class="'visions-style-' + item.vision.id"
+            >
+              <nuxt-link :to="`/visions/` + item.vision.id">
+                {{ item.vision.name }}
               </nuxt-link>
-              <p>
-                {{ item.overview }}
-              </p>
+            </div>
+            <div class="object-container">
+              <img
+                :src="item.thumbnail"
+                :alt="item.name + 'thumbnail image'"
+                width="100"
+                height="100"
+              />
+              <div class="text">
+                <nuxt-link
+                  :class="{ disabled: disabled }"
+                  :to="`/${typology}/` + item.numberTag"
+                  class="object-name"
+                >
+                  {{ item.name }}
+                </nuxt-link>
+                <span v-if="isObjectList" class="item-creation-date">
+                  {{ formatDate(item.createdAt) }}
+                </span>
+                <p>
+                  {{ item.overview }}
+                </p>
+              </div>
             </div>
           </li>
         </ul>
@@ -56,6 +74,7 @@ export default {
     title: { type: String, default: () => '' },
     objects: { type: Array, default: () => [] },
     typology: { type: String, default: () => '' },
+    isObjectList: { type: Boolean, default: () => true },
   },
   data() {
     return {
@@ -64,6 +83,12 @@ export default {
   },
   mounted() {
     this.disabled = this.typology === ''
+  },
+  methods: {
+    formatDate(date) {
+      const options = { year: 'numeric', month: 'long', day: 'numeric' }
+      return new Date(date).toLocaleDateString('en', options)
+    },
   },
 }
 </script>
@@ -82,17 +107,20 @@ export default {
   margin: 0;
 }
 
-.right-text li {
+.object-container {
   padding: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  border-radius: 0 0 10px 10px;
   background-color: white;
   width: 100%;
+  min-height: fit-content;
+  display: inline-flex;
+  flex-wrap: wrap;
 }
 
 .right-text ul li {
   display: inline-block;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .right-text ul li:last-child {
@@ -101,7 +129,6 @@ export default {
 
 .right-text img {
   display: inline-block;
-  float: left;
   margin-right: 10px;
   max-width: 100px;
   border-radius: 50%;
@@ -113,10 +140,57 @@ export default {
   text-align: left;
   color: #f38151;
   font-weight: 600;
+  margin: 0;
 }
 
 .right-text p {
-  margin-left: 110px;
   text-align: justify;
+}
+
+.item-creation-date {
+  float: right;
+  color: #888;
+  font-size: 12px;
+}
+
+.text {
+  width: 75%;
+  margin-left: 5px;
+}
+
+.introduction {
+  margin: 5px;
+  font-size: 14px;
+  text-align: justify;
+}
+
+.vision-tag-on-border {
+  padding: 5px 10px;
+  color: white;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-align: right;
+  border-left: white solid 450px;
+  border-radius: 10px 10px 0 0;
+}
+
+.visions-style-2 {
+  background-color: teal;
+  border-bottom: teal solid 4px;
+}
+
+.visions-style-3 {
+  background-color: darkslateblue;
+  border-bottom: darkslateblue solid 4px;
+}
+
+.visions-style-1 {
+  background-color: #e9c843;
+  border-bottom: #e9c843 solid 4px;
+}
+
+.visions-style-4 {
+  background-color: green;
+  border-bottom: green solid 4px;
 }
 </style>

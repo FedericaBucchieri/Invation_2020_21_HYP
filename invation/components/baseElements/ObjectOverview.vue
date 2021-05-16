@@ -18,7 +18,7 @@
           <h1>
             {{ name }}
           </h1>
-          <div v-if="isSavable" class="star">
+          <div v-if="isSavable && isLoggedIn" class="star">
             <div v-if="mySaved" @click="unSaveObject">&#9733;</div>
             <div v-else @click="saveObject">&#9734;</div>
           </div>
@@ -55,6 +55,11 @@ export default {
     return {
       mySaved: this.isSaved,
     }
+  },
+  computed: {
+    isLoggedIn() {
+      return this.$auth.$storage.getLocalStorage('username') !== null
+    },
   },
   methods: {
     saveObject(e) {

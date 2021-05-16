@@ -25,8 +25,13 @@
         :big-image="bigImage"
         :objects="last3Invations"
         :title="'Our last three invations'"
+        :is-object-list="true"
         typology="invations"
       >
+        Invation is proud to show you the last three product or - as we call
+        them - <i>invations</i>, that our fanstastic team developed. Those
+        invations are part of differents visions, come and enjoy all our guided
+        tours in the <b>"Visions"</b> section.
       </base-three-object-container>
     </section>
 

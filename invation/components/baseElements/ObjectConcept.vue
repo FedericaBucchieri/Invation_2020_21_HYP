@@ -29,7 +29,6 @@ export default {
   text-align: left;
   display: flex;
   flex-wrap: wrap;
-  z-index: 1;
 }
 
 .features-item-left h2 {

@@ -6,7 +6,7 @@
         <div class="col-12">
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
-            <a class="logo"> Invation </a>
+            <a href="/" class="logo"> Invation </a>
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul
