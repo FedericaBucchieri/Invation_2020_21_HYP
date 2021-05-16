@@ -35,6 +35,7 @@
               <nuxt-link
                 :class="{ disabled: disabled }"
                 :to="`/${typology}/` + item.numberTag"
+                @click.native="updateBreadcrump(item.name)"
               >
                 <div class="object-name">{{ item.name }}</div>
               </nuxt-link>
@@ -64,6 +65,27 @@ export default {
   },
   mounted() {
     this.disabled = this.typology === ''
+  },
+  methods: {
+    updateBreadcrump(pageName) {
+      // If I am not in the HomePage
+      if (!(this.$store.state.currentPageName === '')) {
+        this.sendMessage(this.$route.path, this.$store.state.currentPageName)
+      }
+      this.updateCurrentPageName(pageName)
+    },
+    sendMessage(newPath, newPathName) {
+      this.$store.commit('addVisitedPath', {
+        path: newPath,
+        pathName: newPathName,
+      })
+    },
+    updateCurrentPageName(pageName) {
+      this.$store.commit(
+        'updateCurrentPageName',
+        this.typology + ': ' + pageName
+      )
+    },
   },
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div class="features-title-section">
-    <nuxt-link :to="link">
+    <nuxt-link :to="link" @click.native="updateBreadcrump">
       <h2>{{ title }}</h2>
     </nuxt-link>
     <h4>{{ subtitle }}</h4>
@@ -22,6 +22,24 @@ export default {
       overview: this.content[2],
       link: this.content[3],
     }
+  },
+  methods: {
+    updateBreadcrump() {
+      // If I am not in the HomePage
+      if (!(this.$store.state.currentPageName === '')) {
+        this.sendMessage(this.$route.path, this.$store.state.currentPageName)
+      }
+      this.updateCurrentPageName()
+    },
+    sendMessage(newPath, newPathName) {
+      this.$store.commit('addVisitedPath', {
+        path: newPath,
+        pathName: newPathName,
+      })
+    },
+    updateCurrentPageName() {
+      this.$store.commit('updateCurrentPageName', this.title)
+    },
   },
 }
 </script>
