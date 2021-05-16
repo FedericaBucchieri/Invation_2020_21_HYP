@@ -85,6 +85,16 @@ export default {
       myVisions: [],
     }
   },
+  head() {
+    return {
+      name: 'HomePage',
+      meta: [
+        {
+          title: 'HomePage',
+        },
+      ],
+    }
+  },
   mounted() {
     for (let i = 0; i < this.visions.length; i++) {
       const newVision = {

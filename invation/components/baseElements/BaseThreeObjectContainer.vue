@@ -28,13 +28,19 @@
             class="objectOfTheThree"
             data-scroll-reveal="enter right move 30px over 0.6s after 0.4s"
           >
-            <div
-              v-if="isObjectList"
-              class="vision-tag-on-border"
-              :class="'visions-style-' + item.vision.id"
-            >
-              <nuxt-link :to="`/visions/` + item.vision.id">
-                {{ item.vision.name }}
+            <img
+              :src="item.thumbnail"
+              :alt="item.name + 'thumbnail image'"
+              width="100"
+              height="100"
+            />
+            <div class="text">
+              <nuxt-link
+                :class="{ disabled: disabled }"
+                :to="`/${typology}/` + item.numberTag"
+                @click.native="updateBreadcrump(item.name)"
+              >
+                <div class="object-name">{{ item.name }}</div>
               </nuxt-link>
             </div>
             <div class="object-container">
@@ -85,9 +91,24 @@ export default {
     this.disabled = this.typology === ''
   },
   methods: {
-    formatDate(date) {
-      const options = { year: 'numeric', month: 'long', day: 'numeric' }
-      return new Date(date).toLocaleDateString('en', options)
+    updateBreadcrump(pageName) {
+      // If I am not in the HomePage
+      if (!(this.$store.state.currentPageName === '')) {
+        this.sendMessage(this.$route.path, this.$store.state.currentPageName)
+      }
+      this.updateCurrentPageName(pageName)
+    },
+    sendMessage(newPath, newPathName) {
+      this.$store.commit('addVisitedPath', {
+        path: newPath,
+        pathName: newPathName,
+      })
+    },
+    updateCurrentPageName(pageName) {
+      this.$store.commit(
+        'updateCurrentPageName',
+        this.typology + ': ' + pageName
+      )
     },
   },
 }
