@@ -99,6 +99,22 @@ export default {
       myUserInvations: [],
     }
   },
+  head() {
+    return {
+      title: 'Invation - ' + this.user.username + ' personal Page',
+      meta: [
+        {
+          name: 'description',
+          content: ' Personal page of the user: ' + this.user.username,
+        },
+        {
+          hid: this.user.id,
+          name: this.user.username,
+          content: this.user.username,
+        },
+      ],
+    }
+  },
   computed: {
     experience() {
       const len = this.user.invations.length

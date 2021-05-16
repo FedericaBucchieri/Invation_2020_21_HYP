@@ -43,14 +43,6 @@
       <object-more :content="invation.more"></object-more>
       <hr />
     </section>
-    <!-- ***** Invationers ***** -->
-    <section id="invationers">
-      <short-card-container
-        :card-list="invation.invationers"
-        :title="'Invationers that worked on this innovation'"
-        :typology="`invationers`"
-      ></short-card-container>
-    </section>
     <!-- ***** Leave a Review ***** -->
     <section id="reviews">
       <div class="container">
@@ -77,6 +69,14 @@
           </form>
         </div>
       </div>
+    </section>
+    <!-- ***** Invationers ***** -->
+    <section id="invationers">
+      <short-card-container
+        :card-list="invation.invationers"
+        :title="'Invationers that worked on this innovation'"
+        :typology="`invationers`"
+      ></short-card-container>
     </section>
   </div>
 </template>
@@ -125,10 +125,13 @@ export default {
       title: 'Invation - ' + this.invation.name,
       meta: [
         {
+          name: 'description',
+          content: this.invation.description,
+        },
+        {
           hid: this.invation.name,
           name: this.invation.name,
           content: this.invation.concept,
-          description: this.invation.description,
         },
       ],
     }

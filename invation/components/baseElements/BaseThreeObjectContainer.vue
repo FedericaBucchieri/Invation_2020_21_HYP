@@ -28,19 +28,13 @@
             class="objectOfTheThree"
             data-scroll-reveal="enter right move 30px over 0.6s after 0.4s"
           >
-            <img
-              :src="item.thumbnail"
-              :alt="item.name + 'thumbnail image'"
-              width="100"
-              height="100"
-            />
-            <div class="text">
-              <nuxt-link
-                :class="{ disabled: disabled }"
-                :to="`/${typology}/` + item.numberTag"
-                @click.native="updateBreadcrump(item.name)"
-              >
-                <div class="object-name">{{ item.name }}</div>
+            <div
+              v-if="isObjectList"
+              class="vision-tag-on-border"
+              :class="'visions-style-' + item.vision.id"
+            >
+              <nuxt-link :to="`/visions/` + item.vision.id">
+                {{ item.vision.name }}
               </nuxt-link>
             </div>
             <div class="object-container">
@@ -54,9 +48,9 @@
                 <nuxt-link
                   :class="{ disabled: disabled }"
                   :to="`/${typology}/` + item.numberTag"
-                  class="object-name"
+                  @click.native="updateBreadcrump(item.name)"
                 >
-                  {{ item.name }}
+                  <span class="object-name">{{ item.name }}</span>
                 </nuxt-link>
                 <span v-if="isObjectList" class="item-creation-date">
                   {{ formatDate(item.createdAt) }}
@@ -91,6 +85,10 @@ export default {
     this.disabled = this.typology === ''
   },
   methods: {
+    formatDate(date) {
+      const options = { year: 'numeric', month: 'long', day: 'numeric' }
+      return new Date(date).toLocaleDateString('en', options)
+    },
     updateBreadcrump(pageName) {
       // If I am not in the HomePage
       if (!(this.$store.state.currentPageName === '')) {

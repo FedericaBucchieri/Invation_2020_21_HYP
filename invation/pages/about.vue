@@ -126,15 +126,16 @@ export default {
   head() {
     return {
       title: 'Invation - About',
-      description:
-        'General overwiew of the company, its founders and how to reach the headquarter',
       meta: [
+        {
+          name: 'description',
+          content:
+            'General overwiew of the company, its founders and how to reach the headquarter',
+        },
         {
           hid: 'About',
           name: 'About',
           content: 'About Invation',
-          description:
-            'General overwiew of the company, its founders and how to reach the headquarter',
         },
       ],
     }

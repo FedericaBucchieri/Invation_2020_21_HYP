@@ -40,10 +40,16 @@ export default {
   },
   head() {
     return {
-      name: 'Visions',
+      title: 'Invation - All visions',
       meta: [
         {
-          title: 'Visions',
+          name: 'description',
+          content: 'All the visions of the Invation Team',
+        },
+        {
+          hid: 'all visions',
+          name: 'all visions',
+          content: 'all visions overview and visions presentation',
         },
       ],
     }

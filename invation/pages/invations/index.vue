@@ -21,6 +21,22 @@ export default {
   components: {
     TheIntroPage,
   },
+  head() {
+    return {
+      title: 'Invation - All invations',
+      meta: [
+        {
+          name: 'description',
+          content: 'All the invations of the Invation Team',
+        },
+        {
+          hid: 'all invations',
+          name: 'all invations',
+          content: 'all invations overview',
+        },
+      ],
+    }
+  },
 }
 </script>
 

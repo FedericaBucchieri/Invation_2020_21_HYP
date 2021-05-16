@@ -87,10 +87,18 @@ export default {
   },
   head() {
     return {
-      name: 'HomePage',
+      title: 'Invation - Home Page',
       meta: [
         {
-          title: 'HomePage',
+          name: 'description',
+          content:
+            'Invation is a visionary company that proposes four thematic visions full of innovative product to have a look at the future',
+        },
+        {
+          hid: 'Home page',
+          name: 'Home page',
+          content:
+            'Invation is a visionary company that proposes four thematic visions full of innovative product to have a look at the future',
         },
       ],
     }

@@ -1,23 +1,25 @@
 <template>
   <div class="container">
     <div class="row">
-      <span
-        v-for="(item, itemIndex) of $store.state.visitedPaths"
-        :key="'breadcrupm-link-' + itemIndex"
-      >
-        <nuxt-link
-          :to="item.path"
-          @click.native="readjustBreadcrump(item.pathName)"
-        >
-          > {{ item.pathName }}
-        </nuxt-link></span
-      >
       <object-presentation-img :info="name" :img-path="imgPath">
       </object-presentation-img>
       <div
         class="right-text col-lg-6 col-md-12 col-sm-12 col-xs-12 inside-container overview-row"
         data-scroll-reveal="enter left move 30px over 0.6s after 0.4s"
       >
+        <div class="breadcrump-links list">
+          <span
+            v-for="(item, itemIndex) of $store.state.visitedPaths"
+            :key="'breadcrupm-link-' + itemIndex"
+          >
+            <nuxt-link
+              :to="item.path"
+              @click.native="readjustBreadcrump(item.pathName)"
+            >
+              > {{ item.pathName }}
+            </nuxt-link></span
+          >
+        </div>
         <div class="title-object-overview">
           <h1>
             {{ name }}

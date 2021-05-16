@@ -20,13 +20,15 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { name: 'description', content: 'Ciaone' },
+      {
+        name: 'description',
+        content:
+          'Invation is a visionary company that proposes four thematic visions full of innovative product to have a look at the future',
+      },
       {
         hid: 'Invation',
         name: 'Invation',
         content: 'Invation is a visionary company',
-        description:
-          'Invation is a visionary company that proposes four thematic visions full of innovative product to have a look at the future',
       },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
