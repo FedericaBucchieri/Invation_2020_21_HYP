@@ -1,7 +1,12 @@
 <template>
   <div class="features-item">
     <h2>{{ numberTag }}</h2>
-    <img :src="image" :alt="'Thubmnail image' + name" />
+    <img
+      :src="image"
+      :alt="'Thubmnail image' + name"
+      width="120"
+      height="120"
+    />
     <h3>{{ name }}</h3>
     <p>
       {{ description }}
@@ -86,10 +91,16 @@ a.main-button:hover {
 }
 
 .features-item {
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 60px 30px;
   text-align: center;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.features-item p {
+  overflow: scroll;
+  height: 200px;
+  text-align: justify;
 }
 
 .features-item h2 {
@@ -103,8 +114,8 @@ a.main-button:hover {
 
 .features-item img {
   position: relative;
-  max-width: 50%;
   margin-bottom: 40px;
+  border-radius: 50%;
 }
 
 .features-item h3 {

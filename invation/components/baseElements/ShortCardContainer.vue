@@ -17,17 +17,13 @@
         data-scroll-reveal="enter left move 30px over 0.6s after 0.4s"
       >
         <ul id="searchUL">
-          <short-card
+          <li
             v-for="(item, itemIndex) of cardList"
             :id="item.id"
-            :key="`${typology}-card` + itemIndex"
-            :img="item.image"
-            :name="item.name"
-            :surname="item.surname"
-            :role="item.role"
-            :typology="`${typology}`"
+            :key="`invationers-card` + itemIndex"
           >
-          </short-card>
+            <short-card :id="item.id" :invationer="item"> </short-card>
+          </li>
         </ul>
       </div>
     </div>
@@ -45,7 +41,6 @@ export default {
   props: {
     cardList: { type: Array, default: () => [] },
     title: { type: String, default: () => '' },
-    typology: { type: String, default: () => 'invationers' },
   },
 }
 </script>

@@ -38,12 +38,14 @@ export default {
       } else {
         filter = input.value.toUpperCase()
       }
-      const ul = document.getElementById(this.idUl)
-      const li = ul.getElementsByTagName('li')
-
+      // const ul = document.getElementById(this.idUl)
+      console.log(this.idUl + ' > li')
+      const li = document.querySelectorAll('#' + this.idUl + ' > li')
+      console.log(li)
       // Loop through all list items, and hide those who don't match the search query
       for (let i = 0; i < li.length; i++) {
         const h5 = li[i].getElementsByTagName(this.tagToSearch)[0]
+        console.log(li.length)
         const txtValue = h5.textContent || h5.innerText
         if (txtValue.toUpperCase().includes(filter)) {
           li[i].style.display = ''
