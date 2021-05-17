@@ -5,12 +5,12 @@
         <div class="center-heading">
           <h3>{{ title }}</h3>
         </div>
-        <input
-          id="searchInput"
-          type="text"
-          placeholder="Search for invationers..."
-          @keyup="searchFunction(false)"
-        />
+        <search-component
+          :is-case-sensitive="false"
+          id-ul="searchUL"
+          tag-to-search="h5"
+        >
+        </search-component>
       </div>
       <div
         class="invationer-list-container"
@@ -36,39 +36,16 @@
 
 <script>
 import ShortCard from '~/components/baseElements/ShortCard.vue'
+import SearchComponent from '~/components/baseElements/SearchComponent.vue'
 export default {
   components: {
     ShortCard,
+    SearchComponent,
   },
   props: {
     cardList: { type: Array, default: () => [] },
     title: { type: String, default: () => '' },
     typology: { type: String, default: () => 'invationers' },
-  },
-  methods: {
-    searchFunction(isCaseSensitive) {
-      // Declare variables
-      const input = document.getElementById('searchInput')
-      let filter
-      if (isCaseSensitive) {
-        filter = input.value
-      } else {
-        filter = input.value.toUpperCase()
-      }
-      const ul = document.getElementById('searchUL')
-      const li = ul.getElementsByTagName('li')
-
-      // Loop through all list items, and hide those who don't match the search query
-      for (let i = 0; i < li.length; i++) {
-        const h5 = li[i].getElementsByTagName('h5')[0]
-        const txtValue = h5.textContent || h5.innerText
-        if (txtValue.toUpperCase().includes(filter)) {
-          li[i].style.display = ''
-        } else {
-          li[i].style.display = 'none'
-        }
-      }
-    },
   },
 }
 </script>
@@ -76,15 +53,6 @@ export default {
 <style scoped>
 ul {
   display: flex;
-}
-
-input {
-  width: 100%;
-  margin: 30px auto;
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  border: none;
-  padding: 20px;
 }
 
 .invationer-list-container {
