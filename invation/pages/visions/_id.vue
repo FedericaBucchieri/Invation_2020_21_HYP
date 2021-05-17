@@ -41,6 +41,22 @@ export default {
       vision,
     }
   },
+  head() {
+    return {
+      title: 'Invation - ' + this.vision.name,
+      meta: [
+        {
+          name: 'description',
+          content: this.vision.description,
+        },
+        {
+          hid: this.vision.numberTag,
+          name: this.vision.name,
+          content: this.vision.description,
+        },
+      ],
+    }
+  },
   methods: {
     sendPath(pathItem) {
       this.$store.commit('addVisitedPath', {

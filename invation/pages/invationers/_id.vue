@@ -50,11 +50,11 @@
                 class="contact-list"
                 data-scroll-reveal="enter right move 30px over 0.6s after 0.4s"
               >
-                <li>Telephone Number: +39 389 932321</li>
-                <li>Email: clare.griffin@invation.com</li>
-                <li>Fax: 88776 5432325</li>
-                <li>Linkedin: clarke.griffin</li>
-                <li>Instagram: #clarkeGriffin</li>
+                <li>Telephone Number: {{ invationer.telephone }}</li>
+                <li>Email: {{ invationer.email }}</li>
+                <li>Fax: {{ invationer.fax }}</li>
+                <li>Linkedin: {{ invationer.linkedin }}</li>
+                <li>Instagram: {{ invationer.instagram }}</li>
               </ul>
             </div>
           </div>
@@ -105,10 +105,25 @@ export default {
       invationers,
     }
   },
-
   data() {
     return {
       showMore: false,
+    }
+  },
+  head() {
+    return {
+      title: 'Invation - ' + this.invationer.name,
+      meta: [
+        {
+          name: 'description',
+          content: this.invationer.overview,
+        },
+        {
+          hid: this.invationer.name,
+          name: this.invationer.name,
+          content: this.invationer.overview,
+        },
+      ],
     }
   },
   computed: {

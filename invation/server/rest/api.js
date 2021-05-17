@@ -63,6 +63,10 @@ async function init() {
     const invations = await Invation.findAll({
       limit: 3,
       order: [['createdAt', 'DESC']],
+      include: {
+        model: Vision,
+        attributes: ['id', 'name'],
+      },
     })
     return res.json(invations)
   })
@@ -75,7 +79,14 @@ async function init() {
       include: [
         {
           model: Invation,
-          attributes: ['id', 'name', 'subtitle', 'overview', 'image', 'numberTag'],
+          attributes: [
+            'id',
+            'name',
+            'subtitle',
+            'overview',
+            'image',
+            'numberTag',
+          ],
         },
         {
           model: Invationer,
@@ -182,6 +193,7 @@ async function init() {
         username: body.username,
         email: body.email,
         password: body.password,
+        image: body.image,
       })
 
       return res.send(user)

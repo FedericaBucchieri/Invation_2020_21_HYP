@@ -6,7 +6,11 @@
     <p>
       {{ description }}
     </p>
-    <nuxt-link :to="`/${typology}/` + numberTag" class="main-button">
+    <nuxt-link
+      :to="`/${typology}/` + numberTag"
+      class="main-button"
+      @click.native="updateBreadcrump"
+    >
       Explore
     </nuxt-link>
   </div>
@@ -20,6 +24,24 @@ export default {
     description: { type: String, default: () => '' },
     image: { type: String, default: () => '' },
     typology: { type: String, default: () => '' },
+  },
+  methods: {
+    updateBreadcrump() {
+      // If I am not in the HomePage
+      if (!(this.$store.state.currentPageName === '')) {
+        this.sendMessage(this.$route.path, this.$store.state.currentPageName)
+      }
+      this.updateCurrentPageName()
+    },
+    sendMessage(newPath, newPathName) {
+      this.$store.commit('addVisitedPath', {
+        path: newPath,
+        pathName: newPathName,
+      })
+    },
+    updateCurrentPageName() {
+      this.$store.commit('updateCurrentPageName', this.name)
+    },
   },
 }
 </script>

@@ -1,7 +1,9 @@
 <template>
-  <nuxt-link :to="theHeaderMenuItemExtensionPath">{{
-    theHeaderMenuItemExtensionName
-  }}</nuxt-link>
+  <nuxt-link
+    :to="theHeaderMenuItemExtensionPath"
+    @click.native="updateBreadcrump"
+    >{{ theHeaderMenuItemExtensionName }}</nuxt-link
+  >
 </template>
 
 <script>
@@ -9,6 +11,32 @@ export default {
   props: {
     theHeaderMenuItemExtensionName: { type: String, default: () => '' },
     theHeaderMenuItemExtensionPath: { type: String, default: () => '' },
+  },
+  methods: {
+    updateBreadcrump() {
+      this.eraseBreadcrump()
+      /* If I am not in the HomePage
+      if (!(this.$store.state.currentPageName === '')) {
+        this.sendMessage(this.$route.path, this.$store.state.currentPageName)
+      }
+      */
+      this.updateCurrentPageName()
+    },
+    sendMessage(newPath, newPathName) {
+      this.$store.commit('addVisitedPath', {
+        path: newPath,
+        pathName: newPathName,
+      })
+    },
+    updateCurrentPageName() {
+      this.$store.commit(
+        'updateCurrentPageName',
+        this.theHeaderMenuItemExtensionName
+      )
+    },
+    eraseBreadcrump() {
+      this.$store.commit('eraseBreadcrump')
+    },
   },
 }
 </script>

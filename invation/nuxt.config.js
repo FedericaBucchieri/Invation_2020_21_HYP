@@ -21,10 +21,14 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
-        hid: 'Invation',
-        name: 'Invation',
+        name: 'description',
         content:
           'Invation is a visionary company that proposes four thematic visions full of innovative product to have a look at the future',
+      },
+      {
+        hid: 'Invation',
+        name: 'Invation',
+        content: 'Invation is a visionary company',
       },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],

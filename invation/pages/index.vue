@@ -25,8 +25,13 @@
         :big-image="bigImage"
         :objects="last3Invations"
         :title="'Our last three invations'"
+        :is-object-list="true"
         typology="invations"
       >
+        Invation is proud to show you the last three product or - as we call
+        them - <i>invations</i>, that our fanstastic team developed. Those
+        invations are part of differents visions, come and enjoy all our guided
+        tours in the <b>"Visions"</b> section.
       </base-three-object-container>
     </section>
 
@@ -78,6 +83,24 @@ export default {
       bigImage: 'https://imgur.com/OrwkWr6.png',
       invationerTitle: 'Discover our team: The Invationers',
       myVisions: [],
+    }
+  },
+  head() {
+    return {
+      title: 'Invation - Home Page',
+      meta: [
+        {
+          name: 'description',
+          content:
+            'Invation is a visionary company that proposes four thematic visions full of innovative product to have a look at the future',
+        },
+        {
+          hid: 'Home page',
+          name: 'Home page',
+          content:
+            'Invation is a visionary company that proposes four thematic visions full of innovative product to have a look at the future',
+        },
+      ],
     }
   },
   mounted() {

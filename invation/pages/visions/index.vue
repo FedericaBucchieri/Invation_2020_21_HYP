@@ -38,6 +38,22 @@ export default {
       myVisions: [],
     }
   },
+  head() {
+    return {
+      title: 'Invation - All visions',
+      meta: [
+        {
+          name: 'description',
+          content: 'All the visions of the Invation Team',
+        },
+        {
+          hid: 'all visions',
+          name: 'all visions',
+          content: 'all visions overview and visions presentation',
+        },
+      ],
+    }
+  },
   /* In this case this mounted() is useless because the names of the attributes used inside the 
   ContentRoundedContainers are the same of those in the Vision schema of the DB, 
   however it shows the way to use properly the  component ContentRoundedContainers

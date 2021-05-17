@@ -41,6 +41,22 @@ export default {
   props: {
     entities: { type: Array, default: () => [] },
   },
+  head() {
+    return {
+      title: 'Invation - All invationers',
+      meta: [
+        {
+          name: 'description',
+          content: 'All the invationers of the Invation Team',
+        },
+        {
+          hid: 'all invationers',
+          name: 'all invationers',
+          content: 'all invationers overview and team member presentation',
+        },
+      ],
+    }
+  },
 }
 </script>
 

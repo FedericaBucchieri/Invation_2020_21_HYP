@@ -10,7 +10,11 @@
         />
       </div>
       <div class="card-description">
-        <nuxt-link :to="`/${typology}/` + id" class="card-name">
+        <nuxt-link
+          :to="`/${typology}/` + id"
+          class="card-name"
+          @click.native="updateBreadcrump"
+        >
           <h5>{{ name + ' ' + surname }}</h5>
         </nuxt-link>
         <p>{{ role }}</p>
@@ -28,6 +32,27 @@ export default {
     surname: { type: String, default: () => '' },
     img: { type: String, default: () => '' },
     role: { type: String, default: () => '' },
+  },
+  methods: {
+    updateBreadcrump() {
+      // If I am not in the HomePage
+      if (!(this.$store.state.currentPageName === '')) {
+        this.sendMessage(this.$route.path, this.$store.state.currentPageName)
+      }
+      this.updateCurrentPageName()
+    },
+    sendMessage(newPath, newPathName) {
+      this.$store.commit('addVisitedPath', {
+        path: newPath,
+        pathName: newPathName,
+      })
+    },
+    updateCurrentPageName() {
+      this.$store.commit(
+        'updateCurrentPageName',
+        this.typology + ': ' + this.name + ' ' + this.surname
+      )
+    },
   },
 }
 </script>

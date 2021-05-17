@@ -9,10 +9,15 @@
           >
             <div class="breadcrump-link">
               <span
-                v-for="(item, itemIndex) of this.$store.state.visitedPaths"
-                :key="'breadcrump-link-' + itemIndex"
+                v-for="(item, itemIndex) of $store.state.visitedPaths"
+                :key="'breadcrupm-link-' + itemIndex"
               >
-                <nuxt-link :to="item.path"> > {{ item.pathName }} </nuxt-link>
+                <nuxt-link
+                  :to="item.path"
+                  @click.native="readjustBreadcrump(item.pathName)"
+                >
+                  > {{ item.pathName }}
+                </nuxt-link>
               </span>
             </div>
             <h1><slot name="title"></slot></h1>
@@ -37,6 +42,15 @@ export default {
   props: {
     textButton: { type: String, default: () => '' },
     link: { type: String, default: () => '' },
+  },
+  methods: {
+    readjustBreadcrump(pathName) {
+      this.$store.commit('readjustBreadcrump', pathName)
+      this.updateCurrentPageName(pathName)
+    },
+    updateCurrentPageName(pathName) {
+      this.$store.commit('updateCurrentPageName', pathName)
+    },
   },
 }
 </script>
