@@ -14,7 +14,11 @@
 
     <!-- Explore Visions -->
     <section id="explore">
-      <content-rounded-containers :area-name="areaName" :content="myVisions">
+      <content-rounded-containers
+        :area-name="areaName"
+        :content="myVisions"
+        typology="visions"
+      >
       </content-rounded-containers>
     </section>
 
@@ -28,9 +32,9 @@
         :is-object-list="true"
         typology="invations"
       >
-        Invation is proud to show you the last three product or - as we call
+        Invation is proud to show you the last three products or - as we call
         them - <i>invations</i>, that our fanstastic team developed. Those
-        invations are part of differents visions, come and enjoy all our guided
+        invations are part of different visions, come and enjoy all our guided
         tours in the <b>"Visions"</b> section.
       </base-three-object-container>
     </section>
@@ -40,7 +44,6 @@
       <short-card-container
         :title="invationerTitle"
         :card-list="invationers"
-        :typology="`invationers`"
       ></short-card-container>
     </section>
   </div>

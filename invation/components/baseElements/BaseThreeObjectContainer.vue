@@ -103,10 +103,7 @@ export default {
       })
     },
     updateCurrentPageName(pageName) {
-      this.$store.commit(
-        'updateCurrentPageName',
-        this.typology + ': ' + pageName
-      )
+      this.$store.commit('updateCurrentPageName', pageName)
     },
   },
 }

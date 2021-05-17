@@ -26,5 +26,6 @@ export const mutations = {
   },
   eraseBreadcrump(state) {
     Vue.set(state, 'visitedPaths', [])
+    Vue.set(state, 'currentPageName', '')
   },
 }
