@@ -2,15 +2,9 @@ const { Sequelize, DataTypes } = require('sequelize')
 
 // Development
 const db = new Sequelize(
-<<<<<<< HEAD
-  'postgres://postgres:11235813@localhost:5432/InvationDB'
-  // 'postgres://postgres:federica140798@localhost:5432/InvationDB'
-  // 'postgres://postgres:password@localhost:5432/InvationDB'
-=======
   // 'postgres://postgres:11235813@localhost:5432/InvationDB'
   // 'postgres://postgres:federica140798@localhost:5432/InvationDB'
   'postgres://postgres:password@localhost:5432/InvationDB'
->>>>>>> 680786a3b2355b5405a21447ccb210f39b7ea8e1
 )
 
 // Production
