@@ -40,7 +40,6 @@
       <short-card-container
         :title="invationerTitle"
         :card-list="invationers"
-        :typology="`invationers`"
       ></short-card-container>
     </section>
   </div>

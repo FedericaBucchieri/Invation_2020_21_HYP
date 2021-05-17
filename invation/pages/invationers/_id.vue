@@ -69,12 +69,23 @@
         </div>
       </div>
     </section>
+    <!-- Invations that the Invationer worked on -->
+    <section id="invationers_invations">
+      <content-rounded-containers
+        :content="invationer.invations"
+        :area-name="'The Invations this Invationer worked on'"
+        :typology="'invations'"
+        :has-research="true"
+        :description-name="'overview'"
+      >
+      </content-rounded-containers>
+    </section>
+
     <!-- Other Invationers -->
     <section id="invationers">
       <short-card-container
         :card-list="invationers.filter((inv) => inv.id !== invationer.id)"
         :title="'Other Invationers'"
-        :typology="`invationers`"
       ></short-card-container>
     </section>
   </div>
@@ -83,11 +94,13 @@
 <script>
 import ObjectOverview from '~/components/baseElements/ObjectOverview.vue'
 import ShortCardContainer from '~/components/baseElements/ShortCardContainer.vue'
+import ContentRoundedContainers from '~/components/vision/ContentRoundedContainers.vue'
 
 export default {
   components: {
     ObjectOverview,
     ShortCardContainer,
+    ContentRoundedContainers,
   },
   async asyncData({ $axios, route }) {
     const { id } = route.params

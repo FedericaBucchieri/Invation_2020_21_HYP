@@ -5,7 +5,15 @@
         class="features-item-left inside-container"
         data-scroll-reveal="enter right move 30px over 0.6s after 0.4s"
       >
-        <h2>CONCEPT</h2>
+        <span><h2>CONCEPT</h2></span>
+        <span v-if="isPartOfAVision" class="vision-name">
+          <nuxt-link
+            :to="'/visions/' + vision.id"
+            @click.native="updateBreadcrump"
+          >
+            <b>Related Vision:</b> {{ vision.name }}</nuxt-link
+          >
+        </span>
         <p>
           {{ concept }}
         </p>
@@ -18,6 +26,29 @@
 export default {
   props: {
     concept: { type: String, default: () => '' },
+    isPartOfAVision: { type: Boolean, default: () => false },
+    vision: { type: Object, default: () => {} },
+  },
+  methods: {
+    updateBreadcrump() {
+      // If I am not in the HomePage
+      if (!(this.$store.state.currentPageName === '')) {
+        this.sendMessage(this.$route.path, this.$store.state.currentPageName)
+      }
+      this.updateCurrentPageName()
+    },
+    sendMessage(newPath, newPathName) {
+      this.$store.commit('addVisitedPath', {
+        path: newPath,
+        pathName: newPathName,
+      })
+    },
+    updateCurrentPageName() {
+      this.$store.commit(
+        'updateCurrentPageName',
+        this.typology + ': ' + this.name + ' ' + this.surname
+      )
+    },
   },
 }
 </script>
@@ -49,5 +80,33 @@ export default {
 
 .inside-container {
   padding: 40px 15px;
+}
+
+.vision-name {
+  text-align: right;
+  width: 84%;
+  margin-top: 10px;
+  margin-right: 0;
+}
+
+.vision-name a {
+  background: linear-gradient(
+    145deg,
+    rgba(244, 129, 63, 1) 0%,
+    rgba(241, 85, 106, 1) 100%
+  );
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.vision-name a:hover {
+  color: #fba70b;
+}
+
+.vision-name b {
+  color: white;
+  text-transform: uppercase;
+  font-size: 11px;
 }
 </style>

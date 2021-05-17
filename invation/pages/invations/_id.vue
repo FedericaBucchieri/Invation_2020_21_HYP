@@ -15,9 +15,14 @@
     </section>
     <!-- ***** Concept  ***** -->
     <section id="section1">
-      <object-concept :concept="invation.concept"></object-concept>
+      <object-concept
+        :concept="invation.concept"
+        :is-part-of-a-vision="true"
+        :vision="invation.vision"
+      ></object-concept>
     </section>
     <div class="right-image-decor"></div>
+    <!-- Show More Button -->
     <div class="more">
       <a
         v-if="!showMore"
@@ -179,7 +184,7 @@ export default {
 <style>
 .more {
   text-align: center;
-  margin: 40px;
+  margin: 50px 40px 80px 40px;
 }
 
 #section2 hr {
@@ -232,6 +237,9 @@ export default {
 h3 {
   text-align: center;
   width: 100%;
-  text-transform: uppercase;
+}
+
+#reviews h3 {
+  margin-top: 40px;
 }
 </style>

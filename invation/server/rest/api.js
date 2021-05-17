@@ -27,7 +27,12 @@ async function init() {
 
   // Get all the invationers
   app.get('/invationers', async (req, res) => {
-    const invationers = await Invationer.findAll()
+    const invationers = await Invationer.findAll({
+      include: {
+        model: Skill,
+        attributes: ['id', 'name'],
+      },
+    })
     return res.json(invationers)
   })
 
@@ -110,6 +115,7 @@ async function init() {
         { model: Technology, attributes: ['id', 'name', 'color'] },
         { model: Review },
         { model: User, attributes: ['id'] },
+        { model: Vision, attributes: ['id', 'name'] },
       ],
       attributes: {
         exclude: ['thumbnail'],
@@ -123,7 +129,7 @@ async function init() {
     const { id } = req.params
     const invationer = await Invationer.findOne({
       where: { id },
-      include: { model: Skill },
+      include: [{ model: Skill }, { model: Invation }],
     })
     return res.json(invationer)
   })
@@ -154,7 +160,7 @@ async function init() {
   // API to get all the technologies
   app.get('/technologies', async (req, res) => {
     const technologies = await Technology.findAll({
-      include: {model: Invation},
+      include: { model: Invation },
     })
     return res.json(technologies)
   })
