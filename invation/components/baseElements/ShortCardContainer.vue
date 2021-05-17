@@ -9,7 +9,7 @@
           id="searchInput"
           type="text"
           placeholder="Search for invationers..."
-          @keyup="searchFunction()"
+          @keyup="searchFunction(false)"
         />
       </div>
       <div
@@ -46,19 +46,21 @@ export default {
     typology: { type: String, default: () => 'invationers' },
   },
   methods: {
-    searchFunction() {
+    searchFunction(isCaseSensitive) {
       // Declare variables
       const input = document.getElementById('searchInput')
-      const filter = input.value.toUpperCase()
+      let filter
+      if (isCaseSensitive) {
+        filter = input.value
+      } else {
+        filter = input.value.toUpperCase()
+      }
       const ul = document.getElementById('searchUL')
-      console.log(ul)
       const li = ul.getElementsByTagName('li')
-      console.log(li)
 
       // Loop through all list items, and hide those who don't match the search query
       for (let i = 0; i < li.length; i++) {
         const h5 = li[i].getElementsByTagName('h5')[0]
-        console.log(h5)
         const txtValue = h5.textContent || h5.innerText
         if (txtValue.toUpperCase().includes(filter)) {
           li[i].style.display = ''

@@ -115,9 +115,10 @@ export default {
         {
           name: 'Invations',
           extensions: [
-            { nameExtension: 'Cloud Computing', path: '/' },
-            { nameExtension: 'Virtual & Augumented Reality', path: '/' },
-            { nameExtension: 'Internet of things', path: '/' },
+            {
+              nameExtension: 'Our technologies',
+              path: '/invations/technologies',
+            },
           ],
           path: '/invations',
         },

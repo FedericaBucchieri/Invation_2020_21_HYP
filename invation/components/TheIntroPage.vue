@@ -28,11 +28,7 @@
 
     <!-- ***** All entities area starts ***** -->
     <section :id="generalLink">
-      <short-card-container
-        :card-list="entities"
-        :title="`The ${thisGeneralLink}`"
-        :typology="`${thisGeneralLink}`"
-      ></short-card-container>
+      <slot name="entitiesList" :entities="entities"></slot>
     </section>
     <!-- ***** All entities area ends ***** -->
   </div>
@@ -41,13 +37,11 @@
 <script>
 import WelcomeAreaStart from '~/components/baseElements/WelcomeAreaStart.vue'
 import PhotoGallery from '~/components/baseElements/PhotoGallery.vue'
-import ShortCardContainer from '~/components/baseElements/ShortCardContainer.vue'
 
 export default {
   components: {
     WelcomeAreaStart,
     PhotoGallery,
-    ShortCardContainer,
   },
   props: {
     textButton: { type: String, default: () => '' },

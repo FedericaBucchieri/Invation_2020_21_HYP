@@ -1,9 +1,9 @@
 <template>
   <the-intro-page
-    :text-button="'DISCOVER INVATIONERS ROLES'"
-    :area-name="'Our team'"
-    :general-link="'invationers'"
-    :has-overlay="!!parseInt(1)"
+    text-button="DISCOVER INVATIONERS ROLES"
+    area-name="Our team"
+    general-link="invationers"
+    :has-overlay="true"
   >
     <template #welcome-title> Our team: <em>The invationers</em> </template>
     <template #welcome-overview>
@@ -19,15 +19,27 @@
     <template #overlay-img
       ><img src="~/static/invationers/team_banner.png" alt="group picture"
     /></template>
+    <template #entitiesList="slotProps">
+      <short-card-container
+        :card-list="slotProps.entities"
+        title="The invationers"
+        typology="invationers"
+      ></short-card-container>
+    </template>
   </the-intro-page>
 </template>
 
 <script>
 import TheIntroPage from '~/components/TheIntroPage'
+import ShortCardContainer from '~/components/baseElements/ShortCardContainer.vue'
 
 export default {
   components: {
     TheIntroPage,
+    ShortCardContainer,
+  },
+  props: {
+    entities: { type: Array, default: () => [] },
   },
 }
 </script>

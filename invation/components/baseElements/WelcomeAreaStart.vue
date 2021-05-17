@@ -10,7 +10,7 @@
             <div class="breadcrump-link">
               <span
                 v-for="(item, itemIndex) of this.$store.state.visitedPaths"
-                :key="'breadcrupm-link-' + itemIndex"
+                :key="'breadcrump-link-' + itemIndex"
               >
                 <nuxt-link :to="item.path"> > {{ item.pathName }} </nuxt-link>
               </span>
@@ -19,7 +19,12 @@
             <p>
               <slot name="overview"></slot>
             </p>
-            <a class="main-button-slider" :href="link">{{ textButton }} </a>
+            <a
+              v-if="textButton.length > 0"
+              class="main-button-slider"
+              :href="link"
+              >{{ textButton }}
+            </a>
           </div>
         </div>
       </div>

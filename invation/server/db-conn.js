@@ -2,9 +2,9 @@ const { Sequelize, DataTypes } = require('sequelize')
 
 // Development
 const db = new Sequelize(
-  'postgres://postgres:11235813@localhost:5432/InvationDB'
+  // 'postgres://postgres:11235813@localhost:5432/InvationDB'
   // 'postgres://postgres:federica140798@localhost:5432/InvationDB'
-  // 'postgres://postgres:password@localhost:5432/InvationDB'
+  'postgres://postgres:password@localhost:5432/InvationDB'
 )
 
 // Production
@@ -260,7 +260,7 @@ async function insertFakeData() {
   })
 
   const technology1 = await Technology.create({
-    name: 'Virtual & Agmented Reality',
+    name: 'Virtual & Augmented Reality',
     description: 'To be added',
     image: 'To be added',
     color: 'tag-color1',
@@ -396,7 +396,6 @@ async function insertFakeData() {
   await invation2.addInvationer(invationer1.id)
   await invation2.addInvationer(invationer2.id)
   await invation2.addInvationer(invationer3.id)
-  await invation2.addTechnology(technology1.id)
   await invation2.addTechnology(technology2.id)
   await invationer0.addSkill(skill1.id)
   await invationer0.addSkill(skill2.id)

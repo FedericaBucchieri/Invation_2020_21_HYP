@@ -44,28 +44,28 @@ export default {
       technologies,
     }
   },
-  data() {
-    return {
-      myTechnologies: [],
-    }
-  },
-  mounted() {
-    for (let i = 0; i < this.technologies.length; i++) {
-      this.myTechnologies[i] = this.technologies[i]
-      const invs = this.technologies[i].invations
-      this.myTechnologies[i].invations = []
-      for (let j = 0; j < invs.length; j++) {
-        const newInv = {
-          name: invs[i].name,
-          numberTag: invs[i].numberTag,
-          description: invs[i].overview,
-          image: invs[i].image,
-          typology: 'invations',
-        }
-        this.myTechnologies[i].invations.push(newInv)
-      }
-    }
-  },
+  // data() {
+  //   return {
+  //     myTechnologies: this.technologies,
+  //   }
+  //   // },
+  //   // mounted() {
+  //   //   for (let i = 0; i < this.technologies.length; i++) {
+  //   //     this.myTechnologies[i] = this.technologies[i]
+  //   //     const invs = this.technologies[i].invations
+  //   //     this.myTechnologies[i].invations = []
+  //   //     for (let j = 0; j < invs.length; j++) {
+  //   //       const newInv = {
+  //   //         name: invs[i].name,
+  //   //         numberTag: invs[i].numberTag,
+  //   //         description: invs[i].overview,
+  //   //         image: invs[i].image,
+  //   //         typology: 'invations',
+  //   //       }
+  //   //       this.myTechnologies[i].invations.push(newInv)
+  //   //     }
+  //   //   }
+  // },
 }
 </script>
 

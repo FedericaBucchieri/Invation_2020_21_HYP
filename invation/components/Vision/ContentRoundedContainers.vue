@@ -7,7 +7,7 @@
         <!-- List start, example placeholders for products -->
         <ul id="visionUL">
           <li
-            v-for="myContent in myContents"
+            v-for="myContent in content"
             :key="myContent.name"
             class="col-lg-4 col-md-6 col-sm-12 col-xs-12"
             data-scroll-reveal="enter left move 30px over 0.6s after 0.4s"
@@ -15,9 +15,9 @@
             <rounded-container
               :number-tag="myContent.numberTag"
               :name="myContent.name"
-              :description="myContent.description"
+              :description="myContent[descriptionName]"
               :image="myContent.image"
-              :typology="myContent.typology"
+              :typology="typology"
             >
             </rounded-container>
           </li>
@@ -39,6 +39,8 @@ export default {
       type: Array,
       default: () => [],
     },
+    descriptionName: { type: String, default: 'description' },
+    typology: { type: String, default: '' },
   },
   data() {
     return {

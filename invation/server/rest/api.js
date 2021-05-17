@@ -140,6 +140,14 @@ async function init() {
     return res.send(newReview)
   })
 
+  // API to get all the technologies
+  app.get('/technologies', async (req, res) => {
+    const technologies = await Technology.findAll({
+      include: {model: Invation},
+    })
+    return res.json(technologies)
+  })
+
   // API for handling login request
   app.post('/login', async (req, res) => {
     const body = req.body
