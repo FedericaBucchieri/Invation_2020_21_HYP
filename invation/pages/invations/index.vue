@@ -16,6 +16,8 @@
         :content="entitiesProps.entities"
         area-name="Our invations"
         description-name="overview"
+        :has-research="true"
+        typology="invations"
       ></content-rounded-containers>
     </template>
   </the-intro-page>

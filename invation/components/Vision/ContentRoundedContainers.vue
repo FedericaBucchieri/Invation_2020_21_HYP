@@ -2,26 +2,37 @@
   <section id="invation_list" class="section">
     <div class="container">
       <div class="row">
-        <h2 class="area-title">{{ areaName }}</h2>
-
-        <!-- List start, example placeholders for products -->
-        <ul id="visionUL">
-          <li
-            v-for="myContent in content"
-            :key="myContent.name"
-            class="col-lg-4 col-md-6 col-sm-12 col-xs-12"
-            data-scroll-reveal="enter left move 30px over 0.6s after 0.4s"
-          >
-            <rounded-container
-              :number-tag="myContent.numberTag"
-              :name="myContent.name"
-              :description="myContent[descriptionName]"
-              :image="myContent.image"
-              :typology="typology"
+        <div class="center-heading">
+          <h2 class="area-title">{{ areaName }}</h2>
+        </div>
+        <search-component
+          v-if="hasResearch"
+          :is-case-sensitive="false"
+          id-ul="visionUL"
+          tag-to-search="h3"
+          :placeholder-keyword="typology"
+        >
+        </search-component>
+        <div class="rounded-content">
+          <!-- List start, example placeholders for products -->
+          <ul id="visionUL">
+            <li
+              v-for="myContent in content"
+              :key="myContent.name"
+              class="col-lg-4 col-md-6 col-sm-12 col-xs-12"
+              data-scroll-reveal="enter left move 30px over 0.6s after 0.4s"
             >
-            </rounded-container>
-          </li>
-        </ul>
+              <rounded-container
+                :number-tag="myContent.numberTag"
+                :name="myContent.name"
+                :description="myContent[descriptionName]"
+                :image="myContent.image"
+                :typology="typology"
+              >
+              </rounded-container>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -30,9 +41,10 @@
 
 <script>
 import RoundedContainer from '~/components/vision/RoundedContainer.vue'
+import SearchComponent from '~/components/baseElements/SearchComponent.vue'
 
 export default {
-  components: { RoundedContainer },
+  components: { RoundedContainer, SearchComponent },
   props: {
     areaName: { type: String, default: '' },
     content: {
@@ -41,6 +53,7 @@ export default {
     },
     descriptionName: { type: String, default: 'description' },
     typology: { type: String, default: '' },
+    hasResearch: { type: Boolean, default: () => false },
   },
   data() {
     return {
@@ -53,6 +66,16 @@ export default {
 <style scoped>
 .area-title {
   margin-bottom: 15px;
+}
+.center-heading {
+  width: 100%;
+  text-align: center;
+}
+.rounded-content {
+  display: inline-flex;
+  width: 100%;
+  flex-wrap: wrap;
+  margin-bottom: 10%;
 }
 section {
   margin: 0;
