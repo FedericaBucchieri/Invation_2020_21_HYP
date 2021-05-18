@@ -7,19 +7,11 @@
         class="right-text col-lg-6 col-md-12 col-sm-12 col-xs-12 inside-container overview-row"
         data-scroll-reveal="enter left move 30px over 0.6s after 0.4s"
       >
-        <div class="breadcrump-links list">
-          <span
-            v-for="(item, itemIndex) of $store.state.visitedPaths"
-            :key="'breadcrupm-link-' + itemIndex"
-          >
-            <nuxt-link
-              :to="item.path"
-              @click.native="readjustBreadcrump(item.pathName)"
-            >
-              > {{ item.pathName }}
-            </nuxt-link></span
-          >
-        </div>
+        <the-breadcrump
+          :paths-list="pathsList"
+          breadcrump-class="breadcrump-links list"
+        >
+        </the-breadcrump>
         <div class="title-object-overview">
           <h1>
             {{ name }}
@@ -40,12 +32,14 @@
 </template>
 
 <script>
+import TheBreadcrump from '../TheBreadcrump.vue'
 import BaseTagsBar from '~/components/baseElements/BaseTagsBar.vue'
 import ObjectPresentationImg from '~/components/baseElements/ObjectPresentationImg.vue'
 
 export default {
   components: {
     ObjectPresentationImg,
+    TheBreadcrump,
     BaseTagsBar,
   },
   props: {
@@ -56,6 +50,7 @@ export default {
     isSavable: { type: Boolean, default: () => false },
     isSaved: { type: Boolean, default: () => false },
     id: { type: Number, default: () => 0 },
+    pathsList: { type: Array, default: () => [] },
   },
   data() {
     return {
@@ -93,13 +88,6 @@ export default {
         {}
       )
       e.preventDefault()
-    },
-    readjustBreadcrump(pathName) {
-      this.$store.commit('readjustBreadcrump', pathName)
-      this.updateCurrentPageName(pathName)
-    },
-    updateCurrentPageName(pathName) {
-      this.$store.commit('updateCurrentPageName', pathName)
     },
   },
 }

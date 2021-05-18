@@ -1,7 +1,11 @@
 <template>
   <div>
     <!-- ***** Welcome Area Start ***** -->
-    <WelcomeAreaStart :text-button="textButton" :link="'#founders'">
+    <WelcomeAreaStart
+      :text-button="textButton"
+      :link="'#founders'"
+      :paths-list="pathsList"
+    >
       <template #title> About the company: <em>Invation</em> </template>
       <template #overview>
         Our company was born in <b>2001</b> at the early stages of the
@@ -100,6 +104,12 @@ export default {
       textButton: 'DISCOVER MORE',
       mapOpening: false,
       mapRequest: false,
+      pathsList: [
+        {
+          path: this.$route.path,
+          pathName: 'About',
+        },
+      ],
       founders: [
         {
           name: 'Federica Bucchieri',

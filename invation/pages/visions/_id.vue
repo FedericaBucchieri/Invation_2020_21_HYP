@@ -6,6 +6,7 @@
         :name="vision.name"
         :img-path="vision.image"
         :overview="vision.description"
+        :paths-list="pathsList"
       >
       </object-overview>
     </section>
@@ -40,6 +41,23 @@ export default {
     return {
       vision,
     }
+  },
+  data() {
+    return {
+      pathsList: [],
+    }
+  },
+  mounted() {
+    this.pathsList = [
+      {
+        path: '/visions',
+        pathName: 'Visions',
+      },
+      {
+        path: `/visions/${this.vision.id}`,
+        pathName: `${this.vision.name}`,
+      },
+    ]
   },
   head() {
     return {

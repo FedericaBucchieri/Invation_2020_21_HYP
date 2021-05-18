@@ -1,7 +1,11 @@
 <template>
   <div class="content">
     <!-- ***** Welcome area start ***** -->
-    <welcome-area-start :text-button="textButton" :link="'#' + generalLink">
+    <welcome-area-start
+      :text-button="textButton"
+      :link="'#' + generalLink"
+      :paths-list="pathsList"
+    >
       <template #title><slot name="welcome-title"></slot> </template>
       <template #overview><slot name="welcome-overview"></slot> </template>
     </welcome-area-start>
@@ -48,6 +52,7 @@ export default {
     areaName: { type: String, default: () => '' },
     generalLink: { type: String, default: () => '' },
     hasOverlay: { type: Boolean, default: () => false },
+    pathsList: { type: Array, default: () => [] },
   },
   data() {
     return {

@@ -1,7 +1,11 @@
 <template>
   <div>
     <!-- ***** Welcome Area Start ***** -->
-    <WelcomeAreaStart :text-button="textButton" link="#visionsContainers">
+    <welcome-area-start
+      :text-button="textButton"
+      link="#visionsContainers"
+      :paths-list="pathsList"
+    >
       <template #title> A Look Into the Future: <em>Our Visions</em> </template>
       <template #overview>
         Having a <b>Vision</b> means offering a look into the future.<br />
@@ -10,10 +14,14 @@
         Visions are not just the way we look at the world, but rather the ways
         the world suggest us to take.
       </template>
-    </WelcomeAreaStart>
+    </welcome-area-start>
     <section id="visionsContainers">
-      <ContentRoundedContainers :content="myVisions" :area-name="areaName">
-      </ContentRoundedContainers>
+      <content-rounded-containers
+        :content="visions"
+        :area-name="areaName"
+        typology="visions"
+      >
+      </content-rounded-containers>
     </section>
   </div>
 </template>
@@ -23,7 +31,10 @@ import WelcomeAreaStart from '~/components/baseElements/WelcomeAreaStart.vue'
 import ContentRoundedContainers from '~/components/vision/ContentRoundedContainers'
 
 export default {
-  components: { WelcomeAreaStart, ContentRoundedContainers },
+  components: {
+    WelcomeAreaStart,
+    ContentRoundedContainers,
+  },
   async asyncData({ $axios }) {
     const { data } = await $axios.get(`${process.env.BASE_URL}/api/visions`)
     const visions = data
@@ -35,7 +46,12 @@ export default {
     return {
       textButton: 'DISCOVER OUR VISIONS',
       areaName: 'Our Visions',
-      myVisions: [],
+      pathsList: [
+        {
+          path: this.$route.path,
+          pathName: 'Visions',
+        },
+      ],
     }
   },
   head() {
@@ -57,7 +73,6 @@ export default {
   /* In this case this mounted() is useless because the names of the attributes used inside the 
   ContentRoundedContainers are the same of those in the Vision schema of the DB, 
   however it shows the way to use properly the  component ContentRoundedContainers
-  */
   mounted() {
     for (let i = 0; i < this.visions.length; i++) {
       const newVision = {
@@ -70,14 +85,7 @@ export default {
       this.myVisions.push(newVision)
     }
   },
-  methods: {
-    sendPath() {
-      this.$store.commit('addVisitedPath', {
-        path: '/visions/',
-        pathName: 'visions',
-      })
-    },
-  },
+  */
 }
 </script>
 

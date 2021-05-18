@@ -69,7 +69,9 @@
         <div class="savedInvationsSection">
           <content-rounded-containers
             :area-name="'Saved Invations'"
-            :content="myUserInvations"
+            :content="user.invations"
+            description-name="overview"
+            typology="invations"
           ></content-rounded-containers>
         </div>
       </div>
@@ -96,7 +98,6 @@ export default {
       password: '',
       image: '',
       email: '',
-      myUserInvations: [],
     }
   },
   head() {
@@ -137,6 +138,7 @@ export default {
       return 'You have entered an invalid email address!'
     },
   },
+  /*
   mounted() {
     for (let i = 0; i < this.user.invations.length; i++) {
       const newUserInvation = {
@@ -149,6 +151,7 @@ export default {
       this.myUserInvations.push(newUserInvation)
     }
   },
+  */
   methods: {
     updateProfile(e) {
       this.$axios

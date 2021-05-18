@@ -9,11 +9,7 @@
       width="100"
       height="100"
     />
-    <nuxt-link
-      :to="`/invationers/` + id"
-      class="card-name"
-      @click.native="updateBreadcrump"
-    >
+    <nuxt-link :to="`/invationers/` + id" class="card-name">
       <h5>{{ invationer.name + ' ' + invationer.surname }}</h5>
     </nuxt-link>
 
@@ -39,27 +35,6 @@ export default {
   props: {
     id: { type: Number, default: () => 0 },
     invationer: { type: Object, default: () => {} },
-  },
-  methods: {
-    updateBreadcrump() {
-      // If I am not in the HomePage
-      if (!(this.$store.state.currentPageName === '')) {
-        this.sendMessage(this.$route.path, this.$store.state.currentPageName)
-      }
-      this.updateCurrentPageName()
-    },
-    sendMessage(newPath, newPathName) {
-      this.$store.commit('addVisitedPath', {
-        path: newPath,
-        pathName: newPathName,
-      })
-    },
-    updateCurrentPageName() {
-      this.$store.commit(
-        'updateCurrentPageName',
-        this.invationer.name + ' ' + this.invationer.surname
-      )
-    },
   },
 }
 </script>

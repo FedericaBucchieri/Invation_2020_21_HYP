@@ -1,7 +1,7 @@
 <template>
   <!-- Our technologies -->
   <div>
-    <welcome-area-start>
+    <welcome-area-start :paths-list="pathsList">
       <template #title> Explore our <em>Technologies</em></template>
       <template #overview>
         Our <i>Visionary</i> ideas are based on the latest <br />
@@ -42,6 +42,20 @@ export default {
     const technologies = data
     return {
       technologies,
+    }
+  },
+  data() {
+    return {
+      pathsList: [
+        {
+          path: '/invations',
+          pathName: 'Invations',
+        },
+        {
+          path: '/invations/technologies',
+          pathName: 'Technologies',
+        },
+      ],
     }
   },
   // data() {

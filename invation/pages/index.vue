@@ -1,7 +1,7 @@
 <template>
   <div>
     <!--  Welcome Area Start  -->
-    <WelcomeAreaStart :text-button="textButton" :link="'#explore'">
+    <welcome-area-start :text-button="textButton" :link="'#explore'">
       <template #title> Join our <em>Vision</em> of the Future </template>
       <template #overview>
         Our company was born in <b>2001</b> at the early stages of the
@@ -10,13 +10,13 @@
         to imposes itself as an <i>innovative</i> company. Inside the company
         there are <i>three pillars:</i> Innovation, Invention and Teamwork.
       </template>
-    </WelcomeAreaStart>
+    </welcome-area-start>
 
     <!-- Explore Visions -->
     <section id="explore">
       <content-rounded-containers
         :area-name="areaName"
-        :content="myVisions"
+        :content="visions"
         typology="visions"
       >
       </content-rounded-containers>
@@ -85,7 +85,6 @@ export default {
       areaName: 'Explore our Visions',
       bigImage: 'https://imgur.com/OrwkWr6.png',
       invationerTitle: 'Discover our team: The Invationers',
-      myVisions: [],
     }
   },
   head() {
@@ -106,6 +105,7 @@ export default {
       ],
     }
   },
+  /*
   mounted() {
     for (let i = 0; i < this.visions.length; i++) {
       const newVision = {
@@ -118,14 +118,7 @@ export default {
       this.myVisions.push(newVision)
     }
   },
-  methods: {
-    sendMessage(newPath, newPathName) {
-      this.$store.commit('addVisitedPath', {
-        path: newPath,
-        pathName: newPathName,
-      })
-    },
-  },
+  */
 }
 </script>
 

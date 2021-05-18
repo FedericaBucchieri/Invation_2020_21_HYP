@@ -7,19 +7,11 @@
             class="left-text col-lg-6 col-md-12 col-sm-12 col-xs-12"
             data-scroll-reveal="enter left move 30px over 0.6s after 0.4s"
           >
-            <div class="breadcrump-link">
-              <span
-                v-for="(item, itemIndex) of $store.state.visitedPaths"
-                :key="'breadcrupm-link-' + itemIndex"
-              >
-                <nuxt-link
-                  :to="item.path"
-                  @click.native="readjustBreadcrump(item.pathName)"
-                >
-                  > {{ item.pathName }}
-                </nuxt-link>
-              </span>
-            </div>
+            <the-breadcrump
+              :paths-list="pathsList"
+              breadcrump-class="breadcrump-link"
+            >
+            </the-breadcrump>
             <h1><slot name="title"></slot></h1>
             <p>
               <slot name="overview"></slot>
@@ -42,24 +34,12 @@ export default {
   props: {
     textButton: { type: String, default: () => '' },
     link: { type: String, default: () => '' },
-  },
-  methods: {
-    readjustBreadcrump(pathName) {
-      this.$store.commit('readjustBreadcrump', pathName)
-      this.updateCurrentPageName(pathName)
-    },
-    updateCurrentPageName(pathName) {
-      this.$store.commit('updateCurrentPageName', pathName)
-    },
+    pathsList: { type: Array, default: () => [] },
   },
 }
 </script>
 
 <style scoped>
-.breadcrump-link {
-  margin-bottom: 10px;
-}
-
 a.main-button-slider {
   font-size: 14px;
   border-radius: 25px;

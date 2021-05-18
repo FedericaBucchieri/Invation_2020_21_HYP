@@ -11,6 +11,7 @@
         :tags="invation.technologies"
         :is-savable="true"
         :is-saved="isSaved"
+        :paths-list="pathsList"
       ></object-overview>
     </section>
     <!-- ***** Concept  ***** -->
@@ -115,6 +116,7 @@ export default {
   },
   data() {
     return {
+      pathsList: [],
       showMore: false,
       review: {
         author: null,
@@ -124,6 +126,18 @@ export default {
       reviewAuthor: '',
       reviewBody: '',
     }
+  },
+  mounted() {
+    this.pathsList = [
+      {
+        path: '/invations',
+        pathName: 'Invations',
+      },
+      {
+        path: `/invations/${this.invation.id}`,
+        pathName: `${this.invation.name}`,
+      },
+    ]
   },
   head() {
     return {

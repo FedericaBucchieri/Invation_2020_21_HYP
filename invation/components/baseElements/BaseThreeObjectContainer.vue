@@ -48,7 +48,6 @@
                 <nuxt-link
                   :class="{ disabled: disabled }"
                   :to="`/${typology}/` + item.numberTag"
-                  @click.native="updateBreadcrump(item.name)"
                 >
                   <span class="object-name">{{ item.name }}</span>
                 </nuxt-link>
@@ -88,22 +87,6 @@ export default {
     formatDate(date) {
       const options = { year: 'numeric', month: 'long', day: 'numeric' }
       return new Date(date).toLocaleDateString('en', options)
-    },
-    updateBreadcrump(pageName) {
-      // If I am not in the HomePage
-      if (!(this.$store.state.currentPageName === '')) {
-        this.sendMessage(this.$route.path, this.$store.state.currentPageName)
-      }
-      this.updateCurrentPageName(pageName)
-    },
-    sendMessage(newPath, newPathName) {
-      this.$store.commit('addVisitedPath', {
-        path: newPath,
-        pathName: newPathName,
-      })
-    },
-    updateCurrentPageName(pageName) {
-      this.$store.commit('updateCurrentPageName', pageName)
     },
   },
 }

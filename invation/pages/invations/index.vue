@@ -3,6 +3,7 @@
     text-button="DISCOVER INVATIONS TECHNOLOGIES"
     area-name="Our invations"
     general-link="invations"
+    :paths-list="pathsList"
   >
     <template #welcome-title>
       Our innovations: <em>The invations</em>
@@ -35,6 +36,12 @@ export default {
   data() {
     return {
       myInvations: [],
+      pathsList: [
+        {
+          path: this.$route.path,
+          pathName: 'Invations',
+        },
+      ],
     }
   },
   head() {

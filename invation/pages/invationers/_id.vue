@@ -6,6 +6,7 @@
       :name="completeName"
       :img-path="invationer.image"
       :overview="invationer.overview"
+      :paths-list="pathsList"
     ></object-overview>
     <!-- Personal Details -->
     <section id="personalDetails">
@@ -121,7 +122,20 @@ export default {
   data() {
     return {
       showMore: false,
+      pathsList: [],
     }
+  },
+  mounted() {
+    this.pathsList = [
+      {
+        path: '/invationers',
+        pathName: 'Invationers',
+      },
+      {
+        path: `/invationers/${this.invationer.id}`,
+        pathName: `${this.invationer.name + ' ' + this.invationer.surname}`,
+      },
+    ]
   },
   head() {
     return {

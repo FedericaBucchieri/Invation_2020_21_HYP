@@ -4,6 +4,7 @@
     area-name="Our team"
     general-link="invationers"
     :has-overlay="true"
+    :paths-list="pathsList"
   >
     <template #welcome-title> Our team: <em>The invationers</em> </template>
     <template #welcome-overview>
@@ -40,6 +41,16 @@ export default {
   },
   props: {
     entities: { type: Array, default: () => [] },
+  },
+  data() {
+    return {
+      pathsList: [
+        {
+          path: this.$route.path,
+          pathName: 'Invationers',
+        },
+      ],
+    }
   },
   head() {
     return {
