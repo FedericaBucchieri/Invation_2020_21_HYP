@@ -82,6 +82,7 @@ export default {
   color: rgb(36, 36, 36);
   font-weight: 200;
   font-style: italic;
+  width: 265px;
 }
 
 .round {

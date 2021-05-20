@@ -2,8 +2,8 @@ const { Sequelize, DataTypes } = require('sequelize')
 
 // Development
 const db = new Sequelize(
-  'postgres://postgres:11235813@localhost:5432/InvationDB'
-  // 'postgres://postgres:federica140798@localhost:5432/InvationDB'
+  // 'postgres://postgres:11235813@localhost:5432/InvationDB'
+  'postgres://postgres:federica140798@localhost:5432/InvationDB'
   // 'postgres://postgres:password@localhost:5432/InvationDB'
 )
 
@@ -323,7 +323,7 @@ async function insertFakeData() {
       'Extrovert italian guys who always makes fun of himself and others and keeps the mood funny',
     quote:
       'Never say never because limits, like fears, are often just an illusion',
-    image: 'https://i.imgur.com/EgEPqWZb.jpg',
+    image: 'https://imgur.com/UNYW5yN.png',
   })
 
   const invationer2 = await Invationer.create({
@@ -337,7 +337,7 @@ async function insertFakeData() {
       'Extrovert italian guys who always makes fun of himself and others and keeps the mood funny',
     quote:
       'Never say never because limits, like fears, are often just an illusion',
-    image: 'https://i.imgur.com/EgEPqWZb.jpg',
+    image: 'https://imgur.com/UNYW5yN.png',
   })
 
   const invationer3 = await Invationer.create({
@@ -351,7 +351,7 @@ async function insertFakeData() {
       'Extrovert italian guys who always makes fun of himself and others and keeps the mood funny',
     quote:
       'Never say never because limits, like fears, are often just an illusion',
-    image: 'https://i.imgur.com/EgEPqWZb.jpg',
+    image: 'https://imgur.com/UNYW5yN.png',
   })
 
   const review1 = await Review.create({

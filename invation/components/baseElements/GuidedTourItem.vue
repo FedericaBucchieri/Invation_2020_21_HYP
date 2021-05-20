@@ -96,6 +96,7 @@ export default {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+  margin-top: 50px;
 }
 
 .features-item-right p {

@@ -49,37 +49,37 @@ export default {
       visionLinks: [
         {
           name: 'Education',
-          path: '/',
+          path: '/visions/1',
         },
         {
           name: 'Entertainment',
-          path: '/',
+          path: '/visions/2',
         },
         {
           name: 'Smart Home',
-          path: '/',
+          path: '/visions/3',
         },
         {
-          name: 'Smart Work',
-          path: '/',
+          name: 'Work',
+          path: '/visions/4',
         },
       ],
       usefulLinks: [
         {
-          name: 'How to Get Here',
-          path: '/',
+          name: 'About',
+          path: '/about',
         },
         {
           name: 'All Invations',
-          path: '/',
+          path: '/invations',
         },
         {
           name: 'All Invationers',
-          path: '/',
+          path: '/invationers',
         },
         {
           name: 'Invations by Technology',
-          path: '/',
+          path: '/invations/technologies',
         },
       ],
       contactInfos: [

@@ -127,18 +127,6 @@ export default {
       reviewBody: '',
     }
   },
-  mounted() {
-    this.pathsList = [
-      {
-        path: '/invations',
-        pathName: 'Invations',
-      },
-      {
-        path: `/invations/${this.invation.id}`,
-        pathName: `${this.invation.name}`,
-      },
-    ]
-  },
   head() {
     return {
       title: 'Invation - ' + this.invation.name,
@@ -176,6 +164,18 @@ export default {
       }
     },
   },
+  mounted() {
+    this.pathsList = [
+      {
+        path: '/invations',
+        pathName: 'Invations',
+      },
+      {
+        path: `/invations/${this.invation.id}`,
+        pathName: `${this.invation.name}`,
+      },
+    ]
+  },
   methods: {
     postReview(e) {
       this.review.invation_id = this.invation.id
@@ -195,7 +195,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .more {
   text-align: center;
   margin: 50px 40px 80px 40px;

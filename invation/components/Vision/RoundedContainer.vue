@@ -1,19 +1,26 @@
 <template>
-  <div class="features-item">
-    <h2>{{ numberTag }}</h2>
-    <img
-      :src="image"
-      :alt="'Thubmnail image' + name"
-      width="120"
-      height="120"
-    />
-    <h3>{{ name }}</h3>
-    <p>
-      {{ description }}
-    </p>
-    <nuxt-link :to="`/${typology}/` + numberTag" class="main-button">
-      Explore
-    </nuxt-link>
+  <div class="roundedContainer">
+    <div class="features-item">
+      <h2>{{ numberTag }}</h2>
+      <img
+        :src="image"
+        :alt="'Thubmnail image' + name"
+        width="120"
+        height="120"
+      />
+      <h3>{{ name }}</h3>
+      <p>
+        {{ description }}
+      </p>
+      <nuxt-link :to="`/${typology}/` + numberTag" class="main-button">
+        Explore
+      </nuxt-link>
+    </div>
+    <div class="vision-as-footer" v-if="vision !== undefined">
+      <nuxt-link :to="'/visions/' + vision.id">
+        <b>Related Vision:</b> {{ vision.name }}</nuxt-link
+      >
+    </div>
   </div>
 </template>
 
@@ -25,65 +32,53 @@ export default {
     description: { type: String, default: () => '' },
     image: { type: String, default: () => '' },
     typology: { type: String, default: () => '' },
+    vision: { type: Object, default: () => {} },
   },
 }
 </script>
 
 <style scoped>
-a.main-button {
-  font-size: 14px;
-  border-radius: 25px;
-  padding: 15px 25px;
-  background-color: #f4813f;
-  text-transform: uppercase;
-  color: #fff;
-  font-weight: 600;
-  letter-spacing: 1px;
-  -webkit-transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
+#invation_list .features-item {
+  height: 450px;
+  border-radius: 10px;
+  padding: 50px 30px 60px 30px;
+  text-align: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-a.main-button:hover {
-  background-color: #f1556a;
-}
-#invation_list .features-item {
-  height: 550px;
-  margin-bottom: 20px;
-}
 #invation_list .main-button {
-  position: absolute;
-  bottom: 40px;
-  right: 25%;
-  left: 25%;
+  margin: auto;
 }
 #invation_list h2 {
   width: 100%;
   text-align: center;
 }
+
 @media (max-width: 992px) {
   .features-item {
     margin-bottom: 45px;
   }
 }
 
-.features-item {
-  border-radius: 10px;
-  padding: 60px 30px;
-  text-align: center;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
 .features-item p {
-  overflow: scroll;
-  height: 200px;
+  overflow: hidden;
+  height: 150px;
   text-align: justify;
+  text-overflow: ellipsis;
+  white-space: normal;
+  color: #3c3c3c;
+  display: -webkit-box;
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 14px;
+  line-height: 22px;
+  margin-bottom: 15px;
 }
 
 .features-item h2 {
   position: absolute;
-  top: 15px;
+  top: 5px;
   left: 45px;
   font-size: 100px;
   font-weight: 600;
@@ -92,19 +87,47 @@ a.main-button:hover {
 
 .features-item img {
   position: relative;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
   border-radius: 50%;
+  background: linear-gradient(
+    45deg,
+    rgba(244, 129, 63, 1) 0%,
+    rgba(241, 85, 106, 1) 100%
+  );
+  padding: 4px;
 }
 
 .features-item h3 {
   margin-top: 0px;
   font-size: 22px;
   color: #1e1e1e;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 }
 
 .features-item .main-button {
   margin-top: 35px;
   display: inline-block;
+}
+
+.vision-as-footer {
+  padding: 10px 15px;
+  margin: auto;
+  border-radius: 0 0 15px 15px;
+  background: linear-gradient(
+    45deg,
+    rgba(244, 129, 63, 1) 0%,
+    rgba(241, 85, 106, 1) 100%
+  );
+  color: white;
+  width: 100%;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+b {
+  text-transform: uppercase;
+  font-size: 11px;
+  color: white;
+  margin-right: 45px;
 }
 </style>

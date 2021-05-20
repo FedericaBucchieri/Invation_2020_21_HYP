@@ -3,9 +3,7 @@
     <div class="features-item">
       <div class="features-icon">
         <h4>
-          <nuxt-link :to="titlePath">
-            {{ title }}
-          </nuxt-link>
+          {{ title }}
         </h4>
         <div
           v-for="(item, itemIndex) of linkList"

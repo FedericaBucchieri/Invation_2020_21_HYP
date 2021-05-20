@@ -38,7 +38,12 @@ async function init() {
 
   // Get all the invations
   app.get('/invations', async (req, res) => {
-    const invations = await Invation.findAll()
+    const invations = await Invation.findAll({
+      include: {
+        model: Vision,
+        attributes: ['id', 'name'],
+      },
+    })
     return res.json(invations)
   })
 
@@ -95,7 +100,8 @@ async function init() {
         },
         {
           model: Invationer,
-          attributes: ['id', 'image', 'name', 'surname', 'role'],
+          attributes: ['id', 'image', 'name', 'surname', 'role', 'quote'],
+          include: { model: Skill },
         },
       ],
     })
@@ -110,7 +116,8 @@ async function init() {
       include: [
         {
           model: Invationer,
-          attributes: ['id', 'name', 'surname', 'role', 'image'],
+          attributes: ['id', 'name', 'surname', 'quote', 'role', 'image'],
+          include: { model: Skill },
         },
         { model: Technology, attributes: ['id', 'name', 'color'] },
         { model: Review },
@@ -121,6 +128,7 @@ async function init() {
         exclude: ['thumbnail'],
       },
     })
+
     return res.json(invation)
   })
 

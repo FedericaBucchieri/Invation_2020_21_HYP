@@ -1,7 +1,7 @@
 <template>
   <div class="features-details-section">
     <h3>{{ numberTag }}</h3>
-    <img :src="image" alt="" />
+    <img :src="image" alt="" width="150" height="150" />
   </div>
 </template>
 
@@ -64,20 +64,18 @@ export default {
 }
 
 .features-item-left img {
-  max-width: 80%;
   position: relative;
   top: -80px;
   border-radius: 50%;
   box-shadow: #1e1e1e 0px 0px 2px;
-  margin-bottom: 40px;
+  margin: 20px 340px 40px 20px;
 }
 
 .features-item-right img {
-  max-width: 80%;
   position: relative;
   top: -80px;
   border-radius: 50%;
   box-shadow: #1e1e1e 0px 0px 2px;
-  margin-bottom: 40px;
+  margin: 20px 20px 40px 20px;
 }
 </style>

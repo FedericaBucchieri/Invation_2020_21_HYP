@@ -28,6 +28,7 @@
                 :description="myContent[descriptionName]"
                 :image="myContent[imageName]"
                 :typology="typology"
+                :vision="myContent.vision"
               >
               </rounded-container>
             </li>
@@ -98,26 +99,5 @@ section {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   border: none;
   padding: 20px;
-}
-
-#invation_list h2 {
-  width: 100%;
-  text-align: center;
-}
-
-#invation_list .features-item {
-  height: 550px;
-  margin-bottom: 20px;
-}
-
-#invation_list .main-button {
-  position: absolute;
-  bottom: 40px;
-  right: 25%;
-  left: 25%;
-}
-
-#invation_list img {
-  border-radius: 50%;
 }
 </style>

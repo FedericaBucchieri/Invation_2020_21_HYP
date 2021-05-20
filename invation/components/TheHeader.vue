@@ -85,21 +85,12 @@ export default {
       theHeaderMenuItems: [
         {
           name: 'About',
-          extensions: [
-            { nameExtension: 'Contact Us', path: '/' },
-            {
-              nameExtension: 'How to get here',
-              path: '/',
-            },
-          ],
+          extensions: [{ nameExtension: 'Contact Us', path: '/' }],
           path: '/about',
         },
         {
           name: 'Invationers',
-          extensions: [
-            { nameExtension: 'Our Team', path: '/' },
-            { nameExtension: 'Role', path: '/' },
-          ],
+          extensions: [{ nameExtension: 'Roles', path: '/' }],
           path: '/invationers',
         },
         {

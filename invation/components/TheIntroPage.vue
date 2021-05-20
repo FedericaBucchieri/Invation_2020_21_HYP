@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="intro-page-content">
     <!-- ***** Welcome area start ***** -->
     <welcome-area-start
       :text-button="textButton"
@@ -27,7 +27,13 @@
     <!--**** Overlay area end ****-->
 
     <!--**** Photogallery area starts ****-->
-    <photo-gallery :img-list="invationsDemo"> </photo-gallery>
+    <!-- <photo-gallery :img-list="invationsDemo"> </photo-gallery> -->
+    <!-- <base-gallery :imgList="invationsDemo"></base-gallery> -->
+    <base-slide-show
+      :slideObjects="slideObjects"
+      :title="slideObjectTitle"
+      :introduction="slideObjectIntro"
+    ></base-slide-show>
     <!--**** Photogallery area ends ****-->
 
     <!-- ***** All entities area starts ***** -->
@@ -39,13 +45,17 @@
 </template>
 
 <script>
+// import BaseGallery from './baseElements/BaseGallery.vue'
+import BaseSlideShow from './baseElements/BaseSlideShow.vue'
 import WelcomeAreaStart from '~/components/baseElements/WelcomeAreaStart.vue'
-import PhotoGallery from '~/components/baseElements/PhotoGallery.vue'
+// import PhotoGallery from '~/components/baseElements/PhotoGallery.vue'
 
 export default {
   components: {
     WelcomeAreaStart,
-    PhotoGallery,
+    // PhotoGallery,
+    // BaseGallery,
+    BaseSlideShow,
   },
   props: {
     textButton: { type: String, default: () => '' },
@@ -53,6 +63,9 @@ export default {
     generalLink: { type: String, default: () => '' },
     hasOverlay: { type: Boolean, default: () => false },
     pathsList: { type: Array, default: () => [] },
+    slideObjects: { type: Array, default: () => [] },
+    slideObjectTitle: { type: String, default: () => '' },
+    slideObjectIntro: { type: String, default: () => '' },
   },
   data() {
     return {
