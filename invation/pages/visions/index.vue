@@ -5,6 +5,7 @@
       :text-button="textButton"
       link="#visionsContainers"
       :paths-list="pathsList"
+      :bigImage="bigImage"
     >
       <template #title> A Look Into the Future: <em>Our Visions</em> </template>
       <template #overview>
@@ -44,6 +45,7 @@ export default {
   },
   data() {
     return {
+      bigImage: '/banners/banner-player.png',
       textButton: 'DISCOVER OUR VISIONS',
       areaName: 'Our Visions',
       pathsList: [

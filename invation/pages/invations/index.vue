@@ -3,6 +3,7 @@
     text-button="DISCOVER INVATIONS TECHNOLOGIES"
     area-name="Our invations"
     general-link="invations"
+    :bigImage="bigImage"
     :paths-list="pathsList"
     :slideObjects="slideObjects"
     :slideObjectTitle="'What we care about'"
@@ -38,6 +39,7 @@ export default {
   },
   data() {
     return {
+      bigImage: '/banners/banner-olo.png',
       myInvations: [],
       pathsList: [
         {

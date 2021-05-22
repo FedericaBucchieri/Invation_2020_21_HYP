@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-lg-8 offset-lg-2 inside-container">
         <div class="center-heading">
-          <h3>{{ title }}</h3>
+          <h2>{{ title }}</h2>
         </div>
         <search-component
           :is-case-sensitive="false"
@@ -60,21 +60,6 @@ ul {
 
 .center-heading {
   margin-bottom: 20px;
-}
-
-.center-heading h2 {
-  margin-top: 0px;
-  text-align: center;
-  font-size: 24px;
-  font-weight: 700;
-  color: #1e1e1e;
-  margin-bottom: 25px;
-  text-transform: uppercase;
-}
-
-.center-heading h2 em {
-  font-style: normal;
-  color: #f4813f;
 }
 
 .center-heading p {

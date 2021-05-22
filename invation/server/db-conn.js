@@ -45,6 +45,7 @@ function defineDatabaseStructure() {
       name: DataTypes.STRING,
       description: DataTypes.TEXT,
       image: DataTypes.STRING,
+      bigImage: DataTypes.STRING,
       video: DataTypes.STRING,
     },
     {
@@ -227,7 +228,8 @@ async function insertFakeData() {
     name: 'Education',
     description:
       'A new way of learning in a more effective way. Discover ourproposals about a new experience in the world of education.',
-    image: 'https://imgur.com/gRHC19s.png',
+    image: 'https://imgur.com/c5GqUz3.png',
+    bigImage: 'https://imgur.com/3Al3hcw.png',
     video:
       'https://www.youtube.com/embed/nmu7kEzAQus?autoplay=1&mute=1&controls=0&loop=1',
   })
@@ -236,7 +238,8 @@ async function insertFakeData() {
     name: 'Entertainment',
     description:
       'The world of entertainment is ready to embrace the new technologies about VR and AR where Reality merges with immagination.',
-    image: 'https://imgur.com/gRHC19s.png',
+    image: 'https://imgur.com/i3Rsg4f.png',
+    bigImage: '',
     video:
       'https://www.youtube.com/embed/nmu7kEzAQus?autoplay=1&mute=1&controls=0&loop=1',
   })
@@ -245,7 +248,8 @@ async function insertFakeData() {
     name: 'Smart Home',
     description:
       'Your home is part of your life, leaving in an intelligent and smart environment is essential for your quality of life.',
-    image: 'https://imgur.com/gRHC19s.png',
+    image: 'https://imgur.com/D5Dxd2p.png',
+    bigImage: '',
     video:
       'https://www.youtube.com/embed/nmu7kEzAQus?autoplay=1&mute=1&controls=0&loop=1',
   })
@@ -254,7 +258,8 @@ async function insertFakeData() {
     name: 'Work',
     description:
       'The Covid-19 pandemic has accelerated an inevitable trend in which giving new opportunities for an efficient work indipendently from where you are is fundamental.',
-    image: 'https://imgur.com/gRHC19s.png',
+    image: 'https://imgur.com/4UTHf9K.png',
+    bigImage: '',
     video:
       'https://www.youtube.com/embed/nmu7kEzAQus?autoplay=1&mute=1&controls=0&loop=1',
   })

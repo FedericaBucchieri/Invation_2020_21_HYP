@@ -81,7 +81,7 @@
       >
       </content-rounded-containers>
     </section>
-
+    <div class="left-image-decor"></div>
     <!-- Other Invationers -->
     <section id="invationers">
       <short-card-container

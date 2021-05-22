@@ -5,6 +5,7 @@
       :text-button="textButton"
       :link="'#founders'"
       :paths-list="pathsList"
+      :bigImage="'/banners/banner-robot.png'"
     >
       <template #title> About the company: <em>Invation</em> </template>
       <template #overview>
