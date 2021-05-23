@@ -11,7 +11,6 @@
         there are <i>three pillars:</i> Innovation, Invention and Teamwork.
       </template>
     </welcome-area-start>
-
     <!-- Explore Visions -->
     <section id="explore">
       <content-rounded-containers
@@ -54,6 +53,7 @@ import BaseThreeObjectContainer from '~/components/baseElements/BaseThreeObjectC
 import WelcomeAreaStart from '~/components/baseElements/WelcomeAreaStart.vue'
 import ContentRoundedContainers from '~/components/vision/ContentRoundedContainers.vue'
 import ShortCardContainer from '~/components/baseElements/ShortCardContainer.vue'
+// import RoutingMixin from '~/mixins/routing'
 
 export default {
   components: {
@@ -61,7 +61,9 @@ export default {
     ContentRoundedContainers,
     BaseThreeObjectContainer,
     ShortCardContainer,
+    // RoutingMixin,
   },
+  // mixins: [RoutingMixin],
   async asyncData({ $axios }) {
     const visions = await $axios.get(`${process.env.BASE_URL}/api/visions`)
 

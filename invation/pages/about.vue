@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- ***** Welcome Area Start ***** -->
-    <WelcomeAreaStart
+    <welcome-area-start
       :text-button="textButton"
       :link="'#founders'"
       :paths-list="pathsList"
@@ -14,7 +14,7 @@
         to imposes itself as an <i>innovative</i> company. Inside the company
         there are <i>three pillars:</i> Innovation, Invention and Teamwork.
       </template>
-    </WelcomeAreaStart>
+    </welcome-area-start>
     <!-- ***** Founder Area Start ***** -->
     <section id="founders">
       <div class="left-image-decor"></div>
@@ -22,7 +22,7 @@
         :title="'THE FOUNDERS'"
         :objects="founders"
         :big-image="foundersImage"
-        :isObjectList="false"
+        :is-object-list="false"
       >
         Thanks to the <i>ambition</i> and the work of our founder, Invation
         rockted in the market at full speed! Federica, Lorenzo and Alessandro
@@ -98,7 +98,10 @@ import BaseThreeObjectContainer from '~/components/baseElements/BaseThreeObjectC
 import WelcomeAreaStart from '~/components/baseElements/WelcomeAreaStart.vue'
 
 export default {
-  components: { WelcomeAreaStart, BaseThreeObjectContainer },
+  components: {
+    WelcomeAreaStart,
+    BaseThreeObjectContainer,
+  },
   data() {
     return {
       textButton: 'DISCOVER MORE',

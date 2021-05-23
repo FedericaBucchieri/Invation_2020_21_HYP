@@ -1,11 +1,24 @@
 <template>
   <div>
+    <mmcc-init-connection :configuration-id="configurationId" />
     <TheHeader />
     <TheUserAuthenticationHandler />
+    <chat :chat-list="list" />
     <Nuxt />
     <TheFooter />
   </div>
 </template>
+
+<script>
+import Chat from '~/components/Chat.vue'
+import MMCCMixin from '~/mixins/mmcc-mixin'
+export default {
+  components: {
+    Chat,
+  },
+  mixins: [MMCCMixin],
+}
+</script>
 
 <style>
 html {

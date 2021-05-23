@@ -17,7 +17,7 @@
               }"
             >
               <li class="scroll-to-section">
-                <a href="/">Home</a>
+                <nuxt-link to="/">Home</nuxt-link>
               </li>
               <li
                 v-for="theHeaderMenuItem in theHeaderMenuItems"

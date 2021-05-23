@@ -2,13 +2,20 @@ import Vue from 'vue'
 
 export const state = () => {
   return {
-    visitedPaths: [],
+    messages: [],
+    /* visitedPaths: [],
     currentPageName: '',
+    */
   }
 }
 
 export const mutations = {
-  addVisitedPath(state, newPath) {
+  addMessage(state, message) {
+    const messages = state.messages
+    messages.push(message)
+    Vue.set(state, 'messages', messages)
+  },
+  /* addVisitedPath(state, newPath) {
     const visitedPaths = state.visitedPaths
     visitedPaths.push(newPath)
     if (visitedPaths.length > 3) {
@@ -36,4 +43,5 @@ export const mutations = {
     Vue.set(state, 'visitedPaths', [])
     Vue.set(state, 'currentPageName', '')
   },
+  */
 }
