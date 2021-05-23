@@ -4,7 +4,7 @@
     <section id="introduction" class="section">
       <object-overview
         :name="vision.name"
-        :img-path="vision.image"
+        :img-path="vision.bigImage"
         :overview="vision.description"
         :paths-list="pathsList"
       >
@@ -87,10 +87,6 @@ export default {
 </script>
 
 <style scoped>
-#introduction {
-  padding: 100px 0px;
-}
-
 #introduction .left-image {
   align-self: center;
 }

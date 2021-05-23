@@ -1,5 +1,9 @@
 <template>
-  <div id="welcome" class="welcome-invationers-area">
+  <div
+    id="welcome"
+    class="welcome-invationers-area"
+    :style="'background-image: url(' + bigImage + ');'"
+  >
     <div class="header-text">
       <div class="container">
         <div class="row">
@@ -35,6 +39,10 @@ export default {
     textButton: { type: String, default: () => '' },
     link: { type: String, default: () => '' },
     pathsList: { type: Array, default: () => [] },
+    bigImage: {
+      type: String,
+      default: () => '/banners/banner-rocket.png',
+    },
   },
 }
 </script>
@@ -62,7 +70,6 @@ a.main-button-slider:hover {
   width: 100%;
   height: 100vh;
   min-height: 793px;
-  background-image: url(static/banners/banner-rocket.png);
   background-repeat: no-repeat;
   background-position: right top;
 }

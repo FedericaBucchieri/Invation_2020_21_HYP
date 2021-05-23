@@ -5,26 +5,12 @@
       :text-button="textButton"
       :link="'#' + generalLink"
       :paths-list="pathsList"
+      :bigImage="bigImage"
     >
       <template #title><slot name="welcome-title"></slot> </template>
       <template #overview><slot name="welcome-overview"></slot> </template>
     </welcome-area-start>
     <!-- ***** Welcome area end ***** -->
-
-    <!--**** Overlay area start ****-->
-    <div v-if="hasOverlay" class="overlay">
-      <div class="container">
-        <div
-          class="featured-box"
-          data-effect="slide-bottom"
-          data-scroll-reveal="enter bottom move 30px over 0.6s after 0.4s"
-        >
-          <h3><slot name="overlay-title"></slot></h3>
-          <slot name="overlay-img"></slot>
-        </div>
-      </div>
-    </div>
-    <!--**** Overlay area end ****-->
 
     <!--**** Photogallery area starts ****-->
     <!-- <photo-gallery :img-list="invationsDemo"> </photo-gallery> -->
@@ -60,8 +46,8 @@ export default {
   props: {
     textButton: { type: String, default: () => '' },
     areaName: { type: String, default: () => '' },
+    bigImage: { type: String, default: () => '' },
     generalLink: { type: String, default: () => '' },
-    hasOverlay: { type: Boolean, default: () => false },
     pathsList: { type: Array, default: () => [] },
     slideObjects: { type: Array, default: () => [] },
     slideObjectTitle: { type: String, default: () => '' },
@@ -94,11 +80,6 @@ export default {
 </script>
 
 <style scoped>
-.overlay {
-  padding: 60px 0 0 0;
-  background-color: #f4813f;
-}
-
 .featured-box {
   text-align: center;
 }

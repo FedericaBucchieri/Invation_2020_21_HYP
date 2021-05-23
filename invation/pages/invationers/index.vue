@@ -3,7 +3,7 @@
     text-button="DISCOVER INVATIONERS"
     area-name="Our team"
     general-link="invationers"
-    :has-overlay="true"
+    :bigImage="bigImage"
     :paths-list="pathsList"
     :slideObjects="slideObjects"
     :slideObjectTitle="'What people say about Us '"
@@ -17,12 +17,6 @@
       synergies among different backgrounds. Learning by doing is part of the
       job, growing together is our mission.
     </template>
-    <template #overlay-title
-      >The difference between success and failure is a great team.</template
-    >
-    <template #overlay-img
-      ><img src="~/static/invationers/team_banner.png" alt="group picture"
-    /></template>
     <template #entitiesList="slotProps">
       <short-card-container
         :card-list="slotProps.entities"
@@ -47,6 +41,7 @@ export default {
   },
   data() {
     return {
+      bigImage: '/banners/banner-astronauts.png',
       pathsList: [
         {
           path: this.$route.path,

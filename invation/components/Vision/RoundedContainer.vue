@@ -54,12 +54,6 @@ export default {
   text-align: center;
 }
 
-@media (max-width: 992px) {
-  .features-item {
-    margin-bottom: 45px;
-  }
-}
-
 .features-item p {
   overflow: hidden;
   height: 150px;

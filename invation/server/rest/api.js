@@ -137,7 +137,13 @@ async function init() {
     const { id } = req.params
     const invationer = await Invationer.findOne({
       where: { id },
-      include: [{ model: Skill }, { model: Invation }],
+      include: [
+        { model: Skill },
+        {
+          model: Invation,
+          include: { model: Vision, attributes: ['id', 'name'] },
+        },
+      ],
     })
     return res.json(invationer)
   })
