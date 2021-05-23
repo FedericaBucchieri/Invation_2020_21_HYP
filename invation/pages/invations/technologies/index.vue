@@ -1,7 +1,10 @@
 <template>
   <!-- Our technologies -->
   <div>
-    <welcome-area-start :paths-list="pathsList">
+    <welcome-area-start
+      :paths-list="pathsList"
+      :bigImage="'/banners/banner-agumented.png'"
+    >
       <template #title> Explore our <em>Technologies</em></template>
       <template #overview>
         Our <i>Visionary</i> ideas are based on the latest <br />

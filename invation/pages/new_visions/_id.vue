@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="left-image-decor"></div>
+    <!-- overview -->
     <section id="introduction" class="section">
       <object-overview
         :name="vision.name"
@@ -10,14 +11,15 @@
       >
       </object-overview>
     </section>
+    <!-- core : list of invations-->
     <div class="right-image-decor"></div>
     <section id="innovations" class="section">
-      <guided-tour
-        :items="vision.invations"
-        typology="invations"
-        :video="vision.video"
-      ></guided-tour>
+      <vision-carousel
+        :carouselObject="vision.invations"
+        :title="'Explore our Vision'"
+      ></vision-carousel>
     </section>
+    <!-- invationers that built this vision -->
     <short-card-container
       title="Invationers that built this Vision"
       :card-list="vision.invationers"
@@ -27,11 +29,10 @@
 </template>
 
 <script>
-import GuidedTour from '../../components/baseElements/GuidedTour.vue'
 import ObjectOverview from '../../components/baseElements/ObjectOverview.vue'
 import ShortCardContainer from '~/components/baseElements/ShortCardContainer.vue'
 export default {
-  components: { ObjectOverview, GuidedTour, ShortCardContainer },
+  components: { ObjectOverview, ShortCardContainer },
   async asyncData({ $axios, route }) {
     const { id } = route.params
     const visionData = await $axios.get(

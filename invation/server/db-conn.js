@@ -187,7 +187,7 @@ async function insertFakeData() {
     image: 'https://imgur.com/wuBnUBF.png',
     numberTag: '01',
     thumbnail: 'https://imgur.com/S0Ope6O.png',
-    video: 'https://www.youtube.com/embed/EQh3K9SFUtI',
+    video: 'https://www.youtube.com/embed/Io4tcn5UZQc',
     creationDate: Date.now(),
   })
 
