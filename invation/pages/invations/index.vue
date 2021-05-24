@@ -1,6 +1,6 @@
 <template>
   <the-intro-page
-    text-button="DISCOVER INVATIONS TECHNOLOGIES"
+    text-button="DISCOVER OUR INVATIONS"
     area-name="Our invations"
     general-link="invations"
     :bigImage="bigImage"

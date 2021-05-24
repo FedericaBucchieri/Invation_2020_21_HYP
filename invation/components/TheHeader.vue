@@ -85,7 +85,7 @@ export default {
       theHeaderMenuItems: [
         {
           name: 'About',
-          extensions: [{ nameExtension: 'Contact Us', path: '/' }],
+          extensions: [{ nameExtension: 'Contact Us', path: '/contact' }],
           path: '/about',
         },
         {
