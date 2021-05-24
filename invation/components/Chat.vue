@@ -1,6 +1,13 @@
 <template>
   <div class="chat">
     <div v-if="isOpen" class="chat-container">
+      <div class="chatbot-detail">
+        <img src="/charlie-chatbot.png" alt="charlie the chatbot image" />
+        <div class="details">
+          <p class="name">Hi! I'm Charlie</p>
+          <p class="status">~ ready to answer</p>
+        </div>
+      </div>
       <div id="chat-window" class="chat-window">
         <div
           v-for="(message, messageIndex) of chatList"
@@ -20,7 +27,7 @@
       />
     </div>
     <div class="button" @click="isOpen = !isOpen">
-      <img src="https://img.icons8.com/ios-filled/452/chat--v1.png" alt="" />
+      <img src="/charlie-chatbot.png" alt="" />
     </div>
   </div>
 </template>
@@ -59,28 +66,69 @@ export default {
 
 <style scoped>
 .button {
+  position: fixed;
+  z-index: 10;
+  bottom: 70px;
+  right: 30px;
   height: 60px;
   width: 60px;
-  border: 1px solid black;
-  border-radius: 100%;
-  padding: 10px;
-  float: right;
+  border-radius: 50%;
+  background: linear-gradient(
+    145deg,
+    rgba(244, 129, 63, 1) 0%,
+    rgba(241, 85, 106, 1) 100%
+  );
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 .button img {
   width: 100%;
 }
 .chat-container {
-  border: 1px solid black;
   border-radius: 4px;
-  height: 500px;
+  height: 600px;
   width: 300px;
-  position: absolute;
-  bottom: 80px;
-  right: 0px;
+  position: fixed;
+  z-index: 10;
+  bottom: 150px;
+  right: 20px;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: rgb(238, 238, 238);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
+
+.chatbot-detail {
+  display: inline-flex;
+  align-items: center;
+  border-bottom: 1px solid #fba70b;
+  width: 100%;
+}
+
+.chatbot-detail .name {
+  color: #fba70b;
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.chatbot-detail .status {
+  color: #777;
+  font-weight: 300;
+  font-size: 12px;
+}
+
+.chatbot-detail img {
+  width: 75px;
+  height: 75px;
+  margin-right: 10px;
+}
+
 .chat-window {
   overflow-y: scroll;
-  height: calc(100% - 34px);
+  height: calc(100% - 130px);
+  vertical-align: bottom;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 .message {
   width: calc(100% - 8px);
@@ -96,17 +144,34 @@ export default {
   width: auto;
   background: #f3f3f3;
   color: black;
-  border: 1px solid black;
   border-radius: 4px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 .message-content.sender {
-  background: black;
+  background: linear-gradient(
+    145deg,
+    rgba(244, 129, 63, 1) 0%,
+    rgba(241, 85, 106, 1) 100%
+  );
+  font-size: 14px;
   color: white;
-  border: 1px solid black;
 }
+
 input {
-  width: 100%;
+  bottom: 10px;
+  width: 93%;
+  height: 35px;
+  margin: auto;
+  border-radius: 10px;
   position: absolute;
   z-index: 20;
+  background-color: #eaeaea;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #999;
+}
+
+input:focus {
+  border: 1px solid #fba70b;
+  outline: none;
 }
 </style>
