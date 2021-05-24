@@ -24,14 +24,14 @@
                 :key="theHeaderMenuItem.name"
                 class="submenu"
               >
-                <TheHeaderMenuItem
+                <menu-item
                   :the-header-menu-item-name="theHeaderMenuItem.name"
                   :the-header-menu-item-extensions="
                     theHeaderMenuItem.extensions
                   "
                   :the-header-menu-item-path="theHeaderMenuItem.path"
                   :is-activated="isActive"
-                ></TheHeaderMenuItem>
+                ></menu-item>
               </li>
             </ul>
             <a
@@ -76,7 +76,10 @@
 </template>
 
 <script>
+import MenuItem from './TheHeader/MenuItem.vue'
+
 export default {
+  components: { MenuItem },
   data() {
     return {
       isActive: false,

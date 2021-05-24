@@ -340,6 +340,7 @@ async function insertFakeData() {
     color: 'tag-color2',
   })
 
+  // Hard Skills
   const skill1 = await Skill.create({
     name: 'SQL',
     image: 'https://imgur.com/1vjWTuM.png',
@@ -353,6 +354,20 @@ async function insertFakeData() {
   const skill3 = await Skill.create({
     name: 'HTML',
     image: 'https://imgur.com/HIOIBUo.png',
+  })
+
+  // Soft Skills
+  const skill4 = await Skill.create({
+    name: 'Problem Solving',
+    image: 'https://image.flaticon.com/icons/png/128/2618/2618497.png',
+  })
+  const skill5 = await Skill.create({
+    name: 'Critical Thinking',
+    image: 'https://image.flaticon.com/icons/png/128/2755/2755549.png',
+  })
+  const skill6 = await Skill.create({
+    name: 'Team Management',
+    image: 'https://image.flaticon.com/icons/png/128/1283/1283187.png',
   })
 
   const invationer0 = await Invationer.create({
@@ -385,13 +400,13 @@ async function insertFakeData() {
     role: 'Graphic Designer',
     badge: 'https://imgur.com/2iyaenU.png',
     gender: 'Male',
-    age: 51,
+    age: 45,
     nationality: 'Italian',
     overview:
       'Extrovert italian guy who always makes fun of himself and others and keeps the mood funny',
     quote: 'There is nothing so stable as change',
     image:
-      'https://www.calciomercato.it/wp-content/uploads/2021/05/Massimiliano-Allegri-1-1.jpg',
+      'https://www.pedersenandpartners.com/sites/default/files/public/teammembers/bruno_pastore_494x594.png',
     sport: 'No please!',
     hobby: 'Gaming, Drawing, Playing Music',
     musical: 'Rock music',
@@ -430,7 +445,7 @@ async function insertFakeData() {
   const invationer3 = await Invationer.create({
     name: 'Nathalie',
     surname: 'Dubois',
-    role: 'Manager',
+    role: 'Project Manager',
     gender: 'Female',
     age: 35,
     nationality: 'French',
@@ -447,6 +462,98 @@ async function insertFakeData() {
     fax: '888856 5436569',
     linkedin: 'nathalie.dubois',
     instagram: '#nathalie_dubois',
+  })
+  const invationer4 = await Invationer.create({
+    name: 'Massimiliano',
+    surname: 'Allegri',
+    role: 'Marketing Coordinator',
+    badge: 'https://imgur.com/2iyaenU.png',
+    gender: 'Male',
+    age: 53,
+    nationality: 'Italian',
+    overview:
+      'Funny italian man, known for his ability to brighten the working atmosphere',
+    quote:
+      'A scuola andavo male: volevo fare il preside, non lo studente. Da giovane mi piaceva molto cazzeggiare, a Livorno siamo così. E mi piace ancora: non si può vivere solo di lavoro. Quando sento gente che dice che bisognerebbe lavorare 24 ore al giorno penso: poi ti si fonde il cervello, ti scoppia la testa e non hai ottenuto un bel niente',
+    image:
+      'https://www.calciomercato.it/wp-content/uploads/2021/05/Massimiliano-Allegri-1-1.jpg',
+    sport: 'Football',
+    hobby: 'Phishing',
+    musical: 'Pop music',
+    preferred: 'Entertainment',
+    telephone: '+39 3337865096',
+    email: 'massimiliano.allegri@invation.com',
+    fax: '887416 4737598',
+    linkedin: 'massimiliano.allegri',
+    instagram: '#acciughina67',
+  })
+  const invationer5 = await Invationer.create({
+    name: 'Carlo',
+    surname: 'Rovelli',
+    role: 'Software Engineering',
+    badge: 'https://imgur.com/2iyaenU.png',
+    gender: 'Male',
+    age: 27,
+    nationality: 'Italian',
+    overview:
+      'Introvert italian guy who likes spending time at home with his books',
+    quote: 'Il mondo è fatto di reti di baci, non di sassi',
+    image:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Carlo_Rovelli.jpg/400px-Carlo_Rovelli.jpg',
+    sport: 'No please!',
+    hobby: 'Reading, Writing',
+    musical: 'Folk Music',
+    preferred: 'Work',
+    telephone: '+39 3337065096',
+    email: 'carlo.rovelli@invation.com',
+    fax: '876516 4730988',
+    linkedin: 'carlo.rovelli',
+    instagram: '#carlitorovelli',
+  })
+  const invationer6 = await Invationer.create({
+    name: 'Zac',
+    surname: 'Efron',
+    role: 'Product Designer',
+    badge: 'https://imgur.com/2iyaenU.png',
+    gender: 'Male',
+    age: 34,
+    nationality: 'USA',
+    overview:
+      'Pationate american guy who loves having an active life full of new experiences',
+    quote: 'Every day is a new experience and I take it as it comes',
+    image:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Zac_Efron_at_the_Baywatch_Red_Carpet_Premiere_Sydney_Australia.jpg/400px-Zac_Efron_at_the_Baywatch_Red_Carpet_Premiere_Sydney_Australia.jpg',
+    sport: 'Basket',
+    hobby: 'Climbing, Drawing',
+    musical: 'Rock Music',
+    preferred: 'Work',
+    telephone: '+39 3337098594',
+    email: 'zac.efron@invation.com',
+    fax: '856516 4709878',
+    linkedin: 'zac.efron',
+    instagram: '#zacfword',
+  })
+  const invationer7 = await Invationer.create({
+    name: 'Vanessa',
+    surname: 'Hudgens',
+    role: 'Psychologist',
+    badge: 'https://imgur.com/2iyaenU.png',
+    gender: 'Female',
+    age: 33,
+    nationality: 'USA',
+    overview:
+      'Determined girl who loves her pets and her family more than anything else',
+    quote: 'Being cool is being your own self, not doing something that someone else is telling you to do',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Vanessa_Hudgens_-_2019_by_Glenn_Francis.jpg/400px-Vanessa_Hudgens_-_2019_by_Glenn_Francis.jpg',
+    sport: 'No please!',
+    hobby: 'Dancing, Reading',
+    musical: 'Pop Music',
+    preferred: 'Entertainment',
+    telephone: '+39 3337067044',
+    email: 'vanessa.hudgens@invation.com',
+    fax: '856987 4709878',
+    linkedin: 'vanessa.hudgens',
+    instagram: '#vanessahudgens',
   })
 
   const review1 = await Review.create({
@@ -488,6 +595,9 @@ async function insertFakeData() {
   await vision0.addInvationer(invationer1.id)
   await vision0.addInvationer(invationer2.id)
   await vision0.addInvationer(invationer3.id)
+  await vision1.addInvationer(invationer4.id)
+  await vision3.addInvationer(invationer5.id)
+  await vision3.addInvationer(invationer6.id)
   // Invations --> Invationers
   await invationer0.addInvation(invation0.id)
   await invationer0.addInvation(invation1.id)
@@ -523,11 +633,23 @@ async function insertFakeData() {
   await invationer0.addSkill(skill2.id)
   await invationer0.addSkill(skill3.id)
   await invationer1.addSkill(skill1.id)
+  await invationer1.addSkill(skill2.id)
+  await invationer1.addSkill(skill3.id)
   await invationer2.addSkill(skill2.id)
-  await invationer1.addSkill(skill2.id)
   await invationer2.addSkill(skill1.id)
-  await invationer1.addSkill(skill2.id)
-  await invationer2.addSkill(skill1.id)
+  await invationer2.addSkill(skill3.id)
+  await invationer3.addSkill(skill4.id)
+  await invationer3.addSkill(skill5.id)
+  await invationer3.addSkill(skill6.id)
+  await invationer4.addSkill(skill2.id)
+  await invationer4.addSkill(skill6.id)
+  await invationer5.addSkill(skill1.id)
+  await invationer5.addSkill(skill2.id)
+  await invationer5.addSkill(skill3.id)
+  await invationer6.addSkill(skill2.id)
+  await invationer6.addSkill(skill6.id)
+  await invationer7.addSkill(skill5.id)
+  await invationer7.addSkill(skill6.id)
 
   await invation0.addReview(review1.id)
   await invation0.addReview(review2.id)

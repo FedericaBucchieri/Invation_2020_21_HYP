@@ -23,10 +23,10 @@
         v-for="extension in myTheHeaderMenuItemExtensions"
         :key="extension.nameExtension"
       >
-        <TheHeaderMenuItemExtension
+        <the-header-menu-item-extension
           :the-header-menu-item-extension-name="extension.nameExtension"
           :the-header-menu-item-extension-path="extension.path"
-        ></TheHeaderMenuItemExtension>
+        ></the-header-menu-item-extension>
       </li>
     </ul>
   </div>

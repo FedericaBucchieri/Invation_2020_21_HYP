@@ -75,14 +75,6 @@ export default {
       ],
     }
   },
-  methods: {
-    sendPath(pathItem) {
-      this.$store.commit('addVisitedPath', {
-        path: '/visions/' + pathItem.id,
-        pathName: pathItem.name,
-      })
-    },
-  },
 }
 </script>
 
