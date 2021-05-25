@@ -294,7 +294,7 @@ async function insertFakeData() {
     description:
       'The world of entertainment is ready to embrace the new technologies about VR and AR where Reality merges with immagination.',
     image: 'https://imgur.com/i3Rsg4f.png',
-    bigImage: '',
+    bigImage: 'https://imgur.com/H6qYZgB.png',
     video:
       'https://www.youtube.com/embed/nmu7kEzAQus?autoplay=1&mute=1&controls=0&loop=1',
   })
@@ -304,7 +304,7 @@ async function insertFakeData() {
     description:
       'Your home is part of your life, leaving in an intelligent and smart environment is essential for your quality of life.',
     image: 'https://imgur.com/D5Dxd2p.png',
-    bigImage: '',
+    bigImage: 'https://imgur.com/G3EVNQx.png',
     video:
       'https://www.youtube.com/embed/nmu7kEzAQus?autoplay=1&mute=1&controls=0&loop=1',
   })
@@ -314,7 +314,7 @@ async function insertFakeData() {
     description:
       'The Covid-19 pandemic has accelerated an inevitable trend in which giving new opportunities for an efficient work indipendently from where you are is fundamental.',
     image: 'https://imgur.com/4UTHf9K.png',
-    bigImage: '',
+    bigImage: 'https://imgur.com/ejjzJXM.png',
     video:
       'https://www.youtube.com/embed/nmu7kEzAQus?autoplay=1&mute=1&controls=0&loop=1',
   })
@@ -405,8 +405,7 @@ async function insertFakeData() {
     overview:
       'Extrovert italian guy who always makes fun of himself and others and keeps the mood funny',
     quote: 'There is nothing so stable as change',
-    image:
-      'https://www.pedersenandpartners.com/sites/default/files/public/teammembers/bruno_pastore_494x594.png',
+    image: 'https://imgur.com/xEWu3ZB.png',
     sport: 'No please!',
     hobby: 'Gaming, Drawing, Playing Music',
     musical: 'Rock music',
@@ -429,8 +428,7 @@ async function insertFakeData() {
     overview:
       'Friendly and generous italian guy always polite with friends and colleagues',
     quote: 'Concentrate all your thoughts upon the work in hand',
-    image:
-      'https://i.insider.com/5dfaacb5855cc207e14a4a14?width=600&format=jpeg&auto=webp',
+    image: 'https://imgur.com/lMFJIE9.png',
     sport: 'Football',
     hobby: 'Playing football, Watching TV Series',
     musical: 'Classical Music',
@@ -451,8 +449,7 @@ async function insertFakeData() {
     nationality: 'French',
     overview: 'Extrovert and determined frech woman, feminist activist',
     quote: "I'm tough, I'm ambitious, and I know exactly what I want",
-    image:
-      'https://media.istockphoto.com/photos/beautiful-blonde-french-woman-wearing-red-beret-picture-id959371702?k=6&m=959371702&s=170667a&w=0&h=TBRvSBHaX_korQ6ngC54l-WeYAgrL51tzI7i_yKSje0=',
+    image: 'https://imgur.com/dhMbxQf.png',
     sport: 'Ski',
     hobby: 'Reading,Writing, Watching TV Series',
     musical: 'Pop music',
@@ -473,10 +470,8 @@ async function insertFakeData() {
     nationality: 'Italian',
     overview:
       'Funny italian man, known for his ability to brighten the working atmosphere',
-    quote:
-      'A scuola andavo male: volevo fare il preside, non lo studente. Da giovane mi piaceva molto cazzeggiare, a Livorno siamo così. E mi piace ancora: non si può vivere solo di lavoro. Quando sento gente che dice che bisognerebbe lavorare 24 ore al giorno penso: poi ti si fonde il cervello, ti scoppia la testa e non hai ottenuto un bel niente',
-    image:
-      'https://www.calciomercato.it/wp-content/uploads/2021/05/Massimiliano-Allegri-1-1.jpg',
+    quote: 'The only thing we have to fear is fear itself.',
+    image: 'https://imgur.com/QUrrTIG.png',
     sport: 'Football',
     hobby: 'Phishing',
     musical: 'Pop music',
@@ -498,8 +493,7 @@ async function insertFakeData() {
     overview:
       'Introvert italian guy who likes spending time at home with his books',
     quote: 'Il mondo è fatto di reti di baci, non di sassi',
-    image:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Carlo_Rovelli.jpg/400px-Carlo_Rovelli.jpg',
+    image: 'https://imgur.com/k12fR9w.png',
     sport: 'No please!',
     hobby: 'Reading, Writing',
     musical: 'Folk Music',
@@ -521,8 +515,7 @@ async function insertFakeData() {
     overview:
       'Pationate american guy who loves having an active life full of new experiences',
     quote: 'Every day is a new experience and I take it as it comes',
-    image:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Zac_Efron_at_the_Baywatch_Red_Carpet_Premiere_Sydney_Australia.jpg/400px-Zac_Efron_at_the_Baywatch_Red_Carpet_Premiere_Sydney_Australia.jpg',
+    image: 'https://imgur.com/4STq2Hi.png',
     sport: 'Basket',
     hobby: 'Climbing, Drawing',
     musical: 'Rock Music',
@@ -543,8 +536,9 @@ async function insertFakeData() {
     nationality: 'USA',
     overview:
       'Determined girl who loves her pets and her family more than anything else',
-    quote: 'Being cool is being your own self, not doing something that someone else is telling you to do',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Vanessa_Hudgens_-_2019_by_Glenn_Francis.jpg/400px-Vanessa_Hudgens_-_2019_by_Glenn_Francis.jpg',
+    quote:
+      'Being cool is being your own self, not doing something that someone else is telling you to do',
+    image: 'https://imgur.com/Am5eqQK.png',
     sport: 'No please!',
     hobby: 'Dancing, Reading',
     musical: 'Pop Music',

@@ -9,11 +9,11 @@
         <guided-tour-item :item="item" :typology="typology"></guided-tour-item>
       </div>
     </div>
-    <iframe
+    <!-- <iframe
       class="video-frame"
       :src="video"
       data-scroll-reveal="enter top move 30px over 0.6s after 0.4s"
-    ></iframe>
+    ></iframe> -->
     <div class="left-image-decor"></div>
     <div class="container">
       <div

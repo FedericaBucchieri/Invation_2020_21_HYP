@@ -1,20 +1,22 @@
 <template>
   <div class="invation-card">
-    <img
-      class="round"
-      :src="invationer.image"
-      :alt="
-        invationer.name + ' ' + invationer.surname + 'short presentation card'
-      "
-      width="100"
-      height="100"
-    />
-    <nuxt-link :to="`/invationers/` + id" class="card-name">
-      <h5>{{ invationer.name + ' ' + invationer.surname }}</h5>
-    </nuxt-link>
+    <div class="invationer-details">
+      <img
+        class="round"
+        :src="invationer.image"
+        :alt="
+          invationer.name + ' ' + invationer.surname + 'short presentation card'
+        "
+        width="100"
+        height="100"
+      />
+      <nuxt-link :to="`/invationers/` + id" class="card-name">
+        <h5>{{ invationer.name + ' ' + invationer.surname }}</h5>
+      </nuxt-link>
 
-    <div class="role">{{ invationer.role }}</div>
-    <p>{{ invationer.quote }}</p>
+      <div class="role">{{ invationer.role }}</div>
+      <p>{{ invationer.quote }}</p>
+    </div>
     <div class="skills">
       <h6>Skills</h6>
       <ul>
@@ -64,6 +66,9 @@ export default {
   font-size: 12px;
 }
 
+.invationer-details {
+  height: 230px;
+}
 .invation-card {
   background-color: white;
   border-radius: 5px;
@@ -72,12 +77,13 @@ export default {
   padding-top: 30px;
   text-align: center;
   margin: 10px;
+  width: 265px;
 }
 
 .invation-card p {
   font-size: 14px;
   line-height: 21px;
-  padding: 0 5px;
+  padding: 0 10px;
   margin: auto;
   color: rgb(36, 36, 36);
   font-weight: 200;
@@ -103,6 +109,7 @@ export default {
   min-height: 100px;
   border-radius: 0 0 10px 10px;
   color: whitesmoke;
+  height: 182px;
 }
 
 .skills ul {
