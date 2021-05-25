@@ -41,22 +41,37 @@ export default {
   },
   data() {
     return {
+      myItems: [],
       firstItemsGuidedTour: [],
       secondItemsGuidedTour: [],
     }
   },
   mounted() {
     const splitAt = Math.ceil(this.items.length / 2)
+    let startingId = this.items[0].id
+    for (let i = 0; i < this.items.length; i++) {
+      if (this.items[i].id < startingId) {
+        startingId = this.items[i].id
+      }
+    }
+    for (let i = 0; i < this.items.length; i++) {
+      for (let j = 0; j < this.items.length; j++) {
+        if (this.items[j].id === startingId + i) {
+          this.myItems[i] = this.items[j]
+          break
+        }
+      }
+    }
     for (let i = 0; i < splitAt; i++) {
       const newItem = {
-        item: this.items[i],
+        item: this.myItems[i],
         right: i % 2 === 0,
       }
       this.firstItemsGuidedTour.push(newItem)
     }
-    for (let i = splitAt; i < this.items.length; i++) {
+    for (let i = splitAt; i < this.myItems.length; i++) {
       const newItem = {
-        item: this.items[i],
+        item: this.myItems[i],
         right: i % 2 === 0,
       }
       this.secondItemsGuidedTour.push(newItem)

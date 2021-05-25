@@ -174,10 +174,9 @@ async function insertFakeData() {
     Review,
     User,
   } = db._tables
-  // Create the first Article
-  // Per ora abbiamo 6 invations per la vision education e 4 invationers che lavorano nell'education quindi c'è da trovare almeno altre 4/5 invationes per ognuna delle
-  // altre tre vision ( 5 * 3 = 15) e poi almeno 3/4 invationers per ognuna delle altre 3 visions (3 * 3 = 9) al limite qualche invationers ci sta
-  // che lavpri in più visions
+
+  //Education Vision
+
   const invation0 = await Invation.create({
     name: 'MuseX',
     subtitle: 'Smart space experience',
@@ -278,6 +277,221 @@ async function insertFakeData() {
     creationDate: Date.now(),
   })
 
+  // Entertainment vision
+
+  const invation6 = await Invation.create({
+    name: 'Astro Bot Rescue Mission',
+    subtitle: 'Rescue your mates!',
+    overview:
+      'In this action platformer, you must rescue the various members of your crew, which is scattered across space.',
+    concept:
+      'The game offers 20 different main levels and 26 challenge levels, which should keep you entertained for a long time.',
+    more:
+      'This isn’t a simple platforming title. The game features 360-degree worlds and offers several different weapons, including throwing stars, a water gun, and a hook shot.',
+    image: 'https://images.everyeye.it/img-articoli/astro-bot-rescue-mission-recensione-massima-espressione-platform-vr-recensione-v10-40991-1280x960.jpg',
+    numberTag: '01',
+    thumbnail:
+      'https://images.everyeye.it/img-articoli/astro-bot-rescue-mission-recensione-massima-espressione-platform-vr-recensione-v10-40991-1280x960.jpg',
+    video: 'https://www.youtube.com/embed/GVcm9yZ4Ml4',
+    creationDate: Date.now(),
+  })
+
+  const invation7 = await Invation.create({
+    name: 'Beat Saber',
+    subtitle: 'Create music with laser swords!',
+    overview:
+      'Beat Saber is a music and rhythm game with an active twist.',
+    concept:
+      'he setup is similar to other music games, such as Audiosurf, Guitar Hero, and Rock Band, but instead of controlling a virtual ship or using fake instruments, you slash your way through a song with virtual laser swords.',
+    more:
+      ' As the music plays, Beat Saber generates different patterns of color-coded blocks on the screen that you must hit with the correct controller (right or left) as they slide towards you. Obstacles also appear at times that require you to duck or slide away. Make no mistake, Beat Saber is not a game you can play sitting down; it’s a very active experience. If you love music and motion, Beat Saber is definitely worth exploring.',
+    image: 'https://www.vgn.it/wp-content/uploads/2018/12/Beat-Saber-Recensione-PSVR.jpg',
+    numberTag: '02',
+    thumbnail:
+      'https://www.vgn.it/wp-content/uploads/2018/12/Beat-Saber-Recensione-PSVR.jpg',
+    video: 'https://www.youtube.com/embed/aW8APlZpiKo',
+    creationDate: Date.now(),
+  })
+
+  const invation8 = await Invation.create({
+    name: 'Budget Cuts',
+    subtitle: 'Get rid of robots!',
+    overview:
+      'Will you let robots take your all-important paper-stamping and document-filing job? In this game, cost-cutting robots try to terminate your employment by any means necessary.',
+    concept:
+      'You must fight your way through an office environment to save your job (and your life) using stealth tactics or by resorting to aggressive violence.',
+    more:
+      'AI and automation technologies are certainly poised to take over some real-world jobs previously filled by humans, so this game\'s hook is all too real. Be sure to check out the sequel, Budget Cuts 2: Mission Insolvency.',
+    image: 'https://www.vr-italia.org/wp-content/uploads/2018/07/BudgetCuts_Stealth.jpg',
+    numberTag: '03',
+    thumbnail:
+      'https://www.vr-italia.org/wp-content/uploads/2018/07/BudgetCuts_Stealth.jpg',
+    video: 'https://www.youtube.com/embed/O1tXkZ_BxI0',
+    creationDate: Date.now(),
+  })
+
+  const invation9 = await Invation.create({
+    name: 'Danger Goat',
+    subtitle: 'Be the G.O.A.T.',
+    overview:
+      'The life of a goat has never been easy, as you may have experienced first-hand in the one-of-a-kind Goat Simulator.',
+    concept:
+      'Danger Goat is arguably less bizarre, but with traps, missiles, and robots standing in your way, your escape is anything but assured.',
+    more:
+      'Don’t be fooled by the bright and pleasant environments; danger lurks at every turn.',
+    image: 'https://www.gamelegends.it/wp-content/uploads/2016/11/Danger-Goat-Screenshot-01-970x570.jpg',
+    numberTag: '04',
+    thumbnail:
+      'https://i.ytimg.com/vi/u5vxr4a3xw0/maxresdefault.jpg',
+    video: 'https://www.youtube.com/embed/XomyEi1iYVA',
+    creationDate: Date.now(),
+  })
+
+  const invation10 = await Invation.create({
+    name: 'Everybody\'s Golf VR',
+    subtitle: 'Golf for everyone!',
+    overview:
+      'If you can\'t get to a real golf course, the next best thing is a virtual golf game.',
+    concept:
+      'Everybody\'s Golf VR is the series\' (formerly known as Hot Shots Golf) first VR entry. Play any of three included courses alongside a virtual caddy or practice your skills on the putting green or at the driving range.',
+    more:
+      'The game supports the PlayStation Move controller for more dynamic golfing action.',
+    image: 'https://blog.playstation.com/tachyon/sites/12/2019/05/EverybodysGolfVR.jpg',
+    numberTag: '05',
+    thumbnail:
+      'https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2019/05/egvr.jpg',
+    video: 'https://www.youtube.com/embed/Rwgl4AdYybo',
+    creationDate: Date.now(),
+  })
+
+
+  const invation11 = await Invation.create({
+    name: 'Half-Life: Alyx',
+    subtitle: 'Half-life saga is back!',
+    overview:
+      'It\'s not Half-Life 3 or Half-Life 2: Episode Three, but Half-Life: Alyx is the first full-fledged Half Life game that Valve has released in a long time.',
+    concept:
+      'The game\'s events take place after the original Half Life, but before Half-Life 2. As the title suggests, you play fan-favorite character Alyx Vance. Throughout the roughly 11-hour campaign, you take on enemy Combine forces and seek to advance research on their weaknesses.',
+    more:
+      'Valve built this experience specifically for VR, so expect impressive physics mechanics and top-tier graphics.',
+    image: 'https://www.gamesoul.it/wp-content/uploads/2019/11/half-life-alyx-trailer-1.jpg',
+    numberTag: '06',
+    thumbnail:
+      'https://cdn.cloudflare.steamstatic.com/steam/apps/546560/capsule_616x353.jpg?t=1605207546',
+    video: 'https://www.youtube.com/embed/30v1UWkMBlU',
+    creationDate: Date.now(),
+  })
+
+  // Smart home vision
+
+  const invation12 = await Invation.create({
+    name: 'Eufy Video Doorbell 2K',
+    subtitle: 'Look at who\'s there!',
+    overview:
+      'The Eufy Video Doorbell is the best wireless smart doorbell camera on the market in terms of price, reliability and performance.',
+    concept:
+      'It blows the competition away thanks to the fact it records in 2K, so the footage is extremely detailed, and a 4:3 aspect ratio means you can pretty much see the full length of the person on your doorstep.',
+    more:
+      'The battery-powered doorbell is good if you’re renting a place and can’t take out the old doorbell that’s already installed - it works wirelessly with the help of a hub that connects to your router, you can simply throw it on any outdoor surface and get it to work for up to six months at a time.',
+    image: 'https://www.the-ambient.com/media/imager/202009/30005-posts.homepage_preview_md.jpg',
+    numberTag: '01',
+    thumbnail:
+      'https://cdn.shopify.com/s/files/1/0504/7094/4954/products/T82001J1_TD03_V1_1200x.jpg?v=1608126748',
+    video: 'https://www.youtube.com/embed/hcdDl8n-vV4',
+    creationDate: Date.now(),
+  })
+
+
+  const invation13 = await Invation.create({
+    name: 'Amazon Echo Studio',
+    subtitle: 'Stay away from the imitations!',
+    overview:
+      'For years, we gave smart speakers a pass in the audio department because we figured there was just no way for a speaker to both be smart and sound good. That was, until we created the Amazzon Echo Studio',
+    concept:
+      'In the Echo Studio, Amazon has made its best speaker yet. It\'s ambitious, flexible, serves multiple purposes and comes at a low price point that only a company with the scale of Amazon could competitively achieve.',
+    more:
+      'It’s a bombastic speaker, packed full of not just smart home and assistant tech, but smart audio considerations too. At its best, its 3D audio effects breathe new life into your favorite songs, and that\'s saying nothing of its ability to connect to your Amazon Fire TV devices to offer more immersive sound.',
+    image: 'https://m.media-amazon.com/images/G/29/kindle/dp/2019/090790/9893/ts_it_v1._CB452492311_.jpg',
+    numberTag: '02',
+    thumbnail:
+      'https://m.media-amazon.com/images/G/29/kindle/journeys/DqB0P8lvk3BlT2F2FDjDiyEvRZAbWIk5oqM7js1NZXqIY3D/ODkzNjE4OWYt._CB402746061_.png',
+    video: 'https://www.youtube.com/embed/MU207ge4xW4',
+    creationDate: Date.now(),
+  })
+
+
+  const invation14 = await Invation.create({
+    name: 'Nest Thermostat E',
+    subtitle: 'Cold? Hot? Now you are smart!',
+    overview:
+      'The Nest Thermostat E proves that you don’t have to shell out for a smart thermostat.',
+    concept:
+      'It does away with a few, unnecessary features, but it keeps the majority of the smarts and saves you a whole lot of money.',
+    more:
+      'Still, if the Nest Thermostat E is compatible with your setup and you don’t care about the lack of farsight or slightly lower quality display, then it’s an excellent option.',
+    image: 'https://cdn.pocket-lint.com/r/s/970x/assets/images/145870-smart-home-review-nest-thermostat-e-review-image1-bd1t9aufkq-jpg.webp',
+    numberTag: '03',
+    thumbnail:
+      'https://lh3.googleusercontent.com/iO-KzBIjhHDRsfiE_SZVJt4fRj6XRcR9bQq0dyWcnHpam8QTDvLGedRRbseNr8VNMtpQ=w250-rwa',
+    video: 'https://www.youtube.com/embed/TooKLnkGgag',
+    creationDate: Date.now(),
+  })
+
+
+  // Work vision
+  const invation15 = await Invation.create({
+    name: 'Cloud storage solutions',
+    subtitle: 'Do others have clouds? We have the whole storm!',
+    overview:
+      'The cloud has dramatically changed the way companies store and access data.',
+    concept:
+      'Cloud solutions let companies keep data and applications on remote, secure servers, which allows for rapid scalability, quick deployment of new solutions, and better information management.',
+    more:
+      'Employees can easily access information from wherever they are. Usually managed by third parties, cloud computing gives you the flexibility to build, store, and launch new applications, store ever-evolving amounts of data, and adapt quickly to changing needs.',
+    image: 'https://store.hp.com/app/assets/images/uploads/prod/top-cloud-storage-providers-2019-hero156346484495488.jpg?impolicy=prdimg&imdensity=1&imwidth=600',
+    numberTag: '01',
+    thumbnail:
+      'https://soaringeagle.biz/wp-content/uploads/2018/04/What-is-Cloud-Storage.png',
+    video: 'https://www.youtube.com/embed/VDBhvexAj8I',
+    creationDate: Date.now(),
+  })
+
+
+  const invation16 = await Invation.create({
+    name: 'Collaboration and communication tools',
+    subtitle: 'Let\'s work together!',
+    overview:
+      'With more employees working remotely than ever before, collaboration and communication among team members, partners, suppliers, and customers is essential.',
+    concept:
+      'Collaboration suites are crucial to making this happen, as they allow teams to store, edit, manage, and share documents widely. These products mean employees can access needed information no matter where they are, as long as they are connected to the internet.',
+    more:
+      'The top collaboration suites also include functions for easy communication, either via instant messaging or video calls for multiple users.',
+    image: 'https://fj-employer-blog.s3.amazonaws.com/employer-blog/wp-content/uploads/2019/04/10061221/communicate-remote-team.png',
+    numberTag: '02',
+    thumbnail:
+      'https://standardbeagle.com/wp-content/uploads/2020/04/remote-com-illustration.jpg',
+    video: 'https://www.youtube.com/embed/fU7Dk8ZZSLY',
+    creationDate: Date.now(),
+  })
+
+
+  const invation17 = await Invation.create({
+    name: 'CRM solutions',
+    subtitle: 'Let\'s get these relationships!',
+    overview:
+      'CRM leads to shorter sales cycles, sales automation, faster responses, better retention, and a more in-depth analysis of what works to move leads to make purchases.',
+    concept:
+      'With a CRM, sales teams, marketing teams, and the accounting department can work together seamlessly to ensure a customer\'s needs are met—even when they\'re remote. Since digital CRM solutions\' data is hosted on a cloud, it can be accessed from anywhere.',
+    more:
+      'An ideal digital CRM solution can pay dividends for a company when it helps them efficiently manage customer relations and improve their bottom line, even during a pandemic.',
+    image: 'https://www.crmpartners.it/wp-content/uploads/2020/11/CRM-che-cose.png',
+    numberTag: '03',
+    thumbnail:
+      'https://agislab.it/images/articoli/immagine-news-crm.png',
+    video: 'https://www.youtube.com/embed/hnEQq7kNFWo',
+    creationDate: Date.now(),
+  })
+
   const vision0 = await Vision.create({
     numberTag: '01',
     name: 'Education',
@@ -373,7 +587,7 @@ async function insertFakeData() {
   const invationer0 = await Invationer.create({
     name: 'Clarke',
     surname: 'Griffin',
-    role: 'Scrum Master',
+    role: 'Software Engineer',
     badge: 'https://imgur.com/2iyaenU.png',
     gender: 'Female',
     age: 32,
@@ -490,7 +704,7 @@ async function insertFakeData() {
   const invationer5 = await Invationer.create({
     name: 'Carlo',
     surname: 'Rovelli',
-    role: 'Software Engineering',
+    role: 'Software Engineer',
     badge: 'https://imgur.com/2iyaenU.png',
     gender: 'Male',
     age: 27,
@@ -580,6 +794,18 @@ async function insertFakeData() {
   await vision0.addInvation(invation3.id)
   await vision0.addInvation(invation4.id)
   await vision0.addInvation(invation5.id)
+  await vision1.addInvation(invation6.id)
+  await vision1.addInvation(invation7.id)
+  await vision1.addInvation(invation8.id)
+  await vision1.addInvation(invation9.id)
+  await vision1.addInvation(invation10.id)
+  await vision1.addInvation(invation11.id)
+  await vision2.addInvation(invation12.id)
+  await vision2.addInvation(invation13.id)
+  await vision2.addInvation(invation14.id)
+  await vision3.addInvation(invation15.id)
+  await vision3.addInvation(invation16.id)
+  await vision3.addInvation(invation17.id)
   // Technology --> Invations
   await invation0.addTechnology(technology1.id)
   await invation0.addTechnology(technology2.id)
@@ -590,29 +816,83 @@ async function insertFakeData() {
   await invation3.addTechnology(technology3.id)
   await invation4.addTechnology(technology3.id)
   await invation5.addTechnology(technology2.id)
+  await invation6.addTechnology(technology1.id)
+  await invation7.addTechnology(technology1.id)
+  await invation8.addTechnology(technology1.id)
+  await invation9.addTechnology(technology1.id)
+  await invation10.addTechnology(technology1.id)
+  await invation11.addTechnology(technology1.id)
+  await invation12.addTechnology(technology2.id)
+  await invation13.addTechnology(technology2.id)
+  await invation13.addTechnology(technology3.id)
+  await invation14.addTechnology(technology2.id)
+  await invation15.addTechnology(technology1.id)
+  await invation16.addTechnology(technology2.id)
+  await invation17.addTechnology(technology3.id)
   // Invationers --> Visions
   await vision0.addInvationer(invationer0.id)
   await vision0.addInvationer(invationer1.id)
   await vision0.addInvationer(invationer2.id)
   await vision0.addInvationer(invationer3.id)
   await vision1.addInvationer(invationer4.id)
-  await vision3.addInvationer(invationer5.id)
-  await vision3.addInvationer(invationer6.id)
+  await vision1.addInvationer(invationer5.id)
+  await vision2.addInvationer(invationer6.id)
+  await vision3.addInvationer(invationer7.id)
+
   // Invations --> Invationers
   await invationer0.addInvation(invation0.id)
   await invationer0.addInvation(invation1.id)
   await invationer0.addInvation(invation3.id)
+  await invationer0.addInvation(invation6.id)
+  await invationer0.addInvation(invation12.id)
+  await invationer0.addInvation(invation16.id)
   await invationer1.addInvation(invation0.id)
   await invationer1.addInvation(invation1.id)
   await invationer1.addInvation(invation3.id)
   await invationer1.addInvation(invation5.id)
+  await invationer1.addInvation(invation6.id)
+  await invationer1.addInvation(invation9.id)
+  await invationer1.addInvation(invation13.id)
   await invationer2.addInvation(invation0.id)
   await invationer2.addInvation(invation2.id)
   await invationer2.addInvation(invation4.id)
   await invationer2.addInvation(invation5.id)
+  await invationer2.addInvation(invation8.id)
+  await invationer2.addInvation(invation15.id)
   await invationer3.addInvation(invation2.id)
   await invationer3.addInvation(invation3.id)
   await invationer3.addInvation(invation4.id)
+  await invationer3.addInvation(invation7.id)
+  await invationer3.addInvation(invation10.id)
+  await invationer3.addInvation(invation14.id)
+  await invationer3.addInvation(invation16.id)
+  await invationer4.addInvation(invation6.id)
+  await invationer4.addInvation(invation7.id)
+  await invationer4.addInvation(invation8.id)
+  await invationer4.addInvation(invation9.id)
+  await invationer4.addInvation(invation10.id)
+  await invationer4.addInvation(invation13.id)
+  await invationer4.addInvation(invation15.id)
+  await invationer5.addInvation(invation7.id)
+  await invationer5.addInvation(invation9.id)
+  await invationer5.addInvation(invation10.id)
+  await invationer5.addInvation(invation11.id)
+  await invationer5.addInvation(invation14.id)
+  await invationer6.addInvation(invation8.id)
+  await invationer6.addInvation(invation9.id)
+  await invationer6.addInvation(invation10.id)
+  await invationer6.addInvation(invation12.id)
+  await invationer6.addInvation(invation13.id)
+  await invationer6.addInvation(invation14.id)
+  await invationer6.addInvation(invation16.id)
+  await invationer7.addInvation(invation6.id)
+  await invationer7.addInvation(invation7.id)
+  await invationer7.addInvation(invation10.id)
+  await invationer7.addInvation(invation12.id)
+  await invationer7.addInvation(invation15.id)
+  await invationer7.addInvation(invation16.id)
+  await invationer7.addInvation(invation17.id)
+
   // Invationers --> Invations
   await invation0.addInvationer(invationer0.id)
   await invation0.addInvationer(invationer1.id)
@@ -628,6 +908,43 @@ async function insertFakeData() {
   await invation4.addInvationer(invationer3.id)
   await invation5.addInvationer(invationer1.id)
   await invation5.addInvationer(invationer2.id)
+  await invation6.addInvationer(invationer0.id)
+  await invation6.addInvationer(invationer1.id)
+  await invation6.addInvationer(invationer7.id)
+  await invation6.addInvationer(invationer4.id)
+  await invation7.addInvationer(invationer3.id)
+  await invation7.addInvationer(invationer4.id)
+  await invation7.addInvationer(invationer5.id)
+  await invation7.addInvationer(invationer7.id)
+  await invation8.addInvationer(invationer2.id)
+  await invation8.addInvationer(invationer4.id)
+  await invation8.addInvationer(invationer6.id)
+  await invation9.addInvationer(invationer1.id)
+  await invation9.addInvationer(invationer4.id)
+  await invation9.addInvationer(invationer5.id)
+  await invation9.addInvationer(invationer6.id)
+  await invation10.addInvationer(invationer3.id)
+  await invation10.addInvationer(invationer5.id)
+  await invation10.addInvationer(invationer7.id)
+  await invation11.addInvationer(invationer4.id)
+  await invation11.addInvationer(invationer5.id)
+  await invation11.addInvationer(invationer6.id)
+  await invation12.addInvationer(invationer0.id)
+  await invation12.addInvationer(invationer6.id)
+  await invation12.addInvationer(invationer7.id)
+  await invation13.addInvationer(invationer1.id)
+  await invation13.addInvationer(invationer4.id)
+  await invation13.addInvationer(invationer6.id)
+  await invation14.addInvationer(invationer3.id)
+  await invation14.addInvationer(invationer5.id)
+  await invation14.addInvationer(invationer6.id)
+  await invation15.addInvationer(invationer2.id)
+  await invation15.addInvationer(invationer4.id)
+  await invation15.addInvationer(invationer7.id)
+  await invation16.addInvationer(invationer0.id)
+  await invation16.addInvationer(invationer3.id)
+  await invation16.addInvationer(invationer6.id)
+  await invation16.addInvationer(invationer7.id)
   // Skills --> Invationers
   await invationer0.addSkill(skill1.id)
   await invationer0.addSkill(skill2.id)

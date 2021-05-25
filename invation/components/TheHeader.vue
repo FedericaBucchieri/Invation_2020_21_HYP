@@ -93,7 +93,7 @@ export default {
         },
         {
           name: 'Invationers',
-          extensions: [{ nameExtension: 'Roles', path: '/' }],
+          extensions: [],
           path: '/invationers',
         },
         {

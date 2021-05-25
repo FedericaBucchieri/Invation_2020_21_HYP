@@ -4,7 +4,7 @@ export default {
   env: {
     // BASE_URL: 'https://test-polimi.herokuapp.com', // Production URL
     BASE_URL: '', // Development URL
-    configurationId: '77489b90-cf10-4c32-a895-f54ff2b1e412',
+    configurationId: '490c9792-c0ac-49f3-99c7-8b4ae51a25cc',
   },
   serverMiddleware: [
     {
