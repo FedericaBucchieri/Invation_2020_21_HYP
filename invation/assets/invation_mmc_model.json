@@ -1,0 +1,137 @@
+{
+  "name": "Buh questo dovrebbe essere definitivo",
+  "data": {
+    "kb": {
+      "welcome": "So, as you know, I'm your personal chatbot ",
+      "first_xor": {
+        "initials": [
+          "Hi! I'm Charlie, your personal chatbot. I would be glad to help you. Do you want to look at what we are doing or contact us?",
+          "Hi there! I'm Charlie, your personal chatbot. I would be glad to help you. Do you want to do a tour in our website or contact us?"
+        ],
+        "choices": [
+          {
+            "id": "welcome",
+            "intents": ["tour", "go tour", "what you are doing", "1", "first"],
+            "utterance": ["Get ready, we are starting! "],
+            "payload": {
+              "myPath": "/"
+            }
+          },
+          {
+            "id": "contact_xor",
+            "intents": ["contact", "contacts", "contact you", "2", "second"],
+            "utterance": ["Ok! ", "All right! ", "Copy that! ", "10-4. "],
+            "payload": {}
+          }
+        ]
+      },
+      "contact_xor": {
+        "initials": [
+          "Now, do you want to see our contacts or do you want that I show you the contact form? ",
+          "Just another question. Do you want to see our contacts or do you want that I show you the contact form? "
+        ],
+        "choices": [
+          {
+            "id": "contact_page",
+            "intents": [
+              "page",
+              "contact page",
+              "show page",
+              "show contact page",
+              "1",
+              "first"
+            ],
+            "utterance": ["Ok! ", "All right! ", "Copy that! ", "10-4. "],
+            "payload": {
+              "myPath": "/about"
+            }
+          },
+          {
+            "id": "contact_form",
+            "intents": [
+              "form",
+              "contact form",
+              "show form",
+              "show contact form",
+              "2",
+              "second"
+            ],
+            "utterance": ["Ok! ", "All right! ", "Copy that! ", "10-4. "],
+            "payload": {
+              "myPath": "/about"
+            }
+          }
+        ]
+      },
+      "home": "I will guide you through the site. Welcome to the homepage",
+      "about": "Welcome to the About page of our website. Here you can find all the information about our company",
+      "end": "The process is completed",
+      "steps_v": ["/", "/about"],
+      "continue_v": ["continue", "ok", "go"],
+      "guide_v": ["guide"],
+      "main_exit_v": ["no", "reset"],
+      "main_err": "Option not available",
+      "stay_message": "I don't understand. Do you want to continue?"
+    },
+    "process": {
+      "activities": [
+        {
+          "my_id": "start",
+          "next_id": "first_xor",
+          "my_type": "START",
+          "callback": "start"
+        },
+        {
+          "my_id": "first_xor",
+          "next_id": "end",
+          "my_type": "XOR",
+          "callback": "generic_xor",
+          "choices": ["contact_xor", "welcome"]
+        },
+        {
+          "my_id": "welcome",
+          "next_id": "home",
+          "my_type": "TASK",
+          "callback": "nothing"
+        },
+        {
+          "my_id": "contact_xor",
+          "next_id": "end",
+          "my_type": "XOR",
+          "callback": "generic_xor",
+          "choices": ["contact_form", "contact_page"]
+        },
+        {
+          "my_id": "home",
+          "next_id": "about",
+          "my_type": "TASK",
+          "callback": "guide"
+        },
+        {
+          "my_id": "about",
+          "next_id": null,
+          "my_type": "TASK",
+          "callback": "guide"
+        },
+        {
+          "my_id": "contact_form",
+          "next_id": null,
+          "my_type": "TASK",
+          "callback": "guide"
+        },
+        {
+          "my_id": "contact_page",
+          "next_id": null,
+          "my_type": "TASK",
+          "callback": "guide"
+        },
+        {
+          "my_id": "end",
+          "next_id": "start",
+          "my_type": "END"
+        }
+      ],
+      "first_activity_id": "start"
+    }
+  }
+}
