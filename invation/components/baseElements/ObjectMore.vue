@@ -22,7 +22,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .features-item-right {
   border-radius: 5px;
   padding: 0 0 0 15%;
@@ -47,5 +47,21 @@ export default {
   float: right;
   margin-bottom: 20px;
   text-align: justify;
+}
+
+@media (max-width: 810px) {
+  p {
+    max-width: 100%;
+    margin: auto;
+  }
+
+  .features-item-right {
+    border-radius: 5px;
+    padding: 0;
+    text-align: justify;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    float: center;
+  }
 }
 </style>

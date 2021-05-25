@@ -131,7 +131,7 @@ export default {
           name: 'Alessandro Corsini',
           overview:
             'testo di prova testo di prova testo di prova testo di prova',
-          thumbnail: 'https://imgur.com/X1ICPDh.png',
+          thumbnail: 'https://imgur.com/cjvDnYD.png',
         },
       ],
       foundersImage: 'https://imgur.com/GD02BFB.png',
@@ -194,7 +194,7 @@ export default {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
-    top: -750px;
+    top: -350px;
   }
 }
 

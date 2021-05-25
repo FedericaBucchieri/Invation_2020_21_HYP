@@ -57,7 +57,7 @@
         <a href="#contact-form" class="main-button"> Send Us a Message </a>
 
         <!-- Contact Form -->
-        <section id="contact-form">
+        <section id="contact-form-section">
           <div class="footer-content">
             <div class="row">
               <!-- ***** Contact Form Start ***** -->
@@ -72,8 +72,6 @@
                             type="text"
                             id="name"
                             placeholder="Full Name"
-                            required=""
-                            style="background-color: rgba(250, 250, 250, 0.3)"
                           />
                         </fieldset>
                       </div>
@@ -84,8 +82,6 @@
                             type="text"
                             id="email"
                             placeholder="E-Mail Address"
-                            required=""
-                            style="background-color: rgba(250, 250, 250, 0.3)"
                           />
                         </fieldset>
                       </div>
@@ -97,17 +93,12 @@
                             id="message"
                             placeholder="Your Message"
                             required=""
-                            style="background-color: rgba(250, 250, 250, 0.3)"
                           ></textarea>
                         </fieldset>
                       </div>
                       <div class="col-lg-12">
                         <fieldset>
-                          <button
-                            type="submit"
-                            id="form-submit"
-                            class="main-button"
-                          >
+                          <button class="main-button" @click="fakeSend()">
                             Send Message Now
                           </button>
                         </fieldset>
@@ -187,6 +178,11 @@ export default {
       ],
     }
   },
+  methods: {
+    fakeSend() {
+      alert('Message sended correctly!')
+    },
+  },
 }
 </script>
 
@@ -258,6 +254,15 @@ export default {
 .contact-method:hover .tooltiptext {
   visibility: visible;
 }
+
+@media only screen and (max-width: 810px) {
+  .contact-method .tooltiptext {
+    position: absolute;
+    left: 110px;
+    width: initial;
+  }
+}
+
 @media only screen and (min-width: 810px) {
   .card-contact {
     width: 30%;
@@ -273,6 +278,22 @@ export default {
   }
 }
 
+@media only screen and (max-width: 810px) {
+  .image-contact-container img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  .card-contact {
+    width: 100%;
+  }
+
+  .container {
+    margin: 0;
+    padding: 0;
+  }
+}
+
 h2 {
   font-size: 28px;
 }
@@ -281,12 +302,25 @@ h2 {
   margin: 100px auto 0 auto;
 }
 
-#contact-form {
+#contact-form-section {
   margin-top: 200px;
   background-image: url(/blob.png);
   background-position: right center;
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+@media (min-width: 810px) {
+  #contact-form-section {
+    background-position: right center;
+  }
+}
+
+@media (max-width: 810px) {
+  #contact-form-section {
+    background-position: right bottom;
+    background-size: auto;
+  }
 }
 
 @media (max-width: 992px) {
@@ -332,13 +366,13 @@ h2 {
   text-align: center;
 }
 
-#contact-form h2 {
+#contact-form-section h2 {
   color: white;
   text-align: left;
   text-transform: none;
 }
 
-#contact-form p {
+#contact-form-section p {
   width: 80%;
 }
 

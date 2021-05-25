@@ -39,18 +39,23 @@ export default {
 
 <style scoped>
 #invation_list .features-item {
-  height: 450px;
-  border-radius: 10px;
+  height: 500px;
+  border-radius: 10px 10px 0 0;
   padding: 50px 30px 60px 30px;
   text-align: center;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.roundedContainer {
+  margin-bottom: 10px;
 }
 
 #invation_list .main-button {
   margin: auto;
 }
 #invation_list h2 {
-  width: 100%;
+  width: auto;
+  margin-left: 30%;
   text-align: center;
 }
 
@@ -96,6 +101,7 @@ export default {
   font-size: 22px;
   color: #1e1e1e;
   margin-bottom: 15px;
+  height: 52px;
 }
 
 .features-item .main-button {
@@ -115,13 +121,13 @@ export default {
   color: white;
   width: 100%;
   margin-bottom: 20px;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 b {
   text-transform: uppercase;
   font-size: 11px;
   color: white;
-  margin-right: 45px;
+  margin-right: 25px;
 }
 </style>

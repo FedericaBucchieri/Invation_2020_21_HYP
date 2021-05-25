@@ -109,4 +109,12 @@ export default {
   text-transform: uppercase;
   font-size: 11px;
 }
+
+@media (max-width: 810px) {
+  .vision-name a {
+    position: relative;
+    top: -20px;
+    left: -27%;
+  }
+}
 </style>

@@ -59,10 +59,20 @@
           <form method="post" @submit="postReview">
             <label>Author:</label>
             <input
+              v-if="username === null"
               v-model="reviewAuthor"
               type="text"
-              name="author"
+              name="author1"
               placeholder="Your username"
+              required
+            />
+            <input
+              v-else
+              v-model="username"
+              type="text"
+              name="author"
+              :placeholder="username"
+              required
             />
             <label>Review:</label>
             <textarea
@@ -70,6 +80,7 @@
               type="text"
               name="body"
               placeholder="Write your review here"
+              required
             />
             <button type="submit" class="main-button">Send</button>
           </form>
@@ -123,8 +134,9 @@ export default {
         body: null,
         invation_id: 0,
       },
-      reviewAuthor: '',
       reviewBody: '',
+      reviewAuthor: '',
+      username: this.$auth.$storage.getLocalStorage('username'),
     }
   },
   head() {

@@ -36,4 +36,11 @@ html {
   background: #fff;
   font-family: 'Poppins', sans-serif;
 }
+
+@media (max-width: 810px) {
+  .row {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
 </style>

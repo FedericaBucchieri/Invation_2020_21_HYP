@@ -84,6 +84,7 @@ export default {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+  margin-top: 50px;
 }
 
 .features-item-left {
@@ -99,15 +100,26 @@ export default {
   margin-top: 50px;
 }
 
-.features-item-right p {
-  max-width: 70%;
-  float: right;
-  margin-bottom: 20px;
-}
+@media screen and (max-width: 810px) {
+  .features-item-left {
+    padding: 30px;
+    margin: 20px auto;
+    flex-wrap: wrap;
+    background-color: white;
+    background-image: none;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+  }
 
-.features-item-left p {
-  max-width: 70%;
-  float: left;
-  margin-bottom: 20px;
+  .features-item-right {
+    padding: 30px;
+    margin: 20px auto;
+    flex-wrap: wrap-reverse;
+    background-color: white;
+    background-image: none;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
 }
 </style>

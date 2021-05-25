@@ -37,4 +37,11 @@ export default {
   font-weight: bold;
   font-size: 20px;
 }
+
+@media (max-width: 810px) {
+  .review {
+    width: 100%;
+    background-color: white;
+  }
+}
 </style>

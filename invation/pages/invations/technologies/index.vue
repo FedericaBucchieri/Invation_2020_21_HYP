@@ -20,6 +20,8 @@
         <content-rounded-containers
           :area-name="technology.name"
           :content="technology.invations"
+          :hasResearch="true"
+          :description="technology.description"
           description-name="overview"
           typology="invations"
         >
@@ -61,33 +63,17 @@ export default {
       ],
     }
   },
-  // data() {
-  //   return {
-  //     myTechnologies: this.technologies,
-  //   }
-  //   // },
-  //   // mounted() {
-  //   //   for (let i = 0; i < this.technologies.length; i++) {
-  //   //     this.myTechnologies[i] = this.technologies[i]
-  //   //     const invs = this.technologies[i].invations
-  //   //     this.myTechnologies[i].invations = []
-  //   //     for (let j = 0; j < invs.length; j++) {
-  //   //       const newInv = {
-  //   //         name: invs[i].name,
-  //   //         numberTag: invs[i].numberTag,
-  //   //         description: invs[i].overview,
-  //   //         image: invs[i].image,
-  //   //         typology: 'invations',
-  //   //       }
-  //   //       this.myTechnologies[i].invations.push(newInv)
-  //   //     }
-  //   //   }
-  // },
 }
 </script>
 
 <style scoped>
 #technologies {
   margin-bottom: 70px;
+}
+
+@media (max-width: 810px) {
+  em {
+    font-size: smaller;
+  }
 }
 </style>

@@ -82,4 +82,31 @@ export default {
 .features-title-section {
   width: 80%;
 }
+
+.features-item-right p {
+  max-width: 70%;
+  float: right;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.features-item-left p {
+  max-width: 70%;
+  float: left;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+@media screen and (max-width: 810px) {
+  .features-title-section {
+    width: 100%;
+  }
+  .features-item-left p {
+    max-width: 100%;
+  }
+
+  .features-item-right p {
+    max-width: 100%;
+  }
+}
 </style>

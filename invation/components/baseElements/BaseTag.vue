@@ -30,4 +30,8 @@ export default {
 .tag-color2 {
   background-color: green;
 }
+
+.tag-color3 {
+  background-color: rebeccapurple;
+}
 </style>

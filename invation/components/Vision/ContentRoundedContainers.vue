@@ -5,6 +5,9 @@
         <div class="center-heading">
           <h2 class="area-title">{{ areaName }}</h2>
         </div>
+        <div class="container-topic-description">
+          {{ description }}
+        </div>
         <search-component
           v-if="hasResearch"
           :is-case-sensitive="false"
@@ -56,6 +59,7 @@ export default {
     imageName: { type: String, default: 'image' },
     typology: { type: String, default: '' },
     hasResearch: { type: Boolean, default: () => false },
+    description: { type: String, default: '' },
   },
   data() {
     return {
@@ -99,5 +103,10 @@ section {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   border: none;
   padding: 20px;
+}
+
+.container-topic-description {
+  width: 80%;
+  margin: auto;
 }
 </style>

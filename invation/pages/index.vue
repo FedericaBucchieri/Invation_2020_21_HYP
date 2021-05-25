@@ -37,14 +37,6 @@
         tours in the <b>"Visions"</b> section.
       </base-three-object-container>
     </section>
-
-    <!-- Invationers -->
-    <section id="invationers">
-      <short-card-container
-        :title="invationerTitle"
-        :card-list="invationers"
-      ></short-card-container>
-    </section>
   </div>
 </template>
 
@@ -52,16 +44,12 @@
 import BaseThreeObjectContainer from '~/components/baseElements/BaseThreeObjectContainer.vue'
 import WelcomeAreaStart from '~/components/baseElements/WelcomeAreaStart.vue'
 import ContentRoundedContainers from '~/components/vision/ContentRoundedContainers.vue'
-import ShortCardContainer from '~/components/baseElements/ShortCardContainer.vue'
-// import RoutingMixin from '~/mixins/routing'
 
 export default {
   components: {
     WelcomeAreaStart,
     ContentRoundedContainers,
     BaseThreeObjectContainer,
-    ShortCardContainer,
-    // RoutingMixin,
   },
   // mixins: [RoutingMixin],
   async asyncData({ $axios }) {

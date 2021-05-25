@@ -97,6 +97,7 @@ async function init() {
             'image',
             'numberTag',
           ],
+          order: ['numberTag', 'ASC'],
         },
         {
           model: Invationer,

@@ -104,6 +104,9 @@ export default {
 .right-text ul {
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .object-container {
@@ -118,8 +121,10 @@ export default {
 }
 
 .right-text ul li {
-  display: inline-block;
+  display: inline-flex;
   margin-bottom: 10px;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .right-text ul li:last-child {
@@ -169,7 +174,6 @@ export default {
   font-size: 12px;
   text-transform: uppercase;
   text-align: right;
-  border-left: white solid 450px;
   border-radius: 10px 10px 0 0;
 }
 

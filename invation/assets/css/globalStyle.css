@@ -121,6 +121,12 @@ hgroup {
   display: block;
 }
 
+@media only screen and (max-width: 810px) {
+  section {
+    margin: 18% auto;
+  }
+}
+
 * {
   box-sizing: border-box;
 }

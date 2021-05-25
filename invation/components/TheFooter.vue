@@ -45,7 +45,7 @@ export default {
   data() {
     return {
       footerStatus: false,
-      buttonText: '+',
+      buttonText: '↑',
       visionLinks: [
         {
           name: 'Education',
@@ -123,10 +123,10 @@ export default {
   methods: {
     changeStatusFooterVisibility() {
       this.footerStatus = !this.footerStatus
-      if (this.buttonText === '+') {
-        this.buttonText = '-'
+      if (this.buttonText === '↑') {
+        this.buttonText = '↓'
       } else {
-        this.buttonText = '+'
+        this.buttonText = '↑'
       }
     },
   },
@@ -141,6 +141,7 @@ footer {
   width: 100%;
   background-image: linear-gradient(#f38151, #f1556a);
   font-family: 'Poppins', sans-serif;
+  z-index: 20;
 }
 
 .sub-footer {
@@ -175,6 +176,10 @@ footer {
   border-radius: 50%;
   border: none;
   box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+}
+
+.sub-footer button:focus {
+  outline: none;
 }
 
 .sub-footer button:hover {

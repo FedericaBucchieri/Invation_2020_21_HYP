@@ -24,6 +24,37 @@ export default {
 .features-details-section {
   width: 20%;
 }
+
+@media screen and (max-width: 810px) {
+  .features-details-section {
+    width: 100%;
+  }
+
+  .features-item-left img {
+    position: unset !important;
+    margin: 5px !important;
+  }
+
+  .features-item-right img {
+    position: unset !important;
+    margin: 5px !important;
+  }
+
+  .features-item-right h3 {
+    position: unset !important;
+    color: #f38151 !important;
+    text-align: right;
+    margin-bottom: 0 !important;
+  }
+
+  .features-item-left h3 {
+    position: unset !important;
+    color: #f38151 !important;
+    text-align: left;
+    margin-bottom: 0 !important;
+  }
+}
+
 .features-item-right {
   border-radius: 5px;
   padding: 0px 30px;

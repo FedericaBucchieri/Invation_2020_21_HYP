@@ -18,11 +18,13 @@
         :video="vision.video"
       ></guided-tour>
     </section>
-    <short-card-container
-      title="Invationers that built this Vision"
-      :card-list="vision.invationers"
-    >
-    </short-card-container>
+    <section id="invationers">
+      <short-card-container
+        title="Invationers that built this Vision"
+        :card-list="vision.invationers"
+      >
+      </short-card-container>
+    </section>
   </div>
 </template>
 

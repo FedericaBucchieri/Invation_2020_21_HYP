@@ -65,11 +65,16 @@ export default {
 </script>
 
 <style scoped>
+@media (min-width: 810px) {
+  .button {
+    position: fixed;
+    z-index: 10;
+    bottom: 70px;
+    right: 30px;
+  }
+}
+
 .button {
-  position: fixed;
-  z-index: 10;
-  bottom: 70px;
-  right: 30px;
   height: 60px;
   width: 60px;
   border-radius: 50%;
@@ -80,21 +85,48 @@ export default {
   );
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
+
+@media (max-width: 810px) {
+  .button {
+    position: fixed;
+    z-index: 10;
+    bottom: 100px;
+    right: 10px;
+  }
+}
+
 .button img {
   width: 100%;
 }
+
 .chat-container {
   border-radius: 4px;
-  height: 600px;
-  width: 300px;
-  position: fixed;
-  z-index: 10;
-  bottom: 150px;
-  right: 20px;
   padding: 10px;
   border-radius: 15px;
   background-color: rgb(238, 238, 238);
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 810px) {
+  .chat-container {
+    height: 600px;
+    width: 300px;
+    bottom: 150px;
+    right: 20px;
+    position: fixed;
+    z-index: 10;
+  }
+}
+
+@media (max-width: 810px) {
+  .chat-container {
+    height: 550px;
+    width: 340px;
+    bottom: 170px;
+    right: 20px;
+    position: fixed;
+    z-index: 10;
+  }
 }
 
 .chatbot-detail {
@@ -123,13 +155,19 @@ export default {
 }
 
 .chat-window {
-  overflow-y: scroll;
   height: calc(100% - 130px);
   vertical-align: bottom;
-  display: flex;
+  overflow-y: scroll;
   flex-direction: column;
+  display: flex;
   justify-content: flex-end;
 }
+
+.chat-window > :first-child {
+  margin-top: auto !important;
+  /* use !important to prevent breakage from child margin settings */
+}
+
 .message {
   width: calc(100% - 8px);
   display: flex;
@@ -138,6 +176,7 @@ export default {
 .message.sender {
   justify-content: flex-start;
 }
+
 .message-content {
   padding: 5px 10px;
   margin: 4px;

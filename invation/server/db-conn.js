@@ -3,8 +3,8 @@ const { Sequelize, DataTypes } = require('sequelize')
 // Development
 const db = new Sequelize(
   // 'postgres://postgres:11235813@localhost:5432/InvationDB'
-  // 'postgres://postgres:federica140798@localhost:5432/InvationDB'
-  'postgres://postgres:password@localhost:5432/InvationDB',
+  'postgres://postgres:federica140798@localhost:5432/InvationDB',
+  // 'postgres://postgres:password@localhost:5432/InvationDB',
   { logging: false }
 )
 
@@ -463,7 +463,7 @@ async function insertFakeData() {
   })
 
   const invation16 = await Invation.create({
-    name: 'Collaboration and communication tools',
+    name: 'C&C tools',
     subtitle: "Let's work together!",
     overview:
       'With more employees working remotely than ever before, collaboration and communication among team members, partners, suppliers, and customers is essential.',
@@ -540,23 +540,26 @@ async function insertFakeData() {
 
   const technology1 = await Technology.create({
     name: 'Virtual & Augmented Reality',
-    description: 'To be added',
+    description:
+      'Virtual Reality is the technology that provides almost real and/or believable experiences in a synthetic or virtual way, while Augmented Reality enhances the real world by superimposing computer-generated information on top of it.',
     image: 'To be added',
     color: 'tag-color1',
   })
 
   const technology2 = await Technology.create({
     name: 'Internet of Things',
-    description: 'To be added',
+    description:
+      'The Internet of Things (IoT) describes the network of physical objects—“things”—that are embedded with sensors, software, and other technologies for the purpose of connecting and exchanging data with other devices and systems over the internet. These devices range from ordinary household objects to sophisticated industrial tools.',
     image: 'To be added',
     color: 'tag-color2',
   })
 
   const technology3 = await Technology.create({
     name: 'Conversational Agents',
-    description: 'To be added',
+    description:
+      'A conversational agent is a software program which interprets and responds to statements made by users in ordinary natural language. It integrates computational linguistics techniques with communication over the internet.',
     image: 'To be added',
-    color: 'tag-color2',
+    color: 'tag-color3',
   })
 
   // Hard Skills

@@ -81,15 +81,6 @@ a.main-button-slider:hover {
   transform: perspective(1px) translateY(-30%) !important;
 }
 
-.welcome-invationers-area .header-text h1 {
-  font-weight: 900;
-  font-size: 52px;
-  line-height: 80px;
-  letter-spacing: 1px;
-  margin-bottom: 30px;
-  color: #191a20;
-}
-
 .welcome-invationers-area .header-text h1 em {
   font-style: normal;
   color: #fba70b;
@@ -139,6 +130,7 @@ a.main-button-slider:hover {
 @media (max-width: 810px) {
   .welcome-invationers-area {
     background-size: contain;
+    margin-top: 15%;
   }
   .welcome-invationers-area .header-text {
     padding-top: 100%;
@@ -147,6 +139,9 @@ a.main-button-slider:hover {
   .container-fluid .col-md-12 {
     margin-right: 0px;
     padding-right: 0px;
+  }
+  h1 {
+    font-size: xxx-large;
   }
 }
 </style>
