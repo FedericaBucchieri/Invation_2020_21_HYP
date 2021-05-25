@@ -2,8 +2,8 @@ const { Sequelize, DataTypes } = require('sequelize')
 
 // Development
 const db = new Sequelize(
-  // 'postgres://postgres:11235813@localhost:5432/InvationDB'
-  'postgres://postgres:federica140798@localhost:5432/InvationDB',
+  'postgres://postgres:11235813@localhost:5432/InvationDB',
+  // 'postgres://postgres:federica140798@localhost:5432/InvationDB',
   // 'postgres://postgres:password@localhost:5432/InvationDB',
   { logging: false }
 )
@@ -175,10 +175,9 @@ async function insertFakeData() {
     Review,
     User,
   } = db._tables
-  // Create the first Article
-  // Per ora abbiamo 6 invations per la vision education e 4 invationers che lavorano nell'education quindi c'è da trovare almeno altre 4/5 invationes per ognuna delle
-  // altre tre vision ( 5 * 3 = 15) e poi almeno 3/4 invationers per ognuna delle altre 3 visions (3 * 3 = 9) al limite qualche invationers ci sta
-  // che lavpri in più visions
+
+  //Education Vision
+
   const invation0 = await Invation.create({
     name: 'MuseX',
     subtitle: 'Smart space experience',
@@ -408,7 +407,7 @@ async function insertFakeData() {
   })
 
   const invation13 = await Invation.create({
-    name: 'Amazzon Echo Studio',
+    name: 'Amazon Echo Studio',
     subtitle: 'Stay away from the imitations!',
     overview:
       'For years, we gave smart speakers a pass in the audio department because we figured there was just no way for a speaker to both be smart and sound good. That was, until we created the Amazzon Echo Studio',
@@ -595,7 +594,7 @@ async function insertFakeData() {
   const invationer0 = await Invationer.create({
     name: 'Clarke',
     surname: 'Griffin',
-    role: 'Scrum Master',
+    role: 'Software Engineer',
     badge: 'https://imgur.com/2iyaenU.png',
     gender: 'Female',
     age: 32,
@@ -707,7 +706,7 @@ async function insertFakeData() {
   const invationer5 = await Invationer.create({
     name: 'Carlo',
     surname: 'Rovelli',
-    role: 'Software Engineering',
+    role: 'Software Engineer',
     badge: 'https://imgur.com/2iyaenU.png',
     gender: 'Male',
     age: 27,
@@ -837,23 +836,64 @@ async function insertFakeData() {
   await vision0.addInvationer(invationer2.id)
   await vision0.addInvationer(invationer3.id)
   await vision1.addInvationer(invationer4.id)
-  await vision3.addInvationer(invationer5.id)
-  await vision3.addInvationer(invationer6.id)
+  await vision1.addInvationer(invationer5.id)
+  await vision2.addInvationer(invationer6.id)
+  await vision3.addInvationer(invationer7.id)
+
   // Invations --> Invationers
   await invationer0.addInvation(invation0.id)
   await invationer0.addInvation(invation1.id)
   await invationer0.addInvation(invation3.id)
+  await invationer0.addInvation(invation6.id)
+  await invationer0.addInvation(invation12.id)
+  await invationer0.addInvation(invation16.id)
   await invationer1.addInvation(invation0.id)
   await invationer1.addInvation(invation1.id)
   await invationer1.addInvation(invation3.id)
   await invationer1.addInvation(invation5.id)
+  await invationer1.addInvation(invation6.id)
+  await invationer1.addInvation(invation9.id)
+  await invationer1.addInvation(invation13.id)
   await invationer2.addInvation(invation0.id)
   await invationer2.addInvation(invation2.id)
   await invationer2.addInvation(invation4.id)
   await invationer2.addInvation(invation5.id)
+  await invationer2.addInvation(invation8.id)
+  await invationer2.addInvation(invation15.id)
   await invationer3.addInvation(invation2.id)
   await invationer3.addInvation(invation3.id)
   await invationer3.addInvation(invation4.id)
+  await invationer3.addInvation(invation7.id)
+  await invationer3.addInvation(invation10.id)
+  await invationer3.addInvation(invation14.id)
+  await invationer3.addInvation(invation16.id)
+  await invationer4.addInvation(invation6.id)
+  await invationer4.addInvation(invation7.id)
+  await invationer4.addInvation(invation8.id)
+  await invationer4.addInvation(invation9.id)
+  await invationer4.addInvation(invation10.id)
+  await invationer4.addInvation(invation13.id)
+  await invationer4.addInvation(invation15.id)
+  await invationer5.addInvation(invation7.id)
+  await invationer5.addInvation(invation9.id)
+  await invationer5.addInvation(invation10.id)
+  await invationer5.addInvation(invation11.id)
+  await invationer5.addInvation(invation14.id)
+  await invationer6.addInvation(invation8.id)
+  await invationer6.addInvation(invation9.id)
+  await invationer6.addInvation(invation10.id)
+  await invationer6.addInvation(invation12.id)
+  await invationer6.addInvation(invation13.id)
+  await invationer6.addInvation(invation14.id)
+  await invationer6.addInvation(invation16.id)
+  await invationer7.addInvation(invation6.id)
+  await invationer7.addInvation(invation7.id)
+  await invationer7.addInvation(invation10.id)
+  await invationer7.addInvation(invation12.id)
+  await invationer7.addInvation(invation15.id)
+  await invationer7.addInvation(invation16.id)
+  await invationer7.addInvation(invation17.id)
+
   // Invationers --> Invations
   await invation0.addInvationer(invationer0.id)
   await invation0.addInvationer(invationer1.id)
@@ -872,36 +912,40 @@ async function insertFakeData() {
   await invation6.addInvationer(invationer0.id)
   await invation6.addInvationer(invationer1.id)
   await invation6.addInvationer(invationer7.id)
+  await invation6.addInvationer(invationer4.id)
   await invation7.addInvationer(invationer3.id)
-  await invation7.addInvationer(invationer7.id)
+  await invation7.addInvationer(invationer4.id)
   await invation7.addInvationer(invationer5.id)
-  await invation8.addInvationer(invationer6.id)
-  await invation8.addInvationer(invationer0.id)
+  await invation7.addInvationer(invationer7.id)
   await invation8.addInvationer(invationer2.id)
-  await invation9.addInvationer(invationer4.id)
-  await invation9.addInvationer(invationer6.id)
+  await invation8.addInvationer(invationer4.id)
+  await invation8.addInvationer(invationer6.id)
   await invation9.addInvationer(invationer1.id)
+  await invation9.addInvationer(invationer4.id)
+  await invation9.addInvationer(invationer5.id)
+  await invation9.addInvationer(invationer6.id)
   await invation10.addInvationer(invationer3.id)
   await invation10.addInvationer(invationer5.id)
   await invation10.addInvationer(invationer7.id)
-  await invation11.addInvationer(invationer1.id)
   await invation11.addInvationer(invationer4.id)
+  await invation11.addInvationer(invationer5.id)
   await invation11.addInvationer(invationer6.id)
   await invation12.addInvationer(invationer0.id)
+  await invation12.addInvationer(invationer6.id)
   await invation12.addInvationer(invationer7.id)
   await invation13.addInvationer(invationer1.id)
   await invation13.addInvationer(invationer4.id)
   await invation13.addInvationer(invationer6.id)
-  await invation14.addInvationer(invationer2.id)
   await invation14.addInvationer(invationer3.id)
   await invation14.addInvationer(invationer5.id)
-  await invation15.addInvationer(invationer4.id)
+  await invation14.addInvationer(invationer6.id)
   await invation15.addInvationer(invationer2.id)
+  await invation15.addInvationer(invationer4.id)
+  await invation15.addInvationer(invationer7.id)
   await invation16.addInvationer(invationer0.id)
   await invation16.addInvationer(invationer3.id)
   await invation16.addInvationer(invationer6.id)
-  await invation16.addInvationer(invationer0.id)
-  await invation16.addInvationer(invationer1.id)
+  await invation16.addInvationer(invationer7.id)
   // Skills --> Invationers
   await invationer0.addSkill(skill1.id)
   await invationer0.addSkill(skill2.id)

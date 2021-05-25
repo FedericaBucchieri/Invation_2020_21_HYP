@@ -4,14 +4,14 @@
       <nuxt-link :to="theHeaderMenuItemPath"
         >{{ theHeaderMenuItemName }}
         <img
-          v-if="!isActivated"
+          v-if="!isActivated && myTheHeaderMenuItemExtensions != 0"
           src="~/static/decor/down-arrow.png"
           class="menu-item-arrow"
           :alt="'menu-element' + theHeaderMenuItemName"
           @click="changeDisplayItemExtensions"
       /></nuxt-link>
       <img
-        v-if="isActivated"
+        v-if="isActivated && myTheHeaderMenuItemExtensions != 0"
         src="~/static/decor/down-arrow.png"
         class="menu-item-arrow"
         :alt="'menu-element' + theHeaderMenuItemName"

@@ -43,7 +43,7 @@
             ],
             "utterance": ["Ok! ", "All right! ", "Copy that! ", "10-4. "],
             "payload": {
-              "myPath": "/about"
+              "myPath": "/contact"
             }
           },
           {
@@ -58,7 +58,7 @@
             ],
             "utterance": ["Ok! ", "All right! ", "Copy that! ", "10-4. "],
             "payload": {
-              "myPath": "/about"
+              "myPath": "/contact#contact-form"
             }
           }
         ]
