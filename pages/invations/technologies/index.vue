@@ -33,7 +33,7 @@
 
 <script>
 import WelcomeAreaStart from '~/components/baseElements/WelcomeAreaStart.vue'
-import ContentRoundedContainers from '~/components/Vision/ContentRoundedContainers'
+import ContentRoundedContainers from '~/components/vision/ContentRoundedContainers'
 
 export default {
   components: {
