@@ -1,20 +1,20 @@
 const { Sequelize, DataTypes } = require('sequelize')
 
 // Development
-const db = new Sequelize(
-  // 'postgres://postgres:11235813@localhost:5432/InvationDB',
-  'postgres://postgres:federica140798@localhost:5432/InvationDB',
-  // 'postgres://postgres:password@localhost:5432/InvationDB',
-  { logging: false }
-)
+// const db = new Sequelize(
+//   // 'postgres://postgres:11235813@localhost:5432/InvationDB',
+//   // 'postgres://postgres:federica140798@localhost:5432/InvationDB',
+//   'postgres://postgres:password@localhost:5432/InvationDB',
+//   { logging: false }
+// )
 
 // Production
-// const pg = require('pg')
-// pg.defaults.ssl = true
-// const db = new Sequelize(process.env.DATABASE_URL, {
-//   ssl: true,
-//   dialectOptions: { ssl: { require: true, rejectUnauthorized: false } },
-// })
+const pg = require('pg')
+pg.defaults.ssl = true
+const db = new Sequelize(process.env.DATABASE_URL, {
+  ssl: true,
+  dialectOptions: { ssl: { require: true, rejectUnauthorized: false } },
+})
 
 /**
  * Function to define the structure of the database
