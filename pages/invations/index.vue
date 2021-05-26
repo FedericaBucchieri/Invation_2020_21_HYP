@@ -30,7 +30,7 @@
 
 <script>
 import TheIntroPage from '~/components/TheIntroPage'
-import ContentRoundedContainers from '~/components/Vision/ContentRoundedContainers'
+import ContentRoundedContainers from '~/components/vision/ContentRoundedContainers'
 
 export default {
   components: {
