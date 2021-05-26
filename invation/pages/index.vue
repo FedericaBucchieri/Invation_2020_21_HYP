@@ -11,16 +11,40 @@
         there are <i>three pillars:</i> Innovation, Invention and Teamwork.
       </template>
     </welcome-area-start>
-    <!-- Explore Visions -->
-    <section id="explore">
-      <content-rounded-containers
-        :area-name="areaName"
-        :content="visions"
-        typology="visions"
-      >
-      </content-rounded-containers>
+    <!-- Visions, Invations e Invationers description -->
+    <section id="definitions">
+      <div class="container">
+        <div class="row">
+          <div class="blod-container">
+            <blob-with-text
+              :text="visionDefinition"
+              :button-text="'Discover our visions'"
+              :link="'/visions'"
+              :background="'/blob-left.png'"
+            >
+              What are the <em>Visions</em>
+            </blob-with-text>
+            <blob-with-text
+              :text="invationDefinition"
+              :button-text="'See all the Invations'"
+              :link="'/invations'"
+              :background="'/blob-center.png'"
+              class="central-blob"
+            >
+              What is an <em>Invations</em>
+            </blob-with-text>
+            <blob-with-text
+              :text="invationersDefinition"
+              :button-text="'Know the Invationers'"
+              :link="'/invationers'"
+              :background="'/blob-right.png'"
+              class="right-bob"
+              >Who are the <em>Invationers</em>
+            </blob-with-text>
+          </div>
+        </div>
+      </div>
     </section>
-
     <!-- Last three products -->
     <section id="latestProducts">
       <div class="left-image-decor"></div>
@@ -43,15 +67,14 @@
 <script>
 import BaseThreeObjectContainer from '~/components/baseElements/BaseThreeObjectContainer.vue'
 import WelcomeAreaStart from '~/components/baseElements/WelcomeAreaStart.vue'
-import ContentRoundedContainers from '~/components/vision/ContentRoundedContainers.vue'
+import BlobWithText from '~/components/decoration/BlobWithText.vue'
 
 export default {
   components: {
     WelcomeAreaStart,
-    ContentRoundedContainers,
     BaseThreeObjectContainer,
+    BlobWithText,
   },
-  // mixins: [RoutingMixin],
   async asyncData({ $axios }) {
     const visions = await $axios.get(`${process.env.BASE_URL}/api/visions`)
 
@@ -75,6 +98,12 @@ export default {
       areaName: 'Explore our Visions',
       bigImage: 'https://imgur.com/OrwkWr6.png',
       invationerTitle: 'Discover our team: The Invationers',
+      visionDefinition:
+        'Visions are interactive itinerary based on a chosen theme, created as a set of innovative products. Go and explore our 4 Visions!',
+      invationDefinition:
+        'Invations are innovative inventions and ideas to shape a new concrete concept of future. Do you want to kno more?',
+      invationersDefinition:
+        'You really did not figure it out already? Our employees will present them. They are the Invationers! Our great team.',
     }
   },
   head() {
@@ -95,20 +124,6 @@ export default {
       ],
     }
   },
-  /*
-  mounted() {
-    for (let i = 0; i < this.visions.length; i++) {
-      const newVision = {
-        name: this.visions[i].name,
-        numberTag: this.visions[i].numberTag,
-        description: this.visions[i].description,
-        image: this.visions[i].image,
-        typology: 'visions',
-      }
-      this.myVisions.push(newVision)
-    }
-  },
-  */
 }
 </script>
 
@@ -121,11 +136,25 @@ export default {
   #latestProducts {
     margin-bottom: 150px;
   }
+
+  .blod-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 80px;
+  }
+
+  .central-blob {
+    top: 0;
+  }
 }
 
 @media only screen and (min-width: 810px) {
   section {
     margin: 18% auto;
+  }
+
+  #definitions {
+    margin: 5% auto 18% auto;
   }
 
   #explore {
@@ -136,5 +165,23 @@ export default {
   #latestProducts {
     margin-top: -10%;
   }
+
+  .blod-container {
+    display: inline-flex;
+    flex-wrap: wrap;
+  }
+}
+
+@media (min-width: 810px) {
+  .central-blob {
+    position: relative;
+    top: -200px;
+    text-align: center;
+    background-position: bottom center;
+  }
+}
+
+.right-bob {
+  text-align: right;
 }
 </style>

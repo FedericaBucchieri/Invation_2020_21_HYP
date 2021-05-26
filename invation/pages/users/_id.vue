@@ -66,14 +66,17 @@
             </form>
           </div>
         </div>
-        <div class="savedInvationsSection">
+
+        <!-- Saved invations -->
+
+        <section class="savedInvationsSection">
           <content-rounded-containers
             :area-name="'Saved Invations'"
             :content="user.invations"
             description-name="overview"
             typology="invations"
           ></content-rounded-containers>
-        </div>
+        </section>
       </div>
     </div>
   </div>
@@ -138,20 +141,6 @@ export default {
       return 'You have entered an invalid email address!'
     },
   },
-  /*
-  mounted() {
-    for (let i = 0; i < this.user.invations.length; i++) {
-      const newUserInvation = {
-        name: this.user.invations[i].name,
-        numberTag: this.user.invations[i].numberTag,
-        description: this.user.invations[i].overview,
-        image: this.user.invations[i].image,
-        typology: 'invations',
-      }
-      this.myUserInvations.push(newUserInvation)
-    }
-  },
-  */
   methods: {
     updateProfile(e) {
       this.$axios
@@ -184,6 +173,7 @@ export default {
   display: inline-flex;
   flex-wrap: wrap;
   margin-top: 50px;
+  justify-content: center;
 }
 
 h1 {
@@ -209,9 +199,11 @@ h1 {
 @media screen and (max-width: 900px) {
   .user-extra {
     width: 90%;
+    margin-bottom: 80px;
   }
   .user-personal-info {
     width: 90%;
+    margin-bottom: 80px;
   }
 }
 

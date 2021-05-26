@@ -5,7 +5,7 @@
       :text-button="textButton"
       :link="'#' + generalLink"
       :paths-list="pathsList"
-      :bigImage="bigImage"
+      :big-image="bigImage"
     >
       <template #title><slot name="welcome-title"></slot> </template>
       <template #overview><slot name="welcome-overview"></slot> </template>
@@ -15,11 +15,11 @@
     <!--**** Photogallery area starts ****-->
     <!-- <photo-gallery :img-list="invationsDemo"> </photo-gallery> -->
     <!-- <base-gallery :imgList="invationsDemo"></base-gallery> -->
-    <base-slide-show
-      :slideObjects="slideObjects"
+    <decoration-slide-show
+      :slide-objects="slideObjects"
       :title="slideObjectTitle"
       :introduction="slideObjectIntro"
-    ></base-slide-show>
+    ></decoration-slide-show>
     <!--**** Photogallery area ends ****-->
 
     <!-- ***** All entities area starts ***** -->
@@ -32,7 +32,7 @@
 
 <script>
 // import BaseGallery from './baseElements/BaseGallery.vue'
-import BaseSlideShow from './baseElements/BaseSlideShow.vue'
+import DecorationSlideShow from './decoration/DecorationSlideShow.vue'
 import WelcomeAreaStart from '~/components/baseElements/WelcomeAreaStart.vue'
 // import PhotoGallery from '~/components/baseElements/PhotoGallery.vue'
 
@@ -41,7 +41,7 @@ export default {
     WelcomeAreaStart,
     // PhotoGallery,
     // BaseGallery,
-    BaseSlideShow,
+    DecorationSlideShow,
   },
   props: {
     textButton: { type: String, default: () => '' },

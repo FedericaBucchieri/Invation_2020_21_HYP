@@ -108,5 +108,6 @@ section {
 .container-topic-description {
   width: 80%;
   margin: auto;
+  text-align: justify;
 }
 </style>

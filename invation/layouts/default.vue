@@ -3,18 +3,18 @@
     <mmcc-init-connection :configuration-id="configurationId" />
     <TheHeader />
     <TheUserAuthenticationHandler />
-    <chat :chat-list="list" />
+    <the-chat :chat-list="list" />
     <Nuxt />
     <TheFooter />
   </div>
 </template>
 
 <script>
-import Chat from '~/components/Chat.vue'
+import TheChat from '~/components/TheChat.vue'
 import MMCCMixin from '~/mixins/mmcc-mixin'
 export default {
   components: {
-    Chat,
+    TheChat,
   },
   mixins: [MMCCMixin],
 }
