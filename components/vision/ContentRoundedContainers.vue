@@ -44,29 +44,29 @@
 </template>
 
 <script>
-import RoundedContainer from '~/components/vision/RoundedContainer.vue'
-import SearchComponent from '~/components/baseElements/SearchComponent.vue'
+import RoundedContainer from "~/components/vision/RoundedContainer.vue";
+import SearchComponent from "~/components/baseElements/SearchComponent.vue";
 
 export default {
   components: { RoundedContainer, SearchComponent },
   props: {
-    areaName: { type: String, default: '' },
+    areaName: { type: String, default: "" },
     content: {
       type: Array,
       default: () => [],
     },
-    descriptionName: { type: String, default: 'description' },
-    imageName: { type: String, default: 'image' },
-    typology: { type: String, default: '' },
+    descriptionName: { type: String, default: "description" },
+    imageName: { type: String, default: "image" },
+    typology: { type: String, default: "" },
     hasResearch: { type: Boolean, default: () => false },
-    description: { type: String, default: '' },
+    description: { type: String, default: "" },
   },
   data() {
     return {
       myContents: this.content,
-    }
+    };
   },
-}
+};
 </script>
 
 <style scoped>

@@ -16,7 +16,7 @@
         Explore
       </nuxt-link>
     </div>
-    <div class="vision-as-footer" v-if="vision !== undefined">
+    <div v-if="vision !== undefined" class="vision-as-footer">
       <nuxt-link :to="'/visions/' + vision.id">
         <b>Related Vision:</b> {{ vision.name }}</nuxt-link
       >

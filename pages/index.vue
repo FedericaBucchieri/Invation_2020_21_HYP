@@ -65,9 +65,9 @@
 </template>
 
 <script>
-import BaseThreeObjectContainer from '~/components/baseElements/BaseThreeObjectContainer.vue'
-import WelcomeAreaStart from '~/components/baseElements/WelcomeAreaStart.vue'
-import BlobWithText from '~/components/decoration/BlobWithText.vue'
+import BaseThreeObjectContainer from "~/components/baseElements/BaseThreeObjectContainer.vue";
+import WelcomeAreaStart from "~/components/baseElements/WelcomeAreaStart.vue";
+import BlobWithText from "~/components/decoration/BlobWithText.vue";
 
 export default {
   components: {
@@ -76,55 +76,55 @@ export default {
     BlobWithText,
   },
   async asyncData({ $axios }) {
-    const visions = await $axios.get(`${process.env.BASE_URL}/api/visions`)
+    const visions = await $axios.get(`${process.env.BASE_URL}/api/visions`);
 
     const last3Invations = await $axios.get(
       `${process.env.BASE_URL}/api/invations_last`
-    )
+    );
 
     const invationers = await $axios.get(
       `${process.env.BASE_URL}/api/invationers`
-    )
+    );
 
     return {
       visions: visions.data,
       last3Invations: last3Invations.data,
       invationers: invationers.data,
-    }
+    };
   },
   data() {
     return {
-      textButton: 'KNOW US BETTER',
-      areaName: 'Explore our Visions',
-      bigImage: 'https://imgur.com/OrwkWr6.png',
-      invationerTitle: 'Discover our team: The Invationers',
+      textButton: "KNOW US BETTER",
+      areaName: "Explore our Visions",
+      bigImage: "https://imgur.com/OrwkWr6.png",
+      invationerTitle: "Discover our team: The Invationers",
       visionDefinition:
-        'Visions are interactive itinerary based on a chosen theme, created as a set of innovative products. Go and explore our 4 Visions!',
+        "Visions are interactive itinerary based on a chosen theme, created as a set of innovative products. Go and explore our 4 Visions!",
       invationDefinition:
-        'Invations are innovative inventions and ideas to shape a new concrete concept of future. Do you want to kno more?',
+        "Invations are innovative inventions and ideas to shape a new concrete concept of future. Do you want to know more?",
       invationersDefinition:
-        'You really did not figure it out already? Our employees will present them. They are the Invationers! Our great team.',
-    }
+        "Did you really not figure it out already? Our employees will present them. They are the Invationers! Our great team.",
+    };
   },
   head() {
     return {
-      title: 'Invation - Home Page',
+      title: "Invation - Home Page",
       meta: [
         {
-          name: 'description',
+          name: "description",
           content:
-            'Invation is a visionary company that proposes four thematic visions full of innovative product to have a look at the future',
+            "Invation is a visionary company that proposes four thematic visions full of innovative product to have a look at the future",
         },
         {
-          hid: 'Home page',
-          name: 'Home page',
+          hid: "Home page",
+          name: "Home page",
           content:
-            'Invation is a visionary company that proposes four thematic visions full of innovative product to have a look at the future',
+            "Invation is a visionary company that proposes four thematic visions full of innovative product to have a look at the future",
         },
       ],
-    }
+    };
   },
-}
+};
 </script>
 
 <style scoped>

@@ -34,8 +34,8 @@
 </template>
 
 <script>
-import FooterList from '~/components/footer/FooterList.vue'
-import SocialIconBar from '~/components/contacts/SocialIconBar.vue'
+import FooterList from "~/components/footer/FooterList.vue";
+import SocialIconBar from "~/components/contacts/SocialIconBar.vue";
 
 export default {
   components: {
@@ -45,92 +45,92 @@ export default {
   data() {
     return {
       footerStatus: false,
-      buttonText: '↑',
+      buttonText: "↑",
       visionLinks: [
         {
-          name: 'Education',
-          path: '/visions/1',
+          name: "Education",
+          path: "/visions/1",
         },
         {
-          name: 'Entertainment',
-          path: '/visions/2',
+          name: "Entertainment",
+          path: "/visions/2",
         },
         {
-          name: 'Smart Home',
-          path: '/visions/3',
+          name: "Smart Home",
+          path: "/visions/3",
         },
         {
-          name: 'Work',
-          path: '/visions/4',
+          name: "Work",
+          path: "/visions/4",
         },
       ],
       usefulLinks: [
         {
-          name: 'About',
-          path: '/about',
+          name: "About",
+          path: "/about",
         },
         {
-          name: 'All Invations',
-          path: '/invations',
+          name: "All Invations",
+          path: "/invations",
         },
         {
-          name: 'All Invationers',
-          path: '/invationers',
+          name: "All Invationers",
+          path: "/invationers",
         },
         {
-          name: 'Invations by Technology',
-          path: '/invations/technologies',
+          name: "Invations by Technology",
+          path: "/invations/technologies",
         },
       ],
       contactInfos: [
         {
-          info: 'Milano, MI, 20137, Italy',
-          imgPath: '../contact-icons/address.png',
+          info: "Milano, MI, 20137, Italy",
+          imgPath: "../contact-icons/address.png",
         },
         {
-          info: 'info@invations.com',
-          imgPath: '../contact-icons/email.png',
+          info: "info@invations.com",
+          imgPath: "../contact-icons/email.png",
         },
         {
-          info: '+01 234 567 89',
-          imgPath: '../contact-icons/telephone.png',
+          info: "+01 234 567 89",
+          imgPath: "../contact-icons/telephone.png",
         },
         {
-          info: '+01 234 567 89',
-          imgPath: '../contact-icons/fax.png',
+          info: "+01 234 567 89",
+          imgPath: "../contact-icons/fax.png",
         },
       ],
       socialIcons: [
         {
-          iconPath: '../contact-icons/facebook.png',
-          link: 'https://www.facebook.com',
+          iconPath: "../contact-icons/facebook.png",
+          link: "https://www.facebook.com",
         },
         {
-          iconPath: '../contact-icons/linkedin.png',
-          link: 'https://www.linkedin.com',
+          iconPath: "../contact-icons/linkedin.png",
+          link: "https://www.linkedin.com",
         },
         {
-          iconPath: '../contact-icons/instagram.png',
-          link: 'https://www.instagram.com',
+          iconPath: "../contact-icons/instagram.png",
+          link: "https://www.instagram.com",
         },
         {
-          iconPath: '../contact-icons/twitter.png',
-          link: 'https://www.twitter.com',
+          iconPath: "../contact-icons/twitter.png",
+          link: "https://www.twitter.com",
         },
       ],
-    }
+    };
   },
   methods: {
     changeStatusFooterVisibility() {
-      this.footerStatus = !this.footerStatus
-      if (this.buttonText === '↑') {
-        this.buttonText = '↓'
+      this.footerStatus = !this.footerStatus;
+      if (this.buttonText === "↑") {
+        this.buttonText = "↓";
       } else {
-        this.buttonText = '↑'
+        this.buttonText = "↑";
       }
     },
   },
-}
+};
 </script>
 
 <style scoped>
@@ -140,7 +140,7 @@ footer {
   height: auto;
   width: 100%;
   background-image: linear-gradient(#f38151, #f1556a);
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   z-index: 20;
 }
 
@@ -176,6 +176,12 @@ footer {
   border-radius: 50%;
   border: none;
   box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 810px) {
+  .sub-footer button {
+    font-size: 14px;
+  }
 }
 
 .sub-footer button:focus {
