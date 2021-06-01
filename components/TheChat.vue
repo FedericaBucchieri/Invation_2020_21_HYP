@@ -2,7 +2,12 @@
   <div class="chat">
     <div v-if="isOpen" class="chat-container">
       <div class="chatbot-detail">
-        <img src="/charlie-chatbot.png" alt="charlie the chatbot image" />
+        <img
+          src="/charlie-chatbot.png"
+          alt="charlie the chatbot - avatar image"
+          width="75"
+          height="75"
+        />
         <div class="details">
           <p class="name">Hi! I'm Charlie</p>
           <p class="status">~ ready to answer</p>
@@ -20,14 +25,21 @@
           </div>
         </div>
       </div>
+      <label for="chat-dialogue"></label>
       <input
+        id="chat-dialogue"
         v-model="messageToSend"
         type="text"
         @keypress.enter="sendMessage"
       />
     </div>
     <div class="button" @click="isOpen = !isOpen">
-      <img src="/charlie-chatbot.png" alt="" />
+      <img
+        src="/charlie-chatbot.png"
+        alt="chatbot image - charlie avatar"
+        width="60"
+        height="60"
+      />
     </div>
   </div>
 </template>
@@ -42,26 +54,26 @@ export default {
   },
   data() {
     return {
-      messageToSend: "",
+      messageToSend: '',
       isOpen: false,
-    };
+    }
   },
   methods: {
     sendMessage() {
-      const { WebSocketEventBus } = require("mmcc/WebSocketEventBus");
-      this.$store.commit("addMessage", {
+      const { WebSocketEventBus } = require('mmcc/WebSocketEventBus')
+      this.$store.commit('addMessage', {
         sender: false,
         content: this.messageToSend,
-      });
+      })
       const packet = {
-        message: { type: "data", payload: { data: this.messageToSend } },
+        message: { type: 'data', payload: { data: this.messageToSend } },
         configurationId: process.env.configurationId,
-      };
-      WebSocketEventBus.$emit("send", packet);
-      this.messageToSend = "";
+      }
+      WebSocketEventBus.$emit('send', packet)
+      this.messageToSend = ''
     },
   },
-};
+}
 </script>
 
 <style scoped>
@@ -132,18 +144,18 @@ export default {
 .chatbot-detail {
   display: inline-flex;
   align-items: center;
-  border-bottom: 1px solid #fba70b;
+  border-bottom: 1px solid #ec9e0d;
   width: 100%;
 }
 
 .chatbot-detail .name {
-  color: #fba70b;
+  color: #ec9e0d;
   font-weight: 600;
   font-size: 22px;
 }
 
 .chatbot-detail .status {
-  color: #777;
+  color: #000;
   font-weight: 300;
   font-size: 12px;
 }
@@ -212,5 +224,9 @@ input {
 input:focus {
   border: 1px solid #fba70b;
   outline: none;
+}
+
+label {
+  display: none;
 }
 </style>

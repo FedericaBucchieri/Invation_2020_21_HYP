@@ -60,7 +60,7 @@ export default {
         this.item.item.overview,
         `/${this.typology}/` + `${this.item.item.id}`,
       ],
-      detailsContent: [this.item.item.numberTag, this.item.item.image],
+      detailsContent: [this.item.item.numberTag, this.item.item.thumbnail],
     }
   },
   mounted() {

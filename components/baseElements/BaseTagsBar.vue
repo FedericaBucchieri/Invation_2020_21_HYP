@@ -6,6 +6,7 @@
       :key="'tag-' + itemIndex"
       :tag-name="item.name"
       :color-class="item.color"
+      :relatedPath="item.relatedPath"
     >
     </base-tag>
   </ul>

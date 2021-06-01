@@ -11,14 +11,16 @@
         height="100"
       />
       <nuxt-link :to="`/invationers/` + id" class="card-name">
-        <h5>{{ invationer.name + ' ' + invationer.surname }}</h5>
+        <div class="invationer-name">
+          {{ invationer.name + ' ' + invationer.surname }}
+        </div>
       </nuxt-link>
 
       <div class="role">{{ invationer.role }}</div>
       <p>{{ invationer.quote }}</p>
     </div>
     <div class="skills">
-      <h6>Skills</h6>
+      <p class="skill-title">Skills</p>
       <ul>
         <li
           v-for="(item, itemIndex) of invationer.skills"
@@ -42,13 +44,19 @@ export default {
 </script>
 
 <style>
-.invation-card h5 {
+.invation-card .invationer-name {
   margin: 10px 0;
+  font-size: 18px;
+  font-weight: 600;
 }
 
-.invation-card h6 {
+.invation-card .skill-title {
   margin: 5px 0;
   text-transform: uppercase;
+  color: white;
+  font-weight: 600;
+  font-style: normal;
+  padding: 0;
 }
 
 .invation-card .role {

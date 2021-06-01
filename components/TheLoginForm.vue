@@ -7,7 +7,7 @@
         alt="Avatar"
         class="avatar"
         width="150"
-        height="auto"
+        height="165"
       />
     </div>
 

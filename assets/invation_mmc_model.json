@@ -1,5 +1,5 @@
 {
-  "name": "Buh questo dovrebbe essere definitivo",
+  "name": "Invation Chatbot Charlie",
   "data": {
     "kb": {
       "welcome": "So, as you know, I'm your personal chatbot ",
@@ -66,7 +66,7 @@
       "home": "I will guide you through the site. Welcome to the homepage",
       "about": "Welcome to the About page of our website. Here you can find all the information about our company",
       "end": "The process is completed",
-      "steps_v": ["/", "/about"],
+      "steps_v": ["/"],
       "continue_v": ["continue", "ok", "go"],
       "guide_v": ["guide"],
       "main_exit_v": ["no", "reset"],

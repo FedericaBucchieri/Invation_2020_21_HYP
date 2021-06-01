@@ -47,7 +47,7 @@
               <div class="text">
                 <nuxt-link
                   :class="{ disabled: disabled }"
-                  :to="`/${typology}/` + item.numberTag"
+                  :to="`/${typology}/` + item.id"
                 >
                   <span class="object-name">{{ item.name }}</span>
                 </nuxt-link>

@@ -9,6 +9,8 @@
           class="menu-item-arrow"
           :alt="'menu-element' + theHeaderMenuItemName"
           @click="changeDisplayItemExtensions"
+          width="10"
+          height="10"
       /></nuxt-link>
       <img
         v-if="isActivated && myTheHeaderMenuItemExtensions != 0"
@@ -16,6 +18,8 @@
         class="menu-item-arrow"
         :alt="'menu-element' + theHeaderMenuItemName"
         @click="changeDisplayItemExtensions"
+        width="10"
+        height="10"
       />
     </div>
     <ul :class="{ active: isActive }">

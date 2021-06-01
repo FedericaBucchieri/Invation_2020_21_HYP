@@ -1,15 +1,25 @@
 <template>
   <section id="slideshow">
+    <!-- Decoration images -->
     <div class="right-image-decor"></div>
     <div class="left-image-decor"></div>
+
+    <!-- Start of the slideshow -->
     <h2>{{ title }}</h2>
     <p class="intro">{{ introduction }}</p>
     <div class="slide-objects">
+      <label
+        v-for="(item, itemIndex) of slideObjects"
+        :key="'slide-item-label' + itemIndex"
+        :for="'position' + itemIndex"
+      >
+      </label>
       <input
         v-for="(item, itemIndex) of slideObjects"
         :key="'slide-item-input' + itemIndex"
+        :id="'position' + itemIndex"
         type="radio"
-        name="position"
+        :name="'position' + itemIndex"
         :checked="itemIndex === 2"
       />
       <main id="carousel">
@@ -19,7 +29,7 @@
           class="item"
           :style="{ 'background-image': 'url(' + item.background + ')' }"
         >
-          <h4>{{ item.title }}</h4>
+          <div class="slide-title">{{ item.title }}</div>
           <p>{{ item.text }}</p>
         </div>
       </main>
@@ -146,7 +156,7 @@ input:nth-of-type(5):checked ~ main#carousel {
   --position: 5;
 }
 
-.slide-objects h4 {
+.slide-objects .slide-title {
   color: white;
   font-weight: 700;
   font-size: 24px;
@@ -155,5 +165,9 @@ input:nth-of-type(5):checked ~ main#carousel {
 
 .slide-objects p {
   color: white;
+}
+
+label {
+  display: none;
 }
 </style>

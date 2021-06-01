@@ -57,20 +57,20 @@
         <a href="#contact-form" class="main-button"> Send Us a Message </a>
 
         <!-- Contact Form -->
-        <section id="contact-form-section">
+        <section id="contact-form">
           <div class="footer-content">
             <div class="row">
               <!-- ***** Contact Form Start ***** -->
               <div class="col-lg-6 col-md-12 col-sm-12">
-                <div class="contact-form">
+                <div class="contact-form-div">
                   <form id="contact" action="" method="post">
                     <div class="row">
                       <div class="col-md-6 col-sm-12">
                         <fieldset>
                           <input
+                            id="name"
                             name="name"
                             type="text"
-                            id="name"
                             placeholder="Full Name"
                           />
                         </fieldset>
@@ -78,9 +78,9 @@
                       <div class="col-md-6 col-sm-12">
                         <fieldset>
                           <input
+                            id="email"
                             name="email"
                             type="text"
-                            id="email"
                             placeholder="E-Mail Address"
                           />
                         </fieldset>
@@ -88,9 +88,9 @@
                       <div class="col-lg-12">
                         <fieldset>
                           <textarea
+                            id="message"
                             name="message"
                             rows="6"
-                            id="message"
                             placeholder="Your Message"
                             required=""
                           ></textarea>
@@ -180,7 +180,7 @@ export default {
   },
   methods: {
     fakeSend() {
-      alert('Message sended correctly!')
+      alert('Message sent correctly!')
     },
   },
 }
@@ -302,7 +302,7 @@ h2 {
   margin: 100px auto 0 auto;
 }
 
-#contact-form-section {
+#contact-form {
   margin-top: 200px;
   background-image: url(/blob.png);
   background-position: right center;
@@ -311,26 +311,26 @@ h2 {
 }
 
 @media (min-width: 810px) {
-  #contact-form-section {
+  #contact-form {
     background-position: right center;
   }
 }
 
 @media (max-width: 810px) {
-  #contact-form-section {
+  #contact-form {
     background-position: right bottom;
     background-size: auto;
   }
 }
 
 @media (max-width: 992px) {
-  .contact-form {
+  .contact-form-div {
     margin-bottom: 45px;
     padding: 60px 0px !important;
   }
 }
 
-.contact-form {
+.contact-form-div {
   position: relative;
   padding: 45px;
   border-radius: 5px;
@@ -338,8 +338,8 @@ h2 {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-.contact-form input,
-.contact-form textarea {
+.contact-form-div input,
+.contact-form-div textarea {
   color: #777;
   font-size: 13px;
   border: 1px solid #eee;
@@ -356,37 +356,37 @@ h2 {
   margin-bottom: 30px;
 }
 
-.contact-form textarea {
+.contact-form-div textarea {
   height: 150px;
   resize: none;
   padding: 20px;
 }
 
-.contact-form {
+.contact-form-div {
   text-align: center;
 }
 
-#contact-form-section h2 {
+#contact-form h2 {
   color: white;
   text-align: left;
   text-transform: none;
 }
 
-#contact-form-section p {
+#contact-form p {
   width: 80%;
 }
 
-.contact-form ::-webkit-input-placeholder {
+.contact-form-div ::-webkit-input-placeholder {
   /* Edge */
   color: #7a7a7a;
 }
 
-.contact-form :-ms-input-placeholder {
+.contact-form-div :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
   color: #7a7a7a;
 }
 
-.contact-form ::placeholder {
+.contact-form-div ::placeholder {
   color: #7a7a7a;
 }
 

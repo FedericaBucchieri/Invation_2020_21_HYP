@@ -1,5 +1,9 @@
 <template>
-  <li class="tag" :class="colorClass">#{{ tagName }}</li>
+  <li class="tag" :class="colorClass">
+    <nuxt-link :to="'/invations/technologies/#' + relatedPath">
+      #{{ tagName }}</nuxt-link
+    >
+  </li>
 </template>
 
 <script>
@@ -7,6 +11,7 @@ export default {
   props: {
     colorClass: { type: String, default: () => '' },
     tagName: { type: String, default: () => '' },
+    relatedPath: { type: String, default: () => '' },
   },
 }
 </script>

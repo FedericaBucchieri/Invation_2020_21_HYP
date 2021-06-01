@@ -52,7 +52,11 @@ a.main-button-slider {
   font-size: 14px;
   border-radius: 25px;
   padding: 15px 25px;
-  background-color: #fba70b;
+  background: linear-gradient(
+    145deg,
+    rgba(244, 129, 63, 1) 0%,
+    rgba(241, 85, 106, 1) 100%
+  );
   text-transform: uppercase;
   color: #fff;
   font-weight: 600;
@@ -63,9 +67,6 @@ a.main-button-slider {
   transition: all 0.3s ease 0s;
 }
 
-a.main-button-slider:hover {
-  background-color: #f1556a;
-}
 .welcome-invationers-area {
   width: 100%;
   height: 100vh;

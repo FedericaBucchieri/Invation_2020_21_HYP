@@ -13,9 +13,13 @@
         find the related <i>Invations</i>
       </template>
     </welcome-area-start>
+    <!-- Each technology container -->
     <section id="technologies">
-      <!-- <div v-for="technology in myTechnologies" :key="technology.id"> -->
-      <div v-for="technology in technologies" :key="technology.id">
+      <div
+        v-for="technology in technologies"
+        :key="technology.id"
+        :id="technology.relatedPath"
+      >
         <span></span>
         <content-rounded-containers
           :area-name="technology.name"

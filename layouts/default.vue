@@ -1,6 +1,5 @@
 <template>
   <div>
-    <mmcc-init-connection :configuration-id="configurationId" />
     <TheHeader />
     <TheUserAuthenticationHandler />
     <the-chat :chat-list="list" />

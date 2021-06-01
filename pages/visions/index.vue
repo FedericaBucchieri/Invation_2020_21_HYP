@@ -20,6 +20,7 @@
       <content-rounded-containers
         :content="visions"
         :area-name="areaName"
+        :image-name="'image'"
         typology="visions"
       >
       </content-rounded-containers>
