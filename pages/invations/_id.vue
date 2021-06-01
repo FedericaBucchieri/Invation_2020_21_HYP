@@ -54,7 +54,9 @@
       <div class="container">
         <div class="row">
           <h2>Invation Reviews</h2>
-          <base-review-list :review-list="invation.reviews"></base-review-list>
+          <invation-review-list
+            :review-list="invation.reviews"
+          ></invation-review-list>
           <h3>Leave your review here</h3>
           <form method="post" @submit="postReview">
             <label>Author:</label>
@@ -89,11 +91,11 @@
     </section>
     <!-- ***** Invationers ***** -->
     <section id="invationers">
-      <short-card-container
+      <invationer-short-card-container
         :card-list="invation.invationers"
         :title="'Invationers that worked on this innovation'"
         :typology="`invationers`"
-      ></short-card-container>
+      ></invationer-short-card-container>
     </section>
   </div>
 </template>
@@ -103,8 +105,8 @@ import ObjectOverview from '~/components/baseElements/ObjectOverview.vue'
 import ObjectConcept from '~/components/baseElements/ObjectConcept.vue'
 import ObjectVideo from '~/components/baseElements/ObjectVideo.vue'
 import ObjectMore from '~/components/baseElements/ObjectMore.vue'
-import ShortCardContainer from '~/components/baseElements/ShortCardContainer.vue'
-import BaseReviewList from '~/components/baseElements/BaseReviewList.vue'
+import InvationerShortCardContainer from '~/components/invationer/InvationerShortCardContainer.vue'
+import InvationReviewList from '~/components/invation/InvationReviewList.vue'
 
 export default {
   components: {
@@ -112,8 +114,8 @@ export default {
     ObjectConcept,
     ObjectVideo,
     ObjectMore,
-    ShortCardContainer,
-    BaseReviewList,
+    InvationerShortCardContainer,
+    InvationReviewList,
   },
   async asyncData({ $axios, route }) {
     const { id } = route.params

@@ -22,7 +22,8 @@
             :id="item.id"
             :key="`invationers-card` + itemIndex"
           >
-            <short-card :id="item.id" :invationer="item"> </short-card>
+            <invationer-short-card :id="item.id" :invationer="item">
+            </invationer-short-card>
           </li>
         </ul>
       </div>
@@ -31,11 +32,11 @@
 </template>
 
 <script>
-import ShortCard from '~/components/baseElements/ShortCard.vue'
+import InvationerShortCard from '~/components/invationer/InvationerShortCard.vue'
 import SearchComponent from '~/components/baseElements/SearchComponent.vue'
 export default {
   components: {
-    ShortCard,
+    InvationerShortCard,
     SearchComponent,
   },
   props: {

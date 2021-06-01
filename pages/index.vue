@@ -48,7 +48,7 @@
     <!-- Last three products -->
     <section id="latestProducts">
       <div class="left-image-decor"></div>
-      <base-three-object-container
+      <three-object-container
         :big-image="bigImage"
         :objects="last3Invations"
         :title="'Our last three invations'"
@@ -59,20 +59,20 @@
         them - <i>invations</i>, that our fanstastic team developed. Those
         invations are part of different visions, come and enjoy all our guided
         tours in the <b>"Visions"</b> section.
-      </base-three-object-container>
+      </three-object-container>
     </section>
   </div>
 </template>
 
 <script>
-import BaseThreeObjectContainer from '~/components/baseElements/BaseThreeObjectContainer.vue'
+import ThreeObjectContainer from '~/components/baseElements/ThreeObjectContainer.vue'
 import WelcomeAreaStart from '~/components/baseElements/WelcomeAreaStart.vue'
 import BlobWithText from '~/components/decoration/BlobWithText.vue'
 
 export default {
   components: {
     WelcomeAreaStart,
-    BaseThreeObjectContainer,
+    ThreeObjectContainer,
     BlobWithText,
   },
   async asyncData({ $axios }) {

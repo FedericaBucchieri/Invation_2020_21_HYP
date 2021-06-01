@@ -1,6 +1,6 @@
 <template>
   <ul class="tag-bar">
-    <base-tag
+    <invation-tag
       v-for="(item, itemIndex) of tagList"
       :id="item.id"
       :key="'tag-' + itemIndex"
@@ -8,16 +8,16 @@
       :color-class="item.color"
       :relatedPath="item.relatedPath"
     >
-    </base-tag>
+    </invation-tag>
   </ul>
 </template>
 
 <script>
-import BaseTag from '~/components/baseElements/BaseTag.vue'
+import InvationTag from '~/components/invation/InvationTag.vue'
 
 export default {
   components: {
-    BaseTag,
+    InvationTag,
   },
   props: {
     tagList: { type: Array, default: () => [] },

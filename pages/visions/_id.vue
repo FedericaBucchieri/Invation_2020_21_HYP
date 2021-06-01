@@ -12,28 +12,32 @@
     </section>
     <div class="right-image-decor"></div>
     <section id="innovations" class="section">
-      <guided-tour
+      <vision-guided-tour
         :items="vision.invations"
         typology="invations"
         :video="vision.video"
-      ></guided-tour>
+      ></vision-guided-tour>
     </section>
     <section id="invationers">
-      <short-card-container
+      <invationer-short-card-container
         title="Invationers that built this Vision"
         :card-list="vision.invationers"
       >
-      </short-card-container>
+      </invationer-short-card-container>
     </section>
   </div>
 </template>
 
 <script>
-import GuidedTour from '../../components/baseElements/GuidedTour.vue'
+import VisionGuidedTour from '../../components/vision/VisionGuidedTour.vue'
 import ObjectOverview from '../../components/baseElements/ObjectOverview.vue'
-import ShortCardContainer from '~/components/baseElements/ShortCardContainer.vue'
+import InvationerShortCardContainer from '~/components/invationer/InvationerShortCardContainer.vue'
 export default {
-  components: { ObjectOverview, GuidedTour, ShortCardContainer },
+  components: {
+    ObjectOverview,
+    VisionGuidedTour,
+    InvationerShortCardContainer,
+  },
   async asyncData({ $axios, route }) {
     const { id } = route.params
     const visionData = await $axios.get(

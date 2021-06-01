@@ -1,5 +1,5 @@
 <template>
-  <the-intro-page
+  <intro-page
     text-button="DISCOVER INVATIONERS"
     area-name="Our team"
     general-link="invationers"
@@ -18,23 +18,23 @@
       job, growing together is our mission.
     </template>
     <template #entitiesList="slotProps">
-      <short-card-container
+      <invationer-short-card-container
         :card-list="slotProps.entities"
         title="The invationers"
         typology="invationers"
-      ></short-card-container>
+      ></invationer-short-card-container>
     </template>
-  </the-intro-page>
+  </intro-page>
 </template>
 
 <script>
-import TheIntroPage from '~/components/TheIntroPage'
-import ShortCardContainer from '~/components/baseElements/ShortCardContainer.vue'
+import IntroPage from '~/components/baseElements/IntroPage'
+import InvationerShortCardContainer from '~/components/invationer/InvationerShortCardContainer.vue'
 
 export default {
   components: {
-    TheIntroPage,
-    ShortCardContainer,
+    IntroPage,
+    InvationerShortCardContainer,
   },
   props: {
     entities: { type: Array, default: () => [] },

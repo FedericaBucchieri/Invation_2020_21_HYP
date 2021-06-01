@@ -83,7 +83,7 @@
 </template>
 
 <script>
-import ContentRoundedContainers from '~/components/vision/ContentRoundedContainers.vue'
+import ContentRoundedContainers from '~/components/baseElements/ContentRoundedContainers.vue'
 
 export default {
   components: { ContentRoundedContainers },

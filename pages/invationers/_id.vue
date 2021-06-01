@@ -84,23 +84,23 @@
     <div class="left-image-decor"></div>
     <!-- Other Invationers -->
     <section id="invationers">
-      <short-card-container
+      <invationer-short-card-container
         :card-list="invationers.filter((inv) => inv.id !== invationer.id)"
         :title="'Other Invationers'"
-      ></short-card-container>
+      ></invationer-short-card-container>
     </section>
   </div>
 </template>
 
 <script>
 import ObjectOverview from '~/components/baseElements/ObjectOverview.vue'
-import ShortCardContainer from '~/components/baseElements/ShortCardContainer.vue'
-import ContentRoundedContainers from '~/components/vision/ContentRoundedContainers.vue'
+import InvationerShortCardContainer from '~/components/invationer/InvationerShortCardContainer.vue'
+import ContentRoundedContainers from '~/components/baseElements/ContentRoundedContainers.vue'
 
 export default {
   components: {
     ObjectOverview,
-    ShortCardContainer,
+    InvationerShortCardContainer,
     ContentRoundedContainers,
   },
   async asyncData({ $axios, route }) {

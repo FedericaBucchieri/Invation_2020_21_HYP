@@ -7,11 +7,11 @@
         class="right-text col-lg-6 col-md-12 col-sm-12 col-xs-12 inside-container overview-row"
         data-scroll-reveal="enter left move 30px over 0.6s after 0.4s"
       >
-        <the-breadcrump
+        <breadcrump
           :paths-list="pathsList"
           breadcrump-class="breadcrump-links list"
         >
-        </the-breadcrump>
+        </breadcrump>
         <div class="title-object-overview">
           <h1>
             {{ name }}
@@ -25,22 +25,22 @@
           {{ overview }}
         </p>
         <hr />
-        <base-tags-bar :tag-list="tags"></base-tags-bar>
+        <invation-tags-bar :tag-list="tags"></invation-tags-bar>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import TheBreadcrump from '../TheBreadcrump.vue'
-import BaseTagsBar from '~/components/baseElements/BaseTagsBar.vue'
+import Breadcrump from './Breadcrump.vue'
+import InvationTagsBar from '~/components/invation/InvationTagsBar.vue'
 import ObjectPresentationImg from '~/components/baseElements/ObjectPresentationImg.vue'
 
 export default {
   components: {
     ObjectPresentationImg,
-    TheBreadcrump,
-    BaseTagsBar,
+    Breadcrump,
+    InvationTagsBar,
   },
   props: {
     name: { type: String, default: () => '' },

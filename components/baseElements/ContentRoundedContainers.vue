@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import RoundedContainer from '~/components/vision/RoundedContainer.vue'
+import RoundedContainer from '~/components/baseElements/RoundedContainer.vue'
 import SearchComponent from '~/components/baseElements/SearchComponent.vue'
 
 export default {

@@ -1,5 +1,5 @@
 <template>
-  <the-intro-page
+  <intro-page
     text-button="DISCOVER OUR INVATIONS"
     area-name="Our invations"
     general-link="invations"
@@ -25,16 +25,16 @@
         typology="invations"
       ></content-rounded-containers>
     </template>
-  </the-intro-page>
+  </intro-page>
 </template>
 
 <script>
-import TheIntroPage from '~/components/TheIntroPage'
-import ContentRoundedContainers from '~/components/vision/ContentRoundedContainers'
+import IntroPage from '~/components/baseElements/IntroPage'
+import ContentRoundedContainers from '~/components/baseElements/ContentRoundedContainers'
 
 export default {
   components: {
-    TheIntroPage,
+    IntroPage,
     ContentRoundedContainers,
   },
   data() {

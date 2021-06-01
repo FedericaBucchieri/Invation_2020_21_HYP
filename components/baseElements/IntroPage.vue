@@ -32,7 +32,7 @@
 
 <script>
 // import BaseGallery from './baseElements/BaseGallery.vue'
-import DecorationSlideShow from './decoration/DecorationSlideShow.vue'
+import DecorationSlideShow from '../decoration/DecorationSlideShow.vue'
 import WelcomeAreaStart from '~/components/baseElements/WelcomeAreaStart.vue'
 // import PhotoGallery from '~/components/baseElements/PhotoGallery.vue'
 

@@ -6,6 +6,10 @@
       <div class="row">
         <!--  main section of the contact page -->
         <section id="contact-title">
+          <breadcrump
+            :paths-list="pathsList"
+            breadcrump-class="breadcrump-links list"
+          ></breadcrump>
           <h1>Contact us!</h1>
           <div class="contact-info-cards">
             <div class="card-contact">
@@ -125,9 +129,22 @@
 </template>
 
 <script>
+import Breadcrump from '~/components/baseElements/Breadcrump.vue'
+
 export default {
+  components: { Breadcrump },
   data() {
     return {
+      pathsList: [
+        {
+          path: '/about',
+          pathName: 'About',
+        },
+        {
+          path: '/about/contact',
+          pathName: 'Contact Us',
+        },
+      ],
       contactInfos: [
         {
           name: 'Address',

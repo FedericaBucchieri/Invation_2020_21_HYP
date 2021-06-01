@@ -19,7 +19,7 @@
     <!-- ***** Founder Area Start ***** -->
     <section id="founders">
       <div class="left-image-decor"></div>
-      <base-three-object-container
+      <three-object-container
         :title="'THE FOUNDERS'"
         :objects="founders"
         :big-image="foundersImage"
@@ -30,7 +30,7 @@
         are three students from <b>Politecnico di Milano</b>, currently pursuing
         the "once in a life time" dream of running a company together with
         precious <i>friends</i>.
-      </base-three-object-container>
+      </three-object-container>
     </section>
     <!-- ***** HeadQuarter Area Start ***** -->
     <section id="headquarter">
@@ -95,13 +95,13 @@
 </template>
 
 <script>
-import BaseThreeObjectContainer from '~/components/baseElements/BaseThreeObjectContainer.vue'
+import ThreeObjectContainer from '~/components/baseElements/ThreeObjectContainer.vue'
 import WelcomeAreaStart from '~/components/baseElements/WelcomeAreaStart.vue'
 
 export default {
   components: {
     WelcomeAreaStart,
-    BaseThreeObjectContainer,
+    ThreeObjectContainer,
   },
   data() {
     return {

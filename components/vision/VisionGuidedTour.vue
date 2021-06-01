@@ -6,14 +6,13 @@
         :key="item.item.numberTag"
         class="row"
       >
-        <guided-tour-item :item="item" :typology="typology"></guided-tour-item>
+        <vision-guided-tour-item
+          :item="item"
+          :typology="typology"
+        ></vision-guided-tour-item>
       </div>
     </div>
-    <!-- <iframe
-      class="video-frame"
-      :src="video"
-      data-scroll-reveal="enter top move 30px over 0.6s after 0.4s"
-    ></iframe> -->
+
     <div class="left-image-decor"></div>
     <div class="container">
       <div
@@ -21,16 +20,19 @@
         :key="item.item.numberTag"
         class="row"
       >
-        <guided-tour-item :item="item" :typology="typology"></guided-tour-item>
+        <vision-guided-tour-item
+          :item="item"
+          :typology="typology"
+        ></vision-guided-tour-item>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import GuidedTourItem from './GuidedTourItem'
+import VisionGuidedTourItem from './VisionGuidedTourItem'
 export default {
-  components: { GuidedTourItem },
+  components: { VisionGuidedTourItem },
   props: {
     video: { type: String, default: () => '' },
     items: {
