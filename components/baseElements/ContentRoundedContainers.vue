@@ -27,6 +27,7 @@
             >
               <rounded-container
                 :number-tag="myContent.numberTag"
+                :displayTag="displayTags"
                 :name="myContent.name"
                 :description="myContent[descriptionName]"
                 :image="myContent[imageName]"
@@ -60,6 +61,7 @@ export default {
     typology: { type: String, default: '' },
     hasResearch: { type: Boolean, default: () => false },
     description: { type: String, default: '' },
+    displayTags: { type: Boolean, default: () => true },
   },
   data() {
     return {

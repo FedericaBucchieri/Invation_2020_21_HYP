@@ -144,6 +144,7 @@ async function init() {
       where: { id },
       include: [
         { model: Skill },
+        { model: Vision, attributes: ['id', 'name'] },
         {
           model: Invation,
           include: { model: Vision, attributes: ['id', 'name'] },

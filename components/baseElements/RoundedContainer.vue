@@ -1,7 +1,7 @@
 <template>
   <div class="roundedContainer">
     <div class="features-item">
-      <h2>{{ numberTag }}</h2>
+      <h2 v-if="displayTag">{{ numberTag }}</h2>
       <img
         :src="image"
         :alt="'Thubmnail image' + name"
@@ -33,6 +33,7 @@ export default {
     image: { type: String, default: () => '' },
     typology: { type: String, default: () => '' },
     vision: { type: Object, default: () => {} },
+    displayTag: { type: Boolean, default: () => true },
   },
 }
 </script>

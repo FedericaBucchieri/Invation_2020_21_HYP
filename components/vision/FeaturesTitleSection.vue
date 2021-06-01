@@ -3,7 +3,7 @@
     <nuxt-link :to="link">
       <h2>{{ title }}</h2>
     </nuxt-link>
-    <h4>{{ subtitle }}</h4>
+    <h3>{{ subtitle }}</h3>
     <p>
       {{ overview }}
     </p>
@@ -65,18 +65,22 @@ export default {
   text-align: left;
 }
 
-.features-item-right h4 {
+.features-item-right h3 {
   margin-top: 0px;
+  margin: 0;
   font-size: 22px;
   color: #1e1e1e;
   margin-bottom: 25px;
+  text-align: right;
 }
 
-.features-item.left h4 {
+.features-item-left h3 {
   margin-top: 0px;
+  margin: 0;
   font-size: 22px;
   color: #1e1e1e;
   margin-bottom: 25px;
+  text-align: left;
 }
 
 .features-title-section {

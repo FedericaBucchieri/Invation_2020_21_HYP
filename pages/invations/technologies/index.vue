@@ -28,6 +28,7 @@
           :description="technology.description"
           description-name="overview"
           typology="invations"
+          :displayTags="false"
         >
         </content-rounded-containers>
       </div>

@@ -32,7 +32,7 @@
             </div>
             <div class="image-contact-container">
               <img
-                src="/contact-image.png"
+                src="/contact.png"
                 alt="contact page decoration image"
                 width="470"
                 height="491"
@@ -357,7 +357,7 @@ h2 {
 
 .contact-form-div input,
 .contact-form-div textarea {
-  color: #777;
+  color: #555;
   font-size: 13px;
   border: 1px solid #eee;
   background-color: #f7f7f7;
@@ -395,16 +395,16 @@ h2 {
 
 .contact-form-div ::-webkit-input-placeholder {
   /* Edge */
-  color: #7a7a7a;
+  color: #555;
 }
 
 .contact-form-div :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: #7a7a7a;
+  color: #555;
 }
 
 .contact-form-div ::placeholder {
-  color: #7a7a7a;
+  color: #555;
 }
 
 .footer-content {

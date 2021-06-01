@@ -8,12 +8,6 @@
     <h2>{{ title }}</h2>
     <p class="intro">{{ introduction }}</p>
     <div class="slide-objects">
-      <label
-        v-for="(item, itemIndex) of slideObjects"
-        :key="'slide-item-label' + itemIndex"
-        :for="'position' + itemIndex"
-      >
-      </label>
       <input
         v-for="(item, itemIndex) of slideObjects"
         :key="'slide-item-input' + itemIndex"

@@ -188,7 +188,7 @@ async function insertFakeData() {
       'In a smart interactive multi-sensory room, children can play, socialize, learn and test their knowledge about mammals, birds and geology. Our goal is to bring a fully interactive museum inside a school, where teachers can bring their students in a totally save an engaging environment. MuseX combines the features of interactive technologies and multi sensory experiences. It uses technologies such as projectors, smart objects, body movement recognition technologies and smart lights. Other than exploring the museum and its dioramas, three mini game are available. Children can deal with rock categorization to make a volcano erupt, habitat recognition working in team to beat the rivals and guessing the correct specie of bird collaborating to catch the right bird.',
     more:
       'All those activities are designed to improve self-movement recognition, ability to work in group, reasoning skills and test contents learning. MuseX has a full body interaction paradigm with drag &amp; drop, RFID reader, walk around interaction and posting gesture recognition. The Magic Room provides both audible and visual feedback that enrich MuseX experience and all the activities can be managed by the teacher using a dedicated app.',
-    image: 'https://imgur.com/wuBnUBF.png',
+    image: 'https://imgur.com/wlpQq36.png',
     numberTag: '01',
     thumbnail: 'https://imgur.com/RgEQigU.png',
     video: 'https://www.youtube.com/embed/Io4tcn5UZQc',
@@ -488,7 +488,7 @@ async function insertFakeData() {
     description:
       'A new way of learning in a more effective way. Discover ourproposals about a new experience in the world of education.',
     image: 'https://imgur.com/c5GqUz3.png',
-    bigImage: 'https://imgur.com/3Al3hcw.png',
+    bigImage: 'https://imgur.com/YrfS90S.png',
     video:
       'https://www.youtube.com/embed/nmu7kEzAQus?autoplay=1&mute=1&controls=0&loop=1',
   })
@@ -498,7 +498,7 @@ async function insertFakeData() {
     description:
       'The world of entertainment is ready to embrace the new technologies about VR and AR where Reality merges with immagination.',
     image: 'https://imgur.com/i3Rsg4f.png',
-    bigImage: 'https://imgur.com/H6qYZgB.png',
+    bigImage: 'https://imgur.com/SG6Q2ZL.png',
     video:
       'https://www.youtube.com/embed/nmu7kEzAQus?autoplay=1&mute=1&controls=0&loop=1',
   })
@@ -508,7 +508,7 @@ async function insertFakeData() {
     description:
       'Your home is part of your life, leaving in an intelligent and smart environment is essential for your quality of life.',
     image: 'https://imgur.com/D5Dxd2p.png',
-    bigImage: 'https://imgur.com/G3EVNQx.png',
+    bigImage: 'https://imgur.com/25DAOUV.png',
     video:
       'https://www.youtube.com/embed/nmu7kEzAQus?autoplay=1&mute=1&controls=0&loop=1',
   })
@@ -518,7 +518,7 @@ async function insertFakeData() {
     description:
       'The Covid-19 pandemic has accelerated an inevitable trend in which giving new opportunities for an efficient work indipendently from where you are is fundamental.',
     image: 'https://imgur.com/4UTHf9K.png',
-    bigImage: 'https://imgur.com/ejjzJXM.png',
+    bigImage: 'https://imgur.com/DM2O414.png',
     video:
       'https://www.youtube.com/embed/nmu7kEzAQus?autoplay=1&mute=1&controls=0&loop=1',
   })
@@ -569,22 +569,22 @@ async function insertFakeData() {
   // Soft Skills
   const skill4 = await Skill.create({
     name: 'Problem Solving',
-    image: 'https://image.flaticon.com/icons/png/128/2618/2618497.png',
+    image: 'https://imgur.com/nQBiG66.png',
   })
   const skill5 = await Skill.create({
     name: 'Critical Thinking',
-    image: 'https://image.flaticon.com/icons/png/128/2755/2755549.png',
+    image: 'https://imgur.com/WTu2rQ0.png',
   })
   const skill6 = await Skill.create({
     name: 'Team Management',
-    image: 'https://image.flaticon.com/icons/png/128/1283/1283187.png',
+    image: 'https://imgur.com/LZWyVie.png',
   })
 
   const invationer0 = await Invationer.create({
     name: 'Clarke',
     surname: 'Griffin',
     role: 'Software Engineer',
-    badge: 'https://imgur.com/2iyaenU.png',
+    badge: 'https://imgur.com/0aLvSQU.png',
     gender: 'Female',
     age: 32,
     nationality: 'Irish',
@@ -592,7 +592,7 @@ async function insertFakeData() {
       'Hi everyone! My name is Clarke Griffin and I am an Invationer since 2018. I try to innovate leveraging on my Computer Science background, working for Invation as a Software Engineer. Wanna know more? Scroll down!',
     quote:
       'Never say never because limits, like fears, are often just an illusion',
-    image: 'https://imgur.com/gRHC19s.png',
+    image: 'https://imgur.com/yxtU2Lm.png',
     sport: 'No please!',
     hobby: 'Gaming, Cooking, Reading',
     musical: 'Pop music',
@@ -608,14 +608,14 @@ async function insertFakeData() {
     name: 'Marco',
     surname: 'Bianchi',
     role: 'Graphic Designer',
-    badge: 'https://imgur.com/2iyaenU.png',
+    badge: 'https://imgur.com/PMiRZ1e.png',
     gender: 'Male',
     age: 28,
     nationality: 'Italian',
     overview:
       'Extrovert italian guy who always makes fun of himself and others and keeps the mood funny',
     quote: 'There is nothing so stable as change',
-    image: 'https://imgur.com/xEWu3ZB.png',
+    image: 'https://imgur.com/d1ZJD5x.png',
     sport: 'No please!',
     hobby: 'Gaming, Drawing, Playing Music',
     musical: 'Rock music',
@@ -631,14 +631,14 @@ async function insertFakeData() {
     name: 'Lorenzo',
     surname: 'Verdi',
     role: 'Software Engineer',
-    badge: 'https://imgur.com/2iyaenU.png',
+    badge: 'https://imgur.com/0aLvSQU.png',
     gender: 'Male',
     age: 31,
     nationality: 'Italian',
     overview:
       'Friendly and generous italian guy always polite with friends and colleagues',
     quote: 'Concentrate all your thoughts upon the work in hand',
-    image: 'https://imgur.com/lMFJIE9.png',
+    image: 'https://imgur.com/WIdUywG.png',
     sport: 'Football',
     hobby: 'Playing football, Watching TV Series',
     musical: 'Classical Music',
@@ -654,12 +654,13 @@ async function insertFakeData() {
     name: 'Nathalie',
     surname: 'Dubois',
     role: 'Project Manager',
+    badge: 'https://imgur.com/YeBOmpm.png',
     gender: 'Female',
     age: 25,
     nationality: 'French',
     overview: 'Extrovert and determined frech woman, feminist activist',
     quote: "I'm tough, I'm ambitious, and I know exactly what I want",
-    image: 'https://imgur.com/dhMbxQf.png',
+    image: 'https://imgur.com/368MRQF.png',
     sport: 'Ski',
     hobby: 'Reading,Writing, Watching TV Series',
     musical: 'Pop music',
@@ -674,14 +675,14 @@ async function insertFakeData() {
     name: 'Massimiliano',
     surname: 'Allegri',
     role: 'Marketing Coordinator',
-    badge: 'https://imgur.com/2iyaenU.png',
+    badge: 'https://imgur.com/IzpJHM4.png',
     gender: 'Male',
     age: 38,
     nationality: 'Italian',
     overview:
       'Funny italian man, known for his ability to brighten the working atmosphere',
     quote: 'The only thing we have to fear is fear itself.',
-    image: 'https://imgur.com/QUrrTIG.png',
+    image: 'https://imgur.com/ck7LkGI.png',
     sport: 'Football',
     hobby: 'Phishing',
     musical: 'Pop music',
@@ -696,14 +697,14 @@ async function insertFakeData() {
     name: 'Carlo',
     surname: 'Rovelli',
     role: 'Software Engineer',
-    badge: 'https://imgur.com/2iyaenU.png',
+    badge: 'https://imgur.com/0aLvSQU.png',
     gender: 'Male',
     age: 24,
     nationality: 'Italian',
     overview:
       'Introvert italian guy who likes spending time at home with his books',
     quote: 'Il mondo è fatto di reti di baci, non di sassi',
-    image: 'https://imgur.com/k12fR9w.png',
+    image: 'https://imgur.com/TwwmnbH.png',
     sport: 'No please!',
     hobby: 'Reading, Writing',
     musical: 'Folk Music',
@@ -717,15 +718,15 @@ async function insertFakeData() {
   const invationer6 = await Invationer.create({
     name: 'Zac',
     surname: 'Efron',
-    role: 'Product Designer',
-    badge: 'https://imgur.com/2iyaenU.png',
+    role: 'Graphic Designer',
+    badge: 'https://imgur.com/PMiRZ1e.png',
     gender: 'Male',
     age: 34,
     nationality: 'USA',
     overview:
       'Pationate american guy who loves having an active life full of new experiences',
     quote: 'Every day is a new experience and I take it as it comes',
-    image: 'https://imgur.com/4STq2Hi.png',
+    image: 'https://imgur.com/xJGXER7.png',
     sport: 'Basket',
     hobby: 'Climbing, Drawing',
     musical: 'Rock Music',
@@ -740,7 +741,7 @@ async function insertFakeData() {
     name: 'Vanessa',
     surname: 'Hudgens',
     role: 'Psychologist',
-    badge: 'https://imgur.com/2iyaenU.png',
+    badge: 'https://imgur.com/jS8DNmJ.png',
     gender: 'Female',
     age: 30,
     nationality: 'USA',
@@ -748,7 +749,7 @@ async function insertFakeData() {
       'Determined girl who loves her pets and her family more than anything else',
     quote:
       'Being cool is being your own self, not doing something that someone else is telling you to do',
-    image: 'https://imgur.com/Am5eqQK.png',
+    image: 'https://imgur.com/pGAPhG3.png',
     sport: 'No please!',
     hobby: 'Dancing, Reading',
     musical: 'Pop Music',

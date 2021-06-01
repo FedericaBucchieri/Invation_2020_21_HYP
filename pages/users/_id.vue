@@ -269,4 +269,8 @@ input[type='password'] {
 input:disabled {
   background-color: white;
 }
+
+label {
+  display: block;
+}
 </style>

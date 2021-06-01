@@ -23,6 +23,7 @@
         description-name="overview"
         :has-research="true"
         typology="invations"
+        :displayTags="false"
       ></content-rounded-containers>
     </template>
   </intro-page>

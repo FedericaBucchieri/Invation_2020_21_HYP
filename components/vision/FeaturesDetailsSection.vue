@@ -1,7 +1,12 @@
 <template>
   <div class="features-details-section">
     <h3>{{ numberTag }}</h3>
-    <img :src="image" :alt="alt" width="150" height="150" />
+    <img
+      :src="image"
+      :alt="name + ' thumbnail image'"
+      width="150"
+      height="150"
+    />
   </div>
 </template>
 
@@ -14,7 +19,7 @@ export default {
     return {
       numberTag: this.content[0],
       image: this.content[1],
-      alt: this.content[2],
+      name: this.content[2],
     }
   },
 }

@@ -82,13 +82,6 @@ export default {
   padding: 40px 15px;
 }
 
-.vision-name {
-  text-align: right;
-  width: 84%;
-  margin-top: 10px;
-  margin-right: 0;
-}
-
 .vision-name a {
   background: linear-gradient(
     145deg,
@@ -115,6 +108,24 @@ export default {
     position: relative;
     top: -20px;
     left: -27%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .vision-name {
+    text-align: right;
+    width: max-content;
+    margin-top: 10px;
+    margin-left: 50px;
+  }
+}
+
+@media (min-width: 1201px) {
+  .vision-name {
+    text-align: right;
+    width: 84%;
+    margin-top: 10px;
+    margin-right: 0;
   }
 }
 </style>

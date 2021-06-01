@@ -20,6 +20,9 @@
             <div v-if="mySaved" @click="unSaveObject">&#9733;</div>
             <div v-else @click="saveObject">&#9734;</div>
           </div>
+          <div v-else>
+            <div @click="showLoginForm">&#9734;</div>
+          </div>
         </div>
         <p>
           {{ overview }}
@@ -88,6 +91,9 @@ export default {
         {}
       )
       e.preventDefault()
+    },
+    showLoginForm() {
+      document.getElementById('loginForm').style.display = 'block'
     },
   },
 }
