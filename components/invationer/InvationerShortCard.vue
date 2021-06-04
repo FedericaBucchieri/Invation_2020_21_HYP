@@ -12,7 +12,9 @@
       />
       <nuxt-link :to="`/invationers/` + id" class="card-name">
         <div class="invationer-name">
-          {{ invationer.name + ' ' + invationer.surname }}
+          <h5>
+            {{ invationer.name + " " + invationer.surname }}
+          </h5>
         </div>
       </nuxt-link>
 
@@ -40,7 +42,7 @@ export default {
     id: { type: Number, default: () => 0 },
     invationer: { type: Object, default: () => {} },
   },
-}
+};
 </script>
 
 <style>

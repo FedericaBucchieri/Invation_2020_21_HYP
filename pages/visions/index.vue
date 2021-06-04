@@ -29,8 +29,8 @@
 </template>
 
 <script>
-import WelcomeAreaStart from '~/components/baseElements/WelcomeAreaStart.vue'
-import ContentRoundedContainers from '~/components/baseElements/ContentRoundedContainers'
+import WelcomeAreaStart from "~/components/baseElements/WelcomeAreaStart.vue";
+import ContentRoundedContainers from "~/components/baseElements/ContentRoundedContainers";
 
 export default {
   components: {
@@ -38,40 +38,40 @@ export default {
     ContentRoundedContainers,
   },
   async asyncData({ $axios }) {
-    const { data } = await $axios.get(`${process.env.BASE_URL}/api/visions`)
-    const visions = data
+    const { data } = await $axios.get(`${process.env.BASE_URL}/api/visions`);
+    const visions = data;
     return {
       visions,
-    }
+    };
   },
   data() {
     return {
-      bigImage: '/banners/banner-player.png',
-      textButton: 'DISCOVER OUR VISIONS',
-      areaName: 'Our Visions',
+      bigImage: "/banners/banner-player.png",
+      textButton: "DISCOVER OUR VISIONS",
+      areaName: "Our Visions",
       pathsList: [
         {
           path: this.$route.path,
-          pathName: 'Visions',
+          pathName: "Visions",
         },
       ],
-    }
+    };
   },
   head() {
     return {
-      title: 'Invation - All visions',
+      title: "Invation - All visions",
       meta: [
         {
-          name: 'description',
-          content: 'All the visions of the Invation Team',
+          name: "description",
+          content: "All the visions of the Invation Team",
         },
         {
-          hid: 'all visions',
-          name: 'all visions',
-          content: 'all visions overview and visions presentation',
+          hid: "all visions",
+          name: "all visions",
+          content: "all visions overview and visions presentation",
         },
       ],
-    }
+    };
   },
   /* In this case this mounted() is useless because the names of the attributes used inside the 
   ContentRoundedContainers are the same of those in the Vision schema of the DB, 
@@ -89,7 +89,7 @@ export default {
     }
   },
   */
-}
+};
 </script>
 
 <style></style>

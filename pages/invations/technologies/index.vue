@@ -24,10 +24,10 @@
         <content-rounded-containers
           :area-name="technology.name"
           :content="technology.invations"
-          :hasResearch="true"
+          :research-id="'vision' + technology.id + '-ul'"
           :description="technology.description"
           description-name="overview"
-          typology="invations"
+          :typology="'invations from ' + technology.name"
           :displayTags="false"
         >
         </content-rounded-containers>
@@ -37,8 +37,8 @@
 </template>
 
 <script>
-import WelcomeAreaStart from '~/components/baseElements/WelcomeAreaStart.vue'
-import ContentRoundedContainers from '~/components/baseElements/ContentRoundedContainers'
+import WelcomeAreaStart from "~/components/baseElements/WelcomeAreaStart.vue";
+import ContentRoundedContainers from "~/components/baseElements/ContentRoundedContainers";
 
 export default {
   components: {
@@ -48,27 +48,27 @@ export default {
   async asyncData({ $axios }) {
     const { data } = await $axios.get(
       `${process.env.BASE_URL}/api/technologies`
-    )
-    const technologies = data
+    );
+    const technologies = data;
     return {
       technologies,
-    }
+    };
   },
   data() {
     return {
       pathsList: [
         {
-          path: '/invations',
-          pathName: 'Invations',
+          path: "/invations",
+          pathName: "Invations",
         },
         {
-          path: '/invations/technologies',
-          pathName: 'Technologies',
+          path: "/invations/technologies",
+          pathName: "Technologies",
         },
       ],
-    }
+    };
   },
-}
+};
 </script>
 
 <style scoped>

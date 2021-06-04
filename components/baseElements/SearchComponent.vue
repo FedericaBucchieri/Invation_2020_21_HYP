@@ -12,7 +12,7 @@
 <template>
   <div class="search-container">
     <input
-      id="searchInput"
+      :id="`search${placeholderKeyword}`"
       type="text"
       :placeholder="`Search for ${placeholderKeyword}`"
       @keyup="searchFunction(isCaseSensitive)"
@@ -24,38 +24,38 @@
 export default {
   props: {
     isCaseSensitive: { type: Boolean, default: () => false },
-    idUl: { type: String, default: () => '' },
-    tagToSearch: { type: String, default: () => '' },
-    placeholderKeyword: { type: String, default: () => 'invationers' },
+    idUl: { type: String, default: () => "" },
+    tagToSearch: { type: String, default: () => "" },
+    placeholderKeyword: { type: String, default: () => "invationers" },
   },
   methods: {
     searchFunction(isCaseSensitive) {
       // Declare variables
-      const input = document.getElementById('searchInput')
-      let filter
+      const input = document.getElementById("search" + this.placeholderKeyword);
+      let filter;
       if (isCaseSensitive) {
-        filter = input.value
+        filter = input.value;
       } else {
-        filter = input.value.toUpperCase()
+        filter = input.value.toUpperCase();
       }
       // const ul = document.getElementById(this.idUl)
-      console.log(this.idUl + ' > li')
-      const li = document.querySelectorAll('#' + this.idUl + ' > li')
-      console.log(li)
+      console.log(this.idUl + " > li");
+      const li = document.querySelectorAll("#" + this.idUl + " > li");
+      console.log(li);
       // Loop through all list items, and hide those who don't match the search query
       for (let i = 0; i < li.length; i++) {
-        const h5 = li[i].getElementsByTagName(this.tagToSearch)[0]
-        console.log(li.length)
-        const txtValue = h5.textContent || h5.innerText
+        const h5 = li[i].getElementsByTagName(this.tagToSearch)[0];
+
+        const txtValue = h5.textContent || h5.innerText;
         if (txtValue.toUpperCase().includes(filter)) {
-          li[i].style.display = ''
+          li[i].style.display = "";
         } else {
-          li[i].style.display = 'none'
+          li[i].style.display = "none";
         }
       }
     },
   },
-}
+};
 </script>
 
 <style scoped>

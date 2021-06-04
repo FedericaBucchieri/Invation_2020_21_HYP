@@ -75,6 +75,7 @@
             :content="user.invations"
             description-name="overview"
             typology="invations"
+            :researchId="'saved-invations-ul'"
           ></content-rounded-containers>
         </section>
       </div>
@@ -83,33 +84,35 @@
 </template>
 
 <script>
-import ContentRoundedContainers from '~/components/baseElements/ContentRoundedContainers.vue'
+import ContentRoundedContainers from "~/components/baseElements/ContentRoundedContainers.vue";
 
 export default {
   components: { ContentRoundedContainers },
   async asyncData({ $axios, route }) {
-    const { id } = route.params
-    const { data } = await $axios.get(`${process.env.BASE_URL}/api/users/${id}`)
-    const user = data
+    const { id } = route.params;
+    const { data } = await $axios.get(
+      `${process.env.BASE_URL}/api/users/${id}`
+    );
+    const user = data;
     return {
       user,
-    }
+    };
   },
   data() {
     return {
       isModifyMode: false,
-      password: '',
-      image: '',
-      email: '',
-    }
+      password: "",
+      image: "",
+      email: "",
+    };
   },
   head() {
     return {
-      title: 'Invation - ' + this.user.username + ' personal Page',
+      title: "Invation - " + this.user.username + " personal Page",
       meta: [
         {
-          name: 'description',
-          content: ' Personal page of the user: ' + this.user.username,
+          name: "description",
+          content: " Personal page of the user: " + this.user.username,
         },
         {
           hid: this.user.id,
@@ -117,50 +120,50 @@ export default {
           content: this.user.username,
         },
       ],
-    }
+    };
   },
   computed: {
     experience() {
-      const len = this.user.invations.length
+      const len = this.user.invations.length;
       if (len <= 2) {
-        return 'NOOB'
+        return "NOOB";
       } else if (len > 2 && len <= 5) {
-        return 'APPRENTICE'
+        return "APPRENTICE";
       } else {
-        return 'INVATIONER'
+        return "INVATIONER";
       }
     },
     validateEmail() {
-      const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       if (re.test(String(this.email).toLowerCase())) {
-        return ''
-      } else if (this.email === '') {
-        return ''
+        return "";
+      } else if (this.email === "") {
+        return "";
       }
 
-      return 'You have entered an invalid email address!'
+      return "You have entered an invalid email address!";
     },
   },
   methods: {
     updateProfile(e) {
       this.$axios
         .put(`${process.env.BASE_URL}/api/updateProfile/` + this.user.id, {
-          password: this.password !== '' ? this.password : this.user.password,
-          email: this.email !== '' ? this.email : this.user.email,
-          image: this.image !== '' ? this.image : this.user.image,
+          password: this.password !== "" ? this.password : this.user.password,
+          email: this.email !== "" ? this.email : this.user.email,
+          image: this.image !== "" ? this.image : this.user.image,
         })
         .then((result) => {
-          this.user = result.data
-          location.reload()
+          this.user = result.data;
+          location.reload();
         })
         .catch((err) => {
-          this.error = err.response.data
-        })
+          this.error = err.response.data;
+        });
 
-      e.preventDefault()
+      e.preventDefault();
     },
   },
-}
+};
 </script>
 
 <style scoped>
@@ -254,8 +257,8 @@ p {
   margin-top: 30px;
 }
 
-input[type='text'],
-input[type='password'] {
+input[type="text"],
+input[type="password"] {
   width: 100%;
   padding: 12px 20px;
   margin: 4px 0;

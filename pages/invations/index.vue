@@ -21,7 +21,7 @@
         :content="entitiesProps.entities"
         area-name="Our invations"
         description-name="overview"
-        :has-research="true"
+        research-id="invations-ul"
         typology="invations"
         :displayTags="false"
       ></content-rounded-containers>
@@ -30,8 +30,8 @@
 </template>
 
 <script>
-import IntroPage from '~/components/baseElements/IntroPage'
-import ContentRoundedContainers from '~/components/baseElements/ContentRoundedContainers'
+import IntroPage from "~/components/baseElements/IntroPage";
+import ContentRoundedContainers from "~/components/baseElements/ContentRoundedContainers";
 
 export default {
   components: {
@@ -40,67 +40,67 @@ export default {
   },
   data() {
     return {
-      bigImage: '/banners/banner-olo.png',
+      bigImage: "/banners/banner-olo.png",
       myInvations: [],
       pathsList: [
         {
           path: this.$route.path,
-          pathName: 'Invations',
+          pathName: "Invations",
         },
       ],
       slideObjects: [
         {
-          title: 'Expanding',
+          title: "Expanding",
           text:
-            'Our goal is to expand worldwide to bring our visions to the extraordinary! Help us enlarge our network',
-          background: 'https://imgur.com/3CSOdHC.png',
+            "Our goal is to expand worldwide to bring our visions to the extraordinary! Help us enlarge our network",
+          background: "https://imgur.com/3CSOdHC.png",
         },
         {
-          title: 'Control',
+          title: "Control",
           text:
-            'Always with a look at the main industries in tech, IT and Process management in order to be on top of the market',
-          background: 'https://imgur.com/DNXjdTJ.png',
+            "Always with a look at the main industries in tech, IT and Process management in order to be on top of the market",
+          background: "https://imgur.com/DNXjdTJ.png",
         },
         {
-          title: 'Analytics',
+          title: "Analytics",
           text:
-            'Data driven decision making is our faith. No decision is maken without a look at actual data',
-          background: 'https://imgur.com/Rou077E.png',
+            "Data driven decision making is our faith. No decision is maken without a look at actual data",
+          background: "https://imgur.com/Rou077E.png",
         },
         {
-          title: 'Future',
+          title: "Future",
           text:
-            'With a focus on the future that will benefit and inspire the next generation of invationers',
-          background: 'https://imgur.com/lOScshY.png',
+            "With a focus on the future that will benefit and inspire the next generation of invationers",
+          background: "https://imgur.com/lOScshY.png",
         },
         {
-          title: 'Augumenting Reality',
+          title: "Augumenting Reality",
           text:
-            'Our preferred technologies are Augmented and Mixed reality. We want to create a better, technological, reality.',
-          background: 'https://imgur.com/aE5AnGG.png',
+            "Our preferred technologies are Augmented and Mixed reality. We want to create a better, technological, reality.",
+          background: "https://imgur.com/aE5AnGG.png",
         },
       ],
-    }
+    };
   },
   head() {
     return {
-      title: 'Invation - All invations',
+      title: "Invation - All invations",
       meta: [
         {
-          name: 'description',
-          content: 'All the invations of the Invation Team',
+          name: "description",
+          content: "All the invations of the Invation Team",
         },
         {
-          hid: 'all invations',
-          name: 'all invations',
-          content: 'all invations overview',
+          hid: "all invations",
+          name: "all invations",
+          content: "all invations overview",
         },
       ],
-    }
+    };
   },
   methods: {
     getInvations(entities) {
-      const invations = []
+      const invations = [];
       for (let i = 0; i < entities.length; i++) {
         const newInvation = {
           name: entities[i].name,
@@ -109,15 +109,15 @@ export default {
           description: entities[i].overview,
           // --------------------------------------
           image: entities[i].image,
-          typology: 'invations',
+          typology: "invations",
           vision: entities[i].vision !== undefined ? entities[i].vision : null,
-        }
-        invations.push(newInvation)
+        };
+        invations.push(newInvation);
       }
-      return invations
+      return invations;
     },
   },
-}
+};
 </script>
 
 <style></style>

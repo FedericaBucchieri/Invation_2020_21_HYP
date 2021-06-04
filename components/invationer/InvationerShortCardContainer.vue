@@ -7,7 +7,7 @@
         </div>
         <search-component
           :is-case-sensitive="false"
-          id-ul="searchUL"
+          id-ul="invationer-ul"
           tag-to-search="h5"
         >
         </search-component>
@@ -16,7 +16,7 @@
         class="invationer-list-container"
         data-scroll-reveal="enter left move 30px over 0.6s after 0.4s"
       >
-        <ul id="searchUL">
+        <ul id="invationer-ul">
           <li
             v-for="(item, itemIndex) of cardList"
             :id="item.id"
@@ -32,8 +32,8 @@
 </template>
 
 <script>
-import InvationerShortCard from '~/components/invationer/InvationerShortCard.vue'
-import SearchComponent from '~/components/baseElements/SearchComponent.vue'
+import InvationerShortCard from "~/components/invationer/InvationerShortCard.vue";
+import SearchComponent from "~/components/baseElements/SearchComponent.vue";
 export default {
   components: {
     InvationerShortCard,
@@ -41,9 +41,9 @@ export default {
   },
   props: {
     cardList: { type: Array, default: () => [] },
-    title: { type: String, default: () => '' },
+    title: { type: String, default: () => "" },
   },
-}
+};
 </script>
 
 <style scoped>
