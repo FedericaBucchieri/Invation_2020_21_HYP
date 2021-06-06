@@ -1,7 +1,7 @@
 <template>
   <div>
     <!--  Welcome Area Start  -->
-    <welcome-area-start :text-button="textButton" :link="'#explore'">
+    <welcome-area-start :text-button="textButton" :link="'/about'">
       <template #title> Join our <em>Vision</em> of the Future </template>
       <template #overview>
         Our company was born in <b>2001</b> at the early stages of the
@@ -31,7 +31,7 @@
               :background="'/blob-center.png'"
               class="central-blob"
             >
-              What is an <em>Invations</em>
+              What is an <em>Invation</em>
             </blob-with-text>
             <blob-with-text
               :text="invationersDefinition"

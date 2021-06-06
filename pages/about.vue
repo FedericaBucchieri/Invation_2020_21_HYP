@@ -105,7 +105,7 @@ export default {
   },
   data() {
     return {
-      textButton: 'DISCOVER MORE',
+      textButton: 'DISCOVER OUR FOUNDERS',
       mapOpening: false,
       mapRequest: false,
       pathsList: [
@@ -118,19 +118,19 @@ export default {
         {
           name: 'Federica Bucchieri',
           overview:
-            'testo di prova testo di prova testo di prova testo di prova',
+            'Born in Palermo, Federica gratuated in Computer Science. She is passionate about programming, graphic design and videogames',
           thumbnail: 'https://imgur.com/zE45k0i.png',
         },
         {
           name: 'Lorenzo Cocchia',
           overview:
-            'testo di prova testo di prova testo di prova testo di prova',
+            'Born in Siena, Lorenzo gratuated in Computer Science. He is passionate about documentations, Virtual Reality and backend development',
           thumbnail: 'https://imgur.com/I85XkuB.png',
         },
         {
           name: 'Alessandro Corsini',
           overview:
-            'testo di prova testo di prova testo di prova testo di prova',
+            'Born in Caprarica di Lecce, Alessandro gratuated in Computer Science. He is passionate about algorithms, videogames and storytelling',
           thumbnail: 'https://imgur.com/cjvDnYD.png',
         },
       ],

@@ -21,7 +21,7 @@
             <div v-else @click="saveObject">&#9734;</div>
           </div>
           <div v-else>
-            <div @click="showLoginForm">&#9734;</div>
+            <div style="display: none">Not Savable</div>
           </div>
         </div>
         <p>
