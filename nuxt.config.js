@@ -2,8 +2,8 @@ export default {
   ssr: true,
   target: 'server',
   env: {
-    // BASE_URL: 'https://invation-hypermedia2021.herokuapp.com', // Production URL
-    BASE_URL: '', // Development URL
+    BASE_URL: 'https://invation-hypermedia2021.herokuapp.com', // Production URL
+    // BASE_URL: '', // Development URL
     configurationId: '490c9792-c0ac-49f3-99c7-8b4ae51a25cc',
   },
   serverMiddleware: [
@@ -32,7 +32,7 @@ export default {
         content: 'Invation is a visionary company',
       },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/invation-icon.png' }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
