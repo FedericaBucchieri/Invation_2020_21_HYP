@@ -33,6 +33,7 @@
                 :image="myContent[imageName]"
                 :typology="typology"
                 :vision="myContent.vision"
+                :id="myContent.id"
               >
               </rounded-container>
             </li>
@@ -45,30 +46,30 @@
 </template>
 
 <script>
-import RoundedContainer from "~/components/baseElements/RoundedContainer.vue";
-import SearchComponent from "~/components/baseElements/SearchComponent.vue";
+import RoundedContainer from '~/components/baseElements/RoundedContainer.vue'
+import SearchComponent from '~/components/baseElements/SearchComponent.vue'
 
 export default {
   components: { RoundedContainer, SearchComponent },
   props: {
-    areaName: { type: String, default: "" },
+    areaName: { type: String, default: '' },
     content: {
       type: Array,
       default: () => [],
     },
-    descriptionName: { type: String, default: "description" },
-    imageName: { type: String, default: "thumbnail" },
-    typology: { type: String, default: "" },
-    researchId: { type: String, default: () => "visionUL" },
-    description: { type: String, default: "" },
+    descriptionName: { type: String, default: 'description' },
+    imageName: { type: String, default: 'thumbnail' },
+    typology: { type: String, default: '' },
+    researchId: { type: String, default: () => 'visionUL' },
+    description: { type: String, default: '' },
     displayTags: { type: Boolean, default: () => true },
   },
   data() {
     return {
       myContents: this.content,
-    };
+    }
   },
-};
+}
 </script>
 
 <style scoped>

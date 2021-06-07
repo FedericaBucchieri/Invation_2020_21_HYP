@@ -121,7 +121,7 @@ export default {
 
 @media (min-width: 810px) {
   .chat-container {
-    height: 600px;
+    height: 50%;
     width: 300px;
     bottom: 150px;
     right: 20px;
@@ -132,7 +132,7 @@ export default {
 
 @media (max-width: 810px) {
   .chat-container {
-    height: 550px;
+    height: 65%;
     width: 340px;
     bottom: 170px;
     right: 20px;

@@ -20,7 +20,7 @@
     </section>
     <section id="invationers">
       <invationer-short-card-container
-        title="Invationers that built this Vision"
+        title="Invationers responsible for this Vision"
         :card-list="vision.invationers"
       >
       </invationer-short-card-container>

@@ -193,7 +193,11 @@ export default {
   methods: {
     postReview(e) {
       this.review.invation_id = this.invation.id
-      this.review.author = this.reviewAuthor
+      if (this.reviewAuthor !== '') {
+        this.review.author = this.reviewAuthor
+      } else {
+        this.review.author = this.username
+      }
       this.review.body = this.reviewBody
 
       this.$axios

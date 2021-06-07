@@ -12,7 +12,7 @@
       <p>
         {{ description }}
       </p>
-      <nuxt-link :to="`/${typology}/` + numberTag" class="main-button">
+      <nuxt-link :to="`/${typology}/` + id" class="main-button">
         Explore
       </nuxt-link>
     </div>
@@ -34,6 +34,7 @@ export default {
     typology: { type: String, default: () => '' },
     vision: { type: Object, default: () => {} },
     displayTag: { type: Boolean, default: () => true },
+    id: { type: Number, default: () => 0 },
   },
 }
 </script>

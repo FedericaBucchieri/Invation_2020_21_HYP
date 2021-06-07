@@ -31,7 +31,7 @@
               :background="'/blob-center.png'"
               class="central-blob"
             >
-              What is an <em>Invation</em>
+              What are the <em>Invations</em>
             </blob-with-text>
             <blob-with-text
               :text="invationersDefinition"
@@ -94,7 +94,7 @@ export default {
   },
   data() {
     return {
-      textButton: 'KNOW US BETTER',
+      textButton: 'ABOUT THE COMPANY',
       areaName: 'Explore our Visions',
       bigImage: 'https://imgur.com/OrwkWr6.png',
       invationerTitle: 'Discover our team: The Invationers',
