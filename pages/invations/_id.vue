@@ -82,6 +82,7 @@
               type="text"
               name="body"
               placeholder="Write your review here"
+              spellcheck="true"
               required
             />
             <button type="submit" class="main-button">Send</button>

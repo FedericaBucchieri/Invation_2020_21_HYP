@@ -56,6 +56,7 @@
                 :alt="item.name + 'skill icon'"
                 width="100"
                 height="100"
+                loading="lazy"
               />
             </div>
             <div class="contact-section">
@@ -106,9 +107,9 @@
 </template>
 
 <script>
-import ObjectOverview from "~/components/baseElements/ObjectOverview.vue";
-import InvationerShortCardContainer from "~/components/invationer/InvationerShortCardContainer.vue";
-import ContentRoundedContainers from "~/components/baseElements/ContentRoundedContainers.vue";
+import ObjectOverview from '~/components/baseElements/ObjectOverview.vue'
+import InvationerShortCardContainer from '~/components/invationer/InvationerShortCardContainer.vue'
+import ContentRoundedContainers from '~/components/baseElements/ContentRoundedContainers.vue'
 
 export default {
   components: {
@@ -117,45 +118,45 @@ export default {
     ContentRoundedContainers,
   },
   async asyncData({ $axios, route }) {
-    const { id } = route.params;
+    const { id } = route.params
     const invationerData = await $axios.get(
       `${process.env.BASE_URL}/api/invationers/${id}`
-    );
-    const invationer = invationerData.data;
+    )
+    const invationer = invationerData.data
 
     const invationersData = await $axios.get(
       `${process.env.BASE_URL}/api/invationers`
-    );
-    const invationers = invationersData.data;
+    )
+    const invationers = invationersData.data
     return {
       invationer,
       invationers,
-    };
+    }
   },
   data() {
     return {
       showMore: false,
       pathsList: [],
-    };
+    }
   },
   mounted() {
     this.pathsList = [
       {
-        path: "/invationers",
-        pathName: "Invationers",
+        path: '/invationers',
+        pathName: 'Invationers',
       },
       {
         path: `/invationers/${this.invationer.id}`,
-        pathName: `${this.invationer.name + " " + this.invationer.surname}`,
+        pathName: `${this.invationer.name + ' ' + this.invationer.surname}`,
       },
-    ];
+    ]
   },
   head() {
     return {
-      title: "Invation - " + this.invationer.name,
+      title: 'Invation - ' + this.invationer.name,
       meta: [
         {
-          name: "description",
+          name: 'description',
           content: this.invationer.overview,
         },
         {
@@ -164,14 +165,14 @@ export default {
           content: this.invationer.overview,
         },
       ],
-    };
+    }
   },
   computed: {
     completeName() {
-      return this.invationer.name + " " + this.invationer.surname;
+      return this.invationer.name + ' ' + this.invationer.surname
     },
   },
-};
+}
 </script>
 
 <style scoped>
