@@ -68,7 +68,6 @@
                 width="370"
                 height="244"
                 @mouseover="mapRequest = true"
-                loading="lazy"
               />
               <div
                 v-else
@@ -87,7 +86,6 @@
               width="1140"
               height="750"
               @mouseover="mapOpening = true"
-              loading="lazy"
             />
           </div>
         </div>

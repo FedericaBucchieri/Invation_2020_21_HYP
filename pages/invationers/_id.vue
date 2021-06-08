@@ -56,7 +56,6 @@
                 :alt="item.name + 'skill icon'"
                 width="100"
                 height="100"
-                loading="lazy"
               />
             </div>
             <div class="contact-section">

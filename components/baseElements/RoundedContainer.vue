@@ -7,7 +7,6 @@
         :alt="'Thubmnail image' + name"
         width="120"
         height="120"
-        loading="lazy"
       />
       <h3>{{ name }}</h3>
       <p>

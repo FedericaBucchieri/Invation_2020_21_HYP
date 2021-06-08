@@ -11,7 +11,6 @@
           :alt="title"
           width="445"
           height="492"
-          loading="lazy"
         />
       </div>
       <div
@@ -44,7 +43,7 @@
                 :alt="item.name + 'thumbnail image'"
                 width="100"
                 height="100"
-                loading="lazy"
+                loading="lzy"
               />
               <div class="text">
                 <nuxt-link
