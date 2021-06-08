@@ -11,6 +11,7 @@
           :alt="title"
           width="445"
           height="492"
+          loading="lazy"
         />
       </div>
       <div
@@ -70,27 +71,27 @@
 <script>
 export default {
   props: {
-    bigImage: { type: String, default: () => '' },
-    title: { type: String, default: () => '' },
+    bigImage: { type: String, default: () => "" },
+    title: { type: String, default: () => "" },
     objects: { type: Array, default: () => [] },
-    typology: { type: String, default: () => '' },
+    typology: { type: String, default: () => "" },
     isObjectList: { type: Boolean, default: () => true },
   },
   data() {
     return {
       disabled: { type: Boolean, default: () => false },
-    }
+    };
   },
   mounted() {
-    this.disabled = this.typology === ''
+    this.disabled = this.typology === "";
   },
   methods: {
     formatDate(date) {
-      const options = { year: 'numeric', month: 'long', day: 'numeric' }
-      return new Date(date).toLocaleDateString('en', options)
+      const options = { year: "numeric", month: "long", day: "numeric" };
+      return new Date(date).toLocaleDateString("en", options);
     },
   },
-}
+};
 </script>
 
 <style scoped>

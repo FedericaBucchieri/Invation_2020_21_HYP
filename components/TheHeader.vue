@@ -42,31 +42,6 @@
               <span>Menu</span>
             </a>
             <!-- ***** Menu End ***** -->
-            <!--  Login User -->
-            <a v-if="username !== null" class="login" :href="'/users/' + id"
-              ><img
-                class="login-icon"
-                src="/profile-user.png"
-                width="30"
-                height="30"
-                alt="Login Icon"
-              />
-              <span>{{ username }}</span>
-            </a>
-            <a v-if="username !== null" class="close" href="/" @click="logout"
-              >&times;</a
-            >
-            <a v-else class="login" @click="showLoginForm"
-              ><img
-                class="login-icon"
-                src="/profile-user.png"
-                width="30"
-                height="30"
-                alt="Login Icon"
-              />
-              <span>Login</span>
-            </a>
-            <!-- Login End -->
           </nav>
         </div>
       </div>
@@ -76,88 +51,62 @@
 </template>
 
 <script>
-import MenuItem from './TheHeader/MenuItem.vue'
+import MenuItem from "./TheHeader/MenuItem.vue";
 
 export default {
   components: { MenuItem },
   data() {
     return {
       isActive: false,
-      myDisplay: 'none',
+      myDisplay: "none",
       myMarginTop: 20,
       theHeaderMenuItems: [
         {
-          name: 'About',
-          extensions: [{ nameExtension: 'Contact Us', path: '/contact' }],
-          path: '/about',
+          name: "About",
+          extensions: [{ nameExtension: "Contact Us", path: "/contact" }],
+          path: "/about",
         },
         {
-          name: 'Invationers',
+          name: "Invationers",
           extensions: [],
-          path: '/invationers',
+          path: "/invationers",
         },
         {
-          name: 'Visions',
+          name: "Visions",
           extensions: [
-            { nameExtension: 'Education', path: '/visions/1' },
-            { nameExtension: 'Entertainment', path: '/visions/2' },
-            { nameExtension: 'Smart Home', path: '/visions/3' },
-            { nameExtension: 'Work', path: '/visions/4' },
+            { nameExtension: "Education", path: "/visions/1" },
+            { nameExtension: "Entertainment", path: "/visions/2" },
+            { nameExtension: "Smart Home", path: "/visions/3" },
+            { nameExtension: "Work", path: "/visions/4" },
           ],
-          path: '/visions',
+          path: "/visions",
         },
         {
-          name: 'Invations',
+          name: "Invations",
           extensions: [
             {
-              nameExtension: 'Our technologies',
-              path: '/invations/technologies',
+              nameExtension: "Our technologies",
+              path: "/invations/technologies",
             },
           ],
-          path: '/invations',
+          path: "/invations",
         },
       ],
-    }
-  },
-  computed: {
-    username() {
-      const username = this.$auth.$storage.getLocalStorage('username')
-
-      if (username === undefined) {
-        return null
-      } else {
-        return username
-      }
-    },
-    id() {
-      const userId = this.$auth.$storage.getLocalStorage('userId')
-      if (userId === undefined) {
-        return null
-      } else {
-        return userId
-      }
-    },
+    };
   },
   methods: {
     changeMyDisplay() {
-      if (this.myDisplay === 'none') {
-        this.myDisplay = 'block'
-        this.myMarginTop = 0
+      if (this.myDisplay === "none") {
+        this.myDisplay = "block";
+        this.myMarginTop = 0;
       } else {
-        this.myDisplay = 'none'
-        this.myMarginTop = 20
+        this.myDisplay = "none";
+        this.myMarginTop = 20;
       }
-      this.isActive = !this.isActive
-    },
-    showLoginForm() {
-      document.getElementById('loginForm').style.display = 'block'
-    },
-    logout() {
-      this.$auth.$storage.removeLocalStorage('username')
-      this.$auth.$storage.removeLocalStorage('userId')
+      this.isActive = !this.isActive;
     },
   },
-}
+};
 </script>
 
 <style scoped>
@@ -320,7 +269,7 @@ header {
 }
 
 .header-area .main-nav .nav li.submenu ul li a:before {
-  content: '';
+  content: "";
   position: absolute;
   width: 0px;
   height: 40px;
@@ -408,7 +357,7 @@ header {
 
 .header-area .main-nav .menu-trigger span:before,
 .header-area .main-nav .menu-trigger span:after {
-  content: '';
+  content: "";
 }
 
 .header-area .main-nav .menu-trigger span {
@@ -575,13 +524,6 @@ header {
   .header-area .main-nav .nav li.submenu:focus ul {
     height: 0px;
   }
-
-  .login span {
-    display: none;
-  }
-  .login image {
-    margin: 0;
-  }
 }
 
 @media (min-width: 992px) {
@@ -600,35 +542,5 @@ header {
 
 .header-area.header-sticky .nav li a.active {
   color: #fba70b;
-}
-
-.login {
-  line-height: 80px;
-  float: left;
-  -webkit-transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
-  margin-left: 2%;
-  text-transform: uppercase;
-  font-weight: 500;
-  font-size: 13px;
-  letter-spacing: 1px;
-}
-
-.close {
-  font-size: 25px;
-  line-height: 80px;
-  float: left;
-  margin-left: 5px;
-}
-
-.login-icon {
-  width: 25px;
-  height: auto;
-}
-
-.login-icon:hover {
-  cursor: pointer;
 }
 </style>

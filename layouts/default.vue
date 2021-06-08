@@ -1,7 +1,6 @@
 <template>
   <div>
     <TheHeader />
-    <TheUserAuthenticationHandler />
     <the-chat :chat-list="list" />
     <Nuxt />
     <TheFooter />
@@ -9,14 +8,14 @@
 </template>
 
 <script>
-import TheChat from '~/components/TheChat.vue'
-import MMCCMixin from '~/mixins/mmcc-mixin'
+import TheChat from "~/components/TheChat.vue";
+import MMCCMixin from "~/mixins/mmcc-mixin";
 export default {
   components: {
     TheChat,
   },
   mixins: [MMCCMixin],
-}
+};
 </script>
 
 <style>
@@ -25,7 +24,7 @@ html {
   padding: 0;
   border: 0;
   outline: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   background-color: #fff;
   font-size: 16px;
@@ -33,7 +32,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #fff;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 @media (max-width: 810px) {

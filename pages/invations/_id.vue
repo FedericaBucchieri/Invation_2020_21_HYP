@@ -9,8 +9,6 @@
         :img-path="invation.image"
         :overview="invation.overview"
         :tags="invation.technologies"
-        :is-savable="true"
-        :is-saved="isSaved"
         :paths-list="pathsList"
       ></object-overview>
     </section>
@@ -61,19 +59,10 @@
           <form method="post" @submit="postReview">
             <label>Author:</label>
             <input
-              v-if="username === null"
               v-model="reviewAuthor"
               type="text"
               name="author1"
               placeholder="Your username"
-              required
-            />
-            <input
-              v-else
-              v-model="username"
-              type="text"
-              name="author"
-              :placeholder="username"
               required
             />
             <label>Review:</label>
@@ -102,12 +91,12 @@
 </template>
 
 <script>
-import ObjectOverview from '~/components/baseElements/ObjectOverview.vue'
-import ObjectConcept from '~/components/baseElements/ObjectConcept.vue'
-import ObjectVideo from '~/components/baseElements/ObjectVideo.vue'
-import ObjectMore from '~/components/baseElements/ObjectMore.vue'
-import InvationerShortCardContainer from '~/components/invationer/InvationerShortCardContainer.vue'
-import InvationReviewList from '~/components/invation/InvationReviewList.vue'
+import ObjectOverview from "~/components/baseElements/ObjectOverview.vue";
+import ObjectConcept from "~/components/baseElements/ObjectConcept.vue";
+import ObjectVideo from "~/components/baseElements/ObjectVideo.vue";
+import ObjectMore from "~/components/baseElements/ObjectMore.vue";
+import InvationerShortCardContainer from "~/components/invationer/InvationerShortCardContainer.vue";
+import InvationReviewList from "~/components/invation/InvationReviewList.vue";
 
 export default {
   components: {
@@ -119,14 +108,14 @@ export default {
     InvationReviewList,
   },
   async asyncData({ $axios, route }) {
-    const { id } = route.params
+    const { id } = route.params;
     const { data } = await $axios.get(
       `${process.env.BASE_URL}/api/invation/${id}`
-    )
-    const invation = data
+    );
+    const invation = data;
     return {
       invation,
-    }
+    };
   },
   data() {
     return {
@@ -137,17 +126,16 @@ export default {
         body: null,
         invation_id: 0,
       },
-      reviewBody: '',
-      reviewAuthor: '',
-      username: this.$auth.$storage.getLocalStorage('username'),
-    }
+      reviewBody: "",
+      reviewAuthor: "",
+    };
   },
   head() {
     return {
-      title: 'Invation - ' + this.invation.name,
+      title: "Invation - " + this.invation.name,
       meta: [
         {
-          name: 'description',
+          name: "description",
           content: this.invation.description,
         },
         {
@@ -156,62 +144,37 @@ export default {
           content: this.invation.concept,
         },
       ],
-    }
-  },
-  computed: {
-    isSaved() {
-      const userId = this.$auth.$storage.getLocalStorage('userId')
-
-      if (userId === null || userId === undefined) {
-        return false
-      } else {
-        let finded = false
-
-        this.invation.users.forEach((user) => {
-          if (userId === user.id) {
-            finded = true
-          } else {
-            finded = false
-          }
-        })
-
-        return finded
-      }
-    },
+    };
   },
   mounted() {
     this.pathsList = [
       {
-        path: '/invations',
-        pathName: 'Invations',
+        path: "/invations",
+        pathName: "Invations",
       },
       {
         path: `/invations/${this.invation.id}`,
         pathName: `${this.invation.name}`,
       },
-    ]
+    ];
   },
   methods: {
     postReview(e) {
-      this.review.invation_id = this.invation.id
-      if (this.reviewAuthor !== '') {
-        this.review.author = this.reviewAuthor
-      } else {
-        this.review.author = this.username
-      }
-      this.review.body = this.reviewBody
+      this.review.invation_id = this.invation.id;
+      this.review.author = this.reviewAuthor;
+      this.review.body = this.reviewBody;
 
       this.$axios
         .post(`${process.env.BASE_URL}/api/review`, this.review)
         .then((result) => {
-          this.invation.reviews.push(result.data)
-          this.reviewAuthor = ''
-          this.reviewBody = ''
-        })
-      e.preventDefault()
+          this.invation.reviews.push(result.data);
+          this.reviewAuthor = "";
+          this.reviewBody = "";
+        });
+      e.preventDefault();
     },
   },
-}
+};
 </script>
 
 <style scoped>

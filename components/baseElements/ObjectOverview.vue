@@ -16,13 +16,6 @@
           <h1>
             {{ name }}
           </h1>
-          <div v-if="isSavable && isLoggedIn" class="star">
-            <div v-if="mySaved" @click="unSaveObject">&#9733;</div>
-            <div v-else @click="saveObject">&#9734;</div>
-          </div>
-          <div v-else>
-            <div style="display: none">Not Savable</div>
-          </div>
         </div>
         <p>
           {{ overview }}
@@ -35,9 +28,9 @@
 </template>
 
 <script>
-import Breadcrump from './Breadcrump.vue'
-import InvationTagsBar from '~/components/invation/InvationTagsBar.vue'
-import ObjectPresentationImg from '~/components/baseElements/ObjectPresentationImg.vue'
+import Breadcrump from "./Breadcrump.vue";
+import InvationTagsBar from "~/components/invation/InvationTagsBar.vue";
+import ObjectPresentationImg from "~/components/baseElements/ObjectPresentationImg.vue";
 
 export default {
   components: {
@@ -46,57 +39,14 @@ export default {
     InvationTagsBar,
   },
   props: {
-    name: { type: String, default: () => '' },
-    overview: { type: String, default: () => '' },
-    imgPath: { type: String, default: () => '' },
+    name: { type: String, default: () => "" },
+    overview: { type: String, default: () => "" },
+    imgPath: { type: String, default: () => "" },
     tags: { type: Array, default: () => [] },
-    isSavable: { type: Boolean, default: () => false },
-    isSaved: { type: Boolean, default: () => false },
     id: { type: Number, default: () => 0 },
     pathsList: { type: Array, default: () => [] },
   },
-  data() {
-    return {
-      mySaved: this.isSaved,
-    }
-  },
-  computed: {
-    isLoggedIn() {
-      return this.$auth.$storage.getLocalStorage('username') !== null
-    },
-  },
-  methods: {
-    saveObject(e) {
-      // local update
-      this.mySaved = !this.mySaved
-      // database update
-      this.$axios.post(
-        `${process.env.BASE_URL}/api/saveInvation/` +
-          this.id +
-          '/' +
-          this.$auth.$storage.getLocalStorage('userId'),
-        {}
-      )
-      e.preventDefault()
-    },
-    unSaveObject(e) {
-      // local update
-      this.mySaved = !this.mySaved
-      // database update
-      this.$axios.post(
-        `${process.env.BASE_URL}/api/unSaveInvation/` +
-          this.id +
-          '/' +
-          this.$auth.$storage.getLocalStorage('userId'),
-        {}
-      )
-      e.preventDefault()
-    },
-    showLoginForm() {
-      document.getElementById('loginForm').style.display = 'block'
-    },
-  },
-}
+};
 </script>
 
 <style scoped>
