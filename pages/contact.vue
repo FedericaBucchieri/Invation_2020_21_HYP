@@ -1,15 +1,15 @@
 <template>
   <div class="contact-page">
-    <div class="left-image-decor"></div>
+    <breadcrump
+      :paths-list="pathsList"
+      breadcrump-class="breadcrump-links list"
+    ></breadcrump>
     <div class="right-image-decor"></div>
+    <div class="left-image-decor"></div>
     <div class="container">
       <div class="row">
         <!--  main section of the contact page -->
         <section id="contact-title">
-          <breadcrump
-            :paths-list="pathsList"
-            breadcrump-class="breadcrump-links list"
-          ></breadcrump>
           <h1>Contact us!</h1>
           <div class="contact-info-cards">
             <div class="card-contact">
@@ -129,7 +129,7 @@
 </template>
 
 <script>
-import Breadcrump from '~/components/baseElements/Breadcrump.vue'
+import Breadcrump from "~/components/baseElements/Breadcrump.vue";
 
 export default {
   components: { Breadcrump },
@@ -137,75 +137,75 @@ export default {
     return {
       pathsList: [
         {
-          path: '/about',
-          pathName: 'About',
+          path: "/about",
+          pathName: "About",
         },
         {
-          path: '/about/contact',
-          pathName: 'Contact Us',
+          path: "/about/contact",
+          pathName: "Contact Us",
         },
       ],
       contactInfos: [
         {
-          name: 'Address',
-          info: 'Milano, MI, 20137, Italy',
-          imgPath: '../contact-icons/address.png',
-          alt: 'address icons',
+          name: "Address",
+          info: "Milano, MI, 20137, Italy",
+          imgPath: "../contact-icons/address.png",
+          alt: "address icons",
         },
         {
-          name: 'Email',
-          info: 'info@invations.com',
-          imgPath: '../contact-icons/email.png',
-          alt: 'email icons',
+          name: "Email",
+          info: "info@invations.com",
+          imgPath: "../contact-icons/email.png",
+          alt: "email icons",
         },
         {
-          name: 'Telephone',
-          info: '+01 234 567 89',
-          imgPath: '../contact-icons/telephone.png',
-          alt: 'telephone icons',
+          name: "Telephone",
+          info: "+01 234 567 89",
+          imgPath: "../contact-icons/telephone.png",
+          alt: "telephone icons",
         },
         {
-          name: 'Fax',
-          info: '+01 234 567 89',
-          imgPath: '../contact-icons/fax.png',
-          alt: 'fax icons',
+          name: "Fax",
+          info: "+01 234 567 89",
+          imgPath: "../contact-icons/fax.png",
+          alt: "fax icons",
         },
       ],
       socialIcons: [
         {
-          iconPath: '../contact-icons/facebook.png',
-          link: 'https://www.facebook.com',
-          alt: 'facebook icons',
+          iconPath: "../contact-icons/facebook.png",
+          link: "https://www.facebook.com",
+          alt: "facebook icons",
         },
         {
-          iconPath: '../contact-icons/linkedin.png',
-          link: 'https://www.linkedin.com',
-          alt: 'linkedin icons',
+          iconPath: "../contact-icons/linkedin.png",
+          link: "https://www.linkedin.com",
+          alt: "linkedin icons",
         },
         {
-          iconPath: '../contact-icons/instagram.png',
-          link: 'https://www.instagram.com',
-          alt: 'instagram icons',
+          iconPath: "../contact-icons/instagram.png",
+          link: "https://www.instagram.com",
+          alt: "instagram icons",
         },
         {
-          iconPath: '../contact-icons/twitter.png',
-          link: 'https://www.twitter.com',
-          alt: 'twitter icons',
+          iconPath: "../contact-icons/twitter.png",
+          link: "https://www.twitter.com",
+          alt: "twitter icons",
         },
       ],
-    }
+    };
   },
   methods: {
     fakeSend() {
-      alert('Message sent correctly!')
+      alert("Message sent correctly!");
     },
   },
-}
+};
 </script>
 
 <style scoped>
 #contact-title {
-  margin: 100px auto 0 auto;
+  margin: 150px auto 0 auto;
   width: 100%;
   text-align: center;
 }
@@ -258,7 +258,7 @@ export default {
 }
 
 .contact-method .tooltiptext::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 100%;
   left: 50%;

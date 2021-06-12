@@ -4,14 +4,9 @@
       <object-presentation-img :info="name" :img-path="imgPath">
       </object-presentation-img>
       <div
-        class="right-text col-lg-6 col-md-12 col-sm-12 col-xs-12 inside-container overview-row"
+        class="right-text col-lg-6 col-md-12 col-sm-12 col-xs-12 overview-row"
         data-scroll-reveal="enter left move 30px over 0.6s after 0.4s"
       >
-        <breadcrump
-          :paths-list="pathsList"
-          breadcrump-class="breadcrump-links list"
-        >
-        </breadcrump>
         <div class="title-object-overview">
           <h1>
             {{ name }}
@@ -28,14 +23,12 @@
 </template>
 
 <script>
-import Breadcrump from "./Breadcrump.vue";
 import InvationTagsBar from "~/components/invation/InvationTagsBar.vue";
 import ObjectPresentationImg from "~/components/baseElements/ObjectPresentationImg.vue";
 
 export default {
   components: {
     ObjectPresentationImg,
-    Breadcrump,
     InvationTagsBar,
   },
   props: {
@@ -44,7 +37,6 @@ export default {
     imgPath: { type: String, default: () => "" },
     tags: { type: Array, default: () => [] },
     id: { type: Number, default: () => 0 },
-    pathsList: { type: Array, default: () => [] },
   },
 };
 </script>
@@ -63,7 +55,7 @@ h1 {
   font-size: 52px;
   line-height: 80px;
   letter-spacing: 1px;
-  margin-bottom: 30px;
+  margin-bottom: 0px;
   color: #191a20;
 }
 .star {

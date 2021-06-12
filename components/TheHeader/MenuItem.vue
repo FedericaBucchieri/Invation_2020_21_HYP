@@ -39,8 +39,8 @@
 <script>
 export default {
   props: {
-    theHeaderMenuItemName: { type: String, default: () => '' },
-    theHeaderMenuItemPath: { type: String, default: () => '' },
+    theHeaderMenuItemName: { type: String, default: () => "" },
+    theHeaderMenuItemPath: { type: String, default: () => "" },
     theHeaderMenuItemExtensions: { type: Array, default: () => [] },
     isActivated: { type: Boolean, default: false },
   },
@@ -48,19 +48,19 @@ export default {
     return {
       isActive: false,
       myTheHeaderMenuItemExtensions: this.theHeaderMenuItemExtensions,
-    }
+    };
   },
   watch: {
     isActivated() {
-      if (!this.isActivated) this.isActive = false
+      if (!this.isActivated) this.isActive = false;
     },
   },
   methods: {
     changeDisplayItemExtensions() {
-      this.isActive = !this.isActive
+      this.isActive = !this.isActive;
     },
   },
-}
+};
 </script>
 
 <style scoped>
@@ -162,7 +162,7 @@ export default {
 }
 
 .header-area .main-nav .nav li.submenu ul li a:before {
-  content: '';
+  content: "";
   position: absolute;
   width: 0px;
   height: 40px;
@@ -315,5 +315,20 @@ export default {
 
 .header-area.header-sticky .nav li a.active {
   color: #fba70b;
+}
+
+.alias-item {
+  font-size: 12px;
+  color: white;
+  background: linear-gradient(
+    145deg,
+    rgba(244, 129, 63, 1) 0%,
+    rgba(241, 85, 106, 1) 100%
+  );
+  color: white;
+  padding: 3px;
+  border-radius: 2px;
+  text-align: center;
+  margin-top: -10px;
 }
 </style>

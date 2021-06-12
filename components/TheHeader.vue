@@ -85,7 +85,7 @@ export default {
           name: "Invations",
           extensions: [
             {
-              nameExtension: "Our technologies",
+              nameExtension: "By technologies",
               path: "/invations/technologies",
             },
           ],

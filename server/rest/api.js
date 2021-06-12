@@ -125,7 +125,10 @@ async function init() {
           attributes: ["id", "name", "color", "relatedPath"],
         },
         { model: Review },
-        { model: Vision, attributes: ["id", "name"] },
+        {
+          model: Vision,
+          attributes: ["id", "name"],
+        },
       ],
       attributes: {
         exclude: ["thumbnail"],
@@ -133,6 +136,17 @@ async function init() {
     });
 
     return res.json(invation);
+  });
+
+  // API to get a vision by ID with all the related invations for guided tour navigation.
+  app.get("/invations_for_vision/:id", async (req, res) => {
+    const { id } = req.params;
+    const invations = await Invation.findAll({
+      where: { vision_id: id },
+      attributes: ["id"],
+      order: ["id"],
+    });
+    return res.json(invations);
   });
 
   // API to get an invationer by ID.
