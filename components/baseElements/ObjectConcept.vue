@@ -5,15 +5,7 @@
         class="features-item-left inside-container"
         data-scroll-reveal="enter right move 30px over 0.6s after 0.4s"
       >
-        <span><h2>CONCEPT</h2></span>
-        <span v-if="isPartOfAVision" class="vision-name">
-          <nuxt-link
-            :to="'/visions/' + vision.id"
-            @click.native="updateBreadcrump"
-          >
-            <b>Related Vision:</b> {{ vision.name }}</nuxt-link
-          >
-        </span>
+        <h2>CONCEPT</h2>
         <p>
           {{ concept }}
         </p>
@@ -25,32 +17,9 @@
 <script>
 export default {
   props: {
-    concept: { type: String, default: () => '' },
-    isPartOfAVision: { type: Boolean, default: () => false },
-    vision: { type: Object, default: () => {} },
+    concept: { type: String, default: () => "" },
   },
-  methods: {
-    updateBreadcrump() {
-      // If I am not in the HomePage
-      if (!(this.$store.state.currentPageName === '')) {
-        this.sendMessage(this.$route.path, this.$store.state.currentPageName)
-      }
-      this.updateCurrentPageName()
-    },
-    sendMessage(newPath, newPathName) {
-      this.$store.commit('addVisitedPath', {
-        path: newPath,
-        pathName: newPathName,
-      })
-    },
-    updateCurrentPageName() {
-      this.$store.commit(
-        'updateCurrentPageName',
-        this.typology + ': ' + this.name + ' ' + this.surname
-      )
-    },
-  },
-}
+};
 </script>
 
 <style>
@@ -68,7 +37,7 @@ export default {
   font-size: 36px;
   font-weight: 700;
   color: #1e1e1e;
-  margin-bottom: 25px;
+  margin-bottom: 5px;
 }
 
 .features-item-left p {
@@ -79,7 +48,7 @@ export default {
 }
 
 .inside-container {
-  padding: 40px 15px;
+  padding: 40px 60px;
 }
 
 .vision-name a {

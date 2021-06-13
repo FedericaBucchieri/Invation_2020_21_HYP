@@ -1,16 +1,33 @@
 <template>
   <div>
+    <breadcrump :paths-list="pathsList" breadcrump-class="breadcrump-link">
+    </breadcrump>
     <div class="left-image-decor"></div>
     <section id="introduction" class="section">
       <object-overview
         :name="vision.name"
         :img-path="vision.bigImage"
         :overview="vision.description"
-        :paths-list="pathsList"
       >
       </object-overview>
     </section>
     <div class="right-image-decor"></div>
+    <!-- Introduction to the  list of products -->
+    <section id="products-intro">
+      <div class="container">
+        <div class="row products-list-intro">
+          <h2>Inside this vision: the invations</h2>
+          <p>
+            Dive in into this <b>Area of products</b> with the
+            <i>list of our invations</i>: a set of
+            <u>innovative products</u> that better express the vision the
+            Invation has over the chosen theme. In this case it is all related
+            to {{ vision.name }} so in this section you will find a
+            <u>list of products</u> related only to this topic.
+          </p>
+        </div>
+      </div>
+    </section>
     <section id="innovations" class="section">
       <vision-guided-tour
         :items="vision.invations"
@@ -29,48 +46,50 @@
 </template>
 
 <script>
-import VisionGuidedTour from '../../components/vision/VisionGuidedTour.vue'
-import ObjectOverview from '../../components/baseElements/ObjectOverview.vue'
-import InvationerShortCardContainer from '~/components/invationer/InvationerShortCardContainer.vue'
+import Breadcrump from "~/components/baseElements/Breadcrump.vue";
+import VisionGuidedTour from "../../components/vision/VisionGuidedTour.vue";
+import ObjectOverview from "../../components/baseElements/ObjectOverview.vue";
+import InvationerShortCardContainer from "~/components/invationer/InvationerShortCardContainer.vue";
 export default {
   components: {
+    Breadcrump,
     ObjectOverview,
     VisionGuidedTour,
     InvationerShortCardContainer,
   },
   async asyncData({ $axios, route }) {
-    const { id } = route.params
+    const { id } = route.params;
     const visionData = await $axios.get(
       `${process.env.BASE_URL}/api/visions/${id}`
-    )
-    const vision = visionData.data
+    );
+    const vision = visionData.data;
     return {
       vision,
-    }
+    };
   },
   data() {
     return {
       pathsList: [],
-    }
+    };
   },
   mounted() {
     this.pathsList = [
       {
-        path: '/visions',
-        pathName: 'Visions',
+        path: "/visions",
+        pathName: "Visions",
       },
       {
         path: `/visions/${this.vision.id}`,
         pathName: `${this.vision.name}`,
       },
-    ]
+    ];
   },
   head() {
     return {
-      title: 'Invation - ' + this.vision.name,
+      title: "Invation - " + this.vision.name,
       meta: [
         {
-          name: 'description',
+          name: "description",
           content: this.vision.description,
         },
         {
@@ -79,9 +98,9 @@ export default {
           content: this.vision.description,
         },
       ],
-    }
+    };
   },
-}
+};
 </script>
 
 <style scoped>
@@ -129,5 +148,23 @@ export default {
   letter-spacing: 1px;
   margin-bottom: 30px;
   color: #191a20;
+}
+
+.products-list-intro {
+  text-align: center;
+  margin: 50px 0px;
+  background: white;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.products-list-intro p {
+  margin: 0px 10%;
+}
+
+.products-list-intro h2 {
+  text-align: center;
+  width: 100%;
 }
 </style>

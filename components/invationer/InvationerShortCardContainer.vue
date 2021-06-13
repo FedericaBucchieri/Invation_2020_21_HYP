@@ -6,6 +6,7 @@
           <h2>{{ title }}</h2>
         </div>
         <search-component
+          v-if="hasSearch"
           :is-case-sensitive="false"
           id-ul="invationer-ul"
           tag-to-search="h5"
@@ -42,6 +43,7 @@ export default {
   props: {
     cardList: { type: Array, default: () => [] },
     title: { type: String, default: () => "" },
+    hasSearch: { type: Boolean, default: () => false },
   },
 };
 </script>

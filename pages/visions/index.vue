@@ -1,13 +1,14 @@
 <template>
   <div>
+    <breadcrump :paths-list="pathsList" breadcrump-class="breadcrump-link">
+    </breadcrump>
     <!-- ***** Welcome Area Start ***** -->
     <welcome-area-start
       :text-button="textButton"
       link="#visionsContainers"
-      :paths-list="pathsList"
       :bigImage="bigImage"
     >
-      <template #title> A Look Into the Future: <em>Our Visions</em> </template>
+      <template #title> Our Areas: <br /><em>The Visions</em> </template>
       <template #overview>
         Having a <b>Vision</b> means offering a look into the future.<br />
         A <i>tour</i> through our invations, a <i>journey</i> lead by our
@@ -22,6 +23,8 @@
         :area-name="areaName"
         :image-name="'image'"
         typology="visions"
+        research-id=""
+        description="Discover our four product areas"
       >
       </content-rounded-containers>
     </section>
@@ -29,11 +32,13 @@
 </template>
 
 <script>
+import Breadcrump from "~/components/baseElements/Breadcrump.vue";
 import WelcomeAreaStart from "~/components/baseElements/WelcomeAreaStart.vue";
 import ContentRoundedContainers from "~/components/baseElements/ContentRoundedContainers";
 
 export default {
   components: {
+    Breadcrump,
     WelcomeAreaStart,
     ContentRoundedContainers,
   },

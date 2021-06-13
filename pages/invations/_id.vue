@@ -1,6 +1,15 @@
 <template>
   <div class="content">
+    <breadcrump :paths-list="pathsList" breadcrump-class="breadcrump-link">
+    </breadcrump>
     <div class="left-image-decor"></div>
+    <!--  Navigation handler for guided tour interactions among products of the same vision -->
+    <navigation-guided-tour-handler
+      :vision="invation.vision"
+      :current-id="invation.id"
+      :first-element-of-the-vision-id="otherInvations[0].id"
+      :otherInvations="otherInvations"
+    ></navigation-guided-tour-handler>
     <section>
       <!-- ***** Overview  ***** -->
       <object-overview
@@ -9,18 +18,12 @@
         :img-path="invation.image"
         :overview="invation.overview"
         :tags="invation.technologies"
-        :is-savable="true"
-        :is-saved="isSaved"
-        :paths-list="pathsList"
+        class="invation-overview"
       ></object-overview>
     </section>
     <!-- ***** Concept  ***** -->
     <section id="section1">
-      <object-concept
-        :concept="invation.concept"
-        :is-part-of-a-vision="true"
-        :vision="invation.vision"
-      ></object-concept>
+      <object-concept :concept="invation.concept"></object-concept>
     </section>
     <div class="right-image-decor"></div>
     <!-- Show More Button -->
@@ -61,19 +64,10 @@
           <form method="post" @submit="postReview">
             <label>Author:</label>
             <input
-              v-if="username === null"
               v-model="reviewAuthor"
               type="text"
               name="author1"
               placeholder="Your username"
-              required
-            />
-            <input
-              v-else
-              v-model="username"
-              type="text"
-              name="author"
-              :placeholder="username"
               required
             />
             <label>Review:</label>
@@ -94,7 +88,7 @@
     <section id="invationers">
       <invationer-short-card-container
         :card-list="invation.invationers"
-        :title="'Invationers that worked on this innovation'"
+        :title="'Invationers that worked on this invation'"
         :typology="`invationers`"
       ></invationer-short-card-container>
     </section>
@@ -102,31 +96,42 @@
 </template>
 
 <script>
-import ObjectOverview from '~/components/baseElements/ObjectOverview.vue'
-import ObjectConcept from '~/components/baseElements/ObjectConcept.vue'
-import ObjectVideo from '~/components/baseElements/ObjectVideo.vue'
-import ObjectMore from '~/components/baseElements/ObjectMore.vue'
-import InvationerShortCardContainer from '~/components/invationer/InvationerShortCardContainer.vue'
-import InvationReviewList from '~/components/invation/InvationReviewList.vue'
+import Breadcrump from "~/components/baseElements/Breadcrump.vue";
+import ObjectOverview from "~/components/baseElements/ObjectOverview.vue";
+import ObjectConcept from "~/components/baseElements/ObjectConcept.vue";
+import ObjectVideo from "~/components/baseElements/ObjectVideo.vue";
+import ObjectMore from "~/components/baseElements/ObjectMore.vue";
+import InvationerShortCardContainer from "~/components/invationer/InvationerShortCardContainer.vue";
+import InvationReviewList from "~/components/invation/InvationReviewList.vue";
+import NavigationGuidedTourHandler from "~/components/baseElements/NavigationGuidedTourHandler.vue";
 
 export default {
   components: {
+    Breadcrump,
     ObjectOverview,
     ObjectConcept,
     ObjectVideo,
     ObjectMore,
     InvationerShortCardContainer,
     InvationReviewList,
+    NavigationGuidedTourHandler,
   },
   async asyncData({ $axios, route }) {
-    const { id } = route.params
-    const { data } = await $axios.get(
+    const { id } = route.params;
+    const invationData = await $axios.get(
       `${process.env.BASE_URL}/api/invation/${id}`
-    )
-    const invation = data
+    );
+    const invation = invationData.data;
+
+    const otherInvationsData = await $axios.get(
+      `${process.env.BASE_URL}/api/invations_for_vision/${invation.vision.id}`
+    );
+
+    const otherInvations = otherInvationsData.data;
     return {
       invation,
-    }
+      otherInvations,
+    };
   },
   data() {
     return {
@@ -137,17 +142,16 @@ export default {
         body: null,
         invation_id: 0,
       },
-      reviewBody: '',
-      reviewAuthor: '',
-      username: this.$auth.$storage.getLocalStorage('username'),
-    }
+      reviewBody: "",
+      reviewAuthor: "",
+    };
   },
   head() {
     return {
-      title: 'Invation - ' + this.invation.name,
+      title: "Invation - " + this.invation.name,
       meta: [
         {
-          name: 'description',
+          name: "description",
           content: this.invation.description,
         },
         {
@@ -156,65 +160,44 @@ export default {
           content: this.invation.concept,
         },
       ],
-    }
-  },
-  computed: {
-    isSaved() {
-      const userId = this.$auth.$storage.getLocalStorage('userId')
-
-      if (userId === null || userId === undefined) {
-        return false
-      } else {
-        let finded = false
-
-        this.invation.users.forEach((user) => {
-          if (userId === user.id) {
-            finded = true
-          } else {
-            finded = false
-          }
-        })
-
-        return finded
-      }
-    },
+    };
   },
   mounted() {
     this.pathsList = [
       {
-        path: '/invations',
-        pathName: 'Invations',
+        path: "/invations",
+        pathName: "Invations",
       },
       {
         path: `/invations/${this.invation.id}`,
         pathName: `${this.invation.name}`,
       },
-    ]
+    ];
   },
   methods: {
     postReview(e) {
-      this.review.invation_id = this.invation.id
-      if (this.reviewAuthor !== '') {
-        this.review.author = this.reviewAuthor
-      } else {
-        this.review.author = this.username
-      }
-      this.review.body = this.reviewBody
+      this.review.invation_id = this.invation.id;
+      this.review.author = this.reviewAuthor;
+      this.review.body = this.reviewBody;
 
       this.$axios
         .post(`${process.env.BASE_URL}/api/review`, this.review)
         .then((result) => {
-          this.invation.reviews.push(result.data)
-          this.reviewAuthor = ''
-          this.reviewBody = ''
-        })
-      e.preventDefault()
+          this.invation.reviews.push(result.data);
+          this.reviewAuthor = "";
+          this.reviewBody = "";
+        });
+      e.preventDefault();
     },
   },
-}
+};
 </script>
 
 <style scoped>
+.invation-overview {
+  margin-top: 10px;
+}
+
 .more {
   text-align: center;
   margin: 50px 40px 80px 40px;

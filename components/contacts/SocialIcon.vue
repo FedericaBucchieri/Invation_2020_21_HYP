@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <a :href="link">
-      <img :src="iconPath" class="social-icon" loading="lazy" />
+      <img :src="iconPath" class="social-icon"/>
     </a>
   </div>
 </template>

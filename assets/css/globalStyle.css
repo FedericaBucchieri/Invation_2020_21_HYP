@@ -4,7 +4,7 @@ font & reset css
 --------------------------------------------- 
 */
 
-@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap");
 b {
   color: #f38151;
 }
@@ -84,7 +84,7 @@ figcaption {
 }
 
 .clearfix:after {
-  content: '.';
+  content: ".";
   display: block;
   clear: both;
   visibility: hidden;
@@ -126,7 +126,7 @@ hgroup {
     margin: 18% auto;
   }
 
-  input[type='text'] {
+  input[type="text"] {
     border: 1px solid #999;
   }
 }
@@ -137,7 +137,7 @@ hgroup {
 
 html,
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-size: 16px;
   -ms-text-size-adjust: 100%;
@@ -198,6 +198,23 @@ p {
     rgba(244, 129, 63, 1) 0%,
     rgba(241, 85, 106, 1) 100%
   );
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 1px;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.main-button-inactive {
+  outline: none;
+  border: none;
+  font-size: 14px;
+  border-radius: 25px;
+  padding: 15px 25px;
+  background: rgb(187, 187, 187);
   text-transform: uppercase;
   color: #fff;
   font-weight: 600;

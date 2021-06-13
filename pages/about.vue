@@ -1,10 +1,11 @@
 <template>
   <div>
+    <breadcrump :paths-list="pathsList" breadcrump-class="breadcrump-link">
+    </breadcrump>
     <!-- ***** Welcome Area Start ***** -->
     <welcome-area-start
       :text-button="textButton"
       :link="'#founders'"
-      :paths-list="pathsList"
       :bigImage="'/banners/banner-robot.png'"
     >
       <template #title> About the company: <em>Invation</em> </template>
@@ -95,69 +96,76 @@
 </template>
 
 <script>
-import ThreeObjectContainer from '~/components/baseElements/ThreeObjectContainer.vue'
-import WelcomeAreaStart from '~/components/baseElements/WelcomeAreaStart.vue'
+import Breadcrump from "~/components/baseElements/Breadcrump.vue";
+import ThreeObjectContainer from "~/components/baseElements/ThreeObjectContainer.vue";
+import WelcomeAreaStart from "~/components/baseElements/WelcomeAreaStart.vue";
 
 export default {
   components: {
+    Breadcrump,
     WelcomeAreaStart,
     ThreeObjectContainer,
   },
   data() {
     return {
-      textButton: 'DISCOVER OUR FOUNDERS',
+      textButton: "DISCOVER OUR FOUNDERS",
       mapOpening: false,
       mapRequest: false,
       pathsList: [
         {
           path: this.$route.path,
-          pathName: 'About',
+          pathName: "About",
         },
       ],
       founders: [
         {
-          name: 'Federica Bucchieri',
+          name: "Federica Bucchieri",
           overview:
-            'Born in Palermo, Federica gratuated in Computer Science. She is passionate about programming, graphic design and videogames',
-          thumbnail: 'https://imgur.com/zE45k0i.png',
+            "Born in Palermo, Federica gratuated in Computer Science. She is passionate about programming, graphic design and videogames",
+          thumbnail: "https://imgur.com/zE45k0i.png",
         },
         {
-          name: 'Lorenzo Cocchia',
+          name: "Lorenzo Cocchia",
           overview:
-            'Born in Siena, Lorenzo gratuated in Computer Science. He is passionate about documentations, Virtual Reality and backend development',
-          thumbnail: 'https://imgur.com/I85XkuB.png',
+            "Born in Siena, Lorenzo gratuated in Computer Science. He is passionate about documentations, Virtual Reality and backend development",
+          thumbnail: "https://imgur.com/I85XkuB.png",
         },
         {
-          name: 'Alessandro Corsini',
+          name: "Alessandro Corsini",
           overview:
-            'Born in Caprarica di Lecce, Alessandro gratuated in Computer Science. He is passionate about algorithms, videogames and storytelling',
-          thumbnail: 'https://imgur.com/cjvDnYD.png',
+            "Born in Caprarica di Lecce, Alessandro gratuated in Computer Science. He is passionate about algorithms, videogames and storytelling",
+          thumbnail: "https://imgur.com/cjvDnYD.png",
         },
       ],
-      foundersImage: 'https://imgur.com/GD02BFB.png',
-    }
+      foundersImage: "https://imgur.com/GD02BFB.png",
+    };
   },
   head() {
     return {
-      title: 'Invation - About',
+      title: "Invation - About",
       meta: [
         {
-          name: 'description',
+          name: "description",
           content:
-            'General overwiew of the company, its founders and how to reach the headquarter',
+            "General overwiew of the company, its founders and how to reach the headquarter",
         },
         {
-          hid: 'About',
-          name: 'About',
-          content: 'About Invation',
+          hid: "About",
+          name: "About",
+          content: "About Invation",
         },
       ],
-    }
+    };
   },
-}
+};
 </script>
 
 <style>
+#founders {
+  padding-top: 150px;
+  margin-top: -150px;
+}
+
 @media only screen and (max-width: 1024px) {
   #founders {
     margin: 200px 0 100px 0;

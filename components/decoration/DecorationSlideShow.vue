@@ -11,9 +11,8 @@
       <input
         v-for="(item, itemIndex) of slideObjects"
         :key="'slide-item-input' + itemIndex"
-        :id="'position' + itemIndex"
         type="radio"
-        :name="'position' + itemIndex"
+        :name="'position'"
         :checked="itemIndex === 2"
       />
       <main id="carousel">
@@ -35,10 +34,10 @@
 export default {
   props: {
     slideObjects: { type: Array, default: () => [] },
-    title: { type: String, default: () => '' },
-    introduction: { type: String, default: () => '' },
+    title: { type: String, default: () => "" },
+    introduction: { type: String, default: () => "" },
   },
-}
+};
 </script>
 
 <style>

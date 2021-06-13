@@ -1,5 +1,5 @@
 {
-  "name": "Invation Chatbot Charlie",
+  "name": "Invation Chatbot Charlie - xor unknown fixed",
   "data": {
     "kb": {
       "welcome": "So, as you know, I'm your personal chatbot ",
@@ -23,7 +23,8 @@
             "utterance": ["Ok! ", "All right! ", "Copy that! ", "10-4. "],
             "payload": {}
           }
-        ]
+        ],
+        "unknown": "I don't understand, sorry, try again with another message"
       },
       "contact_xor": {
         "initials": [
@@ -36,8 +37,10 @@
             "intents": [
               "page",
               "contact page",
+              "contacts",
               "show page",
               "show contact page",
+              "show contact",
               "1",
               "first"
             ],
@@ -61,13 +64,24 @@
               "myPath": "/contact#contact-form"
             }
           }
-        ]
+        ],
+        "unknown": "I don't understand, sorry, try again with another message"
       },
       "home": "I will guide you through the site. Welcome to the homepage",
-      "about": "Welcome to the About page of our website. Here you can find all the information about our company",
+      "about": {
+        "initials":[
+          "Welcome to the About page of our website. Here you can find all the information about our company",
+          "This is the page about our company, for this reason we call it \"about\", here you can find anything about our site, the founders and the headquarters!"
+        ],
+        "completed": {
+          "payload": {
+            "myPath": "/about"
+          }
+        }
+      },
       "end": "The process is completed",
-      "steps_v": ["/"],
-      "continue_v": ["continue", "ok", "go"],
+      "steps_v": ["/", "/about"],
+      "continue_v": ["continue", "ok", "go", "yes"],
       "guide_v": ["guide"],
       "main_exit_v": ["no", "reset"],
       "main_err": "Option not available",
@@ -96,7 +110,7 @@
         },
         {
           "my_id": "contact_xor",
-          "next_id": "end",
+          "next_id": null,
           "my_type": "XOR",
           "callback": "generic_xor",
           "choices": ["contact_form", "contact_page"]
@@ -117,18 +131,18 @@
           "my_id": "contact_form",
           "next_id": null,
           "my_type": "TASK",
-          "callback": "guide"
+          "callback": "nothing"
         },
         {
           "my_id": "contact_page",
           "next_id": null,
           "my_type": "TASK",
-          "callback": "guide"
+          "callback": "nothing"
         },
         {
           "my_id": "end",
           "next_id": "start",
-          "my_type": "END"
+          "my_type": "TASK"
         }
       ],
       "first_activity_id": "start"

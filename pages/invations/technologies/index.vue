@@ -1,10 +1,9 @@
 <template>
   <!-- Our technologies -->
   <div>
-    <welcome-area-start
-      :paths-list="pathsList"
-      :bigImage="'/banners/banner-agumented.png'"
-    >
+    <breadcrump :paths-list="pathsList" breadcrump-class="breadcrump-link">
+    </breadcrump>
+    <welcome-area-start :bigImage="'/banners/banner-agumented.png'">
       <template #title> Explore our <em>Technologies</em></template>
       <template #overview>
         Our <i>Visionary</i> ideas are based on the latest <br />
@@ -24,7 +23,7 @@
         <content-rounded-containers
           :area-name="technology.name"
           :content="technology.invations"
-          :research-id="'vision' + technology.id + '-ul'"
+          research-id=""
           :description="technology.description"
           description-name="overview"
           :typology="'invations'"
@@ -37,38 +36,40 @@
 </template>
 
 <script>
-import WelcomeAreaStart from '~/components/baseElements/WelcomeAreaStart.vue'
-import ContentRoundedContainers from '~/components/baseElements/ContentRoundedContainers'
+import Breadcrump from "~/components/baseElements/Breadcrump.vue";
+import WelcomeAreaStart from "~/components/baseElements/WelcomeAreaStart.vue";
+import ContentRoundedContainers from "~/components/baseElements/ContentRoundedContainers";
 
 export default {
   components: {
+    Breadcrump,
     WelcomeAreaStart,
     ContentRoundedContainers,
   },
   async asyncData({ $axios }) {
     const { data } = await $axios.get(
       `${process.env.BASE_URL}/api/technologies`
-    )
-    const technologies = data
+    );
+    const technologies = data;
     return {
       technologies,
-    }
+    };
   },
   data() {
     return {
       pathsList: [
         {
-          path: '/invations',
-          pathName: 'Invations',
+          path: "/invations",
+          pathName: "Invations",
         },
         {
-          path: '/invations/technologies',
-          pathName: 'Technologies',
+          path: "/invations/technologies",
+          pathName: "Invations by technologies",
         },
       ],
-    }
+    };
   },
-}
+};
 </script>
 
 <style scoped>

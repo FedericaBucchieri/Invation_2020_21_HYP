@@ -1,13 +1,27 @@
 <template>
   <div class="content">
+    <breadcrump :paths-list="pathsList" breadcrump-class="breadcrump-link">
+    </breadcrump>
     <div class="left-image-decor"></div>
     <!-- Overview -->
     <object-overview
       :name="completeName"
       :img-path="invationer.image"
       :overview="invationer.overview"
-      :paths-list="pathsList"
     ></object-overview>
+    <div class="container">
+      <div class="row">
+        <div v-if="invationer.vision.isActive" class="vision-role">
+          Responsible for the vision:
+          <nuxt-link :to="'/visions/' + invationer.vision.id">{{
+            invationer.vision.name
+          }}</nuxt-link>
+        </div>
+        <div v-if="!invationer.vision.isActive" class="vision-role-inactive">
+          Responsible for this vision: {{ invationer.vision.name }}
+        </div>
+      </div>
+    </div>
     <!-- Personal Details -->
     <section id="personalDetails">
       <div class="container">
@@ -32,7 +46,7 @@
         <div class="row">
           <div class="role-skill-container">
             <div class="role-section">
-              <h3>ROLE</h3>
+              <h3>BACKGROUND</h3>
               <img
                 :src="invationer.badge"
                 :alt="invationer.role + 'badge'"
@@ -40,12 +54,6 @@
                 height="120"
               />
               <p>{{ invationer.role }}</p>
-              <div class="vision-role">
-                Vision Manager:
-                <nuxt-link :to="'/visions/' + invationer.vision.id">{{
-                  invationer.vision.name
-                }}</nuxt-link>
-              </div>
             </div>
             <div class="skill-section">
               <h3>SKILLS</h3>
@@ -53,10 +61,9 @@
                 v-for="(item, itemIndex) of invationer.skills"
                 :key="'skill-' + itemIndex"
                 :src="item.image"
-                :alt="item.name + 'skill icon'"
+                :alt="item.name + ' skill icon'"
                 width="100"
                 height="100"
-                loading="lazy"
               />
             </div>
             <div class="contact-section">
@@ -90,7 +97,7 @@
         :content="invationer.invations"
         :area-name="'The Invations this Invationer worked on'"
         :typology="'invations'"
-        :research-id="'invations-ul'"
+        research-id=""
         :description-name="'overview'"
       >
       </content-rounded-containers>
@@ -107,56 +114,58 @@
 </template>
 
 <script>
-import ObjectOverview from '~/components/baseElements/ObjectOverview.vue'
-import InvationerShortCardContainer from '~/components/invationer/InvationerShortCardContainer.vue'
-import ContentRoundedContainers from '~/components/baseElements/ContentRoundedContainers.vue'
+import Breadcrump from "~/components/baseElements/Breadcrump.vue";
+import ObjectOverview from "~/components/baseElements/ObjectOverview.vue";
+import InvationerShortCardContainer from "~/components/invationer/InvationerShortCardContainer.vue";
+import ContentRoundedContainers from "~/components/baseElements/ContentRoundedContainers.vue";
 
 export default {
   components: {
+    Breadcrump,
     ObjectOverview,
     InvationerShortCardContainer,
     ContentRoundedContainers,
   },
   async asyncData({ $axios, route }) {
-    const { id } = route.params
+    const { id } = route.params;
     const invationerData = await $axios.get(
       `${process.env.BASE_URL}/api/invationers/${id}`
-    )
-    const invationer = invationerData.data
+    );
+    const invationer = invationerData.data;
 
     const invationersData = await $axios.get(
       `${process.env.BASE_URL}/api/invationers`
-    )
-    const invationers = invationersData.data
+    );
+    const invationers = invationersData.data;
     return {
       invationer,
       invationers,
-    }
+    };
   },
   data() {
     return {
       showMore: false,
       pathsList: [],
-    }
+    };
   },
   mounted() {
     this.pathsList = [
       {
-        path: '/invationers',
-        pathName: 'Invationers',
+        path: "/invationers",
+        pathName: "Invationers",
       },
       {
         path: `/invationers/${this.invationer.id}`,
-        pathName: `${this.invationer.name + ' ' + this.invationer.surname}`,
+        pathName: `${this.invationer.name + " " + this.invationer.surname}`,
       },
-    ]
+    ];
   },
   head() {
     return {
-      title: 'Invation - ' + this.invationer.name,
+      title: "Invation - " + this.invationer.name,
       meta: [
         {
-          name: 'description',
+          name: "description",
           content: this.invationer.overview,
         },
         {
@@ -165,14 +174,14 @@ export default {
           content: this.invationer.overview,
         },
       ],
-    }
+    };
   },
   computed: {
     completeName() {
-      return this.invationer.name + ' ' + this.invationer.surname
+      return this.invationer.name + " " + this.invationer.surname;
     },
   },
-}
+};
 </script>
 
 <style scoped>
@@ -247,6 +256,19 @@ section {
   margin: 0 30px 30px 30px;
 }
 
+/* .not-available-msg {
+  display: none; 
+  position: absolute; 
+  color: #fff; 
+  background: rgb(174, 173, 173); 
+  padding: 5px;
+}
+
+.vision-role:hover span {
+  display: block; 
+  text-align: center; 
+}*/
+
 .vision-role {
   background: linear-gradient(
     145deg,
@@ -256,6 +278,19 @@ section {
   color: white;
   padding: 5px 10px;
   border-radius: 5px;
+  width: max-content;
+  margin-left: 7%;
+  margin-top: 10px;
+}
+
+.vision-role-inactive {
+  background: rgb(194, 194, 194);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  width: max-content;
+  margin-left: 7%;
+  margin-top: 10px;
 }
 
 .inspirational-quote {
@@ -280,6 +315,10 @@ section {
 
   #invationers {
     margin-bottom: 20%;
+  }
+
+  .vision-role {
+    margin-bottom: 60px;
   }
 }
 </style>
