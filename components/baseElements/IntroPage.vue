@@ -1,10 +1,11 @@
 <template>
   <div class="intro-page-content">
+    <breadcrump :paths-list="pathsList" breadcrump-class="breadcrump-link">
+    </breadcrump>
     <!-- ***** Welcome area start ***** -->
     <welcome-area-start
       :text-button="textButton"
       :link="'#' + generalLink"
-      :paths-list="pathsList"
       :big-image="bigImage"
     >
       <template #title><slot name="welcome-title"></slot> </template>
@@ -13,9 +14,8 @@
     <!-- ***** Welcome area end ***** -->
 
     <!--**** Photogallery area starts ****-->
-    <!-- <photo-gallery :img-list="invationsDemo"> </photo-gallery> -->
-    <!-- <base-gallery :imgList="invationsDemo"></base-gallery> -->
     <decoration-slide-show
+      v-show="hasPhotoGallery"
       :slide-objects="slideObjects"
       :title="slideObjectTitle"
       :introduction="slideObjectIntro"
@@ -31,27 +31,26 @@
 </template>
 
 <script>
-// import BaseGallery from './baseElements/BaseGallery.vue'
-import DecorationSlideShow from '../decoration/DecorationSlideShow.vue'
-import WelcomeAreaStart from '~/components/baseElements/WelcomeAreaStart.vue'
-// import PhotoGallery from '~/components/baseElements/PhotoGallery.vue'
+import Breadcrump from "~/components/baseElements/Breadcrump.vue";
+import DecorationSlideShow from "../decoration/DecorationSlideShow.vue";
+import WelcomeAreaStart from "~/components/baseElements/WelcomeAreaStart.vue";
 
 export default {
   components: {
+    Breadcrump,
     WelcomeAreaStart,
-    // PhotoGallery,
-    // BaseGallery,
     DecorationSlideShow,
   },
   props: {
-    textButton: { type: String, default: () => '' },
-    areaName: { type: String, default: () => '' },
-    bigImage: { type: String, default: () => '' },
-    generalLink: { type: String, default: () => '' },
+    textButton: { type: String, default: () => "" },
+    areaName: { type: String, default: () => "" },
+    bigImage: { type: String, default: () => "" },
+    generalLink: { type: String, default: () => "" },
     pathsList: { type: Array, default: () => [] },
     slideObjects: { type: Array, default: () => [] },
-    slideObjectTitle: { type: String, default: () => '' },
-    slideObjectIntro: { type: String, default: () => '' },
+    slideObjectTitle: { type: String, default: () => "" },
+    slideObjectIntro: { type: String, default: () => "" },
+    hasPhotoGallery: { type: Boolean, default: () => true },
   },
   data() {
     return {
@@ -59,24 +58,24 @@ export default {
       // necessary to define the data provided by fetch
       invationsDemo: [],
       entities: [],
-    }
+    };
   },
   // problem: https://nuxtjs.org/docs/2.x/features/data-fetching#async-data-in-components
   // solution: https://nuxtjs.org/docs/2.x/features/data-fetching#the-fetch-hook
   async fetch() {
     const invationsDemoData = await this.$axios.get(
       `${process.env.BASE_URL}/api/invations10`
-    )
-    this.invationsDemo = invationsDemoData.data
+    );
+    this.invationsDemo = invationsDemoData.data;
 
     const entitesData = await this.$axios.get(
       `${process.env.BASE_URL}/api/${this.generalLink}`
-    )
-    this.entities = entitesData.data
+    );
+    this.entities = entitesData.data;
   },
   // SSR best-practice? - to ask
   fetchOnServer: true,
-}
+};
 </script>
 
 <style scoped>

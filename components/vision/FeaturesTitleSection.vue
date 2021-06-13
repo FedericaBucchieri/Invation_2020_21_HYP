@@ -1,7 +1,7 @@
 <template>
   <div class="features-title-section">
     <nuxt-link :to="link">
-      <h2>{{ title }}</h2>
+      <h2>Product: {{ title }}</h2>
     </nuxt-link>
     <h3>{{ subtitle }}</h3>
     <p>
@@ -21,9 +21,9 @@ export default {
       subtitle: this.content[1],
       overview: this.content[2],
       link: this.content[3],
-    }
+    };
   },
-}
+};
 </script>
 
 <style scoped>

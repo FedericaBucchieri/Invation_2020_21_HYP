@@ -729,8 +729,7 @@ async function insertFakeData() {
     nationality: "USA",
     overview:
       "Determined girl who loves her pets and her family more than anything else",
-    quote:
-      "Being cool is being your own self, not doing something that someone else is telling you to do",
+    quote: "Being cool is being your own self, just as you are.",
     image: "https://imgur.com/pGAPhG3.png",
     sport: "No please!",
     hobby: "Dancing, Reading",

@@ -1,10 +1,11 @@
 <template>
   <div>
+    <breadcrump :paths-list="pathsList" breadcrump-class="breadcrump-link">
+    </breadcrump>
     <!-- ***** Welcome Area Start ***** -->
     <welcome-area-start
       :text-button="textButton"
       :link="'#founders'"
-      :paths-list="pathsList"
       :bigImage="'/banners/banner-robot.png'"
     >
       <template #title> About the company: <em>Invation</em> </template>
@@ -95,11 +96,13 @@
 </template>
 
 <script>
+import Breadcrump from "~/components/baseElements/Breadcrump.vue";
 import ThreeObjectContainer from "~/components/baseElements/ThreeObjectContainer.vue";
 import WelcomeAreaStart from "~/components/baseElements/WelcomeAreaStart.vue";
 
 export default {
   components: {
+    Breadcrump,
     WelcomeAreaStart,
     ThreeObjectContainer,
   },
@@ -158,6 +161,11 @@ export default {
 </script>
 
 <style>
+#founders {
+  padding-top: 150px;
+  margin-top: -150px;
+}
+
 @media only screen and (max-width: 1024px) {
   #founders {
     margin: 200px 0 100px 0;

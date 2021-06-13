@@ -1,6 +1,6 @@
 <template>
   <intro-page
-    text-button="DISCOVER INVATIONERS"
+    text-button="DISCOVER OUR INVATIONERS"
     area-name="Our team"
     general-link="invationers"
     :bigImage="bigImage"
@@ -9,7 +9,10 @@
     :slideObjectTitle="'What people say about Us '"
     :slideObjectIntro="'Your opinions are important to us. That is why you can leave a review to all our invations and our team will carefull read all of them. Those are some of the favourite comments fans leaved to us.'"
   >
-    <template #welcome-title> Our team: <em>The invationers</em> </template>
+    <template #welcome-title>
+      Our people:<br />
+      <em>The invationers</em>
+    </template>
     <template #welcome-overview>
       A Multicultural, dynamic team that we use to call family. The
       <b>Invationers</b> are Software Engineers, Designer, Managers,
@@ -28,8 +31,8 @@
 </template>
 
 <script>
-import IntroPage from '~/components/baseElements/IntroPage'
-import InvationerShortCardContainer from '~/components/invationer/InvationerShortCardContainer.vue'
+import IntroPage from "~/components/baseElements/IntroPage";
+import InvationerShortCardContainer from "~/components/invationer/InvationerShortCardContainer.vue";
 
 export default {
   components: {
@@ -41,64 +44,69 @@ export default {
   },
   data() {
     return {
-      bigImage: '/banners/banner-astronauts.png',
+      bigImage: "/banners/banner-astronauts.png",
       pathsList: [
         {
           path: this.$route.path,
-          pathName: 'Invationers',
+          pathName: "Invationers",
         },
       ],
       slideObjects: [
         {
-          title: 'Olivia Purple',
+          title: "Olivia Purple",
           text:
             '"Invation work is deligthful, I will spend hour on this website!"',
-          background: 'https://imgur.com/CtzuCKT.png',
+          background: "https://imgur.com/CtzuCKT.png",
         },
         {
-          title: 'Stella White',
+          title: "Stella White",
           text:
             '"This team is amazing, so passionate, so strong, so unified. It is like a true family"',
-          background: 'https://imgur.com/IDFoDB4.png',
+          background: "https://imgur.com/IDFoDB4.png",
         },
         {
-          title: 'Jacob Green',
+          title: "Jacob Green",
           text:
             '"It is incredible how much effort this invationers put in their job, well done!"',
-          background: 'https://imgur.com/BgP0tZN.png',
+          background: "https://imgur.com/BgP0tZN.png",
         },
         {
-          title: 'Scarlet Red',
+          title: "Scarlet Red",
           text:
             '"Graphics, responsivness and colors match perfectly the dynamis of the company"',
-          background: 'https://imgur.com/QU3KM3t.png',
+          background: "https://imgur.com/QU3KM3t.png",
         },
         {
-          title: 'Missy Blue',
+          title: "Missy Blue",
           text:
             '"Hey guys, when are you going to open your headquarter door? Party!!!"',
-          background: 'https://imgur.com/9088YPF.png',
+          background: "https://imgur.com/9088YPF.png",
         },
       ],
-    }
+    };
   },
   head() {
     return {
-      title: 'Invation - All invationers',
+      title: "Invation - All invationers",
       meta: [
         {
-          name: 'description',
-          content: 'All the invationers of the Invation Team',
+          name: "description",
+          content: "All the invationers of the Invation Team",
         },
         {
-          hid: 'all invationers',
-          name: 'all invationers',
-          content: 'all invationers overview and team member presentation',
+          hid: "all invationers",
+          name: "all invationers",
+          content: "all invationers overview and team member presentation",
         },
       ],
-    }
+    };
   },
-}
+};
 </script>
 
-<style></style>
+<style>
+#invationers {
+  padding-top: 150px;
+  margin-top: -150px;
+}
+</style>

@@ -3,6 +3,7 @@
     text-button="DISCOVER OUR INVATIONS"
     area-name="Our invations"
     general-link="invations"
+    :hasPhotoGallery="false"
     :bigImage="bigImage"
     :paths-list="pathsList"
     :slideObjects="slideObjects"
@@ -10,7 +11,7 @@
     :slideObjectIntro="'To build or innovation we always keep in mind our goals and our mission.'"
   >
     <template #welcome-title>
-      Our innovations: <em>The invations</em>
+      Our products: <br /><em>The invations</em>
     </template>
     <template #welcome-overview>
       Here you can find the complete list of all our invations: innovative
@@ -19,9 +20,9 @@
     <template #entitiesList="entitiesProps">
       <content-rounded-containers
         :content="entitiesProps.entities"
-        area-name="Our invations"
+        area-name="The invations"
         description-name="overview"
-        research-id="invations-ul"
+        research-id=""
         typology="invations"
         :displayTags="false"
       ></content-rounded-containers>
@@ -120,4 +121,16 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+#invation_list {
+  padding-top: 200px;
+  margin-top: 0px;
+}
+
+@media (min-width: 1140px) {
+  #invation_list {
+    padding-top: 200px;
+    margin-top: -250px;
+  }
+}
+</style>

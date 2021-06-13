@@ -1,6 +1,15 @@
 <template>
   <div class="content">
+    <breadcrump :paths-list="pathsList" breadcrump-class="breadcrump-link">
+    </breadcrump>
     <div class="left-image-decor"></div>
+    <!--  Navigation handler for guided tour interactions among products of the same vision -->
+    <navigation-guided-tour-handler
+      :vision="invation.vision"
+      :current-id="invation.id"
+      :first-element-of-the-vision-id="otherInvations[0].id"
+      :otherInvations="otherInvations"
+    ></navigation-guided-tour-handler>
     <section>
       <!-- ***** Overview  ***** -->
       <object-overview
@@ -9,16 +18,12 @@
         :img-path="invation.image"
         :overview="invation.overview"
         :tags="invation.technologies"
-        :paths-list="pathsList"
+        class="invation-overview"
       ></object-overview>
     </section>
     <!-- ***** Concept  ***** -->
     <section id="section1">
-      <object-concept
-        :concept="invation.concept"
-        :is-part-of-a-vision="true"
-        :vision="invation.vision"
-      ></object-concept>
+      <object-concept :concept="invation.concept"></object-concept>
     </section>
     <div class="right-image-decor"></div>
     <!-- Show More Button -->
@@ -83,7 +88,7 @@
     <section id="invationers">
       <invationer-short-card-container
         :card-list="invation.invationers"
-        :title="'Invationers that worked on this innovation'"
+        :title="'Invationers that worked on this invation'"
         :typology="`invationers`"
       ></invationer-short-card-container>
     </section>
@@ -91,30 +96,41 @@
 </template>
 
 <script>
+import Breadcrump from "~/components/baseElements/Breadcrump.vue";
 import ObjectOverview from "~/components/baseElements/ObjectOverview.vue";
 import ObjectConcept from "~/components/baseElements/ObjectConcept.vue";
 import ObjectVideo from "~/components/baseElements/ObjectVideo.vue";
 import ObjectMore from "~/components/baseElements/ObjectMore.vue";
 import InvationerShortCardContainer from "~/components/invationer/InvationerShortCardContainer.vue";
 import InvationReviewList from "~/components/invation/InvationReviewList.vue";
+import NavigationGuidedTourHandler from "~/components/baseElements/NavigationGuidedTourHandler.vue";
 
 export default {
   components: {
+    Breadcrump,
     ObjectOverview,
     ObjectConcept,
     ObjectVideo,
     ObjectMore,
     InvationerShortCardContainer,
     InvationReviewList,
+    NavigationGuidedTourHandler,
   },
   async asyncData({ $axios, route }) {
     const { id } = route.params;
-    const { data } = await $axios.get(
+    const invationData = await $axios.get(
       `${process.env.BASE_URL}/api/invation/${id}`
     );
-    const invation = data;
+    const invation = invationData.data;
+
+    const otherInvationsData = await $axios.get(
+      `${process.env.BASE_URL}/api/invations_for_vision/${invation.vision.id}`
+    );
+
+    const otherInvations = otherInvationsData.data;
     return {
       invation,
+      otherInvations,
     };
   },
   data() {
@@ -178,6 +194,10 @@ export default {
 </script>
 
 <style scoped>
+.invation-overview {
+  margin-top: 10px;
+}
+
 .more {
   text-align: center;
   margin: 50px 40px 80px 40px;

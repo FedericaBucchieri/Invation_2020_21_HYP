@@ -10,16 +10,18 @@
         width="100"
         height="100"
       />
-      <nuxt-link :to="`/invationers/` + id" class="card-name">
-        <div class="invationer-name">
-          <h5>
-            {{ invationer.name + " " + invationer.surname }}
-          </h5>
-        </div>
-      </nuxt-link>
+      <div class="invationer-name">
+        <h5>
+          {{ invationer.name + " " + invationer.surname }}
+        </h5>
+      </div>
 
       <div class="role">{{ invationer.role }}</div>
       <p>{{ invationer.quote }}</p>
+
+      <nuxt-link :to="`/invationers/` + id" class="card-name">
+        <button class="main-button invationer-button">Explore</button>
+      </nuxt-link>
     </div>
     <div class="skills">
       <p class="skill-title">Skills</p>
@@ -47,7 +49,7 @@ export default {
 
 <style>
 .invation-card .invationer-name {
-  margin: 10px 0;
+  margin: 10px 0 0 0;
   font-size: 18px;
   font-weight: 600;
 }
@@ -62,23 +64,19 @@ export default {
 }
 
 .invation-card .role {
-  margin: 15px auto;
+  margin: 0 auto 15px auto;
   text-transform: uppercase;
-  background: linear-gradient(
-    145deg,
-    rgba(244, 129, 63, 1) 0%,
-    rgba(241, 85, 106, 1) 100%
-  );
-  color: white;
+  color: rgba(244, 129, 63, 1);
   padding: 5px 10px;
   border-radius: 10px;
-  width: 60%;
-  font-size: 12px;
+  width: 80%;
+  font-size: 14px;
 }
 
 .invationer-details {
-  height: 230px;
+  height: 270px;
 }
+
 .invation-card {
   background-color: white;
   border-radius: 5px;
@@ -99,6 +97,14 @@ export default {
   font-weight: 200;
   font-style: italic;
   width: 265px;
+}
+
+.invationer-button {
+  margin-top: 20px;
+}
+
+.invationer-button:hover {
+  color: black;
 }
 
 .round {
