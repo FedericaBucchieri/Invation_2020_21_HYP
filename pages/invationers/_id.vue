@@ -17,7 +17,7 @@
             invationer.vision.name
           }}</nuxt-link>
         </div>
-        <div v-if="!invationer.vision.isActive" class="vision-role-inactive">
+        <div v-else class="vision-role-inactive">
           Responsible for this vision: {{ invationer.vision.name }}
         </div>
       </div>
@@ -57,14 +57,20 @@
             </div>
             <div class="skill-section">
               <h3>SKILLS</h3>
-              <img
-                v-for="(item, itemIndex) of invationer.skills"
-                :key="'skill-' + itemIndex"
-                :src="item.image"
-                :alt="item.name + ' skill icon'"
-                width="100"
-                height="100"
-              />
+              <ul>
+                <li
+                  v-for="(item, itemIndex) of invationer.skills"
+                  :key="'skill-' + itemIndex"
+                >
+                  <img
+                    :src="item.image"
+                    :alt="item.name + ' skill icon'"
+                    width="100"
+                    height="100"
+                  />
+                  <span class="skill-name"> {{ item.name }}</span>
+                </li>
+              </ul>
             </div>
             <div class="contact-section">
               <h3>CONTACT ME</h3>
@@ -99,6 +105,7 @@
         :typology="'invations'"
         research-id=""
         :description-name="'overview'"
+        :displayTags="false"
       >
       </content-rounded-containers>
     </section>
@@ -246,10 +253,17 @@ section {
 
 .skill-section {
   margin: 0 30px 30px 30px;
+  text-align: left;
 }
 
 .skill-section img {
-  width: 100px;
+  width: 50px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.skill-section li {
+  padding: 3px 0px;
 }
 
 .contact-section {
@@ -291,6 +305,7 @@ section {
   width: max-content;
   margin-left: 7%;
   margin-top: 10px;
+  cursor: not-allowed;
 }
 
 .inspirational-quote {

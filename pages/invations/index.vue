@@ -6,9 +6,6 @@
     :hasPhotoGallery="false"
     :bigImage="bigImage"
     :paths-list="pathsList"
-    :slideObjects="slideObjects"
-    :slideObjectTitle="'What we care about'"
-    :slideObjectIntro="'To build or innovation we always keep in mind our goals and our mission.'"
   >
     <template #welcome-title>
       Our products: <br /><em>The invations</em>
@@ -47,38 +44,6 @@ export default {
         {
           path: this.$route.path,
           pathName: "Invations",
-        },
-      ],
-      slideObjects: [
-        {
-          title: "Expanding",
-          text:
-            "Our goal is to expand worldwide to bring our visions to the extraordinary! Help us enlarge our network",
-          background: "https://imgur.com/3CSOdHC.png",
-        },
-        {
-          title: "Control",
-          text:
-            "Always with a look at the main industries in tech, IT and Process management in order to be on top of the market",
-          background: "https://imgur.com/DNXjdTJ.png",
-        },
-        {
-          title: "Analytics",
-          text:
-            "Data driven decision making is our faith. No decision is maken without a look at actual data",
-          background: "https://imgur.com/Rou077E.png",
-        },
-        {
-          title: "Future",
-          text:
-            "With a focus on the future that will benefit and inspire the next generation of invationers",
-          background: "https://imgur.com/lOScshY.png",
-        },
-        {
-          title: "Augumenting Reality",
-          text:
-            "Our preferred technologies are Augmented and Mixed reality. We want to create a better, technological, reality.",
-          background: "https://imgur.com/aE5AnGG.png",
         },
       ],
     };

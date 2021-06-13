@@ -1,46 +1,66 @@
 <template>
-  <intro-page
-    text-button="DISCOVER OUR INVATIONERS"
-    area-name="Our team"
-    general-link="invationers"
-    :bigImage="bigImage"
-    :paths-list="pathsList"
-    :slideObjects="slideObjects"
-    :slideObjectTitle="'What people say about Us '"
-    :slideObjectIntro="'Your opinions are important to us. That is why you can leave a review to all our invations and our team will carefull read all of them. Those are some of the favourite comments fans leaved to us.'"
-  >
-    <template #welcome-title>
-      Our people:<br />
-      <em>The invationers</em>
-    </template>
-    <template #welcome-overview>
-      A Multicultural, dynamic team that we use to call family. The
-      <b>Invationers</b> are Software Engineers, Designer, Managers,
-      Communications experts and more. Inside the <i>team</i>, we exploit
-      synergies among different backgrounds. Learning by doing is part of the
-      job, growing together is our mission.
-    </template>
-    <template #entitiesList="slotProps">
+  <div>
+    <breadcrump :paths-list="pathsList" breadcrump-class="breadcrump-link">
+    </breadcrump>
+    <!-- ***** Welcome area start ***** -->
+    <welcome-area-start
+      :text-button="'DISCOVER OUR INVATIONERS'"
+      :link="'#invationers'"
+      :big-image="bigImage"
+    >
+      <template #title>
+        Our people:<br />
+        <em>The invationers</em>
+      </template>
+      <template #overview>
+        A Multicultural, dynamic team that we use to call family. The
+        <b>Invationers</b> are Software Engineers, Designer, Managers,
+        Communications experts and more. Inside the <i>team</i>, we exploit
+        synergies among different backgrounds. Learning by doing is part of the
+        job, growing together is our mission.
+      </template>
+    </welcome-area-start>
+    <!-- ***** Welcome area end ***** -->
+
+    <!--**** Photogallery area starts ****-->
+    <decoration-slide-show
+      :slide-objects="slideObjects"
+      :title="slideObjectTitle"
+      :introduction="slideObjectIntro"
+    ></decoration-slide-show>
+    <!--**** Photogallery area ends ****-->
+
+    <!-- ***** All entities area starts ***** -->
+    <section id="invationers">
       <invationer-short-card-container
-        :card-list="slotProps.entities"
+        :card-list="invationers"
         title="The invationers"
         typology="invationers"
       ></invationer-short-card-container>
-    </template>
-  </intro-page>
+    </section>
+    <!-- ***** All entities area ends ***** -->
+  </div>
 </template>
 
 <script>
-import IntroPage from "~/components/baseElements/IntroPage";
+import Breadcrump from "~/components/baseElements/Breadcrump.vue";
+import WelcomeAreaStart from "~/components/baseElements/WelcomeAreaStart.vue";
 import InvationerShortCardContainer from "~/components/invationer/InvationerShortCardContainer.vue";
 
 export default {
   components: {
-    IntroPage,
+    Breadcrump,
+    WelcomeAreaStart,
     InvationerShortCardContainer,
   },
-  props: {
-    entities: { type: Array, default: () => [] },
+  async asyncData({ $axios }) {
+    const { data } = await $axios.get(
+      `${process.env.BASE_URL}/api/invationers`
+    );
+    const invationers = data;
+    return {
+      invationers,
+    };
   },
   data() {
     return {

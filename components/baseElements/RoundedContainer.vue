@@ -7,15 +7,24 @@
         :alt="'Thubmnail image' + name"
         width="120"
         height="120"
+        :class="[!isActiveLink ? 'inactiveImage' : '']"
       />
       <h3>{{ name }}</h3>
       <p>
         {{ description }}
       </p>
-      <nuxt-link v-if="isActiveLink" :to="`/${typology}/` + id" class="main-button">
+      <nuxt-link
+        v-if="isActiveLink"
+        :to="`/${typology}/` + id"
+        class="main-button"
+      >
         Explore
       </nuxt-link>
-      <button v-if="!isActiveLink" disabled="disabled" class="main-button-inactive">
+      <button
+        v-if="!isActiveLink"
+        disabled="disabled"
+        class="main-button-inactive"
+      >
         Explore
       </button>
     </div>
@@ -24,7 +33,10 @@
         <b>Related Vision:</b> {{ vision.name }}</nuxt-link
       >
     </div>
-    <div v-if="vision !== undefined && !isActiveLink" class="vision-as-footer-inactive">
+    <div
+      v-if="vision !== undefined && !isActiveLink"
+      class="vision-as-footer-inactive"
+    >
       <b>Related Vision:</b> {{ vision.name }}
     </div>
   </div>
@@ -33,17 +45,17 @@
 <script>
 export default {
   props: {
-    numberTag: { type: String, default: () => '' },
-    name: { type: String, default: () => '' },
-    description: { type: String, default: () => '' },
-    image: { type: String, default: () => '' },
-    typology: { type: String, default: () => '' },
+    numberTag: { type: String, default: () => "" },
+    name: { type: String, default: () => "" },
+    description: { type: String, default: () => "" },
+    image: { type: String, default: () => "" },
+    typology: { type: String, default: () => "" },
     vision: { type: Object, default: () => {} },
     displayTag: { type: Boolean, default: () => true },
     id: { type: Number, default: () => 0 },
-    isActiveLink: { type: Boolean, default: () => true},
+    isActiveLink: { type: Boolean, default: () => true },
   },
-}
+};
 </script>
 
 <style scoped>
@@ -65,6 +77,7 @@ export default {
 
 #invation_list .main-button-inactive {
   margin: auto;
+  cursor: not-allowed;
 }
 
 #invation_list h2 {
@@ -152,6 +165,7 @@ export default {
   width: 100%;
   margin-bottom: 20px;
   font-size: 14px;
+  cursor: not-allowed;
 }
 
 b {
@@ -159,5 +173,9 @@ b {
   font-size: 11px;
   color: white;
   margin-right: 25px;
+}
+
+.inactiveImage {
+  background: grey !important;
 }
 </style>

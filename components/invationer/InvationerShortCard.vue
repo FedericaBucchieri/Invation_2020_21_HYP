@@ -11,9 +11,7 @@
         height="100"
       />
       <div class="invationer-name">
-        <h5>
-          {{ invationer.name + " " + invationer.surname }}
-        </h5>
+        {{ invationer.name + " " + invationer.surname }}
       </div>
 
       <div class="role">{{ invationer.role }}</div>
@@ -50,7 +48,7 @@ export default {
 <style>
 .invation-card .invationer-name {
   margin: 10px 0 0 0;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
 }
 
@@ -66,8 +64,8 @@ export default {
 .invation-card .role {
   margin: 0 auto 15px auto;
   text-transform: uppercase;
-  color: rgba(244, 129, 63, 1);
-  padding: 5px 10px;
+  color: #222;
+  padding: 0px 10px 5px 10px;
   border-radius: 10px;
   width: 80%;
   font-size: 14px;
