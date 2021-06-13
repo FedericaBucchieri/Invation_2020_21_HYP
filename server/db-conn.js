@@ -33,6 +33,7 @@ function defineDatabaseStructure() {
       numberTag: DataTypes.STRING,
       thumbnail: DataTypes.STRING,
       video: DataTypes.STRING,
+      isActive: DataTypes.BOOLEAN,
       creationDate: DataTypes.DATE,
     },
     {
@@ -48,6 +49,7 @@ function defineDatabaseStructure() {
       image: DataTypes.STRING,
       bigImage: DataTypes.STRING,
       video: DataTypes.STRING,
+      isActive: DataTypes.BOOLEAN,
     },
     {
       underscored: true,
@@ -174,6 +176,7 @@ async function insertFakeData() {
     numberTag: "01",
     thumbnail: "https://imgur.com/RgEQigU.png",
     video: "https://www.youtube.com/embed/Io4tcn5UZQc",
+    isActive: true,
     creationDate: Date.now(),
   });
   const invation1 = await Invation.create({
@@ -189,6 +192,7 @@ async function insertFakeData() {
     numberTag: "02",
     thumbnail: "https://imgur.com/ejUeWHt.png",
     video: "https://www.youtube.com/embed/EQh3K9SFUtI",
+    isActive: true,
     creationDate: Date.now(),
   });
 
@@ -206,6 +210,7 @@ async function insertFakeData() {
     numberTag: "03",
     thumbnail: "https://imgur.com/YV2Hweq.png",
     video: "https://www.youtube.com/embed/t6_KgKP-uZE",
+    isActive: true,
     creationDate: Date.now(),
   });
   const invation3 = await Invation.create({
@@ -222,6 +227,7 @@ async function insertFakeData() {
     numberTag: "04",
     thumbnail: "https://imgur.com/cvxcwfd.png",
     video: "https://www.youtube.com/embed/VKXVqiWGNTM",
+    isActive: true,
     creationDate: Date.now(),
   });
   const invation4 = await Invation.create({
@@ -238,6 +244,7 @@ async function insertFakeData() {
     numberTag: "05",
     thumbnail: "https://imgur.com/yW851Cf.png",
     video: "https://www.youtube.com/embed/-EgFVj92Wbo",
+    isActive: true,
     creationDate: Date.now(),
   });
   const invation5 = await Invation.create({
@@ -253,6 +260,7 @@ async function insertFakeData() {
     numberTag: "06",
     thumbnail: "https://imgur.com/jLAXNgq.png",
     video: "https://www.youtube.com/embed/qoIh8ITv9IU",
+    isActive: true,
     creationDate: Date.now(),
   });
 
@@ -272,6 +280,7 @@ async function insertFakeData() {
     numberTag: "01",
     thumbnail: "https://imgur.com/P5KDYcJ.png",
     video: "https://www.youtube.com/embed/GVcm9yZ4Ml4",
+    isActive: true,
     creationDate: Date.now(),
   });
 
@@ -288,6 +297,7 @@ async function insertFakeData() {
     numberTag: "02",
     thumbnail: "https://imgur.com/ycMZBNN.png",
     video: "https://www.youtube.com/embed/aW8APlZpiKo",
+    isActive: true,
     creationDate: Date.now(),
   });
 
@@ -305,6 +315,7 @@ async function insertFakeData() {
     numberTag: "03",
     thumbnail: "https://imgur.com/JNglFgH.png",
     video: "https://www.youtube.com/embed/O1tXkZ_BxI0",
+    isActive: true,
     creationDate: Date.now(),
   });
 
@@ -322,6 +333,7 @@ async function insertFakeData() {
     numberTag: "04",
     thumbnail: "https://imgur.com/Lk6bDlv.png",
     video: "https://www.youtube.com/embed/XomyEi1iYVA",
+    isActive: true,
     creationDate: Date.now(),
   });
 
@@ -339,6 +351,7 @@ async function insertFakeData() {
     numberTag: "05",
     thumbnail: "https://imgur.com/jE9J8xI.png",
     video: "https://www.youtube.com/embed/Rwgl4AdYybo",
+    isActive: true,
     creationDate: Date.now(),
   });
 
@@ -356,6 +369,7 @@ async function insertFakeData() {
     numberTag: "06",
     thumbnail: "https://imgur.com/mjs33WW.png",
     video: "https://www.youtube.com/embed/30v1UWkMBlU",
+    isActive: true,
     creationDate: Date.now(),
   });
 
@@ -375,6 +389,7 @@ async function insertFakeData() {
     numberTag: "01",
     thumbnail: "https://imgur.com/Ayh3ZnK.png",
     video: "https://www.youtube.com/embed/hcdDl8n-vV4",
+    isActive: false,
     creationDate: Date.now(),
   });
 
@@ -392,6 +407,7 @@ async function insertFakeData() {
     numberTag: "02",
     thumbnail: "https://imgur.com/m0aalfh.png",
     video: "https://www.youtube.com/embed/MU207ge4xW4",
+    isActive: false,
     creationDate: Date.now(),
   });
 
@@ -409,6 +425,7 @@ async function insertFakeData() {
     numberTag: "03",
     thumbnail: "https://imgur.com/LYZt9T9.png",
     video: "https://www.youtube.com/embed/TooKLnkGgag",
+    isActive: false,
     creationDate: Date.now(),
   });
 
@@ -427,6 +444,7 @@ async function insertFakeData() {
     numberTag: "01",
     thumbnail: "https://imgur.com/KCW6Sw8.png",
     video: "https://www.youtube.com/embed/VDBhvexAj8I",
+    isActive: false,
     creationDate: Date.now(),
   });
 
@@ -444,6 +462,7 @@ async function insertFakeData() {
     numberTag: "02",
     thumbnail: "https://imgur.com/JUElaGf.png",
     video: "https://www.youtube.com/embed/fU7Dk8ZZSLY",
+    isActive: false,
     creationDate: Date.now(),
   });
 
@@ -461,6 +480,7 @@ async function insertFakeData() {
     numberTag: "03",
     thumbnail: "https://imgur.com/1Op8bxP.png",
     video: "https://www.youtube.com/embed/hnEQq7kNFWo",
+    isActive: false,
     creationDate: Date.now(),
   });
 
@@ -473,6 +493,7 @@ async function insertFakeData() {
     bigImage: "https://imgur.com/YrfS90S.png",
     video:
       "https://www.youtube.com/embed/nmu7kEzAQus?autoplay=1&mute=1&controls=0&loop=1",
+    isActive: true,
   });
   const vision1 = await Vision.create({
     numberTag: "02",
@@ -483,6 +504,7 @@ async function insertFakeData() {
     bigImage: "https://imgur.com/SG6Q2ZL.png",
     video:
       "https://www.youtube.com/embed/nmu7kEzAQus?autoplay=1&mute=1&controls=0&loop=1",
+    isActive: true,
   });
   const vision2 = await Vision.create({
     numberTag: "03",
@@ -493,6 +515,7 @@ async function insertFakeData() {
     bigImage: "https://imgur.com/25DAOUV.png",
     video:
       "https://www.youtube.com/embed/nmu7kEzAQus?autoplay=1&mute=1&controls=0&loop=1",
+    isActive: false,
   });
   const vision3 = await Vision.create({
     numberTag: "04",
@@ -503,6 +526,7 @@ async function insertFakeData() {
     bigImage: "https://imgur.com/DM2O414.png",
     video:
       "https://www.youtube.com/embed/nmu7kEzAQus?autoplay=1&mute=1&controls=0&loop=1",
+    isActive: false,
   });
 
   const technology1 = await Technology.create({
@@ -722,7 +746,7 @@ async function insertFakeData() {
   const invationer7 = await Invationer.create({
     name: "Vanessa",
     surname: "Hudgens",
-    role: "Psychologist",
+    role: "Human Resources",
     badge: "https://imgur.com/jS8DNmJ.png",
     gender: "Female",
     age: 30,

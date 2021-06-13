@@ -11,11 +11,14 @@
     ></object-overview>
     <div class="container">
       <div class="row">
-        <div class="vision-role">
+        <div v-if="invationer.vision.isActive" class="vision-role">
           Responsible for the vision:
           <nuxt-link :to="'/visions/' + invationer.vision.id">{{
             invationer.vision.name
           }}</nuxt-link>
+        </div>
+        <div v-if="!invationer.vision.isActive" class="vision-role-inactive">
+          Responsible for this vision: {{ invationer.vision.name }}
         </div>
       </div>
     </div>
@@ -58,7 +61,7 @@
                 v-for="(item, itemIndex) of invationer.skills"
                 :key="'skill-' + itemIndex"
                 :src="item.image"
-                :alt="item.name + 'skill icon'"
+                :alt="item.name + ' skill icon'"
                 width="100"
                 height="100"
               />
@@ -94,7 +97,7 @@
         :content="invationer.invations"
         :area-name="'The Invations this Invationer worked on'"
         :typology="'invations'"
-        :research-id="'invations-ul'"
+        research-id=""
         :description-name="'overview'"
       >
       </content-rounded-containers>
@@ -253,12 +256,35 @@ section {
   margin: 0 30px 30px 30px;
 }
 
+/* .not-available-msg {
+  display: none; 
+  position: absolute; 
+  color: #fff; 
+  background: rgb(174, 173, 173); 
+  padding: 5px;
+}
+
+.vision-role:hover span {
+  display: block; 
+  text-align: center; 
+}*/
+
 .vision-role {
   background: linear-gradient(
     145deg,
     rgba(244, 129, 63, 1) 0%,
     rgba(241, 85, 106, 1) 100%
   );
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  width: max-content;
+  margin-left: 7%;
+  margin-top: 10px;
+}
+
+.vision-role-inactive {
+  background: rgb(194, 194, 194);
   color: white;
   padding: 5px 10px;
   border-radius: 5px;

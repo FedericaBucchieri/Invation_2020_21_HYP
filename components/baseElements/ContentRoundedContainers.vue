@@ -34,6 +34,7 @@
                 :typology="typology"
                 :vision="myContent.vision"
                 :id="myContent.id"
+                :is-active-link="myContent.isActive"
               >
               </rounded-container>
             </li>

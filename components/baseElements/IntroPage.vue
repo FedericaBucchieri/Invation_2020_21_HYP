@@ -1,32 +1,41 @@
+<!--
+IntroPage component.
+Aimed at containing the logic behind an Introductive page
+-->
 <template>
   <div class="intro-page-content">
+    <!-- insert breadcrump component -->
     <breadcrump :paths-list="pathsList" breadcrump-class="breadcrump-link">
     </breadcrump>
-    <!-- ***** Welcome area start ***** -->
+    <!-- welcome area start component-->
     <welcome-area-start
       :text-button="textButton"
       :link="'#' + generalLink"
       :big-image="bigImage"
     >
+      <!-- slot containing the title to put at the beginning of the intro page -->
       <template #title><slot name="welcome-title"></slot> </template>
+      <!-- slot containing the overview to put at the beginning of the intro page, after the title -->
       <template #overview><slot name="welcome-overview"></slot> </template>
     </welcome-area-start>
-    <!-- ***** Welcome area end ***** -->
+    <!-- end of the welcome area component-->
 
-    <!--**** Photogallery area starts ****-->
+    <!-- decoration slideshow component, shown if hasPhotoGallery === true -->
     <decoration-slide-show
       v-show="hasPhotoGallery"
       :slide-objects="slideObjects"
       :title="slideObjectTitle"
       :introduction="slideObjectIntro"
     ></decoration-slide-show>
-    <!--**** Photogallery area ends ****-->
+    <!-- end of decoration slideshow component-->
 
-    <!-- ***** All entities area starts ***** -->
+    <!-- scoped slot used to pass the general link to the child component-->
+    <!-- https://vuejs.org/v2/guide/components-slots.html#Scoped-Slots -->
     <section :id="generalLink">
+      <!-- passing the entities to be rendered for the intro page -->
       <slot name="entitiesList" :entities="entities"></slot>
     </section>
-    <!-- ***** All entities area ends ***** -->
+    <!-- end of the section rendering all the entities -->
   </div>
 </template>
 
@@ -54,26 +63,19 @@ export default {
   },
   data() {
     return {
-      thisGeneralLink: this.generalLink,
       // necessary to define the data provided by fetch
-      invationsDemo: [],
       entities: [],
     };
   },
   // problem: https://nuxtjs.org/docs/2.x/features/data-fetching#async-data-in-components
   // solution: https://nuxtjs.org/docs/2.x/features/data-fetching#the-fetch-hook
   async fetch() {
-    const invationsDemoData = await this.$axios.get(
-      `${process.env.BASE_URL}/api/invations10`
-    );
-    this.invationsDemo = invationsDemoData.data;
-
     const entitesData = await this.$axios.get(
       `${process.env.BASE_URL}/api/${this.generalLink}`
     );
     this.entities = entitesData.data;
   },
-  // SSR best-practice? - to ask
+  // SSR
   fetchOnServer: true,
 };
 </script>

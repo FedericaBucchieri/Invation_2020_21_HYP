@@ -12,14 +12,20 @@
       <p>
         {{ description }}
       </p>
-      <nuxt-link :to="`/${typology}/` + id" class="main-button">
+      <nuxt-link v-if="isActiveLink" :to="`/${typology}/` + id" class="main-button">
         Explore
       </nuxt-link>
+      <button v-if="!isActiveLink" disabled="disabled" class="main-button-inactive">
+        Explore
+      </button>
     </div>
-    <div v-if="vision !== undefined" class="vision-as-footer">
+    <div v-if="vision !== undefined && isActiveLink" class="vision-as-footer">
       <nuxt-link :to="'/visions/' + vision.id">
         <b>Related Vision:</b> {{ vision.name }}</nuxt-link
       >
+    </div>
+    <div v-if="vision !== undefined && !isActiveLink" class="vision-as-footer-inactive">
+      <b>Related Vision:</b> {{ vision.name }}
     </div>
   </div>
 </template>
@@ -35,6 +41,7 @@ export default {
     vision: { type: Object, default: () => {} },
     displayTag: { type: Boolean, default: () => true },
     id: { type: Number, default: () => 0 },
+    isActiveLink: { type: Boolean, default: () => true},
   },
 }
 </script>
@@ -55,6 +62,11 @@ export default {
 #invation_list .main-button {
   margin: auto;
 }
+
+#invation_list .main-button-inactive {
+  margin: auto;
+}
+
 #invation_list h2 {
   width: auto;
   margin-left: 30%;
@@ -111,6 +123,11 @@ export default {
   display: inline-block;
 }
 
+.features-item .main-button-inactive {
+  margin-top: 35px;
+  display: inline-block;
+}
+
 .vision-as-footer {
   padding: 10px 15px;
   margin: auto;
@@ -120,6 +137,17 @@ export default {
     rgba(244, 129, 63, 1) 0%,
     rgba(241, 85, 106, 1) 100%
   );
+  color: white;
+  width: 100%;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.vision-as-footer-inactive {
+  padding: 10px 15px;
+  margin: auto;
+  border-radius: 0 0 15px 15px;
+  background: grey;
   color: white;
   width: 100%;
   margin-bottom: 20px;
