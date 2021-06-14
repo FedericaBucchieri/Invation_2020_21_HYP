@@ -3,8 +3,8 @@ const { Sequelize, DataTypes } = require("sequelize");
 // Development
 const db = new Sequelize(
   // 'postgres://postgres:11235813@localhost:5432/InvationDB',
-  "postgres://postgres:federica140798@localhost:5432/InvationDB",
-  // 'postgres://postgres:password@localhost:5432/InvationDB',
+  // "postgres://postgres:federica140798@localhost:5432/InvationDB",
+  'postgres://postgres:password@localhost:5432/InvationDB',
   { logging: false }
 );
 
@@ -270,9 +270,9 @@ async function insertFakeData() {
     name: "Astro Bot Rescue Mission",
     subtitle: "Rescue your mates!",
     overview:
-      "In this action platformer, you must rescue the various members of your crew, which is scattered across space.",
+      "In this action platformer, you must rescue the various members of your crew, which is scattered across space. Are you a good friend? Will the others count on you, willl you count on the others? Find it through this game.",
     concept:
-      "The game offers 20 different main levels and 26 challenge levels, which should keep you entertained for a long time.",
+      "The game offers 20 different main levels and 26 challenge levels, which should keep you entertained for a long time. If not, there are many expansions that allows you to play as long as you want: alone with your grandpa, with the postman, with your cat, with whoever or whatever you want. Friendship is a relationship of mutual affection between people.[1] It is a stronger form of interpersonal bond than an association, and has been studied in academic fields such as communication, sociology, social psychology, anthropology, and philosophy. Various academic theories of friendship have been proposed, including social exchange theory, equity theory, relational dialectics, and attachment styles. Are you ready? Watch the video on the \"Show more\" section to have an idea!",
     more:
       "This isn’t a simple platforming title. The game features 360-degree worlds and offers several different weapons, including throwing stars, a water gun, and a hook shot.",
     image:
@@ -287,9 +287,9 @@ async function insertFakeData() {
   const invation7 = await Invation.create({
     name: "Beat Saber",
     subtitle: "Create music with laser swords!",
-    overview: "Beat Saber is a music and rhythm game with an active twist.",
+    overview: "Beat Saber is a music and rhythm game with an active twist. Feed your creativity through this game! You will create rythms with your arms, this game is freaking cool! Post your tracks on Instagram or TikTok and become the ner Beat Sabaer star.",
     concept:
-      "he setup is similar to other music games, such as Audiosurf, Guitar Hero, and Rock Band, but instead of controlling a virtual ship or using fake instruments, you slash your way through a song with virtual laser swords.",
+      "The setup is similar to other music games, such as Audiosurf, Guitar Hero, and Rock Band, but instead of controlling a virtual ship or using fake instruments, you slash your way through a song with virtual laser swords. Beat Saber replaces the classic notes of a music track with a steady stream of floating cubes that fly towards your screen. You need to cut them, usually in a specific direction indicated by an arrow, to score points. To facilitate this, your VR controllers become red and blue neon sabers, which you must swing at the corresponding coloured boxes. Though there’s no official Star Wars licensing, you can’t help but feel like a Jedi Knight brandishing two lightsabers. Even if you don’t care for Star Wars, the flurries of sparks and light effects as you carve through each cube is sure to impress and entice you. To have an idea, watch the video below on the \"Show More\" section!",
     more:
       " As the music plays, Beat Saber generates different patterns of color-coded blocks on the screen that you must hit with the correct controller (right or left) as they slide towards you. Obstacles also appear at times that require you to duck or slide away. Make no mistake, Beat Saber is not a game you can play sitting down; it’s a very active experience. If you love music and motion, Beat Saber is definitely worth exploring.",
     image:
@@ -305,9 +305,9 @@ async function insertFakeData() {
     name: "Budget Cuts",
     subtitle: "Get rid of robots!",
     overview:
-      "Will you let robots take your all-important paper-stamping and document-filing job? In this game, cost-cutting robots try to terminate your employment by any means necessary.",
+      "Will you let robots take your all-important paper-stamping and document-filing job? In this game, cost-cutting robots try to terminate your employment by any means necessary. Do you want to save the human race or are you a robot snitch?",
     concept:
-      "You must fight your way through an office environment to save your job (and your life) using stealth tactics or by resorting to aggressive violence.",
+      "You must fight your way through an office environment to save your job (and your life) using stealth tactics or by resorting to aggressive violence. From the time of ancient civilization, there have been many accounts of user-configurable automated devices and even automata resembling humans and other animals, designed primarily as entertainment. As mechanical techniques developed through the Industrial age, there appeared more practical applications such as automated machines, remote-control and wireless remote-control. How much do you believe on your human skills? Are you sure that you are necessary in this planet? Then show us on \"Budget Costs\"!",
     more:
       "AI and automation technologies are certainly poised to take over some real-world jobs previously filled by humans, so this game's hook is all too real. Be sure to check out the sequel, Budget Cuts 2: Mission Insolvency.",
     image:
@@ -323,11 +323,11 @@ async function insertFakeData() {
     name: "Danger Goat",
     subtitle: "Be the G.O.A.T.",
     overview:
-      "The life of a goat has never been easy, as you may have experienced first-hand in the one-of-a-kind Goat Simulator.",
+      "The life of a goat has never been easy, as you may have experienced first-hand in the one-of-a-kind Goat Simulator. Michael Jordan is obviously the Greatest Of All Times, but how do you live being a G.O.A.T.? Find it with this game.",
     concept:
-      "Danger Goat is arguably less bizarre, but with traps, missiles, and robots standing in your way, your escape is anything but assured.",
+      "Danger Goat is arguably less bizarre, but with traps, missiles, and robots standing in your way, your escape is anything but assured. You can't eat meat, but you can eat grass and never forget to use your horns. At surface level, it makes for harmless puzzling fun. Danger Goat is an early example of how intuitive the Daydream controller really is, allowing for an accessible point and click experience that anyone could get to grips with, even if it’s necessary to recenter your view after every level. The worlds are colorful and inviting, too, though this is one mobile VR experience in which I really missed positional tracking, as I couldn’t lean down further into these worlds and at times the camera didn’t get close enough to the action. In fact, generally speaking, there really isn’t any reason for Danger Goat to be in VR. How far can you reach? Be the new G.O.A.T.",
     more:
-      "Don’t be fooled by the bright and pleasant environments; danger lurks at every turn.",
+      "Don’t be fooled by the bright and pleasant environments; danger lurks at every turn. For the most part, Danger Goat‘s traps will involve you accidentally walking onto a marked tile and subsequently watching your goat get obliterated. Later levels introduce a few other concepts like switches that activate gates and weapons, or rivers that carry you downstream, but the basic threats don’t really change until the final seven challenges. You’ll quickly learn that many of the traps laid out in a level are nothing more than red herrings. They’re there to trick you into tossing a boulder on them to crush them, when really you needed the rock to cross a canyon. Slip up and you’ll have to start the level from scratch if you want a three star rating. But with Danger Goat‘s love of deception established so early on, you’ll find you never really fall for the perils it lays down in its first 25 levels or so. Every time I saw a trap in front of me I’d scan the environment and quickly find a way round it. That’s what you’re meant to do, of course, but I was going through levels with such ease I started to wonder what the point in it was. What makes this even more frustrating is that the final three levels bring together the game’s mechanics for some truly challenging trials. They genuinely stumped me for some time and had me going round in circles and I really enjoyed systematically solving them. If the game had reached this point, say, halfway in and not spent so much time coddling the player this would be a very different review.",
     image:
       "https://www.gamelegends.it/wp-content/uploads/2016/11/Danger-Goat-Screenshot-01-970x570.jpg",
     numberTag: "04",
@@ -341,9 +341,9 @@ async function insertFakeData() {
     name: "Everybody's Golf VR",
     subtitle: "Golf for everyone!",
     overview:
-      "If you can't get to a real golf course, the next best thing is a virtual golf game.",
+      "If you can't get to a real golf course, the next best thing is a virtual golf game. You can become the new Tiger Woods but from your living room! Be the next king of the green!  A good golf partner is one who's always slightly worse than you. Play with your friends!",
     concept:
-      "Everybody's Golf VR is the series' (formerly known as Hot Shots Golf) first VR entry. Play any of three included courses alongside a virtual caddy or practice your skills on the putting green or at the driving range.",
+      "Everybody's Golf VR is the series' (formerly known as Hot Shots Golf) first VR entry. Play any of three included courses alongside a virtual caddy or practice your skills on the putting green or at the driving range. You don’t even need to guess when Everybody’s Golf VR is; this latest game from Clap Hanz and Japan Studio does precisely what it says on the tin. This VR spin-off feels far more condensed than 2017’s Everybody’s Golf, hacking away non-essentials such as social hubs and mini-games – basically, any part that isn’t focused on the golfing itself – and losing the key multiplayer features that Everybody’s Golf has long been known for is a shame, but there’s still an engrossing fun factor here.",
     more:
       "The game supports the PlayStation Move controller for more dynamic golfing action.",
     image:
@@ -359,11 +359,11 @@ async function insertFakeData() {
     name: "Half-Life: Alyx",
     subtitle: "Half-life saga is back!",
     overview:
-      "It's not Half-Life 3 or Half-Life 2: Episode Three, but Half-Life: Alyx is the first full-fledged Half Life game that Valve has released in a long time.",
+      "It's not Half-Life 3 or Half-Life 2: Episode Three, but Half-Life: Alyx is the first full-fledged Half Life game that Valve has released in a long time. VR here is brought to the next level: shoot to monsters, heal yourself, and orient yourself inside this totally digital world.",
     concept:
-      "The game's events take place after the original Half Life, but before Half-Life 2. As the title suggests, you play fan-favorite character Alyx Vance. Throughout the roughly 11-hour campaign, you take on enemy Combine forces and seek to advance research on their weaknesses.",
+      "The game's events take place after the original Half Life, but before Half-Life 2. As the title suggests, you play fan-favorite character Alyx Vance. Throughout the roughly 11-hour campaign, you take on enemy. Combine forces and seek to advance research on their weaknesses. Even the act of healing is gross, as you insert a glass cylinder containing a living alien grub into a wall-mounted health station and watch as it's crushed into a bilious liquid just inches from your face, followed by skittering needles jabbing into the backs of your fingers as the machine knits health back into your veins. Not to mention the lengthy stealth sequence where you are stalked by a creature who insta-kills me by vomiting gallons of black slime directly onto your face. While the grossness feels overdone at times, it's also pretty neat that headcrabs and barnacles and other creatures you'll be shooting at since 1998 are now freshly creepy and repulsive in VR.",
     more:
-      "Valve built this experience specifically for VR, so expect impressive physics mechanics and top-tier graphics.",
+      "Valve built this experience specifically for VR, so expect impressive physics mechanics and top-tier graphics. A stunningly rich experience from start to finish, Half-Life: Alyx is one of the best VR titles available, a perfect showcase for what VR gaming is capable of. It doesn’t exactly break new ground, instead providing familiar Half-Life gameplay all wrapped up in a highly polished VR gift bag. Let’s just hope this is the start of things to come and Valve decides to make another Half-Life: Alyx.",
     image:
       "https://www.gamesoul.it/wp-content/uploads/2019/11/half-life-alyx-trailer-1.jpg",
     numberTag: "06",
