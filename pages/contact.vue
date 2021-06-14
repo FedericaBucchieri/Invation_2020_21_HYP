@@ -76,6 +76,7 @@
                             name="name"
                             type="text"
                             placeholder="Full Name"
+                            v-model="name"
                           />
                         </fieldset>
                       </div>
@@ -86,6 +87,7 @@
                             name="email"
                             type="text"
                             placeholder="E-Mail Address"
+                            v-model="email"
                           />
                         </fieldset>
                       </div>
@@ -97,12 +99,17 @@
                             rows="6"
                             placeholder="Your Message"
                             required=""
+                            v-model="message"
                           ></textarea>
                         </fieldset>
                       </div>
                       <div class="col-lg-12">
                         <fieldset>
-                          <button class="main-button" @click="fakeSend()">
+                          <button
+                            class="main-button"
+                            :class="[!formCompleted ? 'valid-form-status' : '']"
+                            @click="fakeSend()"
+                          >
                             Send Message Now
                           </button>
                         </fieldset>
@@ -135,6 +142,9 @@ export default {
   components: { Breadcrump },
   data() {
     return {
+      name: "",
+      email: "",
+      message: "",
       pathsList: [
         {
           path: "/about",
@@ -198,6 +208,26 @@ export default {
   methods: {
     fakeSend() {
       alert("Message sent correctly!");
+    },
+  },
+  computed: {
+    formCompleted() {
+      var noSpaceName = this.name.replaceAll(" ", "");
+      var noSpaceEmail = this.email.replaceAll(" ", "");
+      var noSpaceMessagge = this.message.replaceAll(" ", "");
+
+      if (
+        this.name !== "" &&
+        this.email !== "" &&
+        this.message !== "" &&
+        noSpaceName.length !== 0 &&
+        noSpaceEmail.length !== 0 &&
+        noSpaceMessagge.length !== 0
+      ) {
+        return true;
+      } else {
+        return false;
+      }
     },
   },
 };
@@ -443,5 +473,10 @@ h2 {
 
 .footer-content .right-content a:hover {
   color: #fc3;
+}
+
+.valid-form-status {
+  cursor: not-allowed;
+  opacity: 0.3;
 }
 </style>

@@ -80,7 +80,7 @@
             </div>
           </div>
           <div v-if="mapOpening" class="mapBig" @click="mapOpening = false">
-            <button @mouseout="mapOpening = false">X</button>
+            <button class="close-map" @mouseout="mapOpening = false">X</button>
             <img
               src="https://imgur.com/JJohAgw.png"
               alt="Map to reach the headquarter - Big"
@@ -305,5 +305,21 @@ export default {
 .mapBig img {
   width: 100%;
   height: auto;
+}
+
+.close-map {
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 25px;
+  padding: 3px 10px;
+  border: none;
+  background: linear-gradient(
+    145deg,
+    rgba(244, 129, 63, 1) 0%,
+    rgba(241, 85, 106, 1) 100%
+  );
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 600;
 }
 </style>

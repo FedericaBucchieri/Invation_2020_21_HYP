@@ -15,7 +15,11 @@
             :info="item.info"
             :img-path="item.imgPath"
           ></contact-info>
-          <nuxt-link v-else :to="item.path">
+          <nuxt-link
+            v-else
+            :to="item.path"
+            :class="[!item.active ? 'inactive-link' : '']"
+          >
             {{ item.name }}
           </nuxt-link>
         </div>
@@ -25,24 +29,24 @@
 </template>
 
 <script>
-import ContactInfo from '~/components/contacts/ContactInfo.vue'
+import ContactInfo from "~/components/contacts/ContactInfo.vue";
 
 export default {
   components: {
     ContactInfo,
   },
   props: {
-    title: { type: String, default: () => '' },
-    titlePath: { type: String, default: () => '/' },
+    title: { type: String, default: () => "" },
+    titlePath: { type: String, default: () => "/" },
     linkList: { type: Array, default: () => [] },
     isContactList: { type: Boolean, default: () => false },
   },
   data() {
     return {
       contactType: this.isContactList,
-    }
+    };
   },
-}
+};
 </script>
 
 <style scoped>
@@ -70,7 +74,7 @@ a:visited {
 }
 
 a:hover {
-  color: #fba70b;
+  text-decoration: underline !important;
 }
 
 .features-item {
@@ -80,5 +84,10 @@ a:hover {
   text-align: left;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   width: auto;
+}
+
+.inactive-link {
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 </style>

@@ -53,7 +53,7 @@
                   <span class="object-name">{{ item.name }}</span>
                 </nuxt-link>
                 <span v-if="isObjectList" class="item-creation-date">
-                  {{ formatDate(item.createdAt) }}
+                  {{ formatDate(item.developmentDate) }}
                 </span>
                 <p>
                   {{ item.overview }}
@@ -148,6 +148,10 @@ export default {
   margin: 0;
 }
 
+.right-text .object-name:hover {
+  text-decoration: underline;
+}
+
 .right-text p {
   text-align: justify;
 }
@@ -196,5 +200,10 @@ export default {
 .visions-style-4 {
   background-color: green;
   border-bottom: green solid 4px;
+}
+
+.visions-style-1:hover,
+.visions-style-2:hover {
+  text-decoration: underline;
 }
 </style>

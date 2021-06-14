@@ -4,6 +4,7 @@
       <span
         v-for="(item, itemIndex) of pathsList"
         :key="'breadcrupm-link-' + itemIndex"
+        class="single-breadcrump-link"
       >
         <nuxt-link :to="item.path"> > {{ item.pathName }} </nuxt-link>
       </span>
@@ -23,6 +24,11 @@ export default {
 <style>
 .breadcrump-link {
   margin-bottom: 10px;
+  margin-left: 5px;
+}
+
+.single-breadcrump-link:hover {
+  text-decoration: underline;
 }
 
 .orientation-info {

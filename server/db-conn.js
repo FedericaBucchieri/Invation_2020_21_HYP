@@ -3,8 +3,8 @@ const { Sequelize, DataTypes } = require("sequelize");
 // Development
 const db = new Sequelize(
   // 'postgres://postgres:11235813@localhost:5432/InvationDB',
-  // "postgres://postgres:federica140798@localhost:5432/InvationDB",
-  'postgres://postgres:password@localhost:5432/InvationDB',
+  "postgres://postgres:federica140798@localhost:5432/InvationDB",
+  // 'postgres://postgres:password@localhost:5432/InvationDB',
   { logging: false }
 );
 
@@ -34,7 +34,7 @@ function defineDatabaseStructure() {
       thumbnail: DataTypes.STRING,
       video: DataTypes.STRING,
       isActive: DataTypes.BOOLEAN,
-      creationDate: DataTypes.DATE,
+      developmentDate: DataTypes.DATE,
     },
     {
       underscored: true,
@@ -177,8 +177,9 @@ async function insertFakeData() {
     thumbnail: "https://imgur.com/RgEQigU.png",
     video: "https://www.youtube.com/embed/Io4tcn5UZQc",
     isActive: true,
-    creationDate: Date.now(),
+    developmentDate: Date.UTC(2021, 6, 14, 0, 0, 0, 0),
   });
+
   const invation1 = await Invation.create({
     name: "Ludomi",
     subtitle: "Learning through play",
@@ -193,7 +194,7 @@ async function insertFakeData() {
     thumbnail: "https://imgur.com/ejUeWHt.png",
     video: "https://www.youtube.com/embed/EQh3K9SFUtI",
     isActive: true,
-    creationDate: Date.now(),
+    developmentDate: Date.UTC(2020, 6, 14, 0, 0, 0, 0),
   });
 
   const invation2 = await Invation.create({
@@ -211,8 +212,9 @@ async function insertFakeData() {
     thumbnail: "https://imgur.com/YV2Hweq.png",
     video: "https://www.youtube.com/embed/t6_KgKP-uZE",
     isActive: true,
-    creationDate: Date.now(),
+    developmentDate: Date.UTC(2020, 5, 31, 0, 0, 0, 0),
   });
+
   const invation3 = await Invation.create({
     name: "Puffy",
     subtitle: "A robotic companion",
@@ -228,7 +230,7 @@ async function insertFakeData() {
     thumbnail: "https://imgur.com/cvxcwfd.png",
     video: "https://www.youtube.com/embed/VKXVqiWGNTM",
     isActive: true,
-    creationDate: Date.now(),
+    developmentDate: Date.UTC(2021, 4, 8, 0, 0, 0, 0),
   });
   const invation4 = await Invation.create({
     name: "Leggo Facile",
@@ -245,8 +247,9 @@ async function insertFakeData() {
     thumbnail: "https://imgur.com/yW851Cf.png",
     video: "https://www.youtube.com/embed/-EgFVj92Wbo",
     isActive: true,
-    creationDate: Date.now(),
+    developmentDate: Date.UTC(2002, 2, 23, 0, 0, 0, 0),
   });
+
   const invation5 = await Invation.create({
     name: "PLET",
     subtitle: "The digital core of next generation Smart Toys",
@@ -261,7 +264,7 @@ async function insertFakeData() {
     thumbnail: "https://imgur.com/jLAXNgq.png",
     video: "https://www.youtube.com/embed/qoIh8ITv9IU",
     isActive: true,
-    creationDate: Date.now(),
+    developmentDate: Date.UTC(2020, 10, 27, 0, 0, 0, 0),
   });
 
   // Entertainment vision
@@ -272,7 +275,7 @@ async function insertFakeData() {
     overview:
       "In this action platformer, you must rescue the various members of your crew, which is scattered across space. Are you a good friend? Will the others count on you, willl you count on the others? Find it through this game.",
     concept:
-      "The game offers 20 different main levels and 26 challenge levels, which should keep you entertained for a long time. If not, there are many expansions that allows you to play as long as you want: alone with your grandpa, with the postman, with your cat, with whoever or whatever you want. Friendship is a relationship of mutual affection between people.[1] It is a stronger form of interpersonal bond than an association, and has been studied in academic fields such as communication, sociology, social psychology, anthropology, and philosophy. Various academic theories of friendship have been proposed, including social exchange theory, equity theory, relational dialectics, and attachment styles. Are you ready? Watch the video on the \"Show more\" section to have an idea!",
+      'The game offers 20 different main levels and 26 challenge levels, which should keep you entertained for a long time. If not, there are many expansions that allows you to play as long as you want: alone with your grandpa, with the postman, with your cat, with whoever or whatever you want. Friendship is a relationship of mutual affection between people. It is a stronger form of interpersonal bond than an association, and has been studied in academic fields such as communication, sociology, social psychology, anthropology, and philosophy. Various academic theories of friendship have been proposed, including social exchange theory, equity theory, relational dialectics, and attachment styles. Are you ready? Watch the video on the "Show more" section to have an idea!',
     more:
       "This isn’t a simple platforming title. The game features 360-degree worlds and offers several different weapons, including throwing stars, a water gun, and a hook shot.",
     image:
@@ -281,15 +284,16 @@ async function insertFakeData() {
     thumbnail: "https://imgur.com/P5KDYcJ.png",
     video: "https://www.youtube.com/embed/GVcm9yZ4Ml4",
     isActive: true,
-    creationDate: Date.now(),
+    developmentDate: Date.UTC(2021, 1, 12, 0, 0, 0, 0),
   });
 
   const invation7 = await Invation.create({
     name: "Beat Saber",
     subtitle: "Create music with laser swords!",
-    overview: "Beat Saber is a music and rhythm game with an active twist. Feed your creativity through this game! You will create rythms with your arms, this game is freaking cool! Post your tracks on Instagram or TikTok and become the ner Beat Sabaer star.",
+    overview:
+      "Beat Saber is a music and rhythm game with an active twist. Feed your creativity through this game! You will create rythms with your arms, this game is freaking cool! Post your tracks on Instagram or TikTok and become the ner Beat Sabaer star.",
     concept:
-      "The setup is similar to other music games, such as Audiosurf, Guitar Hero, and Rock Band, but instead of controlling a virtual ship or using fake instruments, you slash your way through a song with virtual laser swords. Beat Saber replaces the classic notes of a music track with a steady stream of floating cubes that fly towards your screen. You need to cut them, usually in a specific direction indicated by an arrow, to score points. To facilitate this, your VR controllers become red and blue neon sabers, which you must swing at the corresponding coloured boxes. Though there’s no official Star Wars licensing, you can’t help but feel like a Jedi Knight brandishing two lightsabers. Even if you don’t care for Star Wars, the flurries of sparks and light effects as you carve through each cube is sure to impress and entice you. To have an idea, watch the video below on the \"Show More\" section!",
+      'The setup is similar to other music games, such as Audiosurf, Guitar Hero, and Rock Band, but instead of controlling a virtual ship or using fake instruments, you slash your way through a song with virtual laser swords. Beat Saber replaces the classic notes of a music track with a steady stream of floating cubes that fly towards your screen. You need to cut them, usually in a specific direction indicated by an arrow, to score points. To facilitate this, your VR controllers become red and blue neon sabers, which you must swing at the corresponding coloured boxes. Though there’s no official Star Wars licensing, you can’t help but feel like a Jedi Knight brandishing two lightsabers. Even if you don’t care for Star Wars, the flurries of sparks and light effects as you carve through each cube is sure to impress and entice you. To have an idea, watch the video below on the "Show More" section!',
     more:
       " As the music plays, Beat Saber generates different patterns of color-coded blocks on the screen that you must hit with the correct controller (right or left) as they slide towards you. Obstacles also appear at times that require you to duck or slide away. Make no mistake, Beat Saber is not a game you can play sitting down; it’s a very active experience. If you love music and motion, Beat Saber is definitely worth exploring.",
     image:
@@ -298,7 +302,7 @@ async function insertFakeData() {
     thumbnail: "https://imgur.com/ycMZBNN.png",
     video: "https://www.youtube.com/embed/aW8APlZpiKo",
     isActive: true,
-    creationDate: Date.now(),
+    developmentDate: Date.UTC(2021, 5, 3, 0, 0, 0, 0),
   });
 
   const invation8 = await Invation.create({
@@ -307,7 +311,7 @@ async function insertFakeData() {
     overview:
       "Will you let robots take your all-important paper-stamping and document-filing job? In this game, cost-cutting robots try to terminate your employment by any means necessary. Do you want to save the human race or are you a robot snitch?",
     concept:
-      "You must fight your way through an office environment to save your job (and your life) using stealth tactics or by resorting to aggressive violence. From the time of ancient civilization, there have been many accounts of user-configurable automated devices and even automata resembling humans and other animals, designed primarily as entertainment. As mechanical techniques developed through the Industrial age, there appeared more practical applications such as automated machines, remote-control and wireless remote-control. How much do you believe on your human skills? Are you sure that you are necessary in this planet? Then show us on \"Budget Costs\"!",
+      'You must fight your way through an office environment to save your job (and your life) using stealth tactics or by resorting to aggressive violence. From the time of ancient civilization, there have been many accounts of user-configurable automated devices and even automata resembling humans and other animals, designed primarily as entertainment. As mechanical techniques developed through the Industrial age, there appeared more practical applications such as automated machines, remote-control and wireless remote-control. How much do you believe on your human skills? Are you sure that you are necessary in this planet? Then show us on "Budget Costs"!',
     more:
       "AI and automation technologies are certainly poised to take over some real-world jobs previously filled by humans, so this game's hook is all too real. Be sure to check out the sequel, Budget Cuts 2: Mission Insolvency.",
     image:
@@ -316,7 +320,7 @@ async function insertFakeData() {
     thumbnail: "https://imgur.com/JNglFgH.png",
     video: "https://www.youtube.com/embed/O1tXkZ_BxI0",
     isActive: true,
-    creationDate: Date.now(),
+    developmentDate: Date.UTC(2020, 12, 11, 0, 0, 0, 0),
   });
 
   const invation9 = await Invation.create({
@@ -334,7 +338,7 @@ async function insertFakeData() {
     thumbnail: "https://imgur.com/Lk6bDlv.png",
     video: "https://www.youtube.com/embed/XomyEi1iYVA",
     isActive: true,
-    creationDate: Date.now(),
+    developmentDate: Date.UTC(2019, 5, 25, 0, 0, 0, 0),
   });
 
   const invation10 = await Invation.create({
@@ -352,7 +356,7 @@ async function insertFakeData() {
     thumbnail: "https://imgur.com/jE9J8xI.png",
     video: "https://www.youtube.com/embed/Rwgl4AdYybo",
     isActive: true,
-    creationDate: Date.now(),
+    developmentDate: Date.UTC(2019, 3, 6, 0, 0, 0, 0),
   });
 
   const invation11 = await Invation.create({
@@ -370,7 +374,7 @@ async function insertFakeData() {
     thumbnail: "https://imgur.com/mjs33WW.png",
     video: "https://www.youtube.com/embed/30v1UWkMBlU",
     isActive: true,
-    creationDate: Date.now(),
+    developmentDate: Date.UTC(2018, 8, 28, 0, 0, 0, 0),
   });
 
   // Smart home vision
@@ -390,7 +394,7 @@ async function insertFakeData() {
     thumbnail: "https://imgur.com/Ayh3ZnK.png",
     video: "https://www.youtube.com/embed/hcdDl8n-vV4",
     isActive: false,
-    creationDate: Date.now(),
+    developmentDate: Date.UTC(2001, 6, 14, 0, 0, 0, 0),
   });
 
   const invation13 = await Invation.create({
@@ -408,7 +412,7 @@ async function insertFakeData() {
     thumbnail: "https://imgur.com/m0aalfh.png",
     video: "https://www.youtube.com/embed/MU207ge4xW4",
     isActive: false,
-    creationDate: Date.now(),
+    developmentDate: Date.UTC(2001, 6, 14, 0, 0, 0, 0),
   });
 
   const invation14 = await Invation.create({
@@ -426,7 +430,7 @@ async function insertFakeData() {
     thumbnail: "https://imgur.com/LYZt9T9.png",
     video: "https://www.youtube.com/embed/TooKLnkGgag",
     isActive: false,
-    creationDate: Date.now(),
+    developmentDate: Date.UTC(2001, 6, 14, 0, 0, 0, 0),
   });
 
   // Work vision
@@ -445,7 +449,7 @@ async function insertFakeData() {
     thumbnail: "https://imgur.com/KCW6Sw8.png",
     video: "https://www.youtube.com/embed/VDBhvexAj8I",
     isActive: false,
-    creationDate: Date.now(),
+    developmentDate: Date.UTC(2001, 6, 14, 0, 0, 0, 0),
   });
 
   const invation16 = await Invation.create({
@@ -463,7 +467,7 @@ async function insertFakeData() {
     thumbnail: "https://imgur.com/JUElaGf.png",
     video: "https://www.youtube.com/embed/fU7Dk8ZZSLY",
     isActive: false,
-    creationDate: Date.now(),
+    developmentDate: Date.UTC(2001, 6, 14, 0, 0, 0, 0),
   });
 
   const invation17 = await Invation.create({
@@ -481,7 +485,7 @@ async function insertFakeData() {
     thumbnail: "https://imgur.com/1Op8bxP.png",
     video: "https://www.youtube.com/embed/hnEQq7kNFWo",
     isActive: false,
-    creationDate: Date.now(),
+    developmentDate: Date.UTC(2001, 6, 14, 0, 0, 0, 0),
   });
 
   const vision0 = await Vision.create({
@@ -489,7 +493,7 @@ async function insertFakeData() {
     name: "Education",
     description:
       "A new way of learning in a more effective way. Discover ourproposals about a new experience in the world of education.",
-    image: "https://imgur.com/c5GqUz3.png",
+    image: "/visions/online-learning-icon.png",
     bigImage: "https://imgur.com/YrfS90S.png",
     video:
       "https://www.youtube.com/embed/nmu7kEzAQus?autoplay=1&mute=1&controls=0&loop=1",
@@ -500,7 +504,7 @@ async function insertFakeData() {
     name: "Entertainment",
     description:
       "The world of entertainment is ready to embrace the new technologies about VR and AR where Reality merges with immagination.",
-    image: "https://imgur.com/i3Rsg4f.png",
+    image: "/visions/entertainment-icon.png",
     bigImage: "https://imgur.com/SG6Q2ZL.png",
     video:
       "https://www.youtube.com/embed/nmu7kEzAQus?autoplay=1&mute=1&controls=0&loop=1",
@@ -511,7 +515,7 @@ async function insertFakeData() {
     name: "Smart Home",
     description:
       "Your home is part of your life, leaving in an intelligent and smart environment is essential for your quality of life.",
-    image: "https://imgur.com/D5Dxd2p.png",
+    image: "/visions/smart-house-icon.png",
     bigImage: "https://imgur.com/25DAOUV.png",
     video:
       "https://www.youtube.com/embed/nmu7kEzAQus?autoplay=1&mute=1&controls=0&loop=1",
@@ -522,7 +526,7 @@ async function insertFakeData() {
     name: "Work",
     description:
       "The Covid-19 pandemic has accelerated an inevitable trend in which giving new opportunities for an efficient work indipendently from where you are is fundamental.",
-    image: "https://imgur.com/4UTHf9K.png",
+    image: "/visions/working-icon.png",
     bigImage: "https://imgur.com/DM2O414.png",
     video:
       "https://www.youtube.com/embed/nmu7kEzAQus?autoplay=1&mute=1&controls=0&loop=1",
@@ -766,14 +770,150 @@ async function insertFakeData() {
     instagram: "#vanessahudgens",
   });
 
+  // review for invation 0
   const review1 = await Review.create({
-    author: "Federica",
+    author: "User 1",
     body: "This invation is amazing. It really interested me!",
   });
 
   const review2 = await Review.create({
-    author: "Luca",
+    author: "User 2",
     body: "Omg I want to play with it!",
+  });
+
+  //  review for invation 1
+  const review3 = await Review.create({
+    author: "User 3",
+    body: "Never tried Smart Space before but now I am super interested",
+  });
+
+  const review4 = await Review.create({
+    author: "User 1",
+    body: "Amazing for children! Really recommended",
+  });
+
+  const review5 = await Review.create({
+    author: "User 6",
+    body:
+      "Magic Room is a really representative name of the amazing and fantasious journey that my child had while palying inside with his friends",
+  });
+
+  //  review for invation 2
+  const review6 = await Review.create({
+    author: "User 3",
+    body: "A boost for emotions in children with NDD. Really a great job",
+  });
+
+  const review7 = await Review.create({
+    author: "User 5",
+    body: "My child used it and it helped a lot!",
+  });
+
+  //  review for invation 3
+  const review8 = await Review.create({
+    author: "User 4",
+    body:
+      "Interesting for children with NDD and also for their schoolmates to play all together in a safe way",
+  });
+
+  const review9 = await Review.create({
+    author: "User 9",
+    body: "Its shape reminds my of Big Hero. My son would loke it!",
+  });
+
+  const review10 = await Review.create({
+    author: "User 2",
+    body:
+      "In my opinion, all rehabilitation centres shoudl by one to deal with special children",
+  });
+
+  //  review for invation 4
+  const review11 = await Review.create({
+    author: "User 1",
+    body: "I can confirm! The first result came really fast. Recommended!",
+  });
+
+  const review12 = await Review.create({
+    author: "User 4",
+    body: "Interesting tool!",
+  });
+
+  //  review for invation 5
+  const review13 = await Review.create({
+    author: "User 5",
+    body: "My daugther is in love with this dolfin, where can I get one?",
+  });
+
+  const review14 = await Review.create({
+    author: "User 2",
+    body: "Is a single player activity or the dolphins connect to each other?",
+  });
+
+  //  review for invation 6
+  const review15 = await Review.create({
+    author: "User 5",
+    body: "My daugther is in love with this game.",
+  });
+
+  const review16 = await Review.create({
+    author: "User 2",
+    body: "Really funny and the main character is amazing!",
+  });
+
+  //  review for invation 7
+  const review17 = await Review.create({
+    author: "User 5",
+    body:
+      "I am 27 years old and this game freaked me out. Amazing for all the ages.",
+  });
+
+  const review18 = await Review.create({
+    author: "User 2",
+    body: "do you have the rhythm? Let's compete!",
+  });
+
+  //  review for invation 8
+  const review19 = await Review.create({
+    author: "User 5",
+    body: "Suspance and fun mixed in an incredible game! Well done Invation.",
+  });
+
+  const review20 = await Review.create({
+    author: "User 2",
+    body: "I hate robots!",
+  });
+
+  //  review for invation 9
+  const review21 = await Review.create({
+    author: "User 5",
+    body: "so funny! I love this goat.",
+  });
+
+  const review22 = await Review.create({
+    author: "User 2",
+    body: "I love games in Vr and this one is my favourite.",
+  });
+
+  //  review for invation 10
+  const review23 = await Review.create({
+    author: "User 5",
+    body: "I am defenetely the new Tiger Woods",
+  });
+
+  const review24 = await Review.create({
+    author: "User 2",
+    body: "An amazing VR experience. Really Recommended",
+  });
+
+  //  review for invation 11
+  const review25 = await Review.create({
+    author: "User 5",
+    body: "It's disgusting when enemiesvomits on you but ... I loved it!",
+  });
+
+  const review26 = await Review.create({
+    author: "User 2",
+    body: "I was so scared! One of the best VR games ever!",
   });
 
   // Invations --> Visions
@@ -820,11 +960,7 @@ async function insertFakeData() {
   await invation17.addTechnology(technology3.id);
   // Invationers --> Visions
   await vision0.addInvationer(invationer0.id);
-  await vision0.addInvationer(invationer1.id);
-  await vision0.addInvationer(invationer2.id);
-  await vision0.addInvationer(invationer3.id);
   await vision1.addInvationer(invationer4.id);
-  await vision1.addInvationer(invationer5.id);
   await vision2.addInvationer(invationer6.id);
   await vision3.addInvationer(invationer7.id);
 
@@ -959,6 +1095,41 @@ async function insertFakeData() {
 
   await invation0.addReview(review1.id);
   await invation0.addReview(review2.id);
+
+  await invation1.addReview(review3.id);
+  await invation1.addReview(review4.id);
+  await invation1.addReview(review5.id);
+
+  await invation2.addReview(review6.id);
+  await invation2.addReview(review7.id);
+
+  await invation3.addReview(review8.id);
+  await invation3.addReview(review9.id);
+  await invation3.addReview(review10.id);
+
+  await invation4.addReview(review11.id);
+  await invation4.addReview(review12.id);
+
+  await invation5.addReview(review13.id);
+  await invation5.addReview(review14.id);
+
+  await invation6.addReview(review15.id);
+  await invation6.addReview(review16.id);
+
+  await invation7.addReview(review17.id);
+  await invation7.addReview(review18.id);
+
+  await invation8.addReview(review19.id);
+  await invation8.addReview(review20.id);
+
+  await invation9.addReview(review21.id);
+  await invation9.addReview(review22.id);
+
+  await invation10.addReview(review23.id);
+  await invation10.addReview(review24.id);
+
+  await invation11.addReview(review25.id);
+  await invation11.addReview(review26.id);
 }
 /**
  * Function to initialize the database. This is exported and called in the main api.js file

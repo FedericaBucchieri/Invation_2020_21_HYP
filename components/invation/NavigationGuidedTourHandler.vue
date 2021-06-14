@@ -15,8 +15,12 @@
         <!-- Informations related to the Area of the navigation -->
         <div class="central-section">
           <div class="vision-navigation-title">
-            <nuxt-link :to="`/visions/` + String(vision.id)">
-              Related Vision: {{ vision.name }}
+            <span>Related Vision: </span>
+            <nuxt-link
+              :to="`/visions/` + String(vision.id)"
+              class="vision-name-link"
+            >
+              {{ vision.name }}
             </nuxt-link>
           </div>
         </div>
@@ -98,6 +102,13 @@ export default {
 
 .vision-navigation-title {
   font-size: 22px;
+  font-weight: 600;
+}
+
+.vision-name-link {
   font-weight: 700;
+}
+.vision-name-link:hover {
+  text-decoration: underline !important;
 }
 </style>

@@ -11,8 +11,9 @@
       Our products: <br /><em>The invations</em>
     </template>
     <template #welcome-overview>
-      Here you can find the complete list of all our invations: innovative
-      inventions and ideas to shape a new concrete concept of future
+      Here you can find the complete <b>list of all our invations</b>:
+      innovative inventions and <i>products</i> to shape a new concrete concept
+      of <u>future</u>
     </template>
     <template #entitiesList="entitiesProps">
       <content-rounded-containers
@@ -22,6 +23,7 @@
         research-id=""
         typology="invations"
         :displayTags="false"
+        description="Discover all our products"
       ></content-rounded-containers>
     </template>
   </intro-page>

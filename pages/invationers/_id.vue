@@ -9,15 +9,19 @@
       :img-path="invationer.image"
       :overview="invationer.overview"
     ></object-overview>
+    <!-- Related vision - if present -->
     <div class="container">
       <div class="row">
-        <div v-if="invationer.vision.isActive" class="vision-role">
+        <div v-if="hasAnActiveVision" class="vision-role">
           Responsible for the vision:
           <nuxt-link :to="'/visions/' + invationer.vision.id">{{
             invationer.vision.name
           }}</nuxt-link>
         </div>
-        <div v-else class="vision-role-inactive">
+        <div
+          v-else-if="invationer.vision !== null"
+          class="vision-role-inactive"
+        >
           Responsible for this vision: {{ invationer.vision.name }}
         </div>
       </div>
@@ -187,6 +191,15 @@ export default {
     completeName() {
       return this.invationer.name + " " + this.invationer.surname;
     },
+    hasAnActiveVision() {
+      if (this.invationer.vision === null) {
+        return false;
+      } else if (this.invationer.vision.isActive) {
+        return true;
+      } else {
+        return false;
+      }
+    },
   },
 };
 </script>
@@ -269,19 +282,6 @@ section {
 .contact-section {
   margin: 0 30px 30px 30px;
 }
-
-/* .not-available-msg {
-  display: none; 
-  position: absolute; 
-  color: #fff; 
-  background: rgb(174, 173, 173); 
-  padding: 5px;
-}
-
-.vision-role:hover span {
-  display: block; 
-  text-align: center; 
-}*/
 
 .vision-role {
   background: linear-gradient(

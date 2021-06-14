@@ -50,36 +50,44 @@ export default {
         {
           name: "Education",
           path: "/visions/1",
+          active: true,
         },
         {
           name: "Entertainment",
           path: "/visions/2",
+          active: true,
         },
         {
           name: "Smart Home",
-          path: "/visions/3",
+          path: this.$route.path,
+          active: false,
         },
         {
           name: "Work",
-          path: "/visions/4",
+          path: this.$route.path,
+          active: false,
         },
       ],
       usefulLinks: [
         {
           name: "About",
           path: "/about",
+          active: true,
         },
         {
           name: "All Invations",
           path: "/invations",
+          active: true,
         },
         {
           name: "All Invationers",
           path: "/invationers",
+          active: true,
         },
         {
           name: "Invations by Technology",
           path: "/invations/technologies",
+          active: true,
         },
       ],
       contactInfos: [

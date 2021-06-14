@@ -65,6 +65,10 @@ export default {
   text-align: left;
 }
 
+h2:hover {
+  text-decoration: underline;
+}
+
 .features-item-right h3 {
   margin-top: 0px;
   margin: 0;
