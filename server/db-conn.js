@@ -908,7 +908,7 @@ async function insertFakeData() {
   //  review for invation 11
   const review25 = await Review.create({
     author: "User 5",
-    body: "It's disgusting when enemiesvomits on you but ... I loved it!",
+    body: "It's disgusting when enemies vomits on you but ... I loved it!",
   });
 
   const review26 = await Review.create({
