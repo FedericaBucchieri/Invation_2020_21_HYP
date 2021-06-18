@@ -1,3 +1,6 @@
+<!-- Component for tags associated to technologies. 
+Each tag can be displayed indiependently or in a tag bar.
+ Usually used for products -->
 <template>
   <li class="tag" :class="colorClass">
     <nuxt-link :to="'/invations/technologies/#' + relatedPath">
@@ -9,11 +12,11 @@
 <script>
 export default {
   props: {
-    colorClass: { type: String, default: () => '' },
-    tagName: { type: String, default: () => '' },
-    relatedPath: { type: String, default: () => '' },
+    colorClass: { type: String, default: () => "" },
+    tagName: { type: String, default: () => "" },
+    relatedPath: { type: String, default: () => "" },
   },
-}
+};
 </script>
 
 <style>

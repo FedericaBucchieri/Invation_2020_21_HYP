@@ -1,6 +1,9 @@
+<!-- This component modelize a list of reviews that the users can leave to each product of the company. 
+Each review comes with the author title and the review body. -->
 <template>
   <div class="container">
     <div class="row">
+      <!--  list of reviews -->
       <div
         v-for="(item, itemIndex) of reviewList"
         :key="'review-' + itemIndex"
@@ -18,7 +21,7 @@ export default {
   props: {
     reviewList: { type: Array, default: () => [] },
   },
-}
+};
 </script>
 
 <style>

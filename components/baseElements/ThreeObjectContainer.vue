@@ -1,3 +1,9 @@
+<!-- This component creates a list of objctes (always used in the number of three). 
+  Each object has a title, an image and a description, eventually also a date and the
+   related vision (area) in case of products.
+This component is used either in the Home page and in the about page. 
+It comes togethere with a introductory paragraph with a title, and a decorative image.
+ -->
 <template>
   <div class="container">
     <div class="row">
@@ -5,10 +11,11 @@
         class="left-image col-lg-5 col-md-12 col-sm-12 mobile-bottom-fix-big"
         data-scroll-reveal="enter left move 30px over 0.6s after 0.4s"
       >
+        <!-- Decorative image, related to the title of the section this component is used for -->
         <img
           :src="bigImage"
           class="rounded img-fluid d-block mx-auto"
-          :alt="title"
+          :alt="title + 'decoration image'"
           width="445"
           height="492"
         />
@@ -17,10 +24,12 @@
         class="right-text offset-lg-1 col-lg-6 col-md-12 col-sm-12 mobile-bottom-fix"
       >
         <h2>{{ title }}</h2>
+        <!-- The introduction is passed as a prop to change the html markup and styling (italic, bold and underlined texts) -->
         <div class="introduction">
           <slot></slot>
         </div>
         <br />
+        <!-- List of objects -->
         <ul>
           <li
             v-for="(item, itemIndex) of objects"
@@ -28,6 +37,7 @@
             class="objectOfTheThree"
             data-scroll-reveal="enter right move 30px over 0.6s after 0.4s"
           >
+            <!-- If used for products, also a vision is needed with related link to the correct page -->
             <div
               v-if="isObjectList"
               class="vision-tag-on-border"
@@ -38,6 +48,7 @@
               </nuxt-link>
             </div>
             <div class="object-container">
+              <!-- Image of the object -->
               <img
                 :src="item.thumbnail"
                 :alt="item.name + 'thumbnail image'"
@@ -46,15 +57,18 @@
                 loading="lzy"
               />
               <div class="text">
+                <!-- Name (title) of the object -->
                 <nuxt-link
                   :class="{ disabled: disabled }"
                   :to="`/${typology}/` + item.id"
                 >
                   <span class="object-name">{{ item.name }}</span>
                 </nuxt-link>
+                <!-- If the object is a product, it comes with the development date also displayed -->
                 <span v-if="isObjectList" class="item-creation-date">
                   {{ formatDate(item.developmentDate) }}
                 </span>
+                <!-- Object description (overview) -->
                 <p>
                   {{ item.overview }}
                 </p>

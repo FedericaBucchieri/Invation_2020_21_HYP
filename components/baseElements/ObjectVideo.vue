@@ -1,3 +1,4 @@
+<!-- This component provide a frame for an embedded video, used for products. Always coupled with ObjectMore.vue component -->
 <template>
   <div class="container">
     <iframe
@@ -12,9 +13,9 @@
 <script>
 export default {
   props: {
-    videoUrl: { type: String, default: () => '' },
+    videoUrl: { type: String, default: () => "" },
   },
-}
+};
 </script>
 
 <style scoped>

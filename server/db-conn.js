@@ -174,7 +174,7 @@ async function insertFakeData() {
       "All those activities are designed to improve self-movement recognition, ability to work in group, reasoning skills and test contents learning. MuseX has a full body interaction paradigm with drag &amp; drop, RFID reader, walk around interaction and posting gesture recognition. The Magic Room provides both audible and visual feedback that enrich MuseX experience and all the activities can be managed by the teacher using a dedicated app.",
     image: "https://imgur.com/wlpQq36.png",
     numberTag: "01",
-    thumbnail: "https://imgur.com/RgEQigU.png",
+    thumbnail: "https://imgur.com/K4TqLLA.png",
     video: "https://www.youtube.com/embed/Io4tcn5UZQc",
     isActive: true,
     developmentDate: Date.UTC(2021, 6, 14, 0, 0, 0, 0),
@@ -191,7 +191,7 @@ async function insertFakeData() {
       "Through a tablet, teachers can control and configure each activity and personalize the experience according to the specific needs of children. Magika can be controlled and configured through a tablet. Thanks to an easy and intuitive control panel, the teacher can monitor, select, and improve the activities of the room. It takes just a few steps to choose activities and to keep an eye on what’s happening. Through the tablet you can start or end the activity any time, thus teachers can manage children inside the room better.",
     image: "https://i3lab.polimi.it/wp-content/uploads/2020/06/IMG_5770.jpg",
     numberTag: "02",
-    thumbnail: "https://imgur.com/ejUeWHt.png",
+    thumbnail: "https://imgur.com/L7UE0Z4.png",
     video: "https://www.youtube.com/embed/EQh3K9SFUtI",
     isActive: true,
     developmentDate: Date.UTC(2020, 6, 14, 0, 0, 0, 0),
@@ -227,7 +227,7 @@ async function insertFakeData() {
     image:
       "https://i3lab.polimi.it/wp-content/uploads/2020/06/DSC0099-scaled.jpg",
     numberTag: "04",
-    thumbnail: "https://imgur.com/cvxcwfd.png",
+    thumbnail: "https://imgur.com/yUqWBOl.png",
     video: "https://www.youtube.com/embed/VKXVqiWGNTM",
     isActive: true,
     developmentDate: Date.UTC(2021, 4, 8, 0, 0, 0, 0),
@@ -281,7 +281,7 @@ async function insertFakeData() {
     image:
       "https://images.everyeye.it/img-articoli/astro-bot-rescue-mission-recensione-massima-espressione-platform-vr-recensione-v10-40991-1280x960.jpg",
     numberTag: "01",
-    thumbnail: "https://imgur.com/P5KDYcJ.png",
+    thumbnail: "https://imgur.com/8x45is9.png",
     video: "https://www.youtube.com/embed/GVcm9yZ4Ml4",
     isActive: true,
     developmentDate: Date.UTC(2021, 1, 12, 0, 0, 0, 0),
@@ -299,7 +299,7 @@ async function insertFakeData() {
     image:
       "https://www.vgn.it/wp-content/uploads/2018/12/Beat-Saber-Recensione-PSVR.jpg",
     numberTag: "02",
-    thumbnail: "https://imgur.com/ycMZBNN.png",
+    thumbnail: "https://imgur.com/yoX6UnW.png",
     video: "https://www.youtube.com/embed/aW8APlZpiKo",
     isActive: true,
     developmentDate: Date.UTC(2021, 5, 3, 0, 0, 0, 0),
@@ -317,7 +317,7 @@ async function insertFakeData() {
     image:
       "https://www.vr-italia.org/wp-content/uploads/2018/07/BudgetCuts_Stealth.jpg",
     numberTag: "03",
-    thumbnail: "https://imgur.com/JNglFgH.png",
+    thumbnail: "https://imgur.com/LaOsDOQ.png",
     video: "https://www.youtube.com/embed/O1tXkZ_BxI0",
     isActive: true,
     developmentDate: Date.UTC(2020, 12, 11, 0, 0, 0, 0),
@@ -335,7 +335,7 @@ async function insertFakeData() {
     image:
       "https://www.gamelegends.it/wp-content/uploads/2016/11/Danger-Goat-Screenshot-01-970x570.jpg",
     numberTag: "04",
-    thumbnail: "https://imgur.com/Lk6bDlv.png",
+    thumbnail: "https://imgur.com/HhlsCvD.png",
     video: "https://www.youtube.com/embed/XomyEi1iYVA",
     isActive: true,
     developmentDate: Date.UTC(2019, 5, 25, 0, 0, 0, 0),
@@ -353,7 +353,7 @@ async function insertFakeData() {
     image:
       "https://blog.playstation.com/tachyon/sites/12/2019/05/EverybodysGolfVR.jpg",
     numberTag: "05",
-    thumbnail: "https://imgur.com/jE9J8xI.png",
+    thumbnail: "https://imgur.com/NlvVl41.png",
     video: "https://www.youtube.com/embed/Rwgl4AdYybo",
     isActive: true,
     developmentDate: Date.UTC(2019, 3, 6, 0, 0, 0, 0),
@@ -391,7 +391,7 @@ async function insertFakeData() {
     image:
       "https://www.the-ambient.com/media/imager/202009/30005-posts.homepage_preview_md.jpg",
     numberTag: "01",
-    thumbnail: "https://imgur.com/Ayh3ZnK.png",
+    thumbnail: "https://imgur.com/xYnau3D.png",
     video: "https://www.youtube.com/embed/hcdDl8n-vV4",
     isActive: false,
     developmentDate: Date.UTC(2001, 6, 14, 0, 0, 0, 0),

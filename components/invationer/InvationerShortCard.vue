@@ -1,6 +1,10 @@
+<!-- This component modelize the presentation card of ech employee of the company.
+The presentation card comprises the name, the role and the personal quote of the employees, 
+together with their picture, their skills and a link to their pages -->
 <template>
   <div class="invation-card">
     <div class="invationer-details">
+      <!-- Picture of the invationer (employee) -->
       <img
         class="round"
         :src="invationer.image"
@@ -10,17 +14,20 @@
         width="100"
         height="100"
       />
+      <!-- Invationer name and surname -->
       <div class="invationer-name">
         {{ invationer.name + " " + invationer.surname }}
       </div>
-
+      <!-- Other personal details -->
       <div class="role">{{ invationer.role }}</div>
       <p>{{ invationer.quote }}</p>
 
+      <!-- link to the invationer page -->
       <nuxt-link :to="`/invationers/` + id" class="card-name">
         <button class="main-button invationer-button">Explore</button>
       </nuxt-link>
     </div>
+    <!--  skill list section -->
     <div class="skills">
       <p class="skill-title">Skills</p>
       <ul>

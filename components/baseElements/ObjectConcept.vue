@@ -1,3 +1,4 @@
+<!-- Component that provide the structure for an object description, used for products concepts.  -->
 <template>
   <div class="container">
     <div class="row">
@@ -6,6 +7,7 @@
         data-scroll-reveal="enter right move 30px over 0.6s after 0.4s"
       >
         <h2>CONCEPT</h2>
+        <!-- The body of the object description -->
         <p>
           {{ concept }}
         </p>

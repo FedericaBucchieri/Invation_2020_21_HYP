@@ -1,6 +1,7 @@
 <template>
   <div>
     <TheHeader />
+    <!--  Chatbot chat element -->
     <the-chat :chat-list="list" />
     <Nuxt />
     <TheFooter />

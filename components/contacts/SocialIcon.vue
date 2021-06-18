@@ -1,7 +1,8 @@
+<!-- This component modelize a social media icon with thre related link to the external website of the social media platform -->
 <template>
   <div class="content">
     <a :href="link">
-      <img :src="iconPath" class="social-icon"/>
+      <img :src="iconPath" class="social-icon" />
     </a>
   </div>
 </template>
@@ -9,10 +10,10 @@
 <script>
 export default {
   props: {
-    iconPath: { type: String, default: () => '' },
-    link: { type: String, default: () => '' },
+    iconPath: { type: String, default: () => "" },
+    link: { type: String, default: () => "" },
   },
-}
+};
 </script>
 
 <style scoped>

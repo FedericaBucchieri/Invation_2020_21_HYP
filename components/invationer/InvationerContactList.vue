@@ -1,3 +1,4 @@
+<!-- CHECK IF IT IS USED-->
 <template>
   <div class="contact-section">
     <h4>CONTACT ME</h4>
@@ -26,15 +27,15 @@ export default {
   data() {
     return {
       contactIconList: [
-        'Telephone: ',
-        'Email: ',
-        'Fax: ',
-        'Linkedin: ',
-        'Instagram: ',
+        "Telephone: ",
+        "Email: ",
+        "Fax: ",
+        "Linkedin: ",
+        "Instagram: ",
       ],
-    }
+    };
   },
-}
+};
 </script>
 
 <style scoped>

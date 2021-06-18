@@ -1,3 +1,4 @@
+<!-- This component modelize a contact info that comes with an icon representing the contanct method and the related info -->
 <template>
   <div>
     <span>
@@ -10,10 +11,10 @@
 <script>
 export default {
   props: {
-    info: { type: String, default: () => '' },
-    imgPath: { type: String, default: () => '' },
+    info: { type: String, default: () => "" },
+    imgPath: { type: String, default: () => "" },
   },
-}
+};
 </script>
 
 <style scoped>

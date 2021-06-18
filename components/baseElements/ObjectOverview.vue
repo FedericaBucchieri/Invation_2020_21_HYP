@@ -1,8 +1,11 @@
+<!-- Component that provide the structure for an object introduction, used either for people, products or areas.  -->
 <template>
   <div class="container">
     <div class="row">
+      <!-- Object main image -->
       <object-presentation-img :info="name" :img-path="imgPath">
       </object-presentation-img>
+      <!-- Introduction paragraph -->
       <div
         class="right-text col-lg-6 col-md-12 col-sm-12 col-xs-12 overview-row"
         data-scroll-reveal="enter left move 30px over 0.6s after 0.4s"
@@ -12,10 +15,13 @@
             {{ name }}
           </h1>
         </div>
+        <!-- introduction paragraph content -->
         <p>
           {{ overview }}
         </p>
         <hr />
+        <!-- If used for product, each product can have also a list of tags (technology related tags).
+        This tag bar contains the list of tags associated to the product (invation) -->
         <invation-tags-bar :tag-list="tags"></invation-tags-bar>
       </div>
     </div>

@@ -1,7 +1,7 @@
+<!-- this component is responsible for handling navigation across products of the same area, implementing the guided tour pattern -->
 <template>
   <div class="container">
     <div class="row">
-      <!-- this component is responsible for handling navigation across products of the same area, implementing the guided tour pattern -->
       <div class="navigation-handler">
         <!-- Navigation objects responsible for the link with the previous object -->
         <div class="previews-section">

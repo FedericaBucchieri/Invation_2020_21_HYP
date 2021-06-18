@@ -1,3 +1,4 @@
+<!-- Component that provide a paragraph for more info about an object, mainly used for products extra details.  -->
 <template>
   <div class="container">
     <div class="row">
@@ -5,6 +6,7 @@
         class="features-item-right"
         data-scroll-reveal="enter right move 30px over 0.6s after 0.4s"
       >
+        <!-- Extra details content -->
         <p>
           {{ content }}
         </p>
@@ -17,9 +19,9 @@
 <script>
 export default {
   props: {
-    content: { type: String, default: () => '' },
+    content: { type: String, default: () => "" },
   },
-}
+};
 </script>
 
 <style scoped>

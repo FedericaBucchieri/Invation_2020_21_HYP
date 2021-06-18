@@ -1,4 +1,6 @@
+<!-- Component aimed ad modelizing the blob with title and text used in the Home page of the website. -->
 <template>
+  <!-- The container of the blob (a simple container with a background image) -->
   <div
     class="blob-with-text"
     :style="{
@@ -6,11 +8,14 @@
     }"
   >
     <div class="blob-title">
+      <!-- Slot containing the title of the container -->
       <slot></slot>
     </div>
+    <!-- The text to be inserted in the blob -->
     <div class="blob-text">
       {{ text }}
     </div>
+    <!-- Link to a specific page related with the blob context. Styled as a button. -->
     <nuxt-link :to="link" class="main-button-slider">{{
       buttonText
     }}</nuxt-link>
@@ -20,12 +25,12 @@
 <script>
 export default {
   props: {
-    text: { type: String, default: () => '' },
-    background: { type: String, default: () => '' },
-    link: { type: String, default: () => '' },
-    buttonText: { type: String, default: () => '' },
+    text: { type: String, default: () => "" },
+    background: { type: String, default: () => "" },
+    link: { type: String, default: () => "" },
+    buttonText: { type: String, default: () => "" },
   },
-}
+};
 </script>
 
 <style scoped>

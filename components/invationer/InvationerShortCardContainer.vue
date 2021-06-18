@@ -1,3 +1,4 @@
+<!-- List of Invationer Short Cards that comes with a title to introduce the cards displayed. -->
 <template>
   <div class="container">
     <div class="row">
@@ -17,6 +18,7 @@
         class="invationer-list-container"
         data-scroll-reveal="enter left move 30px over 0.6s after 0.4s"
       >
+        <!--  list of short invationers cards -->
         <ul id="invationer-ul">
           <li
             v-for="(item, itemIndex) of cardList"

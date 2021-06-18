@@ -1,3 +1,4 @@
+<!-- Component that modelize a list of link or contact infos, to be used in the footer of the website. -->
 <template>
   <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
     <div class="features-item">
@@ -10,11 +11,13 @@
           :key="title + 'link-' + itemIndex"
           class="link-list-element"
         >
+          <!-- If the list contains only contact infos (contact icon + label ) -->
           <contact-info
             v-if="contactType"
             :info="item.info"
             :img-path="item.imgPath"
           ></contact-info>
+          <!-- Else, the list is a list of links, either active or inactive for design purposes -->
           <nuxt-link
             v-else
             :to="item.path"

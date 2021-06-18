@@ -1,3 +1,4 @@
+<!-- Component for modelizing a list of tags (InvationTag.vue) associated to a product -->
 <template>
   <ul class="tag-bar">
     <invation-tag
@@ -13,7 +14,7 @@
 </template>
 
 <script>
-import InvationTag from '~/components/invation/InvationTag.vue'
+import InvationTag from "~/components/invation/InvationTag.vue";
 
 export default {
   components: {
@@ -22,7 +23,7 @@ export default {
   props: {
     tagList: { type: Array, default: () => [] },
   },
-}
+};
 </script>
 
 <style>

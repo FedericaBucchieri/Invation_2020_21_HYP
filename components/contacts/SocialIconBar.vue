@@ -1,3 +1,4 @@
+<!--  Bar for Social Icons. It contains more social icons adding a title to the set of icons -->
 <template>
   <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
     <div class="features-item">
@@ -19,14 +20,14 @@
 </template>
 
 <script>
-import SocialIcon from '~/components/contacts/SocialIcon.vue'
+import SocialIcon from "~/components/contacts/SocialIcon.vue";
 
 export default {
   components: { SocialIcon },
   props: {
     socialList: { type: Array, default: () => [] },
   },
-}
+};
 </script>
 
 <style scoped>

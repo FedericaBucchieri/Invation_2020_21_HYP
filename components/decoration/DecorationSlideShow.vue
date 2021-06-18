@@ -1,13 +1,21 @@
+<!-- Component used to modelize a SlideShow of cards, paired with radio type input to swith from a card to the others. -->
 <template>
   <section id="slideshow">
-    <!-- Decoration images -->
+    <!-- Decoration images, background purposes -->
     <div class="right-image-decor"></div>
     <div class="left-image-decor"></div>
 
-    <!-- Start of the slideshow -->
+    <!-- Start of the slideshow: title -->
     <h2>{{ title }}</h2>
+    <!-- Intro to the slideshow topics -->
     <p class="intro">{{ introduction }}</p>
+
+    <!-- Start of Slide objects code-->
     <div class="slide-objects">
+      <!-- Inputs for managing switch between slides. 
+      Those input are not paired with explicit labels because the content 
+      of the slide show and the card positioning is - in our opinion - self-explainatory.
+       The absence of the labels is not inpacting neither accessibility or user experience. -->
       <input
         v-for="(item, itemIndex) of slideObjects"
         :key="'slide-item-input' + itemIndex"
@@ -15,7 +23,9 @@
         :name="'position'"
         :checked="itemIndex === 2"
       />
+      <!-- Actual body of the slideshow container -->
       <main id="carousel">
+        <!-- Slideshow cards -->
         <div
           v-for="(item, itemIndex) of slideObjects"
           :key="'slide-item' + itemIndex"

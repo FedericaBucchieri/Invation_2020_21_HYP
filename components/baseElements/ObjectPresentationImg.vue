@@ -1,3 +1,4 @@
+<!--  Component that contain the presentation image of an object, with the relative styling required to be responsive. -->
 <template>
   <div
     class="left-image col-lg-5 col-md-12 col-sm-12 mobile-bottom-fix-big"
@@ -16,10 +17,10 @@
 <script>
 export default {
   props: {
-    info: { type: String, default: () => '' },
-    imgPath: { type: String, default: () => '' },
+    info: { type: String, default: () => "" },
+    imgPath: { type: String, default: () => "" },
   },
-}
+};
 </script>
 
 <style scoped>
