@@ -15,10 +15,7 @@
             <p>
               <slot name="overview"></slot>
             </p>
-            <a
-              v-if="textButton.length > 0"
-              class="main-button-slider"
-              :href="link"
+            <a v-if="textButton.length > 0" class="main-button" :href="link"
               >{{ textButton }}
             </a>
           </div>
@@ -42,25 +39,6 @@ export default {
 </script>
 
 <style scoped>
-a.main-button-slider {
-  font-size: 14px;
-  border-radius: 25px;
-  padding: 15px 25px;
-  background: linear-gradient(
-    145deg,
-    rgba(244, 129, 63, 1) 0%,
-    rgba(241, 85, 106, 1) 100%
-  );
-  text-transform: uppercase;
-  color: #fff;
-  font-weight: 600;
-  letter-spacing: 1px;
-  -webkit-transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
-}
-
 .welcome-invationers-area {
   width: 100%;
   height: 100vh;

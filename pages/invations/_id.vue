@@ -103,7 +103,7 @@ import ObjectVideo from "~/components/baseElements/ObjectVideo.vue";
 import ObjectMore from "~/components/baseElements/ObjectMore.vue";
 import InvationerShortCardContainer from "~/components/invationer/InvationerShortCardContainer.vue";
 import InvationReviewList from "~/components/invation/InvationReviewList.vue";
-import NavigationGuidedTourHandler from "~/components/baseElements/NavigationGuidedTourHandler.vue";
+import NavigationGuidedTourHandler from "~/components/invation/NavigationGuidedTourHandler.vue";
 
 export default {
   components: {

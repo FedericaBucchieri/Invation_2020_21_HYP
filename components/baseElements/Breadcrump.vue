@@ -33,6 +33,11 @@ export default {
 <style>
 .breadcrump-link {
   margin-bottom: 10px;
+  margin-left: 5px;
+}
+
+.single-breadcrump-link:hover {
+  text-decoration: underline;
 }
 
 .orientation-info {

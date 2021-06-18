@@ -37,7 +37,7 @@
     </section>
     <section id="invationers">
       <invationer-short-card-container
-        title="Invationers responsible for this Vision"
+        :title="'Responsible of the Vision ' + vision.name"
         :card-list="vision.invationers"
       >
       </invationer-short-card-container>

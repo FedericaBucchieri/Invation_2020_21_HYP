@@ -9,15 +9,19 @@
       :img-path="invationer.image"
       :overview="invationer.overview"
     ></object-overview>
+    <!-- Related vision - if present -->
     <div class="container">
       <div class="row">
-        <div v-if="invationer.vision.isActive" class="vision-role">
+        <div v-if="hasAnActiveVision" class="vision-role">
           Responsible for the vision:
           <nuxt-link :to="'/visions/' + invationer.vision.id">{{
             invationer.vision.name
           }}</nuxt-link>
         </div>
-        <div v-if="!invationer.vision.isActive" class="vision-role-inactive">
+        <div
+          v-else-if="invationer.vision !== null"
+          class="vision-role-inactive"
+        >
           Responsible for this vision: {{ invationer.vision.name }}
         </div>
       </div>
@@ -57,14 +61,20 @@
             </div>
             <div class="skill-section">
               <h3>SKILLS</h3>
-              <img
-                v-for="(item, itemIndex) of invationer.skills"
-                :key="'skill-' + itemIndex"
-                :src="item.image"
-                :alt="item.name + ' skill icon'"
-                width="100"
-                height="100"
-              />
+              <ul>
+                <li
+                  v-for="(item, itemIndex) of invationer.skills"
+                  :key="'skill-' + itemIndex"
+                >
+                  <img
+                    :src="item.image"
+                    :alt="item.name + ' skill icon'"
+                    width="100"
+                    height="100"
+                  />
+                  <span class="skill-name"> {{ item.name }}</span>
+                </li>
+              </ul>
             </div>
             <div class="contact-section">
               <h3>CONTACT ME</h3>
@@ -99,6 +109,7 @@
         :typology="'invations'"
         research-id=""
         :description-name="'overview'"
+        :displayTags="false"
       >
       </content-rounded-containers>
     </section>
@@ -179,6 +190,15 @@ export default {
     completeName() {
       return this.invationer.name + " " + this.invationer.surname;
     },
+    hasAnActiveVision() {
+      if (this.invationer.vision === null) {
+        return false;
+      } else if (this.invationer.vision.isActive) {
+        return true;
+      } else {
+        return false;
+      }
+    },
   },
 };
 </script>
@@ -245,28 +265,22 @@ section {
 
 .skill-section {
   margin: 0 30px 30px 30px;
+  text-align: left;
 }
 
 .skill-section img {
-  width: 100px;
+  width: 50px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.skill-section li {
+  padding: 3px 0px;
 }
 
 .contact-section {
   margin: 0 30px 30px 30px;
 }
-
-/* .not-available-msg {
-  display: none; 
-  position: absolute; 
-  color: #fff; 
-  background: rgb(174, 173, 173); 
-  padding: 5px;
-}
-
-.vision-role:hover span {
-  display: block; 
-  text-align: center; 
-}*/
 
 .vision-role {
   background: linear-gradient(
@@ -290,6 +304,7 @@ section {
   width: max-content;
   margin-left: 7%;
   margin-top: 10px;
+  cursor: not-allowed;
 }
 
 .inspirational-quote {

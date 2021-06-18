@@ -54,26 +54,26 @@ export default {
   },
   data() {
     return {
-      messageToSend: '',
+      messageToSend: "",
       isOpen: false,
-    }
+    };
   },
   methods: {
     sendMessage() {
-      const { WebSocketEventBus } = require('mmcc/WebSocketEventBus')
-      this.$store.commit('addMessage', {
+      const { WebSocketEventBus } = require("mmcc/WebSocketEventBus");
+      this.$store.commit("addMessage", {
         sender: false,
         content: this.messageToSend,
-      })
+      });
       const packet = {
-        message: { type: 'data', payload: { data: this.messageToSend } },
+        message: { type: "data", payload: { data: this.messageToSend } },
         configurationId: process.env.configurationId,
-      }
-      WebSocketEventBus.$emit('send', packet)
-      this.messageToSend = ''
+      };
+      WebSocketEventBus.$emit("send", packet);
+      this.messageToSend = "";
     },
   },
-}
+};
 </script>
 
 <style scoped>
@@ -96,6 +96,7 @@ export default {
     rgba(241, 85, 106, 1) 100%
   );
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 }
 
 @media (max-width: 810px) {

@@ -78,22 +78,6 @@ export default {
       ],
     };
   },
-  /* In this case this mounted() is useless because the names of the attributes used inside the 
-  ContentRoundedContainers are the same of those in the Vision schema of the DB, 
-  however it shows the way to use properly the  component ContentRoundedContainers
-  mounted() {
-    for (let i = 0; i < this.visions.length; i++) {
-      const newVision = {
-        name: this.visions[i].name,
-        numberTag: this.visions[i].numberTag,
-        description: this.visions[i].description,
-        image: this.visions[i].image,
-        typology: 'visions',
-      }
-      this.myVisions.push(newVision)
-    }
-  },
-  */
 };
 </script>
 

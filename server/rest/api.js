@@ -71,7 +71,7 @@ async function init() {
   app.get("/invations_last", async (req, res) => {
     const invations = await Invation.findAll({
       limit: 3,
-      order: [["createdAt", "DESC"]],
+      order: [["developmentDate", "DESC"]],
       include: {
         model: Vision,
         attributes: ["id", "name"],
@@ -156,7 +156,7 @@ async function init() {
       where: { id },
       include: [
         { model: Skill },
-        { model: Vision, attributes: ["id", "name"] },
+        { model: Vision, attributes: ["id", "name", "isActive"] },
         {
           model: Invation,
           include: { model: Vision, attributes: ["id", "name"] },
