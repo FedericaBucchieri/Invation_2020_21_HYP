@@ -23,7 +23,7 @@ export default {
 
 <style scoped>
 .disabled {
-  color: lightgrey;
+  color: lightgrey !important;
   pointer-events: none;
   /*cursor: not-allowed;*/
 }

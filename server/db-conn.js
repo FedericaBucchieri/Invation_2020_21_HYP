@@ -9,12 +9,12 @@ const { Sequelize, DataTypes } = require("sequelize");
 // );
 
 // Production
-const pg = require('pg')
-pg.defaults.ssl = true
+const pg = require("pg");
+pg.defaults.ssl = true;
 const db = new Sequelize(process.env.DATABASE_URL, {
   ssl: true,
   dialectOptions: { ssl: { require: true, rejectUnauthorized: false } },
-})
+});
 
 /**
  * Function to define the structure of the database
@@ -209,7 +209,7 @@ async function insertFakeData() {
     image:
       "https://i3lab.polimi.it/wp-content/uploads/2020/06/emoty_screenshot.png",
     numberTag: "03",
-    thumbnail: "https://imgur.com/YV2Hweq.png",
+    thumbnail: "https://imgur.com/w1ydeHR.png",
     video: "https://www.youtube.com/embed/t6_KgKP-uZE",
     isActive: true,
     developmentDate: Date.UTC(2020, 5, 31, 0, 0, 0, 0),
@@ -244,7 +244,7 @@ async function insertFakeData() {
     image:
       "https://leggofacile.com/wp-content/uploads/2020/04/Leggofacile-desktop-set-1.png",
     numberTag: "05",
-    thumbnail: "https://imgur.com/yW851Cf.png",
+    thumbnail: "https://imgur.com/Z4CE2Lm.png",
     video: "https://www.youtube.com/embed/-EgFVj92Wbo",
     isActive: true,
     developmentDate: Date.UTC(2002, 2, 23, 0, 0, 0, 0),
@@ -261,7 +261,7 @@ async function insertFakeData() {
       "This technology consists of an embedded platform that includes various hardware components and a software middleware. The embedded platform integrates different technologies, involving commercial sensors and actuators, orchestrated by a powerful and yet low-cost microcontroller, managed by software components that have been designed ad hoc to be as efficient and performant as possible and to maximize the potential of the hardware capabilities embedded in the e-toy.",
     image: "https://i3lab.polimi.it/wp-content/uploads/2020/06/IMG_0124.jpg",
     numberTag: "06",
-    thumbnail: "https://imgur.com/jLAXNgq.png",
+    thumbnail: "https://imgur.com/16mns7n.png",
     video: "https://www.youtube.com/embed/qoIh8ITv9IU",
     isActive: true,
     developmentDate: Date.UTC(2020, 10, 27, 0, 0, 0, 0),
@@ -371,7 +371,7 @@ async function insertFakeData() {
     image:
       "https://www.gamesoul.it/wp-content/uploads/2019/11/half-life-alyx-trailer-1.jpg",
     numberTag: "06",
-    thumbnail: "https://imgur.com/mjs33WW.png",
+    thumbnail: "https://imgur.com/lrjcaAY.png",
     video: "https://www.youtube.com/embed/30v1UWkMBlU",
     isActive: true,
     developmentDate: Date.UTC(2018, 8, 28, 0, 0, 0, 0),
@@ -427,7 +427,7 @@ async function insertFakeData() {
     image:
       "https://cdn.pocket-lint.com/r/s/970x/assets/images/145870-smart-home-review-nest-thermostat-e-review-image1-bd1t9aufkq-jpg.webp",
     numberTag: "03",
-    thumbnail: "https://imgur.com/LYZt9T9.png",
+    thumbnail: "https://imgur.com/lKT7DkO.png",
     video: "https://www.youtube.com/embed/TooKLnkGgag",
     isActive: false,
     developmentDate: Date.UTC(2001, 6, 14, 0, 0, 0, 0),
@@ -446,7 +446,7 @@ async function insertFakeData() {
     image:
       "https://store.hp.com/app/assets/images/uploads/prod/top-cloud-storage-providers-2019-hero156346484495488.jpg?impolicy=prdimg&imdensity=1&imwidth=600",
     numberTag: "01",
-    thumbnail: "https://imgur.com/KCW6Sw8.png",
+    thumbnail: "https://imgur.com/rLEhgMz.png",
     video: "https://www.youtube.com/embed/VDBhvexAj8I",
     isActive: false,
     developmentDate: Date.UTC(2001, 6, 14, 0, 0, 0, 0),
@@ -464,7 +464,7 @@ async function insertFakeData() {
     image:
       "https://fj-employer-blog.s3.amazonaws.com/employer-blog/wp-content/uploads/2019/04/10061221/communicate-remote-team.png",
     numberTag: "02",
-    thumbnail: "https://imgur.com/JUElaGf.png",
+    thumbnail: "https://imgur.com/ZUoCxl0.png",
     video: "https://www.youtube.com/embed/fU7Dk8ZZSLY",
     isActive: false,
     developmentDate: Date.UTC(2001, 6, 14, 0, 0, 0, 0),
@@ -482,7 +482,7 @@ async function insertFakeData() {
     image:
       "https://www.crmpartners.it/wp-content/uploads/2020/11/CRM-che-cose.png",
     numberTag: "03",
-    thumbnail: "https://imgur.com/1Op8bxP.png",
+    thumbnail: "https://imgur.com/71zssak.png",
     video: "https://www.youtube.com/embed/hnEQq7kNFWo",
     isActive: false,
     developmentDate: Date.UTC(2001, 6, 14, 0, 0, 0, 0),
