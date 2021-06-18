@@ -1,19 +1,32 @@
 <template>
-  <nuxt-link :to="theHeaderMenuItemExtensionPath">{{
-    theHeaderMenuItemExtensionName
-  }}</nuxt-link>
+  <nuxt-link
+    :class="{ disabled: disabled }"
+    :to="theHeaderMenuItemExtensionPath"
+    >{{ theHeaderMenuItemExtensionName }}</nuxt-link
+  >
 </template>
 
 <script>
 export default {
   props: {
-    theHeaderMenuItemExtensionName: { type: String, default: () => '' },
-    theHeaderMenuItemExtensionPath: { type: String, default: () => '' },
+    theHeaderMenuItemExtensionName: { type: String, default: () => "" },
+    theHeaderMenuItemExtensionPath: { type: String, default: () => "" },
+    disabled: { type: Boolean, default: () => false },
   },
-}
+  mounted() {
+    this.disabled =
+      this.theHeaderMenuItemExtensionName === "Work" ||
+      this.theHeaderMenuItemExtensionName === "Smart Home";
+  },
+};
 </script>
 
 <style scoped>
+.disabled {
+  color: lightgrey;
+  pointer-events: none;
+  /*cursor: not-allowed;*/
+}
 .background-header .logo,
 .background-header .main-nav .nav li a {
   color: #1e1e1e !important;
@@ -107,7 +120,7 @@ export default {
 }
 
 .header-area .main-nav .nav li.submenu ul li a:before {
-  content: '';
+  content: "";
   position: absolute;
   width: 0px;
   height: 40px;

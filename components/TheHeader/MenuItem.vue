@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <nuxt-link :to="theHeaderMenuItemPath"
+      <nuxt-link :class="{ highlight: highlighted }" :to="theHeaderMenuItemPath"
         >{{ theHeaderMenuItemName }}
         <img
           v-if="!isActivated && myTheHeaderMenuItemExtensions != 0"
@@ -48,6 +48,7 @@ export default {
     return {
       isActive: false,
       myTheHeaderMenuItemExtensions: this.theHeaderMenuItemExtensions,
+      highlighted: false,
     };
   },
   watch: {
@@ -60,6 +61,15 @@ export default {
       this.isActive = !this.isActive;
     },
   },
+  mounted() {
+    this.$root.$on("location-from-breadcrump", (location) => {
+      if (this.theHeaderMenuItemName.toUpperCase() === location.toUpperCase()) {
+        this.highlighted = true;
+      } else {
+        this.highlighted = false;
+      }
+    });
+  },
 };
 </script>
 
@@ -67,6 +77,10 @@ export default {
 .menu-item-arrow {
   height: 10px;
   width: auto;
+}
+
+.highlight {
+  color: #fba70b !important;
 }
 
 .background-header .logo,

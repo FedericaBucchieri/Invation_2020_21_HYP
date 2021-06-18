@@ -69,20 +69,19 @@ export default {
   },
   data() {
     return {
-      pathsList: [],
+      pathsList: [
+        {
+          path: "/visions",
+          pathName: "Visions",
+        },
+      ],
     };
   },
   mounted() {
-    this.pathsList = [
-      {
-        path: "/visions",
-        pathName: "Visions",
-      },
-      {
-        path: `/visions/${this.vision.id}`,
-        pathName: `${this.vision.name}`,
-      },
-    ];
+    this.pathsList[1] = {
+      path: `/visions/${this.vision.id}`,
+      pathName: `${this.vision.name}`,
+    };
   },
   head() {
     return {

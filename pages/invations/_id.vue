@@ -135,7 +135,12 @@ export default {
   },
   data() {
     return {
-      pathsList: [],
+      pathsList: [
+        {
+          path: "/invations",
+          pathName: "Invations",
+        },
+      ],
       showMore: false,
       review: {
         author: null,
@@ -163,16 +168,10 @@ export default {
     };
   },
   mounted() {
-    this.pathsList = [
-      {
-        path: "/invations",
-        pathName: "Invations",
-      },
-      {
-        path: `/invations/${this.invation.id}`,
-        pathName: `${this.invation.name}`,
-      },
-    ];
+    this.pathsList[1] = {
+      path: `/invations/${this.invation.id}`,
+      pathName: `${this.invation.name}`,
+    };
   },
   methods: {
     postReview(e) {
