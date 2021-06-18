@@ -145,20 +145,19 @@ export default {
   data() {
     return {
       showMore: false,
-      pathsList: [],
+      pathsList: [
+        {
+          path: "/invationers",
+          pathName: "Invationers",
+        },
+      ],
     };
   },
   mounted() {
-    this.pathsList = [
-      {
-        path: "/invationers",
-        pathName: "Invationers",
-      },
-      {
-        path: `/invationers/${this.invationer.id}`,
-        pathName: `${this.invationer.name + " " + this.invationer.surname}`,
-      },
-    ];
+    this.pathsList[1] = {
+      path: `/invationers/${this.invationer.id}`,
+      pathName: `${this.invationer.name + " " + this.invationer.surname}`,
+    };
   },
   head() {
     return {

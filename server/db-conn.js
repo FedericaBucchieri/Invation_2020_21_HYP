@@ -2,15 +2,9 @@ const { Sequelize, DataTypes } = require("sequelize");
 
 // Development
 const db = new Sequelize(
-<<<<<<< HEAD
   'postgres://postgres:11235813@localhost:5432/InvationDB',
-  // 'postgres://postgres:federica140798@localhost:5432/InvationDB',
-  // 'postgres://postgres:password@localhost:5432/InvationDB',
-=======
-  // 'postgres://postgres:11235813@localhost:5432/InvationDB',
   // "postgres://postgres:federica140798@localhost:5432/InvationDB",
-  'postgres://postgres:password@localhost:5432/InvationDB',
->>>>>>> a4e8e4c55af7a200d3e857da62c6aebdf546f231
+  // 'postgres://postgres:password@localhost:5432/InvationDB',
   { logging: false }
 );
 

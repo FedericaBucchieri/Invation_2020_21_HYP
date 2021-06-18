@@ -3,7 +3,7 @@
     <div class="container">
       <span
         v-for="(item, itemIndex) of pathsList"
-        :key="'breadcrupm-link-' + itemIndex"
+        :key="'breadcrump-link-' + itemIndex"
       >
         <nuxt-link :to="item.path"> > {{ item.pathName }} </nuxt-link>
       </span>
@@ -16,6 +16,16 @@ export default {
   props: {
     pathsList: { type: Array, default: () => [] },
     breadcrumpClass: { type: String, default: () => "" },
+  },
+  mounted() {
+    if (this.pathsList === []) {
+      this.$root.$emit("location-from-breadcrump", "Home");
+      console.log("Emit home");
+    } else {
+      console.log("Emit ");
+      console.log(this.pathsList);
+      this.$root.$emit("location-from-breadcrump", this.pathsList[0].pathName);
+    }
   },
 };
 </script>
