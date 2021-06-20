@@ -1,6 +1,7 @@
+<!-- Home Page -->
 <template>
   <div>
-    <!--  Welcome Area Start  -->
+    <!--  Welcome Area  -->
     <welcome-area-start :text-button="textButton" :link="'/about'">
       <template #title> Join our <em>Vision</em> of the Future </template>
       <template #overview>
@@ -11,6 +12,7 @@
         there are <i>three pillars:</i> Innovation, Invention and Teamwork.
       </template>
     </welcome-area-start>
+
     <!-- Visions, Invations e Invationers description -->
     <section id="definitions">
       <div class="container">
@@ -45,6 +47,7 @@
         </div>
       </div>
     </section>
+
     <!-- Last three products -->
     <section id="latestProducts">
       <div class="left-image-decor"></div>
@@ -65,9 +68,9 @@
 </template>
 
 <script>
-import ThreeObjectContainer from '~/components/baseElements/ThreeObjectContainer.vue'
-import WelcomeAreaStart from '~/components/baseElements/WelcomeAreaStart.vue'
-import BlobWithText from '~/components/decoration/BlobWithText.vue'
+import ThreeObjectContainer from "~/components/baseElements/ThreeObjectContainer.vue";
+import WelcomeAreaStart from "~/components/baseElements/WelcomeAreaStart.vue";
+import BlobWithText from "~/components/decoration/BlobWithText.vue";
 
 export default {
   components: {
@@ -75,56 +78,50 @@ export default {
     ThreeObjectContainer,
     BlobWithText,
   },
-  async asyncData({ $axios }) {
-    const visions = await $axios.get(`${process.env.BASE_URL}/api/visions`)
 
+  // Get the last tree invations
+  async asyncData({ $axios }) {
     const last3Invations = await $axios.get(
       `${process.env.BASE_URL}/api/invations_last`
-    )
-
-    const invationers = await $axios.get(
-      `${process.env.BASE_URL}/api/invationers`
-    )
+    );
 
     return {
-      visions: visions.data,
       last3Invations: last3Invations.data,
-      invationers: invationers.data,
-    }
+    };
   },
   data() {
     return {
-      textButton: 'ABOUT THE COMPANY',
-      areaName: 'Explore our Visions',
-      bigImage: 'https://imgur.com/OrwkWr6.png',
-      invationerTitle: 'Discover our team: The Invationers',
+      textButton: "ABOUT THE COMPANY",
+      areaName: "Explore our Visions",
+      bigImage: "https://imgur.com/OrwkWr6.png",
+      invationerTitle: "Discover our team: The Invationers",
       visionDefinition:
-        'Visions are interactive itinerary based on a chosen theme, created as a set of innovative products. Go and explore our 4 Visions!',
+        "Visions are interactive itinerary based on a chosen theme, created as a set of innovative products. Go and explore our 4 Visions!",
       invationDefinition:
-        'Invations are innovative inventions and ideas to shape a new concrete concept of future. Do you want to know more?',
+        "Invations are innovative inventions and ideas to shape a new concrete concept of future. Do you want to know more?",
       invationersDefinition:
-        'Did you really not figure it out already? Our employees will present them. They are the Invationers! Our great team.',
-    }
+        "Did you really not figure it out already? Our employees will present them. They are the Invationers! Our great team.",
+    };
   },
   head() {
     return {
-      title: 'Invation - Home Page',
+      title: "Invation - Home Page",
       meta: [
         {
-          name: 'description',
+          name: "description",
           content:
-            'Invation is a visionary company that proposes four thematic visions full of innovative product to have a look at the future',
+            "Invation is a visionary company that proposes four thematic visions full of innovative product to have a look at the future",
         },
         {
-          hid: 'Home page',
-          name: 'Home page',
+          hid: "Home page",
+          name: "Home page",
           content:
-            'Invation is a visionary company that proposes four thematic visions full of innovative product to have a look at the future',
+            "Invation is a visionary company that proposes four thematic visions full of innovative product to have a look at the future",
         },
       ],
-    }
+    };
   },
-}
+};
 </script>
 
 <style scoped>

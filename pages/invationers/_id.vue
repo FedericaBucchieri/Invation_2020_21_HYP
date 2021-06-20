@@ -1,7 +1,10 @@
+<!-- Single Invationer Page -->
 <template>
   <div class="content">
+    <!-- Orientation info component -->
     <breadcrump :paths-list="pathsList" breadcrump-class="breadcrump-link">
     </breadcrump>
+    <!-- Decorative image -->
     <div class="left-image-decor"></div>
     <!-- Overview -->
     <object-overview
@@ -137,6 +140,7 @@ export default {
     InvationerShortCardContainer,
     ContentRoundedContainers,
   },
+  // Get Invationer by Id + get all invationers for A2A navigation pattern
   async asyncData({ $axios, route }) {
     const { id } = route.params;
     const invationerData = await $axios.get(
@@ -165,6 +169,7 @@ export default {
     };
   },
   mounted() {
+    // mounting data for orientation info
     this.pathsList[1] = {
       path: `/invationers/${this.invationer.id}`,
       pathName: `${this.invationer.name + " " + this.invationer.surname}`,
@@ -172,7 +177,8 @@ export default {
   },
   head() {
     return {
-      title: "Invation - " + this.invationer.name,
+      title:
+        "Invation - " + this.invationer.name + " " + this.invationer.surname,
       meta: [
         {
           name: "description",
@@ -187,9 +193,11 @@ export default {
     };
   },
   computed: {
+    // Unifing name and surname of the invationer to form the complete name
     completeName() {
       return this.invationer.name + " " + this.invationer.surname;
     },
+    // Safety check for related vision label
     hasAnActiveVision() {
       if (this.invationer.vision === null) {
         return false;

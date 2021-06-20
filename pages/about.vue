@@ -1,3 +1,4 @@
+<!--  About Page -->
 <template>
   <div>
     <breadcrump :paths-list="pathsList" breadcrump-class="breadcrump-link">
@@ -62,6 +63,7 @@
                 minutes walking. <br />
                 <i>Don't forget, just follow the red dot!</i>
               </p>
+              <!-- Map image -->
               <img
                 v-if="!mapRequest"
                 src="https://imgur.com/JJohAgw.png"
@@ -70,6 +72,7 @@
                 height="244"
                 @mouseover="mapRequest = true"
               />
+              <!-- Map opening button container -->
               <div
                 v-else
                 class="map-opening-request"
@@ -79,6 +82,7 @@
               </div>
             </div>
           </div>
+          <!-- Big map if opened -->
           <div v-if="mapOpening" class="mapBig" @click="mapOpening = false">
             <button class="close-map" @mouseout="mapOpening = false">X</button>
             <img

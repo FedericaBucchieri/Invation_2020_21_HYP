@@ -80,7 +80,8 @@ export default {
 }
 
 .highlight {
-  color: #fba70b !important;
+  color: #eea724 !important;
+  font-weight: bold !important;
 }
 
 .background-header .logo,

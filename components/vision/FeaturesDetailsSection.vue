@@ -4,8 +4,8 @@
     <img
       :src="image"
       :alt="name + ' thumbnail image'"
-      width="150"
-      height="150"
+      width="120"
+      height="120"
     />
   </div>
 </template>
@@ -20,9 +20,9 @@ export default {
       numberTag: this.content[0],
       image: this.content[1],
       name: this.content[2],
-    }
+    };
   },
-}
+};
 </script>
 
 <style scoped>

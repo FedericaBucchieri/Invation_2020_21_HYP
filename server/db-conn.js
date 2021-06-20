@@ -1,20 +1,20 @@
 const { Sequelize, DataTypes } = require("sequelize");
 
 // Development
-// const db = new Sequelize(
-//   // 'postgres://postgres:11235813@localhost:5432/InvationDB',
-//   "postgres://postgres:federica140798@localhost:5432/InvationDB",
-//   // 'postgres://postgres:password@localhost:5432/InvationDB',
-//   { logging: false }
-// );
+const db = new Sequelize(
+  // 'postgres://postgres:11235813@localhost:5432/InvationDB',
+  "postgres://postgres:federica140798@localhost:5432/InvationDB",
+  // 'postgres://postgres:password@localhost:5432/InvationDB',
+  { logging: false }
+);
 
 // Production
-const pg = require("pg");
-pg.defaults.ssl = true;
-const db = new Sequelize(process.env.DATABASE_URL, {
-  ssl: true,
-  dialectOptions: { ssl: { require: true, rejectUnauthorized: false } },
-});
+// const pg = require("pg");
+// pg.defaults.ssl = true;
+// const db = new Sequelize(process.env.DATABASE_URL, {
+//   ssl: true,
+//   dialectOptions: { ssl: { require: true, rejectUnauthorized: false } },
+// });
 
 /**
  * Function to define the structure of the database
@@ -68,6 +68,7 @@ function defineDatabaseStructure() {
       overview: DataTypes.TEXT,
       quote: DataTypes.TEXT,
       image: DataTypes.STRING,
+      thumbnail: DataTypes.STRING,
       sport: DataTypes.STRING,
       hobby: DataTypes.STRING,
       musical: DataTypes.STRING,
@@ -603,6 +604,7 @@ async function insertFakeData() {
     quote:
       "Never say never because limits, like fears, are often just an illusion",
     image: "https://imgur.com/yxtU2Lm.png",
+    thumbnail: "https://imgur.com/cY7jsmj.png",
     sport: "No please!",
     hobby: "Gaming, Cooking, Reading",
     musical: "Pop music",
@@ -626,6 +628,7 @@ async function insertFakeData() {
       "Extrovert italian guy who always makes fun of himself and others and keeps the mood funny",
     quote: "There is nothing so stable as change",
     image: "https://imgur.com/d1ZJD5x.png",
+    thumbnail: "https://imgur.com/VffI5mv.png",
     sport: "No please!",
     hobby: "Gaming, Drawing, Playing Music",
     musical: "Rock music",
@@ -649,6 +652,7 @@ async function insertFakeData() {
       "Friendly and generous italian guy always polite with friends and colleagues",
     quote: "Concentrate all your thoughts upon the work in hand",
     image: "https://imgur.com/WIdUywG.png",
+    thumbnail: "https://imgur.com/gcRZtI4.png",
     sport: "Football",
     hobby: "Playing football, Watching TV Series",
     musical: "Classical Music",
@@ -671,6 +675,7 @@ async function insertFakeData() {
     overview: "Extrovert and determined frech woman, feminist activist",
     quote: "I'm tough, I'm ambitious, and I know exactly what I want",
     image: "https://imgur.com/368MRQF.png",
+    thumbnail: "https://imgur.com/4cjhfdd.png",
     sport: "Ski",
     hobby: "Reading,Writing, Watching TV Series",
     musical: "Pop music",
@@ -692,6 +697,7 @@ async function insertFakeData() {
     overview:
       "Funny italian man, known for his ability to brighten the working atmosphere",
     quote: "The only thing we have to fear is fear itself.",
+    thumbnail: "https://imgur.com/vcfCeQQ.png",
     image: "https://imgur.com/ck7LkGI.png",
     sport: "Football",
     hobby: "Phishing",
@@ -715,6 +721,7 @@ async function insertFakeData() {
       "Introvert italian guy who likes spending time at home with his books",
     quote: "Il mondo è fatto di reti di baci, non di sassi",
     image: "https://imgur.com/TwwmnbH.png",
+    thumbnail: "https://imgur.com/dFZkM9n.png",
     sport: "No please!",
     hobby: "Reading, Writing",
     musical: "Folk Music",
@@ -737,6 +744,7 @@ async function insertFakeData() {
       "Pationate american guy who loves having an active life full of new experiences",
     quote: "Every day is a new experience and I take it as it comes",
     image: "https://imgur.com/xJGXER7.png",
+    thumbnail: "https://imgur.com/KiwkhUC.png",
     sport: "Basket",
     hobby: "Climbing, Drawing",
     musical: "Rock Music",
@@ -759,6 +767,7 @@ async function insertFakeData() {
       "Determined girl who loves her pets and her family more than anything else",
     quote: "Being cool is being your own self, just as you are.",
     image: "https://imgur.com/pGAPhG3.png",
+    thumbnail: "https://imgur.com/sgo2cY4.png",
     sport: "No please!",
     hobby: "Dancing, Reading",
     musical: "Pop Music",

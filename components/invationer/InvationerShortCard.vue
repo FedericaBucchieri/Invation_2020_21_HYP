@@ -7,7 +7,7 @@ together with their picture, their skills and a link to their pages -->
       <!-- Picture of the invationer (employee) -->
       <img
         class="round"
-        :src="invationer.image"
+        :src="invationer.thumbnail"
         :alt="
           invationer.name + ' ' + invationer.surname + 'short presentation card'
         "

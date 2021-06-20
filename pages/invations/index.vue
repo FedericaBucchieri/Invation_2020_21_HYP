@@ -1,42 +1,58 @@
+<!--  All invations page - group introductory page -->
 <template>
-  <intro-page
-    text-button="DISCOVER OUR INVATIONS"
-    area-name="Our invations"
-    general-link="invations"
-    :hasPhotoGallery="false"
-    :bigImage="bigImage"
-    :paths-list="pathsList"
-  >
-    <template #welcome-title>
-      Our products: <br /><em>The invations</em>
-    </template>
-    <template #welcome-overview>
-      Here you can find the complete <b>list of all our invations</b>:
-      innovative inventions and <i>products</i> to shape a new concrete concept
-      of <u>future</u>
-    </template>
-    <template #entitiesList="entitiesProps">
+  <div>
+    <!-- Orientation Info -->
+    <breadcrump :paths-list="pathsList" breadcrump-class="breadcrump-link">
+    </breadcrump>
+    <!--  Group introduction, welcome area -->
+    <welcome-area-start
+      :text-button="'DISCOVER OUR INVATIONS'"
+      :link="'#invations'"
+      :big-image="bigImage"
+    >
+      <template #title> Our products: <br /><em>The invations</em> </template>
+      <template #overview>
+        Here you can find the <b>complete list</b> of <u>all our invations</u>:
+        innovative inventions and ideas to shape a new concrete concept of
+        <i>future</i>.
+      </template>
+    </welcome-area-start>
+    <!--  Welcome area end  -->
+
+    <!-- All products area - list, start -->
+    <section id="invations">
       <content-rounded-containers
-        :content="entitiesProps.entities"
+        :content="invations"
         area-name="The invations"
         description-name="overview"
         research-id=""
         typology="invations"
         :displayTags="false"
-        description="Discover all our products"
+        :description="'Discover all our products'"
       ></content-rounded-containers>
-    </template>
-  </intro-page>
+    </section>
+    <!--  All products area ends  -->
+  </div>
 </template>
 
 <script>
-import IntroPage from "~/components/baseElements/IntroPage";
-import ContentRoundedContainers from "~/components/baseElements/ContentRoundedContainers";
+import Breadcrump from "~/components/baseElements/Breadcrump.vue";
+import WelcomeAreaStart from "~/components/baseElements/WelcomeAreaStart.vue";
+import ContentRoundedContainers from "~/components/baseElements/ContentRoundedContainers.vue";
 
 export default {
   components: {
-    IntroPage,
+    Breadcrump,
+    WelcomeAreaStart,
     ContentRoundedContainers,
+  },
+  // Get all invations
+  async asyncData({ $axios }) {
+    const { data } = await $axios.get(`${process.env.BASE_URL}/api/invations`);
+    const invations = data;
+    return {
+      invations,
+    };
   },
   data() {
     return {
@@ -65,25 +81,6 @@ export default {
         },
       ],
     };
-  },
-  methods: {
-    getInvations(entities) {
-      const invations = [];
-      for (let i = 0; i < entities.length; i++) {
-        const newInvation = {
-          name: entities[i].name,
-          numberTag: entities[i].numberTag,
-          // this is the attribute requested by ContentRoundedContainers
-          description: entities[i].overview,
-          // --------------------------------------
-          image: entities[i].image,
-          typology: "invations",
-          vision: entities[i].vision !== undefined ? entities[i].vision : null,
-        };
-        invations.push(newInvation);
-      }
-      return invations;
-    },
   },
 };
 </script>

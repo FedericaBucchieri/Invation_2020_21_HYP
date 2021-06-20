@@ -1,11 +1,15 @@
+<!-- Contact page -->
 <template>
   <div class="contact-page">
+    <!-- Orientation Info component  -->
     <breadcrump
       :paths-list="pathsList"
       breadcrump-class="breadcrump-links list"
     ></breadcrump>
+    <!-- Decorative images -->
     <div class="right-image-decor"></div>
     <div class="left-image-decor"></div>
+
     <div class="container">
       <div class="row">
         <!--  main section of the contact page -->
@@ -14,6 +18,7 @@
           <div class="contact-info-cards">
             <div class="card-contact">
               <h2>Let's contact us!</h2>
+              <!-- Contact methods list -->
               <div
                 v-for="(item, itemIndex) of contactInfos"
                 :key="'contact-' + itemIndex"
@@ -30,6 +35,7 @@
                 >
               </div>
             </div>
+            <!-- Decorative Image -->
             <div class="image-contact-container">
               <img
                 src="/contact.png"
@@ -40,6 +46,7 @@
             </div>
             <div class="card-contact">
               <h2>Discover us on Social Medias!</h2>
+              <!-- Social Media Icon list -->
               <div
                 v-for="(item, itemIndex) of socialIcons"
                 :key="'social-' + itemIndex"
@@ -155,6 +162,7 @@ export default {
           pathName: "Contact Us",
         },
       ],
+      // contact Info list
       contactInfos: [
         {
           name: "Address",
@@ -181,6 +189,7 @@ export default {
           alt: "fax icons",
         },
       ],
+      //Social icon list
       socialIcons: [
         {
           iconPath: "../contact-icons/facebook.png",
@@ -206,11 +215,13 @@ export default {
     };
   },
   methods: {
+    // This method sends an alert when the user compile the contact form, faking a real submit.
     fakeSend() {
       alert("Message sent correctly!");
     },
   },
   computed: {
+    // Validating the completeness of the form in order to activate the send button only when the form is properly completed.
     formCompleted() {
       var noSpaceName = this.name.replaceAll(" ", "");
       var noSpaceEmail = this.email.replaceAll(" ", "");
