@@ -28,20 +28,54 @@ With the aim of having our application accessible online, we developed a simple 
 
 ### Components development
 
+The folder components is divided in the following subfolders:
+
+- baseElements: it contains the base components that are used in several pages that don't own a semantic relationship
+- contacts: it contains the components used to deal with the contacts references in the contact us page and inside the footer
+- decoration: it contains the components that have a mere purpose of improving the look and feel of the website
+- footer: it contains all the components used exclusively inside the footer
+- invation: it contains all the components used exclusively inside the invation pages
+- invationer: it contains all the components used exclusively inside the invationer pages
+- theHeader: it contains all the components used exclusively inside the header
+- vision: it contains all the components used exclusively inside the vision pages
+
+and the following components that are instantiated only one time inside the default layout:
+
+- TheHeader: the header of the website 
+- TheChat: the component used to manage the chatbot functions
+- TheFooter: the footer of the website
+
+Now we present all the components inside each folder:
+
 ### Plugins
 
 #### • Chatbot mmcc --> store used only for this
 
 # Framework usage
 
-- Routing (only nuxt-link used for page to page. <a> used only in structural links)
-- Components names and division for reusability
-- props for data and slots for html
-- communication between components - from child to parent data: emit method
-- Always asinc data (somethimes fetch)
-- shorthands for interpolation of attributes, directives, arguments and modifiers
-- lifecycle hooks only used mounted sometimes
-
+- Links:
+  - we leveraged the power of the nuxt-links together with the convenient structuring of the pages folder to make the routing very easy to be done;
+  - the <a> markup has been used only for structural links;
+- Components names and division for reusability:
+  - every component that is instantiated only one time inside the whole website (TheHeader, TheChat, TheFooter) start with "The";
+  - the compound names of the components are organized in order to go from the most generic concept to the least (i.e. InvationerContactList);
+- Props for data and slots for html:
+  - we always used props in order to parametrize as much as possible every component so that they can achieve an excellent level of reusability, avoiding every       possible type of hardcoded data;
+  - only when needed we used slots to pass lines of html that would have been much more difficult to pass using props;
+- Communication between components:
+  - from parent to child: this is the most common communication we used that has been implemented with props;
+  - Event Bus: we used the Bus to emit some custom events to enable the communication between components that are not linked with a child-parent relationship;
+- Use of Async data: 
+  - we always used the async data function to retrieve information from the database to inject it inside the components;
+- Shorthands for interpolation of attributes, directives, arguments and modifiers:
+  - we always used shorthands to improve the readability of the code;
+- Lifecycle hooks only used mounted sometimes:
+  - when needed we exploited the power of the lifecycle hooks, in particular mounted() and created();
+- Static:
+  - the static folder has been mainly used for the storing of the images used inside the website to improve the performance;
+- Layouts:
+  - the default layout has been used to organize the general structure of all pages, that contain The Header, The Chat and the Footer;
+ 
 ### Lighthouse page evaluation
 
 Here are reported the average grade obtained while performing a complete website evaluation using Lighthouse on Google DevTools.
