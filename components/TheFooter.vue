@@ -142,6 +142,12 @@ export default {
 </script>
 
 <style scoped>
+@media (max-width: 810px) {
+  .sub-footer p {
+    font-size: 9px !important;
+  }
+}
+
 footer {
   position: fixed;
   bottom: 0;

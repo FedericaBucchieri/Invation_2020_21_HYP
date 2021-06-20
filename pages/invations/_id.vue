@@ -1,5 +1,7 @@
+<!-- Single product page (invation) -->
 <template>
   <div class="content">
+    <!-- orientation info component -->
     <breadcrump :paths-list="pathsList" breadcrump-class="breadcrump-link">
     </breadcrump>
     <div class="left-image-decor"></div>
@@ -116,6 +118,7 @@ export default {
     InvationReviewList,
     NavigationGuidedTourHandler,
   },
+  // Get all the info about the selected invation + get all the invations for the related vision and vision info for the guided tour navigation
   async asyncData({ $axios, route }) {
     const { id } = route.params;
     const invationData = await $axios.get(
@@ -167,12 +170,14 @@ export default {
       ],
     };
   },
+  // Mounted properties for breadcrump implementation
   mounted() {
-    this.pathsList[1] = {
+    this.pathsList.push({
       path: `/invations/${this.invation.id}`,
       pathName: `${this.invation.name}`,
-    };
+    });
   },
+  // Methods for posting a review: performs the call to the backend to add the review to the db
   methods: {
     postReview(e) {
       this.review.invation_id = this.invation.id;

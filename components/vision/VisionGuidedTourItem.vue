@@ -1,4 +1,6 @@
+<!-- Component that represent the single item of the VisionGiudedTour.vue component -->
 <template>
+  <!-- Items are divided between right or left element, according to the position of the list inside the guided tour -->
   <div :class="featuresItemClass">
     <features-title-section
       v-if="item.right"
@@ -15,8 +17,8 @@
 </template>
 
 <script>
-import FeaturesDetailsSection from '~/components/vision/FeaturesDetailsSection.vue'
-import FeaturesTitleSection from '~/components/vision/FeaturesTitleSection.vue'
+import FeaturesDetailsSection from "~/components/vision/FeaturesDetailsSection.vue";
+import FeaturesTitleSection from "~/components/vision/FeaturesTitleSection.vue";
 
 export default {
   components: {
@@ -33,26 +35,26 @@ export default {
             default() {
               return {
                 id: { type: Number, default: () => 0 },
-                name: { type: String, default: () => '' },
-                subtitle: { type: String, default: () => '' },
-                overview: { type: String, default: () => '' },
-                image: { type: String, default: () => '' },
-                numberTag: { type: String, default: () => '' },
-              }
+                name: { type: String, default: () => "" },
+                subtitle: { type: String, default: () => "" },
+                overview: { type: String, default: () => "" },
+                image: { type: String, default: () => "" },
+                numberTag: { type: String, default: () => "" },
+              };
             },
           },
           right: { type: Boolean, default: () => false },
-        }
+        };
       },
     },
-    typology: { type: String, default: () => '' },
+    typology: { type: String, default: () => "" },
   },
   data() {
     return {
-      featuresItemClass: '',
+      featuresItemClass: "",
       featuresSection: {
-        firstSection: { type: String, default: () => '' },
-        secondSection: { type: String, default: () => '' },
+        firstSection: { type: String, default: () => "" },
+        secondSection: { type: String, default: () => "" },
       },
       titleContent: [
         this.item.item.name,
@@ -65,16 +67,17 @@ export default {
         this.item.item.thumbnail,
         this.item.item.name,
       ],
-    }
+    };
   },
+  // Mounted property that assigns a class to the object for displaying it with align left or align right
   mounted() {
     if (this.item.right) {
-      this.featuresItemClass = 'features-item-right'
+      this.featuresItemClass = "features-item-right";
     } else {
-      this.featuresItemClass = 'features-item-left'
+      this.featuresItemClass = "features-item-left";
     }
   },
-}
+};
 </script>
 
 <style scoped>

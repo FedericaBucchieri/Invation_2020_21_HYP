@@ -1,6 +1,8 @@
+<!-- Component that represents the card containers used for Vision and Invations list presentation -->
 <template>
   <div class="roundedContainer">
     <div class="features-item">
+      <!-- Number Tag of the components - different to id, just an ordering tag for decoration purposes -->
       <h2 v-if="displayTag">{{ numberTag }}</h2>
       <img
         :src="image"
@@ -13,6 +15,7 @@
       <p>
         {{ description }}
       </p>
+      <!-- Explore button if the object is clickable -->
       <nuxt-link
         v-if="isActiveLink"
         :to="`/${typology}/` + id"
@@ -20,6 +23,7 @@
       >
         Explore
       </nuxt-link>
+      <!-- Explore button if the object is not clickable -->
       <button
         v-if="!isActiveLink"
         disabled="disabled"
@@ -28,6 +32,8 @@
         Explore
       </button>
     </div>
+    <!-- If its an invation, there is a related vision to be displayed 
+    All the relavant check are developed for consistency reasons-->
     <div v-if="vision !== undefined && isActiveLink" class="vision-as-footer">
       <nuxt-link :to="'/visions/' + vision.id">
         <b>Related Vision:</b> {{ vision.name }}</nuxt-link

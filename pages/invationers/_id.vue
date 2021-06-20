@@ -110,7 +110,6 @@
         :content="invationer.invations"
         :area-name="'The Invations this Invationer worked on'"
         :typology="'invations'"
-        research-id=""
         :description-name="'overview'"
         :displayTags="false"
       >
@@ -170,10 +169,10 @@ export default {
   },
   mounted() {
     // mounting data for orientation info
-    this.pathsList[1] = {
+    this.pathsList.push({
       path: `/invationers/${this.invationer.id}`,
       pathName: `${this.invationer.name + " " + this.invationer.surname}`,
-    };
+    });
   },
   head() {
     return {

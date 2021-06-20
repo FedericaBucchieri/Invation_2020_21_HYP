@@ -1,8 +1,10 @@
+<!--  Component for the Orientation Info development-->
 <template>
   <div :class="breadcrumpClass" class="orientation-info">
     <div class="container">
+      <!-- list of path to be displayed in the breadcrump -->
       <span
-        v-for="(item, itemIndex) of pathsList"
+        v-for="(item, itemIndex) of myPathList"
         :key="'breadcrump-link-' + itemIndex"
       >
         <nuxt-link :to="item.path"> > {{ item.pathName }} </nuxt-link>
@@ -17,14 +19,20 @@ export default {
     pathsList: { type: Array, default: () => [] },
     breadcrumpClass: { type: String, default: () => "" },
   },
+  data() {
+    return {
+      myPathList: this.pathsList,
+    };
+  },
+  // Mounted property that inables the navigation bar to highligth the corresponding element of the user location inside the website
   mounted() {
-    if (this.pathsList === []) {
+    if (this.myPathList === []) {
       this.$root.$emit("location-from-breadcrump", "Home");
       console.log("Emit home");
     } else {
       console.log("Emit ");
-      console.log(this.pathsList);
-      this.$root.$emit("location-from-breadcrump", this.pathsList[0].pathName);
+      console.log(this.myPathList);
+      this.$root.$emit("location-from-breadcrump", this.myPathList[0].pathName);
     }
   },
 };

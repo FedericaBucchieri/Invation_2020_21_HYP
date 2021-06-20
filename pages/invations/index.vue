@@ -25,7 +25,6 @@
         :content="invations"
         area-name="The invations"
         description-name="overview"
-        research-id=""
         typology="invations"
         :displayTags="false"
         :description="'Discover all our products'"

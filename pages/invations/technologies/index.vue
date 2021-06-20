@@ -1,8 +1,10 @@
+<!-- Page for Products divided by technologies -->
 <template>
-  <!-- Our technologies -->
   <div>
+    <!-- Orientation info component -->
     <breadcrump :paths-list="pathsList" breadcrump-class="breadcrump-link">
     </breadcrump>
+    <!-- Introduction element -->
     <welcome-area-start :bigImage="'/banners/banner-agumented.png'">
       <template #title> Explore our <em>Technologies</em></template>
       <template #overview>
@@ -12,7 +14,7 @@
         find the related <i>Invations</i>
       </template>
     </welcome-area-start>
-    <!-- Each technology container -->
+    <!-- Each technology container with realteive products -->
     <section id="technologies">
       <div
         v-for="technology in technologies"
@@ -20,10 +22,10 @@
         :id="technology.relatedPath"
       >
         <span></span>
+        <!-- list of product for the single technology -->
         <content-rounded-containers
           :area-name="technology.name"
           :content="technology.invations"
-          research-id=""
           :description="technology.description"
           description-name="overview"
           :typology="'invations'"
@@ -46,6 +48,7 @@ export default {
     WelcomeAreaStart,
     ContentRoundedContainers,
   },
+  // Get all technologies with relative products
   async asyncData({ $axios }) {
     const { data } = await $axios.get(
       `${process.env.BASE_URL}/api/technologies`

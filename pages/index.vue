@@ -103,6 +103,9 @@ export default {
         "Did you really not figure it out already? Our employees will present them. They are the Invationers! Our great team.",
     };
   },
+  created() {
+    this.$root.$emit("location-from-breadcrump", "Home");
+  },
   head() {
     return {
       title: "Invation - Home Page",

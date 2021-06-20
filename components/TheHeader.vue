@@ -16,9 +16,9 @@
                 'margin-top': myMarginTop + 'px !important',
               }"
             >
-              <li class="scroll-to-section">
+              <!-- <li class="scroll-to-section">
                 <nuxt-link to="/">Home</nuxt-link>
-              </li>
+              </li> -->
               <li
                 v-for="theHeaderMenuItem in theHeaderMenuItems"
                 :key="theHeaderMenuItem.name"
@@ -61,6 +61,10 @@ export default {
       myDisplay: "none",
       myMarginTop: 20,
       theHeaderMenuItems: [
+        {
+          name: "Home",
+          path: "/",
+        },
         {
           name: "About",
           extensions: [{ nameExtension: "Contact Us", path: "/contact" }],
@@ -255,7 +259,7 @@ header {
 .header-area .main-nav .nav li.submenu ul li a {
   display: block;
   background: #fff;
-  color: #7a7a7a !important;
+  color: #000;
   padding-left: 20px;
   height: 40px;
   line-height: 40px;

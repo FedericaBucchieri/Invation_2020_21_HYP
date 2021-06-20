@@ -1,8 +1,12 @@
+<!-- Page for the vision area (vision) -->
 <template>
   <div>
+    <!-- Orientation info component -->
     <breadcrump :paths-list="pathsList" breadcrump-class="breadcrump-link">
     </breadcrump>
+    <!-- Decorative image -->
     <div class="left-image-decor"></div>
+    <!-- Vision introduction section -->
     <section id="introduction" class="section">
       <object-overview
         :name="vision.name"
@@ -11,7 +15,9 @@
       >
       </object-overview>
     </section>
+    <!-- Decorative image -->
     <div class="right-image-decor"></div>
+
     <!-- Introduction to the  list of products -->
     <section id="products-intro">
       <div class="container">
@@ -28,13 +34,17 @@
         </div>
       </div>
     </section>
+
+    <!-- list of product section -->
     <section id="innovations" class="section">
+      <!-- Tour inside the vision products -->
       <vision-guided-tour
         :items="vision.invations"
         typology="invations"
         :video="vision.video"
       ></vision-guided-tour>
     </section>
+    <!-- Invationers related to the vision - section -->
     <section id="invationers">
       <invationer-short-card-container
         :title="'Responsible of the Vision ' + vision.name"
@@ -57,6 +67,7 @@ export default {
     VisionGuidedTour,
     InvationerShortCardContainer,
   },
+  // Get all the selected vision details (with relative products and people)
   async asyncData({ $axios, route }) {
     const { id } = route.params;
     const visionData = await $axios.get(
@@ -77,11 +88,12 @@ export default {
       ],
     };
   },
+  // Mounted properties for breadcrump implementation
   mounted() {
-    this.pathsList[1] = {
+    this.pathsList.push({
       path: `/visions/${this.vision.id}`,
       pathName: `${this.vision.name}`,
-    };
+    });
   },
   head() {
     return {

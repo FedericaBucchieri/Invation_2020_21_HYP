@@ -103,13 +103,16 @@ export default {
   .button {
     position: fixed;
     z-index: 10;
-    bottom: 100px;
+    bottom: 80px;
     right: 10px;
   }
 }
 
 .button img {
   width: 100%;
+}
+.chat {
+  z-index: 20;
 }
 
 .chat-container {
@@ -135,7 +138,7 @@ export default {
   .chat-container {
     height: 65%;
     width: 340px;
-    bottom: 170px;
+    bottom: 150px;
     right: 20px;
     position: fixed;
     z-index: 10;

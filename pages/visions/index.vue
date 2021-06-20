@@ -1,8 +1,10 @@
+<!-- Group introductory page for the areas (visions) -->
 <template>
   <div>
+    <!-- Orientation info component -->
     <breadcrump :paths-list="pathsList" breadcrump-class="breadcrump-link">
     </breadcrump>
-    <!-- ***** Welcome Area Start ***** -->
+    <!--  Page introduction  -->
     <welcome-area-start
       :text-button="textButton"
       link="#visionsContainers"
@@ -17,13 +19,13 @@
         the world suggest us to take.
       </template>
     </welcome-area-start>
+    <!-- List of the visions -->
     <section id="visionsContainers">
       <content-rounded-containers
         :content="visions"
         :area-name="areaName"
         :image-name="'image'"
         typology="visions"
-        research-id=""
         description="Discover our four product areas"
       >
       </content-rounded-containers>
@@ -42,6 +44,7 @@ export default {
     WelcomeAreaStart,
     ContentRoundedContainers,
   },
+  // Get all visions
   async asyncData({ $axios }) {
     const { data } = await $axios.get(`${process.env.BASE_URL}/api/visions`);
     const visions = data;

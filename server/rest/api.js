@@ -20,7 +20,16 @@ async function init() {
 
   // Get all the visions
   app.get("/visions", async (req, res) => {
-    const visions = await Vision.findAll();
+    const visions = await Vision.findAll({
+      attributes: [
+        "id",
+        "name",
+        "numberTag",
+        "image",
+        "description",
+        "isActive",
+      ],
+    });
     return res.json(visions);
   });
 
@@ -31,6 +40,7 @@ async function init() {
         model: Skill,
         attributes: ["id", "name"],
       },
+      attributes: ["id", "name", "surname", "thumbnail", "quote", "role"],
     });
     return res.json(invationers);
   });
@@ -42,29 +52,9 @@ async function init() {
         model: Vision,
         attributes: ["id", "name"],
       },
+      attributes: ["name", "id", "thumbnail", "overview", "isActive"],
     });
     return res.json(invations);
-  });
-
-  // Get 10 invations' images and use their overview as alt attribute
-  // https://sequelize.org/v5/manual/models-usage.html#manipulating-the-dataset-with-limit--offset--order-and-group
-  app.get("/invations10", async (req, res) => {
-    const invations = await Invation.findAll({ limit: 10 });
-
-    let invationImgs = [];
-
-    invations.forEach((invation) => {
-      let item = {
-        id: invation.id,
-        name: invation.name,
-        alt: invation.overview,
-        imgPath: invation.thumbnail,
-        detailPage: `/invations/${invation.id}`,
-      };
-      invationImgs.push(item);
-    });
-
-    return res.json(invationImgs);
   });
 
   // Get the 3 last invations
@@ -76,6 +66,7 @@ async function init() {
         model: Vision,
         attributes: ["id", "name"],
       },
+      attributes: ["name", "id", "thumbnail", "overview", "developmentDate"],
     });
     return res.json(invations);
   });
@@ -101,7 +92,7 @@ async function init() {
         },
         {
           model: Invationer,
-          attributes: ["id", "image", "name", "surname", "role", "quote"],
+          attributes: ["id", "thumbnail", "name", "surname", "role", "quote"],
           include: { model: Skill },
         },
       ],
@@ -117,7 +108,7 @@ async function init() {
       include: [
         {
           model: Invationer,
-          attributes: ["id", "name", "surname", "quote", "role", "image"],
+          attributes: ["id", "name", "surname", "quote", "role", "thumbnail"],
           include: { model: Skill },
         },
         {
@@ -182,7 +173,10 @@ async function init() {
   // API to get all the technologies
   app.get("/technologies", async (req, res) => {
     const technologies = await Technology.findAll({
-      include: { model: Invation },
+      include: {
+        model: Invation,
+        attributes: ["name", "id", "thumbnail", "overview", "isActive"],
+      },
     });
     return res.json(technologies);
   });

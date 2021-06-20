@@ -1,9 +1,10 @@
 <!--  About Page -->
 <template>
   <div>
+    <!-- Orientation info component -->
     <breadcrump :paths-list="pathsList" breadcrump-class="breadcrump-link">
     </breadcrump>
-    <!-- ***** Welcome Area Start ***** -->
+    <!-- Page introduction -->
     <welcome-area-start
       :text-button="textButton"
       :link="'#founders'"
@@ -18,9 +19,11 @@
         there are <i>three pillars:</i> Innovation, Invention and Teamwork.
       </template>
     </welcome-area-start>
-    <!-- ***** Founder Area Start ***** -->
+    <!-- Founder area - description and photo -->
     <section id="founders">
+      <!-- Decorative image -->
       <div class="left-image-decor"></div>
+      <!-- Three founders description container -->
       <three-object-container
         :title="'THE FOUNDERS'"
         :objects="founders"
@@ -34,7 +37,7 @@
         precious <i>friends</i>.
       </three-object-container>
     </section>
-    <!-- ***** HeadQuarter Area Start ***** -->
+    <!--  HeadQuarter Area Start  -->
     <section id="headquarter">
       <div class="container">
         <div class="row">

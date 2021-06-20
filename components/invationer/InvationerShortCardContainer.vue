@@ -6,13 +6,6 @@
         <div class="center-heading">
           <h2>{{ title }}</h2>
         </div>
-        <search-component
-          v-if="hasSearch"
-          :is-case-sensitive="false"
-          id-ul="invationer-ul"
-          tag-to-search="h5"
-        >
-        </search-component>
       </div>
       <div
         class="invationer-list-container"
@@ -36,16 +29,13 @@
 
 <script>
 import InvationerShortCard from "~/components/invationer/InvationerShortCard.vue";
-import SearchComponent from "~/components/baseElements/SearchComponent.vue";
 export default {
   components: {
     InvationerShortCard,
-    SearchComponent,
   },
   props: {
     cardList: { type: Array, default: () => [] },
     title: { type: String, default: () => "" },
-    hasSearch: { type: Boolean, default: () => false },
   },
 };
 </script>

@@ -1,3 +1,4 @@
+<!-- Details of each element inside the visionGuideTourElement, namely the numberTag and the product image -->
 <template>
   <div class="features-details-section">
     <h3>{{ numberTag }}</h3>

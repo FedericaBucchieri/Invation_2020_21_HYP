@@ -1,6 +1,6 @@
 <template>
   <nuxt-link
-    :class="{ disabled: disabled }"
+    :class="{ disabled: myDisable }"
     :to="theHeaderMenuItemExtensionPath"
     >{{ theHeaderMenuItemExtensionName }}</nuxt-link
   >
@@ -13,8 +13,13 @@ export default {
     theHeaderMenuItemExtensionPath: { type: String, default: () => "" },
     disabled: { type: Boolean, default: () => false },
   },
+  data() {
+    return {
+      myDisable: this.disabled,
+    };
+  },
   mounted() {
-    this.disabled =
+    this.myDisable =
       this.theHeaderMenuItemExtensionName === "Work" ||
       this.theHeaderMenuItemExtensionName === "Smart Home";
   },
@@ -29,7 +34,7 @@ export default {
 }
 .background-header .logo,
 .background-header .main-nav .nav li a {
-  color: #1e1e1e !important;
+  color: #1e1e1e;
 }
 
 .background-header .main-nav .nav li:hover a {
@@ -106,7 +111,7 @@ export default {
 .header-area .main-nav .nav li.submenu ul li a {
   display: block;
   background: #fff;
-  color: black !important;
+  color: black;
   padding-left: 20px;
   height: 40px;
   line-height: 40px;

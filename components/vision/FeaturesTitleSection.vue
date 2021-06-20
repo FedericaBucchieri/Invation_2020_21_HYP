@@ -1,5 +1,7 @@
+<!-- Main info of each element inside the visionGuideTourElement, namely the title, the subtitle and the product overview -->
 <template>
   <div class="features-title-section">
+    <!-- Title of the product with link to the product page -->
     <nuxt-link :to="link">
       <h2>Product: {{ title }}</h2>
     </nuxt-link>

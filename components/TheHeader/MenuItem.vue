@@ -80,7 +80,7 @@ export default {
 }
 
 .highlight {
-  color: #eea724 !important;
+  color: rgba(244, 129, 63, 1) !important;
   font-weight: bold !important;
 }
 
@@ -163,7 +163,7 @@ export default {
 .header-area .main-nav .nav li.submenu ul li a {
   display: block;
   background: #fff;
-  color: #7a7a7a !important;
+  color: #000;
   padding-left: 20px;
   height: 40px;
   line-height: 40px;

@@ -8,17 +8,9 @@
         <div class="container-topic-description">
           {{ description }}
         </div>
-        <search-component
-          v-if="researchId !== ''"
-          :is-case-sensitive="false"
-          :id-ul="researchId"
-          tag-to-search="h3"
-          :placeholder-keyword="typology"
-        >
-        </search-component>
         <div class="rounded-content">
           <!-- List start, example placeholders for products -->
-          <ul :id="researchId">
+          <ul>
             <li
               v-for="myContent in content"
               :key="myContent.name"
@@ -48,10 +40,9 @@
 
 <script>
 import RoundedContainer from "~/components/baseElements/RoundedContainer.vue";
-import SearchComponent from "~/components/baseElements/SearchComponent.vue";
 
 export default {
-  components: { RoundedContainer, SearchComponent },
+  components: { RoundedContainer },
   props: {
     areaName: { type: String, default: "" },
     content: {
@@ -61,7 +52,6 @@ export default {
     descriptionName: { type: String, default: "description" },
     imageName: { type: String, default: "thumbnail" },
     typology: { type: String, default: "" },
-    researchId: { type: String, default: () => "visionUL" },
     description: { type: String, default: "" },
     displayTags: { type: Boolean, default: () => true },
   },
