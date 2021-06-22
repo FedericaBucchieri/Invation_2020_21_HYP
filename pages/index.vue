@@ -50,6 +50,7 @@
 
     <!-- Last three products -->
     <section id="latestProducts">
+      <!-- Decorative image -->
       <div class="left-image-decor"></div>
       <three-object-container
         :big-image="bigImage"

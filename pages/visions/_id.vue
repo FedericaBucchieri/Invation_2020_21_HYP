@@ -41,7 +41,6 @@
       <vision-guided-tour
         :items="vision.invations"
         typology="invations"
-        :video="vision.video"
       ></vision-guided-tour>
     </section>
     <!-- Invationers related to the vision - section -->

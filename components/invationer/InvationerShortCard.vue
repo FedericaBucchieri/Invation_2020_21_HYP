@@ -1,4 +1,4 @@
-<!-- This component modelize the presentation card of ech employee of the company.
+<!-- This component modelize the presentation card of each employee of the company.
 The presentation card comprises the name, the role and the personal quote of the employees, 
 together with their picture, their skills and a link to their pages -->
 <template>

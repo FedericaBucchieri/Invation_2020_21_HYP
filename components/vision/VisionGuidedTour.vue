@@ -39,7 +39,6 @@ import VisionGuidedTourItem from "./VisionGuidedTourItem";
 export default {
   components: { VisionGuidedTourItem },
   props: {
-    video: { type: String, default: () => "" },
     items: {
       type: Array,
       default: () => [],
@@ -89,10 +88,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.video-frame {
-  width: 100%;
-  height: 400px;
-  margin-bottom: 100px;
-}
-</style>
+<style></style>

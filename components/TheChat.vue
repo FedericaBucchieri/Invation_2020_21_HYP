@@ -25,12 +25,13 @@
           </div>
         </div>
       </div>
-      <label for="chat-dialogue"></label>
+      <label for="chat-dialogue">Type a message</label>
       <input
         id="chat-dialogue"
         v-model="messageToSend"
         type="text"
         @keypress.enter="sendMessage"
+        placeholder="Type a message..."
       />
     </div>
     <div class="button" @click="isOpen = !isOpen">
@@ -72,6 +73,10 @@ export default {
       WebSocketEventBus.$emit("send", packet);
       this.messageToSend = "";
     },
+  },
+  updated() {
+    var objDiv = document.getElementById("chat-window");
+    objDiv.scrollTop = objDiv.scrollHeight;
   },
 };
 </script>
@@ -174,9 +179,6 @@ export default {
   height: calc(100% - 130px);
   vertical-align: bottom;
   overflow-y: scroll;
-  flex-direction: column;
-  display: flex;
-  justify-content: flex-end;
 }
 
 .chat-window > :first-child {
@@ -201,6 +203,7 @@ export default {
   color: black;
   border-radius: 4px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  font-size: 14px;
 }
 .message-content.sender {
   background: linear-gradient(
@@ -223,6 +226,7 @@ input {
   background-color: #eaeaea;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   border: 1px solid #999;
+  font-size: 14px;
 }
 
 input:focus {

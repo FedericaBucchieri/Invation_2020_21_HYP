@@ -1,4 +1,4 @@
-<!-- List of Invationer Short Cards that comes with a title to introduce the cards displayed. -->
+<!-- List of Invationer Short Cards (InvatioenrShortCard.vue component) that comes with a title to introduce the cards displayed. -->
 <template>
   <div class="container">
     <div class="row">
@@ -18,6 +18,7 @@
             :id="item.id"
             :key="`invationers-card` + itemIndex"
           >
+            <!-- rendering invationer information -->
             <invationer-short-card :id="item.id" :invationer="item">
             </invationer-short-card>
           </li>
@@ -34,7 +35,9 @@ export default {
     InvationerShortCard,
   },
   props: {
+    // @cardList: array of
     cardList: { type: Array, default: () => [] },
+    // @title
     title: { type: String, default: () => "" },
   },
 };
