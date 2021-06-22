@@ -17,7 +17,9 @@
 <script>
 export default {
   props: {
+    // Informations about the image to be put as alternative text
     info: { type: String, default: () => "" },
+    // Path referncing to the image to be displayed
     imgPath: { type: String, default: () => "" },
   },
 };

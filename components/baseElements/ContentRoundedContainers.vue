@@ -44,19 +44,27 @@ import RoundedContainer from "~/components/baseElements/RoundedContainer.vue";
 export default {
   components: { RoundedContainer },
   props: {
+    // Name of the area to be displayed
     areaName: { type: String, default: "" },
+    // Content of this container
     content: {
       type: Array,
       default: () => [],
     },
+    // Description of the content to be displayed
     descriptionName: { type: String, default: "description" },
+    // Name of the image the content to be displayed
     imageName: { type: String, default: "thumbnail" },
+    // Typology of the container to be displayed (ex. 'invationer')
     typology: { type: String, default: "" },
+    // Description to be displayed in this container
     description: { type: String, default: "" },
+    // Flag indicating if some tags below of the container have to be displayed
     displayTags: { type: Boolean, default: () => true },
   },
   data() {
     return {
+      // Content of this container
       myContents: this.content,
     };
   },

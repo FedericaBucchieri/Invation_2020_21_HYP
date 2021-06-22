@@ -16,11 +16,14 @@
 <script>
 export default {
   props: {
+    // Object containing all the information about the path and to redirect the user to it
     pathsList: { type: Array, default: () => [] },
+    // Class of the div containing the breadcrump
     breadcrumpClass: { type: String, default: () => "" },
   },
   data() {
     return {
+      // Object containing all the information about the path and to redirect the user to it
       myPathList: this.pathsList,
     };
   },

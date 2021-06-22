@@ -32,8 +32,11 @@
 <script>
 export default {
   props: {
+    // Text to be displayed with the principle button of this component
     textButton: { type: String, default: () => "" },
+    // Path indicating where the principle button of this component has to reference
     link: { type: String, default: () => "" },
+    // Path indicating an image to be displayed
     bigImage: {
       type: String,
       default: () => "/banners/banner-rocket.png",

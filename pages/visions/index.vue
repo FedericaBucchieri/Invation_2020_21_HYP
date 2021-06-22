@@ -6,9 +6,9 @@
     </breadcrump>
     <!--  Page introduction  -->
     <welcome-area-start
-      :text-button="textButton"
+      text-button="DISCOVER OUR VISIONS"
       link="#visionsContainers"
-      :bigImage="bigImage"
+      bigImage="/banners/banner-player.png"
     >
       <template #title> Our Areas: <br /><em>The Visions</em> </template>
       <template #overview>
@@ -23,7 +23,7 @@
     <section id="visionsContainers">
       <content-rounded-containers
         :content="visions"
-        :area-name="areaName"
+        area-name="Our Visions"
         :image-name="'image'"
         typology="visions"
         description="Discover our four product areas"
@@ -54,9 +54,7 @@ export default {
   },
   data() {
     return {
-      bigImage: "/banners/banner-player.png",
-      textButton: "DISCOVER OUR VISIONS",
-      areaName: "Our Visions",
+      // Information used for the breadcrump functionalities
       pathsList: [
         {
           path: this.$route.path,

@@ -51,14 +51,23 @@
 <script>
 export default {
   props: {
+    // Number of the decorative progressive tag to be displayed
     numberTag: { type: String, default: () => "" },
+    // Name of this component
     name: { type: String, default: () => "" },
+    // Description of this component
     description: { type: String, default: () => "" },
+    // Path referencing to the image to be displayed
     image: { type: String, default: () => "" },
+    // Tyology of this component (ex. invation)
     typology: { type: String, default: () => "" },
+    // Vision object related to this component
     vision: { type: Object, default: () => {} },
+    // Flag indicating if the number tags have to be displayed or not
     displayTag: { type: Boolean, default: () => true },
+    // Identifier of this component
     id: { type: Number, default: () => 0 },
+    // Flag indicating if the links have to be active or not
     isActiveLink: { type: Boolean, default: () => true },
   },
 };

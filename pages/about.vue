@@ -6,7 +6,7 @@
     </breadcrump>
     <!-- Page introduction -->
     <welcome-area-start
-      :text-button="textButton"
+      text-button="DISCOVER OUR FOUNDERS"
       :link="'#founders'"
       :bigImage="'/banners/banner-robot.png'"
     >
@@ -115,15 +115,18 @@ export default {
   },
   data() {
     return {
-      textButton: "DISCOVER OUR FOUNDERS",
+      // Flag indicating if the map is open or not
       mapOpening: false,
+      // Flag used to display the request to the user asking if she wants to open the map
       mapRequest: false,
+      // Information used for the breadcrump functionalities
       pathsList: [
         {
           path: this.$route.path,
           pathName: "About",
         },
       ],
+      // Object containing the information related to the founders of the site
       founders: [
         {
           name: "Federica Bucchieri",
@@ -144,6 +147,7 @@ export default {
           thumbnail: "https://imgur.com/cjvDnYD.png",
         },
       ],
+      // Object containing an image related to the founders
       foundersImage: "https://imgur.com/GD02BFB.png",
     };
   },

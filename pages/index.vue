@@ -2,7 +2,7 @@
 <template>
   <div>
     <!--  Welcome Area  -->
-    <welcome-area-start :text-button="textButton" :link="'/about'">
+    <welcome-area-start text-button="ABOUT THE COMPANY" :link="'/about'">
       <template #title> Join our <em>Vision</em> of the Future </template>
       <template #overview>
         Our company was born in <b>2001</b> at the early stages of the
@@ -52,7 +52,7 @@
     <section id="latestProducts">
       <div class="left-image-decor"></div>
       <three-object-container
-        :big-image="bigImage"
+        big-image="https://imgur.com/OrwkWr6.png"
         :objects="last3Invations"
         :title="'Our last three invations'"
         :is-object-list="true"
@@ -91,14 +91,13 @@ export default {
   },
   data() {
     return {
-      textButton: "ABOUT THE COMPANY",
-      areaName: "Explore our Visions",
-      bigImage: "https://imgur.com/OrwkWr6.png",
-      invationerTitle: "Discover our team: The Invationers",
+      // Message containing the definition of a vision
       visionDefinition:
         "Visions are interactive itinerary based on a chosen theme, created as a set of innovative products. Go and explore our 4 Visions!",
+      // Message containing the definition of an invation
       invationDefinition:
         "Invations are innovative inventions and ideas to shape a new concrete concept of future. Do you want to know more?",
+      // Message containing the definition of a invationer
       invationersDefinition:
         "Did you really not figure it out already? Our employees will present them. They are the Invationers! Our great team.",
     };

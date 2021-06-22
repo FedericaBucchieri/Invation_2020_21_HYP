@@ -13,6 +13,7 @@
 <script>
 export default {
   props: {
+    // URL referencing to the video to be displayed
     videoUrl: { type: String, default: () => "" },
   },
 };

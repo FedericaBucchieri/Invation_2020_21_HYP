@@ -149,9 +149,13 @@ export default {
   components: { Breadcrump },
   data() {
     return {
+      // Object containing the name in the form
       name: "",
+      // Object containing the email in the form
       email: "",
+      // Object containing the message in the form
       message: "",
+      // Information used for the breadcrump functionalities
       pathsList: [
         {
           path: "/about",
