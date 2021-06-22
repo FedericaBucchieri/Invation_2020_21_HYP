@@ -41,7 +41,7 @@ The folder components is divided in the following subfolders:
 
 and the following components that are instantiated only one time inside the default layout:
 
-- TheHeader: the header of the website 
+- TheHeader: the header of the website
 - TheChat: the component used to manage the chatbot functions
 - TheFooter: the footer of the website
 
@@ -60,12 +60,12 @@ Now we present all the components inside each folder:
   - every component that is instantiated only one time inside the whole website (TheHeader, TheChat, TheFooter) start with "The";
   - the compound names of the components are organized in order to go from the most generic concept to the least (i.e. InvationerContactList);
 - Props for data and slots for html:
-  - we always used props in order to parametrize as much as possible every component so that they can achieve an excellent level of reusability, avoiding every       possible type of hardcoded data;
+  - we always used props in order to parametrize as much as possible every component so that they can achieve an excellent level of reusability, avoiding every possible type of hardcoded data;
   - only when needed we used slots to pass lines of html that would have been much more difficult to pass using props;
 - Communication between components:
   - from parent to child: this is the most common communication we used that has been implemented with props;
   - Event Bus: we used the Bus to emit some custom events to enable the communication between components that are not linked with a child-parent relationship;
-- Use of Async data: 
+- Use of Async data:
   - we always used the async data function to retrieve information from the database to inject it inside the components;
 - Shorthands for interpolation of attributes, directives, arguments and modifiers:
   - we always used shorthands to improve the readability of the code;
@@ -75,24 +75,6 @@ Now we present all the components inside each folder:
   - the static folder has been mainly used for the storing of the images used inside the website to improve the performance;
 - Layouts:
   - the default layout has been used to organize the general structure of all pages, that contain The Header, The Chat and the Footer;
- 
-### Lighthouse page evaluation
-
-Here are reported the average grade obtained while performing a complete website evaluation using Lighthouse on Google DevTools.
-Those scores however, may vary due to the behaviour of Lighhouse.
-
-| #   | PAGE                        | PERFORMANCE | SEO    | BEST PRACTISES | ACCESSIBILITY |
-| --- | --------------------------- | ----------- | ------ | -------------- | ------------- |
-| 1   | Home page                   | 🟢 94       | 🟢 100 | 🟢 93          | 🟢 97         |
-| 2   | About page                  | 🟢 92       | 🟢 100 | 🟢 93          | 🟢 97         |
-| 3   | Contact us page             | 🟢 92       | 🟢 100 | 🟢 93          | 🟢 100        |
-| 4   | All visions page            | 🟢 96       | 🟢 100 | 🟢 93          | 🟢 97         |
-| 5   | All invationers page        |             | 🟢 100 | 🟢 92          | 🟢 92         |
-| 6   | All invations page          | 🟢 90       | 🟢 100 | 🟢 93          | 🟢 91         |
-| 7   | Single vision page          | 🟢 92       | 🟢 100 | 🟢 93          | 🟢 100        |
-| 8   | Single invationer page      | 🟢 92       | 🟢 100 | 🟢 93          | 🟢 94         |
-| 9   | Single invation page        | 🟢 97       | 🟢 100 | 🟢 93          | 🟢 100        |
-| 10  | Invation by technology page | 🟢 92       | 🟢 100 | 🟢 93          | 🟢 97         |
 
 ## MuseX Group 🧑🏻‍💻👩🏻‍💻👨🏼‍💻
 
