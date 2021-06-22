@@ -41,9 +41,13 @@
 <script>
 export default {
   props: {
+    // vision to be navigated with the guided tour pattern
     vision: { type: Object, default: () => {} },
+    // id of the invation rendered, to know the current position inside the tour
     currentId: { type: Number, default: () => 0 },
+    // first id of the first product of the vision to be navigated
     firstElementOfTheVisionId: { type: Number, default: () => 0 },
+    // the array with the other invations inside the vision to be navigated
     otherInvations: { type: Array, default: () => [] },
   },
   computed: {

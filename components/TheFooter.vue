@@ -44,8 +44,11 @@ export default {
   },
   data() {
     return {
+      // boolean that modelize the status of the footer (true: open, false: closed)
       footerStatus: false,
+      // the text of the main button of the footer
       buttonText: "↑",
+      // Set of links for the vision pages
       visionLinks: [
         {
           name: "Education",
@@ -68,6 +71,7 @@ export default {
           active: false,
         },
       ],
+      // set of useful links for website navigation
       usefulLinks: [
         {
           name: "About",
@@ -90,6 +94,7 @@ export default {
           active: true,
         },
       ],
+      // set of contact info to be displayed
       contactInfos: [
         {
           info: "Milano, MI, 20137, Italy",
@@ -108,6 +113,7 @@ export default {
           imgPath: "../contact-icons/fax.png",
         },
       ],
+      // set of social media information to be displayed
       socialIcons: [
         {
           iconPath: "../contact-icons/facebook.png",
@@ -129,6 +135,7 @@ export default {
     };
   },
   methods: {
+    // this method changes the visibility of the footer (open/closed)
     changeStatusFooterVisibility() {
       this.footerStatus = !this.footerStatus;
       if (this.buttonText === "↑") {

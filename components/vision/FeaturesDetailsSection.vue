@@ -14,6 +14,7 @@
 <script>
 export default {
   props: {
+    // The array of elements to be displayed by this element: numberTag, image and name
     content: { type: Array, default: () => [] },
   },
   data() {

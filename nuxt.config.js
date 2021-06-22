@@ -2,8 +2,8 @@ export default {
   ssr: true,
   target: "server",
   env: {
-    // BASE_URL: "https://invation-hypermedia2021.herokuapp.com", // Production URL
-    BASE_URL: "", // Development URL
+    BASE_URL: "https://invation-hypermedia2021.herokuapp.com", // Production URL
+    // BASE_URL: "", // Development URL
     configurationId: "c1041e65-30c0-400c-8afd-b0943f7fcd91",
   },
   serverMiddleware: [

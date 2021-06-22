@@ -25,9 +25,13 @@
 <script>
 export default {
   props: {
+    // The text to be displayed as the body of the blob
     text: { type: String, default: () => "" },
+    // the url of the background image, representing the blob
     background: { type: String, default: () => "" },
+    // link to be activated by clicking o the button inside the blob
     link: { type: String, default: () => "" },
+    // the label of the button
     buttonText: { type: String, default: () => "" },
   },
 };

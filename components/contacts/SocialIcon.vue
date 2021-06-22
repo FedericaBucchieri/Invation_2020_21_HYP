@@ -10,7 +10,9 @@
 <script>
 export default {
   props: {
+    // the path of the image representing the social
     iconPath: { type: String, default: () => "" },
+    // the link to the profile of the company in that social
     link: { type: String, default: () => "" },
   },
 };

@@ -35,9 +35,9 @@ export default {
     InvationerShortCard,
   },
   props: {
-    // @cardList: array of
+    // array of cards to be displayed. Each card represent an invationer profile
     cardList: { type: Array, default: () => [] },
-    // @title
+    // the title to be displayed before the list of cards
     title: { type: String, default: () => "" },
   },
 };

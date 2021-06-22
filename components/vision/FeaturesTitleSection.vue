@@ -15,6 +15,7 @@
 <script>
 export default {
   props: {
+    // The array of elements to be displayed by this element: title, subtitle, overview and link
     content: { type: Array, default: () => [] },
   },
   data() {

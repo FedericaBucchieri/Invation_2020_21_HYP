@@ -11,7 +11,9 @@
 <script>
 export default {
   props: {
+    // The contact modality label text
     info: { type: String, default: () => "" },
+    // path for the contact icon image
     imgPath: { type: String, default: () => "" },
   },
 };

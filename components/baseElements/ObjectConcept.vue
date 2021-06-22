@@ -18,7 +18,7 @@
 
 <script>
 export default {
-  // Description of the concept to be displayed
+  // Textual description of the concept to be displayed
   props: {
     concept: { type: String, default: () => "" },
   },

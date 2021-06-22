@@ -12,8 +12,11 @@ Each tag can be displayed indiependently or in a tag bar.
 <script>
 export default {
   props: {
+    // the style class associated to a specific color for the tag
     colorClass: { type: String, default: () => "" },
+    // the name to be displayed in the tag
     tagName: { type: String, default: () => "" },
+    // the path to be added as a link to the tag
     relatedPath: { type: String, default: () => "" },
   },
 };

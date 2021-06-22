@@ -1,3 +1,4 @@
+<!-- This component modelize the extension to each navbar menu tab -->
 <template>
   <nuxt-link
     :class="{ disabled: myDisable }"
@@ -9,8 +10,11 @@
 <script>
 export default {
   props: {
+    // the name of the Extension.vue
     theHeaderMenuItemExtensionName: { type: String, default: () => "" },
+    // the path of the link associated to this instance
     theHeaderMenuItemExtensionPath: { type: String, default: () => "" },
+    // a boolean needed to know if the link to the content of the extension should be reachable or not
     disabled: { type: Boolean, default: () => false },
   },
   data() {
@@ -19,6 +23,7 @@ export default {
     };
   },
   mounted() {
+    // this method is used to compute the value of the prop disabled
     this.myDisable =
       this.theHeaderMenuItemExtensionName === "Work" ||
       this.theHeaderMenuItemExtensionName === "Smart Home";

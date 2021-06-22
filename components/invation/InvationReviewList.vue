@@ -1,5 +1,4 @@
-<!-- This component modelize a list of reviews that the users can leave to each product of the company. 
-Each review comes with the author title and the review body. -->
+<!-- This component modelize a list of reviews that the users can leave to each product of the company.  -->
 <template>
   <div class="container">
     <div class="row">
@@ -19,6 +18,7 @@ Each review comes with the author title and the review body. -->
 <script>
 export default {
   props: {
+    // list of the reviews to be displayed. Each review comes with the author title and the review body.
     reviewList: { type: Array, default: () => [] },
   },
 };

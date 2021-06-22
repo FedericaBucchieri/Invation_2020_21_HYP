@@ -46,7 +46,9 @@ together with their picture, their skills and a link to their pages -->
 <script>
 export default {
   props: {
+    // id of the invationer used to add the link to the invationer page in the invationer name
     id: { type: Number, default: () => 0 },
+    // the object representing the invationer to be represented by this card
     invationer: { type: Object, default: () => {} },
   },
 };

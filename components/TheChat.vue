@@ -82,6 +82,7 @@ export default {
     },
   },
   updated() {
+    // Scrolling the chat to the last immage for a correct visualization of the messages flow
     var objDiv = document.getElementById("chat-window");
     objDiv.scrollTop = objDiv.scrollHeight;
   },

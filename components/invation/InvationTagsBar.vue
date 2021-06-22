@@ -21,6 +21,7 @@ export default {
     InvationTag,
   },
   props: {
+    // the list of tags to be added to the Tag bar
     tagList: { type: Array, default: () => [] },
   },
 };

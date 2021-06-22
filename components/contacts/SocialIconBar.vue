@@ -1,4 +1,4 @@
-<!--  Bar for Social Icons. It contains more social icons adding a title to the set of icons -->
+<!--  the component that handles the whole list of SocialIcon.vue -->
 <template>
   <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
     <div class="features-item">
@@ -25,6 +25,7 @@ import SocialIcon from "~/components/contacts/SocialIcon.vue";
 export default {
   components: { SocialIcon },
   props: {
+    // the list of the SocialIcon.vue that should be renderd inside the component
     socialList: { type: Array, default: () => [] },
   },
 };

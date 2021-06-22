@@ -39,13 +39,18 @@ export default {
     ContactInfo,
   },
   props: {
+    // title of the list of links
     title: { type: String, default: () => "" },
+    // path of the title link
     titlePath: { type: String, default: () => "/" },
+    // the array of links with label and path
     linkList: { type: Array, default: () => [] },
+    // a boolean value to distinguis a clickable list of links from a list of contacts
     isContactList: { type: Boolean, default: () => false },
   },
   data() {
     return {
+      // boolean value to know if the list is used as a contact list
       contactType: this.isContactList,
     };
   },

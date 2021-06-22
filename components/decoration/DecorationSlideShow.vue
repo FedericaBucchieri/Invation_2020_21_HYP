@@ -43,8 +43,11 @@
 <script>
 export default {
   props: {
+    // The array of objects to be displayed in the slideShows, containing the title and the body of the slide, together with the slide background image url
     slideObjects: { type: Array, default: () => [] },
+    // Title of the slideShow
     title: { type: String, default: () => "" },
+    // Introduction to the slideshow content
     introduction: { type: String, default: () => "" },
   },
 };

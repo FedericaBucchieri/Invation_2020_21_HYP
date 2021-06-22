@@ -1,3 +1,4 @@
+<!-- the component that handles the items of the navbar -->
 <template>
   <div>
     <div>
@@ -39,29 +40,39 @@
 <script>
 export default {
   props: {
+    // the name of the MenuItem that is displayed in the navbar
     theHeaderMenuItemName: { type: String, default: () => "" },
+    // the path of the link associated to that MenuItem (Home, About, Invations, Invationers, Visions)
     theHeaderMenuItemPath: { type: String, default: () => "" },
+    // the list of the Extension.vue that are sub-items of the MenuItem. For example Visions --extensions--> (Education, Entertainment, Work, Smart Home)
     theHeaderMenuItemExtensions: { type: Array, default: () => [] },
+    // a boolean used to handle the change of the style when the window becomes small enough
     isActivated: { type: Boolean, default: false },
   },
   data() {
     return {
+      // a boolean used to handle the change of the style when the window becomes small enough
       isActive: false,
+      // this data is just a copy of the prop theHeaderMenuItemExtensions, it is needed to perform a v-for on this array
       myTheHeaderMenuItemExtensions: this.theHeaderMenuItemExtensions,
+      // a boolean used to highlight with the style the MenuItem in which the user is situated
       highlighted: false,
     };
   },
   watch: {
+    // the father of MenuItem that is TheHeader that is passing the prop is Activate can change the value of this prop and this method is used to know when it happens to handle the change of the style when the window becomes small enough
     isActivated() {
       if (!this.isActivated) this.isActive = false;
     },
   },
   methods: {
+    // this method is used to handle the change of the style of the navbar
     changeDisplayItemExtensions() {
       this.isActive = !this.isActive;
     },
   },
   mounted() {
+    // this mounted is used to listen to a custom event that is created in the breadcrump and it is used to update the value of the data highlight, used to show in which area of the site the user is situated
     this.$root.$on("location-from-breadcrump", (location) => {
       if (this.theHeaderMenuItemName.toUpperCase() === location.toUpperCase()) {
         this.highlighted = true;

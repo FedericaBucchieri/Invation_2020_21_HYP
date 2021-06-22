@@ -41,11 +41,11 @@ The folder components is divided in the following subfolders:
     - props:
       - pathsList: this prop is used to pass to this component the information needed to build the breadcrump, namely an Array of (path, pathName) where path is the path to the page inside the breadcrump that is associated to the pathName that is the String visible inside the breadcrump
       - breadcrumpClass: this prop has been created to let this component become customizable also from the point of view of the style so that each class can pass a different value to this toi make the breadcrump fit to the layout of the page
-    - mounted(): this mounted is used to emit a custom event after the page in which the breadcrump is instantiated has been created to let the header catch this event and highlight the name of the navbar to which is associated the page itself. 
+    - mounted(): this mounted is used to emit a custom event after the page in which the breadcrump is instantiated has been created to let the header catch this event and highlight the name of the navbar to which is associated the page itself.
   - ContentRoundedContainer.vue: a fancy container used to display the information on a certain content of the website like a vision or an invation or an invationer
     - props:
       - areaName: the name of the area by which this component is being used
-      - description: the description of the area by which this component is being used 
+      - description: the description of the area by which this component is being used
       - content: an Array in which each element contains all the information to render the content of a single RoundedContainer
       - descriptionName: needed to stress the reusability of this component, it allows to decouple the name of an attribute of a DB schema from its name used inside this component
       - imageName: needed to stress the reusability of this component, it allows to decouple the name of an attribute of a DB schema from its name used inside this component
@@ -53,24 +53,23 @@ The folder components is divided in the following subfolders:
       - displayTags: a boolean used to know if a decorative tag needs to be shown
     - data:
       - myContent: this data is just a copy of the prop content, it is needed to perform a v-for on this array
-  - ObjectConcept.vue:
+  - ObjectConcept.vue: Component that provide the structure for an object description, used for products concepts.
     - props:
-      - concept:
-  - ObjectMore.vue:
+      - concept: Textual description of the concept to be displayed
+  - ObjectMore.vue: Component that provide a paragraph for more info about an object, mainly used for products extra details.
     - props:
-      - concept:
+      - concept: Textual content of the extra information to be displayed
   - ObjectOverview.vue: the first visible screen of the page of a specific vision, invation or invationer
     - props:
       - name: the name of the specific vision, invation or invationer
       - overview: a brief overview of the vision, invation or invationer
-      - imgPath: the path for the image to display 
+      - imgPath: the path for the image to display
       - tags: used only in the invations pages to visualize the tag representing the technologies associated to that specific invation
-      - id:
   - ObjectPresentationImg.vue: the component used to display the image inside the ObjectOverview.vue component
     - props:
       - info: the info on the image that are shown in case the image could not be rendered in the browser
       - imgPath: the path for the image to display
-  - ObjectVideo.vue: the component used to display the video present in each invation page 
+  - ObjectVideo.vue: the component used to display the video present in each invation page
     - props:
       - videoUrl: the Url for the video
   - RoundedContainer.vue: the content of a fancy container used to display the information on a certain content of the website like a vision or an invation or an invationer
@@ -87,7 +86,7 @@ The folder components is divided in the following subfolders:
   - ThreeObjectContainer.vue: a fancy component used to show just three elements, for example it is used in the homepage to dosplay the last three invations
     - props:
       - bigImage: the path to the image displayed on the left of the three objects
-      - title: the title of the area 
+      - title: the title of the area
       - objects: the Array containing the list of the content the three objects to be shown
       - typology: the typology of the objects (vision, invation or invationer) so that the link can be perfectly build using the typology and the id of the object in a perfect reusable way
       - isObjectList: a boolean used to know if the developmentDate is needed
@@ -102,10 +101,10 @@ The folder components is divided in the following subfolders:
       - link: the link associated to the button
       - bigImage: the path of the decorative image shown on the right side of the page
 - contacts: it contains the components used to deal with the contacts references in the contact us page and inside the footer
-  - ContactInfo.vue: the component used to display a certain contact
+  - ContactInfo.vue: This component modelize a contact info that comes with an icon representing the contanct method and the related info
     - props:
-      - info: the type of the contact
-      - imgPath: the path to the image representing the type of the contact
+      - info: The contact modality label text
+      - imgPath: path for the contact icon image
   - SocialIcon.vue: the icon of a certain social corresponding to the profile of the company on that social
     - props:
       - iconPath: the path of the image representing the social
@@ -114,19 +113,51 @@ The folder components is divided in the following subfolders:
     - props:
       - socialList: the list of the SocialIcon.vue that should be renderd inside the component
 - decoration: it contains the components that have a mere purpose of improving the look and feel of the website
-  - BlobWithText.vue:
-  - DecorationSlideShow.vue:
+  - BlobWithText.vue: Component aimed ad modelizing the blob with title and text used in the Home page of the website.
+    - propos:
+      - text: The text to be displayed as the body of the blob
+      - background: the url of the background image, representing the blob
+      - link: link to be activated by clicking o the button inside the blob
+      - buttonText: the label of the button
+  - DecorationSlideShow.vue: Component used to modelize a SlideShow of cards, paired with radio type input to swith from a card to the others.
+    - props:
+      - slideObjects: The array of objects to be displayed in the slideShows, containing the title and the body of the slide, together with the slide background image url.
+      - title: Title of the slideShow
+      - introduction: Introduction to the slideshow content
 - footer: it contains all the components used exclusively inside the footer
-  - FooterList.vue:
+  - FooterList.vue: Component that modelize a list of link or contact infos, to be used in the footer of the website.
+    - props:
+      - title: title of the list of links
+      - titlePath: path of the title link
+      - linkList: the array of links with label and path
+      - isContactList: a boolean value to distinguis a clickable list of links from a list of contacts
 - invation: it contains all the components used exclusively inside the invation pages
-  - InvationReviewList.vue:
-  - InvationTag.vue:
-  - InvationTagsBar.vue:
-  - NavigationGuidedTourHandler.vue:
+  - InvationReviewList.vue: This component modelize a list of reviews that the users can leave to each product of the company.
+    - props:
+      - reviewList: list of the reviews to be displayed. Each review comes with the author title and the review body.
+  - InvationTag.vue: Component for tags associated to technologies.Each tag can be displayed indiependently or in a tag bar. Usually used for products
+    - props:
+      - colorClass: the style class associated to a specific color for the tag
+      - tagName: the name to be displayed in the tag
+      - relatedPath: the path to be added as a link to the tag
+  - InvationTagsBar.vue: Component for modelizing a list of tags (InvationTag.vue) associated to a product
+    - props:
+      - tagList: the list of tags to be added to the Tag bar
+  - NavigationGuidedTourHandler.vue: This component is responsible for handling navigation across products of the same area, implementing the guided tour pattern
+    - props:
+      - vision: vision to be navigated with the guided tour pattern
+      - currentId: id of the invation rendered, to know the current position inside the tour
+      - firstElementOfTheVisionId: first id of the first product of the vision to be navigated
+      - otherInvations: the array with the other invations inside the vision to be navigated
 - invationer: it contains all the components used exclusively inside the invationer pages
-  - InvationerContactList.vue:
-  - InvationerShortCard.vue:
-  - InvationerShortCardContainer.vue:
+  - InvationerShortCard.vue: This component modelize the presentation card of each employee of the company.
+    - props:
+      - id: id of the invationer used to add the link to the invationer page in the invationer name
+      - invationer: the object representing the invationer to be represented by this card
+  - InvationerShortCardContainer.vue: list of Invationer Short Cards (InvatioenrShortCard.vue component) that comes with a title to introduce the cards displayed.
+    - props:
+      - cardList: array of cards to be displayed. Each card represent an invationer profile
+      - title: the title to be displayed before the list of cards
 - theHeader: it contains all the components used exclusively inside the header
   - MenuItem.vue: the component that handles the items of the navbar
     - props:
@@ -141,20 +172,28 @@ The folder components is divided in the following subfolders:
     - watch:
       - isActivated(): the father of MenuItem that is TheHeader that is passing the prop is Activate can change the value of this prop and this method is used to know when it happens to handle the change of the style when the window becomes small enough
     - methods:
-      - changeDisplayItemExtension(): this method is used to handle the change of the style of the navbar 
+      - changeDisplayItemExtension(): this method is used to handle the change of the style of the navbar
     - mounted(): this mounted is used to listen to a custom event that is created in the breadcrump and it is used to update the value of the data highlight, used to show in which area of the site the user is situated
   - menuItem:
-    - Extension.vue:
+    - Extension.vue: This component modelize the extension to each navbar menu tab
       - props:
         - theHeaderMenuItemExtensionName: the name of the Extension.vue
         - theHeaderMenuItemExtensionPath: the path of the link associated to that Extension.vue
         - disabled: a boolean needed to know if the link to the content of the extension should be reachable or not
       - mounted(): this method is used to compute the value of the prop disabled
 - vision: it contains all the components used exclusively inside the vision pages
-  - FeaturesDetailsSection.vue:
-  - FeaturesTitleSection.vue:
-  - VisionGuidedTour.vue:
+  - FeaturesDetailsSection.vue: Details of each element inside the visionGuideTourElement, namely the numberTag and the product image
+    - props:
+      - content: The array of elements to be displayed by this element: numberTag, image and name
+  - FeaturesTitleSection.vue: Main info of each element inside the visionGuideTourElement, namely the title, the subtitle and the product overview
+    - props:
+      - content: The array of elements to be displayed by this element: title, subtitle, overview and link
+  - VisionGuidedTour.vue: Component that aims at design the product tour inside each vision page.
+    - props:
+      - TO BE ADDED
   - VisionGuidedTourItem.vue:
+    - props:
+      - TO BE ADDED
 
 and the following components that are instantiated only one time inside the default layout:
 
@@ -162,11 +201,24 @@ and the following components that are instantiated only one time inside the defa
 - TheChat.vue: the component used to manage the chatbot functions
 - TheFooter.vue: the footer of the website
 
-Now we present all the components inside each folder:
+### Data flow: page-component communication diagrams
+
+The aim of the following diagrams is to show the data flows present in the communication between pages and components, in terms of props and slots passed to the child components. In order to present the diagram in the best way possibile, avoiding complexity, we divided the pages in groups to avoid overlapping arrows.
+
+1 - Home page, About page and Introductory pages of the groups (All vision, All invations, All invationers)
+![Group pages, Home and About pages, pages-component communication](/static/documentation/topic_groups_component_hierarchy.png)
+
+2 - Single element pages (Single vision, single invation, single invationer)
+![Single element pages, pages-component communication](/static/documentation/id_component_hierarchy.png)
+
+Since the _BreadCrump_ component was used by all the pages except the HomePage, it's diagram has been modelize separately.
+
+3 - BreadCrump communication
+![Breadcrump, pages-component communication](/static/documentation/breadcrump_map.png)
 
 ####
 
-<img align="right" src="/static/documentation/Default-layout.png" />
+<img align="right" src="static/documentation/Default-layout.png" />
  
 ### Page Structure
 <div align="justify"> With the aim of improving the look and feel of our web application, creating a unified page structure among all the pages, we expanded the default layout provided by the _layout directory_ of Nuxt. As can be seen in the picture of the right, we inserted three components, namely The Header, The Footer and The Chat. The first component, The Header, is fixed at the beginning of each page proposing the Navbar of our application with all the relavant Landmarks for the site navigation _(for more details, see "TheHeader" component description)_. The second component instead, is fixed at the end of each page and can be expanded with the use of a button. Expanding the footer it is possible to see relavant useful links that can be uses as shortcuts for the site navigation, the company contacts and the links to all the social medias profiles of the company _(for more details, see "TheFooter" component description)_. Lastly, The Chat component renders the chatbot chat in order to offer to the users the possibility to interact with the conversational agent inside each page of Invation. This component is mainly represented by a rounded button, fixed on the right-bottom part of the layout. When clicked, the button shows the chat or eventually, closes it.  </div>
@@ -183,7 +235,7 @@ Now we present all the components inside each folder:
 
 - Links:
   - we leveraged the power of the nuxt-links together with the convenient structuring of the pages folder to make the routing very easy to be done;
-  - the <a> markup has been used only for structural links;
+  - the < a > markup has been used only for structural links;
 - Components names and division for reusability:
   - every component that is instantiated only one time inside the whole website (TheHeader, TheChat, TheFooter) start with "The";
   - the compound names of the components are organized in order to go from the most generic concept to the least (i.e. InvationerContactList);
