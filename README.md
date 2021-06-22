@@ -53,7 +53,9 @@ and the following components that are instantiated only one time inside the defa
 
 Now we present all the components inside each folder:
 
-<img align="right" src="https://imgur.com/sgtaVez.png" />
+####
+
+<img align="right" src="/static/documentation/Default-layout.png" />
  
 ### Page Structure
 <div align="justify"> With the aim of improving the look and feel of our web application, creating a unified page structure among all the pages, we expanded the default layout provided by the _layout directory_ of Nuxt. As can be seen in the picture of the right, we inserted three components, namely The Header, The Footer and The Chat. The first component, The Header, is fixed at the beginning of each page proposing the Navbar of our application with all the relavant Landmarks for the site navigation _(for more details, see "TheHeader" component description)_. The second component instead, is fixed at the end of each page and can be expanded with the use of a button. Expanding the footer it is possible to see relavant useful links that can be uses as shortcuts for the site navigation, the company contacts and the links to all the social medias profiles of the company _(for more details, see "TheFooter" component description)_. Lastly, The Chat component renders the chatbot chat in order to offer to the users the possibility to interact with the conversational agent inside each page of Invation. This component is mainly represented by a rounded button, fixed on the right-bottom part of the layout. When clicked, the button shows the chat or eventually, closes it.  </div>
@@ -62,7 +64,7 @@ Now we present all the components inside each folder:
 
 ## Plugins
 
-- Chatbot mmcc --> store used only for this component. This component is working thanks to mmcc, Multi Modal Chatbot Creator, a tool created by i3Lab in Politecnico di Milano. The state diagram of the implemented chatbot is the following.
+- Chatbot mmcc --> We used the Vuex store only for this component. This component is working thanks to mmcc, Multi Modal Chatbot Creator, a tool created by i3Lab in Politecnico di Milano. The state diagram of the implemented chatbot is the following.
 
 ![Chatbot state diagram](/static/documentation/Invaiton-Chatbot.png)
 
