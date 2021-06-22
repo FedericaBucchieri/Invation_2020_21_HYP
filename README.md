@@ -36,19 +36,130 @@ With the aim of having our application accessible online, we developed a simple 
 The folder components is divided in the following subfolders:
 
 - baseElements: it contains the base components that are used in several pages that don't own a semantic relationship
+  - Breadcrump.vue: used to handle the different breadcrumps of each page
+    - props:
+      - pathsList: this prop is used to pass to this component the information needed to build the breadcrump, namely an Array of (path, pathName) where path is the path to the page inside the breadcrump that is associated to the pathName that is the String visible inside the breadcrump
+      - breadcrumpClass: this prop has been created to let this component become customizable also from the point of view of the style so that each class can pass a different value to this toi make the breadcrump fit to the layout of the page
+    - mounted(): this mounted is used to emit a custom event after the page in which the breadcrump is instantiated has been created to let the header catch this event and highlight the name of the navbar to which is associated the page itself. 
+  - ContentRoundedContainer.vue: a fancy container used to display the information on a certain content of the website like a vision or an invation or an invationer
+    - props:
+      - areaName: the name of the area by which this component is being used
+      - description: the description of the area by which this component is being used 
+      - content: an Array in which each element contains all the information to render the content of a single RoundedContainer
+      - descriptionName: needed to stress the reusability of this component, it allows to decouple the name of an attribute of a DB schema from its name used inside this component
+      - imageName: needed to stress the reusability of this component, it allows to decouple the name of an attribute of a DB schema from its name used inside this component
+      - typology: needed to understand what type of content is being shown in the container (vision, invation or invationer) to correctly build the link to the page. In this way this component can be used from any area of the site.
+      - displayTags: a boolean used to know if a decorative tag needs to be shown
+    - data:
+      - myContent: this data is just a copy of the prop content, it is needed to perform a v-for on this array
+  - ObjectConcept.vue:
+    - props:
+      - concept:
+  - ObjectMore.vue:
+    - props:
+      - concept:
+  - ObjectOverview.vue: the first visible screen of the page of a specific vision, invation or invationer
+    - props:
+      - name: the name of the specific vision, invation or invationer
+      - overview: a brief overview of the vision, invation or invationer
+      - imgPath: the path for the image to display 
+      - tags: used only in the invations pages to visualize the tag representing the technologies associated to that specific invation
+      - id:
+  - ObjectPresentationImg.vue: the component used to display the image inside the ObjectOverview.vue component
+    - props:
+      - info: the info on the image that are shown in case the image could not be rendered in the browser
+      - imgPath: the path for the image to display
+  - ObjectVideo.vue: the component used to display the video present in each invation page 
+    - props:
+      - videoUrl: the Url for the video
+  - RoundedContainer.vue: the content of a fancy container used to display the information on a certain content of the website like a vision or an invation or an invationer
+    - props:
+      - numberTag
+      - name
+      - description
+      - image
+      - typology: needed to understand what type of content is being shown in the container (vision, invation or invationer) to correctly build the link to the page. In this way this component can be used from any area of the site.
+      - vision: an object passed just in the case the content is referring to an invation, so that it is needed to show the related vision of the invation
+      - displayTag: a boolean used to know if a decorative tag needs to be shown
+      - id: the id of the object associated to the content
+      - isActiveLink: a boolean needed to understand if the page related to this content should be reachable or not
+  - ThreeObjectContainer.vue: a fancy component used to show just three elements, for example it is used in the homepage to dosplay the last three invations
+    - props:
+      - bigImage: the path to the image displayed on the left of the three objects
+      - title: the title of the area 
+      - objects: the Array containing the list of the content the three objects to be shown
+      - typology: the typology of the objects (vision, invation or invationer) so that the link can be perfectly build using the typology and the id of the object in a perfect reusable way
+      - isObjectList: a boolean used to know if the developmentDate is needed
+    - data:
+      - disabled: a boolean needed to know if the link to the content of the three objects should be reachable or not
+    - mounted(): used to compute the value of disabled that can be computed only after the props are made available
+    - methods:
+      - formatDate(date): the method used to reformat the date taken from the DB and passed to this component
+  - WelcomeAreaStart.vue: the component used to display the first screen of all the Group Of Topics
+    - props:
+      - textButton: the text shown inside the button that is different for each page
+      - link: the link associated to the button
+      - bigImage: the path of the decorative image shown on the right side of the page
 - contacts: it contains the components used to deal with the contacts references in the contact us page and inside the footer
+  - ContactInfo.vue: the component used to display a certain contact
+    - props:
+      - info: the type of the contact
+      - imgPath: the path to the image representing the type of the contact
+  - SocialIcon.vue: the icon of a certain social corresponding to the profile of the company on that social
+    - props:
+      - iconPath: the path of the image representing the social
+      - link: the link to the profile of the company in that social
+  - SocialIconBar.vue: the component that handles the whole list of SocialIcon.vue
+    - props:
+      - socialList: the list of the SocialIcon.vue that should be renderd inside the component
 - decoration: it contains the components that have a mere purpose of improving the look and feel of the website
+  - BlobWithText.vue:
+  - DecorationSlideShow.vue:
 - footer: it contains all the components used exclusively inside the footer
+  - FooterList.vue:
 - invation: it contains all the components used exclusively inside the invation pages
+  - InvationReviewList.vue:
+  - InvationTag.vue:
+  - InvationTagsBar.vue:
+  - NavigationGuidedTourHandler.vue:
 - invationer: it contains all the components used exclusively inside the invationer pages
+  - InvationerContactList.vue:
+  - InvationerShortCard.vue:
+  - InvationerShortCardContainer.vue:
 - theHeader: it contains all the components used exclusively inside the header
+  - MenuItem.vue: the component that handles the items of the navbar
+    - props:
+      - theHeaderMenuItemName: the name of the MenuItem that is displayed in the navbar
+      - theHeaderMenuItemPath: the path of the link associated to that MenuItem (Home, About, Invations, Invationers, Visions)
+      - theHeaderMenuItemExtensions: the list of the Extension.vue that are sub-items of the MenuItem. For example Visions --extensions--> (Education, Entertainment, Work, Smart Home)
+      - isActivated: a boolean used to handle the change of the style when the window becomes small enough
+    - data:
+      - isActive: a boolean used to handle the change of the style when the window becomes small enough
+      - myTheHeaderMenuItemExtensions: this data is just a copy of the prop theHeaderMenuItemExtensions, it is needed to perform a v-for on this array
+      - highlighted: a boolean used to highlight with the style the MenuItem in which the user is situated
+    - watch:
+      - isActivated(): the father of MenuItem that is TheHeader that is passing the prop is Activate can change the value of this prop and this method is used to know when it happens to handle the change of the style when the window becomes small enough
+    - methods:
+      - changeDisplayItemExtension(): this method is used to handle the change of the style of the navbar 
+    - mounted(): this mounted is used to listen to a custom event that is created in the breadcrump and it is used to update the value of the data highlight, used to show in which area of the site the user is situated
+  - menuItem:
+    - Extension.vue:
+      - props:
+        - theHeaderMenuItemExtensionName: the name of the Extension.vue
+        - theHeaderMenuItemExtensionPath: the path of the link associated to that Extension.vue
+        - disabled: a boolean needed to know if the link to the content of the extension should be reachable or not
+      - mounted(): this method is used to compute the value of the prop disabled
 - vision: it contains all the components used exclusively inside the vision pages
+  - FeaturesDetailsSection.vue:
+  - FeaturesTitleSection.vue:
+  - VisionGuidedTour.vue:
+  - VisionGuidedTourItem.vue:
 
 and the following components that are instantiated only one time inside the default layout:
 
-- TheHeader: the header of the website
-- TheChat: the component used to manage the chatbot functions
-- TheFooter: the footer of the website
+- TheHeader.vue: the header of the website
+- TheChat.vue: the component used to manage the chatbot functions
+- TheFooter.vue: the footer of the website
 
 Now we present all the components inside each folder:
 
@@ -77,7 +188,7 @@ Now we present all the components inside each folder:
   - we always used the async data function to retrieve information from the database to inject it inside the components;
 - Shorthands for interpolation of attributes, directives, arguments and modifiers:
   - we always used shorthands to improve the readability of the code;
-- Lifecycle hooks only used mounted sometimes:
+- Lifecycle hooks:
   - when needed we exploited the power of the lifecycle hooks, in particular mounted() and created();
 - Static:
   - the static folder has been mainly used for the storing of the images used inside the website to improve the performance;
