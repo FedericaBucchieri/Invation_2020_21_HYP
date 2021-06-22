@@ -1,6 +1,8 @@
 <template>
   <div class="chat">
+    <!-- container containing the chat -->
     <div v-if="isOpen" class="chat-container">
+      <!-- decorative details of the chatbot -->
       <div class="chatbot-detail">
         <img
           src="/charlie-chatbot.png"
@@ -14,6 +16,7 @@
         </div>
       </div>
       <div id="chat-window" class="chat-window">
+        <!-- display every message held by the chatList -->
         <div
           v-for="(message, messageIndex) of chatList"
           :key="`message-${messageIndex}`"
@@ -34,6 +37,7 @@
         placeholder="Type a message..."
       />
     </div>
+    <!-- button that makes the chat appear and disappear -->
     <div class="button" @click="isOpen = !isOpen">
       <img
         src="/charlie-chatbot.png"
@@ -48,6 +52,7 @@
 <script>
 export default {
   props: {
+    // Object containing all the content of the conversation
     chatList: {
       type: Array,
       required: true,
@@ -55,7 +60,9 @@ export default {
   },
   data() {
     return {
+      // Object containing the message to send to the chatbot insert by the user
       messageToSend: "",
+      // Flag indicating if the chat has been opened by the user or not
       isOpen: false,
     };
   },

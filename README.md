@@ -1,10 +1,10 @@
-### Hypermedia Application Course Project
+### Hypermedia Applications Course Project
 
 #### Politecnico di Milano - a.y. 2020/2021
 
 # Introduction
 
-With the aim of facilitating the correction of our project, here we provide a preliminary overview of the designed company, presenting al the terminology used inside the website.
+This repository contains the project work made by the authors listed in the end of this document for the Hypermedia Applications course held by prof. Franca Garzotto in Politecnico di Milano, academic year 2020/2021. The following sections are aimed at introducing the used terminology and a description of the used technologies.
 
 ## INVATION 🚀
 
@@ -20,13 +20,19 @@ Developing the Company concept, we played with the name of the three most import
 | Product       | **INVATION**    | Innovative inventions and ideas to shape a new concrete concept of future              |
 | People        | **INVATIONERS** | Employees of the company                                                               |
 
-## Technical Documentation
+# Technical Specification
 
-### Server and DB technologies used
+## Overall architecture
 
-With the aim of having our application accessible online, we developed a simple web server using **NodeJS with Express**, as recommended. In particular we created a server middleware represented by the _'api.js'_ file that acts as request handler. Our database instead, is implemented with the use of **PostgreSQL** with the help of **Sequelize** for ORM in NodeJS.
+![Invation Architecture 3 tiers](/static/documentation/Invaiton-Architecture.png)
 
-### Components development
+The architecture above describes a classical **three tiers** architecture. In this section, this architecture is described in more detail
+
+## Server and DB technologies used
+
+With the aim of having our application accessible online, we developed a simple web server using **NodeJS with Express**, as recommended. In particular we created a server middleware represented by the _'api.js'_ file that acts as request handler. Our database instead, is implemented with the use of **PostgreSQL** with the help of **Sequelize** for ORM in NodeJS. **Axios** was used to handle the HTTP requests.
+
+## Components development
 
 The folder components is divided in the following subfolders:
 
@@ -54,9 +60,13 @@ Now we present all the components inside each folder:
 
 ### Plugins
 
-#### • Chatbot mmcc --> store used only for this
+## Plugins
 
-# Framework usage
+- Chatbot mmcc --> store used only for this component. This component is working thanks to mmcc, Multi Modal Chatbot Creator, a tool created by i3Lab in Politecnico di Milano. The state diagram of the implemented chatbot is the following.
+
+![Chatbot state diagram](/static/documentation/Invaiton-Chatbot.png)
+
+## Framework usage
 
 - Links:
   - we leveraged the power of the nuxt-links together with the convenient structuring of the pages folder to make the routing very easy to be done;
@@ -81,11 +91,18 @@ Now we present all the components inside each folder:
 - Layouts:
   - the default layout has been used to organize the general structure of all pages, that contain The Header, The Chat and the Footer;
 
-## MuseX Group 🧑🏻‍💻👩🏻‍💻👨🏼‍💻
+## Deployment
+
+The deployment were made using **Heroku** platform. The reader can find the developed site to:
+https://invation-hypermedia2021.herokuapp.com/
+
+# MuseX Group - our team 🧑🏻‍💻👩🏻‍💻👨🏼‍💻
 
 The group is composed by three Computer Science bachelor students. The workload was splitted equally between each of us in order to give the chance to learn how the Nuxt and Vue frameworks works. Federica and Lorenzo already knew the basis of web programming thanks to Prof. Fraternali course "Technologie informatiche per il web", while Alessandro had to learn HTML, CSS and JS from scratch but he managed very quickly to catch up. Each one of us developed at least 3 pages with relative new and useful components. Concerning task performed singularly, more informations are provided in each member description.
 
-#### Member 1 - Lorenzo Cocchia
+#
+
+### Member 1 - Lorenzo Cocchia
 
 Email: lorenzo.cocchia@mail.polimi.it
 
@@ -100,7 +117,7 @@ Master Program: Human-Computer Interaction&Design
 
 #
 
-#### Member 2 - Federica Bucchieri
+### Member 2 - Federica Bucchieri
 
 Email: federica.bucchieri@mail.polimi.it
 
@@ -115,7 +132,7 @@ Master Program: Human-Computer Interaction&Design
 
 #
 
-#### Member 3 - Alessandro Corsini
+### Member 3 - Alessandro Corsini
 
 Email: alessandro.corsini@mail.polimi.it
 
@@ -127,3 +144,5 @@ Master Program: Human-Computer Interaction&Design
 
 - Database population
 - Chatbot implementation
+
+#

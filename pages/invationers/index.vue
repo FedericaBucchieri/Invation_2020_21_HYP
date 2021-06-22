@@ -63,13 +63,16 @@ export default {
   },
   data() {
     return {
+      // used to render an image
       bigImage: "/banners/banner-astronauts.png",
+      // Information used for the breadcrump functionalities
       pathsList: [
         {
           path: this.$route.path,
           pathName: "Invationers",
         },
       ],
+      // Static objects used for the slideshow
       slideObjects: [
         {
           title: "Olivia Purple",

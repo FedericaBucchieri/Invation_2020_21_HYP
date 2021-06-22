@@ -38,11 +38,15 @@ export default {
     InvationTagsBar,
   },
   props: {
+    // Name of the object to be displayed
     name: { type: String, default: () => "" },
+    // Overview of the object to be displayed
     overview: { type: String, default: () => "" },
+    // Path indicating the image to be displayed
     imgPath: { type: String, default: () => "" },
+    // Object containing tags that could redirect to another section of the site (ex. invation -> its technology)
+    // to be displayed together with the overview
     tags: { type: Array, default: () => [] },
-    id: { type: Number, default: () => 0 },
   },
 };
 </script>

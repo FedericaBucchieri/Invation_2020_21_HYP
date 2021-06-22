@@ -84,10 +84,15 @@ It comes togethere with a introductory paragraph with a title, and a decorative 
 <script>
 export default {
   props: {
+    // Path indicating an image to be displayed
     bigImage: { type: String, default: () => "" },
+    // Title of the section to be displayed
     title: { type: String, default: () => "" },
+    // Objects instnces to be displayed by this component
     objects: { type: Array, default: () => [] },
+    // Tyopoly of the object to be displayed (ex. invation)
     typology: { type: String, default: () => "" },
+    // Flag indicating if component has to display a list of objects
     isObjectList: { type: Boolean, default: () => true },
   },
   data() {

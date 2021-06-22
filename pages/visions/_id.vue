@@ -79,6 +79,7 @@ export default {
   },
   data() {
     return {
+      // Information used for the breadcrump functionalities
       pathsList: [
         {
           path: "/visions",

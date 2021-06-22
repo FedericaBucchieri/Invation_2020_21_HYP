@@ -138,19 +138,24 @@ export default {
   },
   data() {
     return {
+      // Information used for the breadcrump functionalities
       pathsList: [
         {
           path: "/invations",
           pathName: "Invations",
         },
       ],
+      // Flag used to check if the user has either clicked or not to see more details
       showMore: false,
+      // Object containing the reviews of the users
       review: {
         author: null,
         body: null,
         invation_id: 0,
       },
+      // Object containing the body of the review
       reviewBody: "",
+      // Object containing the author of the review
       reviewAuthor: "",
     };
   },

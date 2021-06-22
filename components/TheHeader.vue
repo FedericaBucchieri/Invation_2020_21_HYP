@@ -16,9 +16,6 @@
                 'margin-top': myMarginTop + 'px !important',
               }"
             >
-              <!-- <li class="scroll-to-section">
-                <nuxt-link to="/">Home</nuxt-link>
-              </li> -->
               <li
                 v-for="theHeaderMenuItem in theHeaderMenuItems"
                 :key="theHeaderMenuItem.name"
@@ -57,9 +54,14 @@ export default {
   components: { MenuItem },
   data() {
     return {
+      // Flag indicating if an item in the header is the active one, meaning that the user has clicked on it last time
       isActive: false,
+      // Containing the display CSS attribute to be assigned to the appearing sub-menu on the header
       myDisplay: "none",
+      // Containing the margin CSS attribute to be assigned to the appearing sub-menu on the header
       myMarginTop: 20,
+      // Object containing every information about the items on the header useful to display thier name and
+      // reference them through the routing, including the information about their extensions
       theHeaderMenuItems: [
         {
           name: "Home",

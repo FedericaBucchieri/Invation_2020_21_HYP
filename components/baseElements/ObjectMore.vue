@@ -18,6 +18,7 @@
 
 <script>
 export default {
+  // Content of the extra information to be displayed
   props: {
     content: { type: String, default: () => "" },
   },

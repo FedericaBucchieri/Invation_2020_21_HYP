@@ -55,8 +55,9 @@ export default {
   },
   data() {
     return {
+      // Used to render an image
       bigImage: "/banners/banner-olo.png",
-      myInvations: [],
+      // Information used for the breadcrump functionalities
       pathsList: [
         {
           path: this.$route.path,

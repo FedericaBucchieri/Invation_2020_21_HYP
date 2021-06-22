@@ -158,7 +158,7 @@ export default {
   },
   data() {
     return {
-      showMore: false,
+      // Information used for the breadcrump functionalities
       pathsList: [
         {
           path: "/invationers",
