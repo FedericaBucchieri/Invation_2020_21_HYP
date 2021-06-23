@@ -201,6 +201,12 @@ and the following components that are instantiated only one time inside the defa
 - TheChat.vue: the component used to manage the chatbot functions
 - TheFooter.vue: the footer of the website
 
+### Coupled components hierarchy
+
+Some components were built to be coupled to each other. This means that some components are only used as a part of another component. In the following schema, we present the hierarchy of those components.
+
+![Coupled components hierarchy](/static/documentation/component_hierarchy.png)
+
 ### Data flow: page-component communication diagrams
 
 The aim of the following diagrams is to show the data flows present in the communication between pages and components, in terms of props and slots passed to the child components. In order to present the diagram in the best way possibile, avoiding complexity, we divided the pages in groups to avoid overlapping arrows.
