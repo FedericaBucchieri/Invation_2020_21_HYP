@@ -114,7 +114,7 @@ The folder components is divided in the following subfolders:
       - socialList: the list of the SocialIcon.vue that should be renderd inside the component
 - decoration: it contains the components that have a mere purpose of improving the look and feel of the website
   - BlobWithText.vue: Component aimed ad modelizing the blob with title and text used in the Home page of the website.
-    - propos:
+    - props:
       - text: The text to be displayed as the body of the blob
       - background: the url of the background image, representing the blob
       - link: link to be activated by clicking o the button inside the blob
@@ -190,17 +190,42 @@ The folder components is divided in the following subfolders:
       - content: The array of elements to be displayed by this element: title, subtitle, overview and link
   - VisionGuidedTour.vue: Component that aims at design the product tour inside each vision page.
     - props:
-      - TO BE ADDED
+      - items: the items that are going to be displayed in this guided tour component
+      - typology: the typology of the items (invations, invationers, visions) so that the right links can be built, this prop is used to increase the flexibility of this component
+      - mounted(): this mounted is used to compute the position of the different items inside this component to display them in a fancy way
   - VisionGuidedTourItem.vue:
     - props:
-      - TO BE ADDED
+      - item: it contains all the information of the item that has to be displayed inside the VisionGuidedTour.vue component.
+      - typology: the typology of the items (invations, invationers, visions) so that the right links can be built, this prop is used to increase the flexibility of this component
+    - data: 
+      - featuresItemClass: the class of the item that has been passed as props, it is computed through a mounted method after having read the item.right boolean 
+      - titleContent: this data is built using the item that has been passed as prop and is passed as prop to the FeaturesTitleSection.vue component
+      - detailsContent: this data is built using the item that has been passed as prop and is passed as prop to the FeaturesDetailsSection.vue component
+    - mounted(): it is used to compute the value of the featuresClassItem after the component has been created because it is based on the value of item.right
 
 and the following components that are instantiated only one time inside the default layout:
 
-- TheHeader.vue: the header of the website
+- TheHeader.vue: the component responisble for the display of the header of the website
+  - data:
+    - isActive: this boolean is used to manage the display of the menu when the window becomes small enough
+    - myDisplay: the class of the items of the navbar, it has to be dynamically changed considering the dimension of the window
+    - myMarginTop: the value of the margin top
+    - theHeaderMenuItems: this is the list of the items of the navbar, every item has a name that is always displayed inside the navbar and some extensions that become visible only when the pointer of the mouse hoovers the name of the item. This data is passed to the MenuItem.vue component to manage their functions inside the navbar.
+  - methods:
+    - changeMyDisplay(): this method is invoked when the user clicks on the menu-trigger and it is needed to change some paarmeters needed to manage the new style of the menu when the window becomes small enough.
 - TheChat.vue: the component used to manage the chatbot functions
-- TheFooter.vue: the footer of the website
-
+  - props:
+    - chatList: the list of the messages shawn inside the chat, sent from the user or from the server that manages the chatbot
+  - data:
+    - messageToSend: the message that the user sends to communicate with the chatbot, it is displayed with a v-model and than sent to the store
+    - isOpen: boolean needed to display the status of the chat, open or closed
+- TheFooter.vue: the component responsible for the display of the footer of the website
+  - data:
+    - footerStatus: the boolean used to manage the visibility of the footer: open or close
+    - buttonText: the char used to display the arrow of the button in the footer
+    - visionLinks: this array contains all the information and contents displayed inside the footer
+  - methods:
+    - changeStatusFooterVisibility(): this method changed the visibility of the footer when the user clicks on the button
 ### Coupled components hierarchy
 
 Some components were built to be coupled to each other. This means that some components are only used as a part of another component. In the following schema, we present the hierarchy of those components.
